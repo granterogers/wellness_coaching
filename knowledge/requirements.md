@@ -46,7 +46,7 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 | 3.1 | `content/en/home.md` is the approved copy document (one file, one heading per section). The build reads it directly or Claude Code converts it into collection files **verbatim** — no rewording | M |
 | 3.2 | Astro content collections with schemas so missing required fields fail the build | M |
 | 3.3 | Pillars loaded only from content; renaming, adding or removing one needs no code change; layout works with 3–8 pillars | M |
-| 3.4 | `content/shared/site.json`: name, email, WhatsApp, booking URL, social links, credentials, publications (title, journal, year, DOI), feature flags | M |
+| 3.4 | `content/shared/site.json`: name, email, WhatsApp, booking URL, social links (Instagram, LinkedIn), credentials and publications taken only from confirmed items in `knowledge/credentials.md`, feature flags | M |
 | 3.5 | Feature flags (default in brackets): `freePractice` (off), `voiceClip` (off until an audio file exists), `testimonials` (off until real quotes), `spanish` (on), `contactForm` (off until an endpoint exists), `indexing` (off — see 13.8) | M |
 | 3.6 | Spanish copy: if `content/es/home.md` is missing, generate a careful neutral-Castilian draft with `translation_status: draft`, listed in `PLACEHOLDERS.md` | M |
 | 3.7 | UI strings (nav, buttons, labels, form messages, pacer labels) in one i18n file per language | M |

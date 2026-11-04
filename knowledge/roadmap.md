@@ -7,7 +7,7 @@
 
 ## Grant's inputs still needed
 
-- Credentials (trainings, degrees, publications)
+- Credentials: confirm publications, training hours, Pranayama Home dates (see `credentials.md`)
 - Minimum viable photo set (before sharing the link)
 - Voice clip (optional for first build; feature flag)
 

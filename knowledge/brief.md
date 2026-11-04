@@ -37,7 +37,7 @@ A credibility and portfolio website for Grant Rogers' personalised 1:1 wellness 
 
 
 - Photos (slot briefs in `photo-slots.md`)
-- Credentials: trainings (style, hours, provider), degrees, published research
+- Credentials: mostly done (`credentials.md`); still to confirm publications, training hours, a few dates
 - Client quotes, with permission
 - Voice clip recording (20–30 seconds)
 - More interviews (5 done; see `client-language.md`)
@@ -52,6 +52,7 @@ A credibility and portfolio website for Grant Rogers' personalised 1:1 wellness 
 - `voice-and-messaging.md` — tone, key messages, words to use and avoid
 - `scope-and-boundaries.md` — coaching scope and referral rules
 - `requirements.md` — numbered specification of every feature (the build contract)
+- `credentials.md` — degrees, trainings, experience; only confirmed items may appear on the site
 - `photo-slots.md` — every photo slot with its brief (subject, framing, setting, mood)
 - `design-system.md` — research-backed design direction, palettes, type, motion, photography
 - `master-prompt.md` — the short prompt for Claude Code; phases mapped to requirement IDs
