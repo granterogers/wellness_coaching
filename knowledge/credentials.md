@@ -7,7 +7,7 @@ Sources: Grant's wellness CV and science/GIS CV (November 2026). The site may on
 | Qualification | Institution | Years |
 |---|---|---|
 | MSc Computational Physics | Heriot-Watt University, Edinburgh | 2000–2004 |
-| MSc Marine Biodiversity & Biotechnology | Heriot-Watt University, Edinburgh | 2014–2015 or 2015–2016 [CVs differ — confirm] |
+| MSc Marine Biodiversity & Biotechnology | Heriot-Watt University, Edinburgh | 2014–2015 |
 
 Coursework themes (for the About "lab notebook" list, optional): numerical methods, scientific programming, quantum physics, computational modelling, data analysis; marine ecology, molecular biology, biotechnology, bioinformatics.
 
@@ -24,8 +24,8 @@ Coursework themes (for the About "lab notebook" list, optional): numerical metho
 
 | Training | Provider | Years | Hours |
 |---|---|---|---|
-| Kundalini Yoga Teacher Training | i-Sky Institute, UK | 2019–2020 | [to confirm] |
-| SOMA Breathwork Instructor, Level 1 | SOMA Villa, Ibiza | 2021 | [to confirm] |
+| Kundalini Yoga Teacher Training | i-Sky Institute, UK | 2019–2020 | not shown |
+| SOMA Breathwork Instructor, Level 1 | SOMA Villa, Ibiza | 2021 | not shown |
 
 Training content listed: yogic anatomy, breathwork and pranayama, meditation techniques, asana and kriya practice, teaching methodology; pranayama foundations, rhythmic breathing, breath retention, nervous-system regulation, therapeutic session facilitation.
 
@@ -39,7 +39,7 @@ Training content listed: yogic anatomy, breathwork and pranayama, meditation tec
 | Role | Where | Years |
 |---|---|---|
 | Founder, Grant Rogers Wellness — private sessions, group classes, retreat facilitation, corporate wellness, online courses | Ibiza and online | 2020–present |
-| Retreat host & yoga instructor | Pranayama Home (Gran Canaria) | from 2016 [dates to confirm — CV shows Jan 2016–Oct 2026] |
+| Retreat host & yoga instructor | Pranayama Home (Gran Canaria) | shown without dates |
 | Yoga, meditation & breathwork instructor | The Festival of Consciousness | 2025 |
 | Fitness instructor (functional training, mobility) | Acttiv Ltd | 2014 |
 
@@ -62,12 +62,11 @@ Also from Grant's notes (WS02): men's retreat sessions (Ibiza), women's retreats
 - LinkedIn: [linkedin.com/in/grant-rogers-wellness](https://linkedin.com/in/grant-rogers-wellness)
 - ResearchGate: [researchgate.net/profile/Grant-Rogers](https://www.researchgate.net/profile/Grant-Rogers)
 
-## To confirm before use
+## Usage decisions (Grant, November 2026)
 
-- Optional: one or two flagship paper titles to feature (otherwise link to ResearchGate)
-- MSc Marine Biodiversity dates (CVs say 2014–2015 and 2015–2016)
-- Training hours for Kundalini and SOMA
-- Pranayama Home dates
-- Corporate wellness clients (names only with their permission)
-- Any Yoga Nidra, sound or voice training (none listed on the CV)
-- Whether retreat and venue names may be shown as "where I've taught"
+- MSc Marine Biodiversity & Biotechnology: 2014–2015
+- Pranayama Home: shown without dates (no dates are invented)
+- Training hours: not shown
+- Venue and retreat names may be shown as "where I've taught": Pranayama Home (Gran Canaria), Casa Solara (Ibiza), The Festival of Consciousness, SOMA Villa (Ibiza), hotel classes (Mallorca)
+- No flagship papers featured for now; link to ResearchGate instead
+- Corporate clients: not named

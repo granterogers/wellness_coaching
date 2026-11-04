@@ -37,7 +37,6 @@ A credibility and portfolio website for Grant Rogers' personalised 1:1 wellness 
 
 
 - Photos (slot briefs in `photo-slots.md`)
-- Credentials: mostly done (`credentials.md`); still to confirm publications, training hours, a few dates
 - Client quotes, with permission
 - Voice clip recording (20–30 seconds)
 - More interviews (5 done; see `client-language.md`)
