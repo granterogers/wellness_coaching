@@ -7,15 +7,14 @@
 
 ## Grant's inputs still needed
 
-- Preview contact email (booking fallback)
 - Credentials (trainings, degrees, publications)
 - Minimum viable photo set (before sharing the link)
 - Voice clip (optional for first build; feature flag)
 
 ## One-off setup before Claude Code
 
-- Install Node LTS, Git and Claude Code on Windows
-- Repo Settings → Pages → Source: GitHub Actions (or let Claude Code do it with the GitHub CLI)
+- Connect Claude Code on the web to the GitHub repo (no installs)
+- Repo Settings → Pages → Source: GitHub Actions (one click; Claude Code will remind you)
 
 ## Steps
 

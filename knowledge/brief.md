@@ -28,13 +28,15 @@ A credibility and portfolio website for Grant Rogers' personalised 1:1 wellness 
 | Hosting (now) | Free preview on GitHub Pages: `granterogers.github.io/wellness_coaching`. No domain, email or payments until Grant is satisfied with the site |
 | Hosting (launch) | Cloudflare Pages + own domain |
 | Tax / legal | Grant is UK tax resident. UK rules only (UK GDPR, UK consumer law). No Spanish legal pages |
+| Preview contact | `grant.e.rogers@gmail.com` (spam-protected on the site) |
+| Build environment | Claude Code on the web + GitHub Actions; nothing installed locally |
+| Photos | Descriptive placeholders until real photos arrive — slot briefs in `photo-slots.md` |
 | Account sign-ups | Done later by a browser agent (Claude in Chrome / Cowork) where possible; Grant handles logins, codes and payment details |
 
 ## Still needed from Grant
 
-- A contact email to use on the preview (booking fallback, requirement 11.2)
 
-- Photos (see shot list in `design-system.md`)
+- Photos (slot briefs in `photo-slots.md`)
 - Credentials: trainings (style, hours, provider), degrees, published research
 - Client quotes, with permission
 - Voice clip recording (20–30 seconds)
@@ -50,6 +52,7 @@ A credibility and portfolio website for Grant Rogers' personalised 1:1 wellness 
 - `voice-and-messaging.md` — tone, key messages, words to use and avoid
 - `scope-and-boundaries.md` — coaching scope and referral rules
 - `requirements.md` — numbered specification of every feature (the build contract)
+- `photo-slots.md` — every photo slot with its brief (subject, framing, setting, mood)
 - `design-system.md` — research-backed design direction, palettes, type, motion, photography
 - `master-prompt.md` — the short prompt for Claude Code; phases mapped to requirement IDs
 - `roadmap.md` — status, next steps, future ideas

@@ -118,6 +118,6 @@ Phone + tripod + window light is enough.
 
 ### Placeholders until then
 
-Never grey boxes or stock photos. Use intentional-looking typographic panels: a texture tone from the palette, a mono label ("FIG. 01 — PORTRAIT, PENDING") and a thin rule. The preview should look deliberate, not unfinished.
+Descriptive placeholders: each slot shows its brief from `photo-slots.md` (subject, framing, setting, mood) in a designed panel. Never grey boxes or stock photos.
 
 AI may enhance real photos (light, colour, clutter removal, extended backgrounds, upscaling) and generate non-person textures. It must not generate realistic images of Grant: that undermines trust and, under EU AI Act Article 50, would need visible labelling.

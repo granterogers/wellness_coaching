@@ -36,7 +36,7 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 | 2.8 | Playwright (dev only) for screenshots and smoke tests | M |
 | 2.9 | GitHub Actions workflow builds and deploys to GitHub Pages at `granterogers.github.io/wellness_coaching`; Astro `site` and `base` set so every link and asset works under `/wellness_coaching/` | M |
 | 2.10 | `DEPLOY.md` explains enabling Pages ("Settings → Pages → Source: GitHub Actions"), and the later move to Cloudflare Pages + custom domain as a config change | M |
-| 2.11 | Node LTS; `npm run dev`, `npm run build`, `npm run preview`, `npm run check` (types + content schemas + link check), `npm run shots` (screenshots) | M |
+| 2.11 | Everything runs in the cloud: built with Claude Code on the web and deployed by GitHub Actions — Grant installs nothing. Scripts: `npm run build`, `npm run check` (types + content schemas + link check), `npm run shots` (screenshots) | M |
 | 2.12 | No backend, no database, no cookies, no tracking during the preview | M |
 
 ## 3. Content architecture
@@ -50,7 +50,7 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 | 3.5 | Feature flags (default in brackets): `freePractice` (off), `voiceClip` (off until an audio file exists), `testimonials` (off until real quotes), `spanish` (on), `contactForm` (off until an endpoint exists), `indexing` (off — see 13.8) | M |
 | 3.6 | Spanish copy: if `content/es/home.md` is missing, generate a careful neutral-Castilian draft with `translation_status: draft`, listed in `PLACEHOLDERS.md` | M |
 | 3.7 | UI strings (nav, buttons, labels, form messages, pacer labels) in one i18n file per language | M |
-| 3.8 | `CONTENT-EDITING.md`: how Grant changes text, pillars, photos and flags on github.com, step by step | M |
+| 3.8 | `CONTENT-EDITING.md`: how Grant changes text, pillars, photos and flags on github.com (no software needed), step by step, including uploading a photo to its slot | M |
 
 ## 4. Pages (each mirrored under /en/ and /es/)
 
@@ -111,8 +111,8 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 
 | ID | Requirement | P |
 |---|---|---|
-| 8.1 | Photo slots with fixed filenames in `src/assets/photos/` (e.g. `hero-wide.jpg`, `hero-tall.jpg`, `about.jpg`, `practice-1.jpg`, `work-1.jpg`, `texture-1.jpg`), documented in `CONTENT-EDITING.md`; dropping a file in replaces the placeholder | M |
-| 8.2 | Placeholders are intentional typographic panels (palette tone, mono label "FIG. 01 — PORTRAIT, PENDING", thin rule) — never grey boxes or stock | M |
+| 8.1 | Photo slots exactly as listed in `knowledge/photo-slots.md` (IDs P01–P18, fixed file names in `src/assets/photos/`); dropping a file in replaces the placeholder; pillar slots follow pillar IDs in content | M |
+| 8.2 | **Descriptive placeholders**: each empty slot shows a designed panel (palette texture tone, thin rule, orbit motif) with the slot's brief from `photo-slots.md` in mono type — subject, framing, orientation, setting, mood — in the page's language. Correct aspect ratio so swapping in the real photo causes no layout change. Never stock, never grey boxes | M |
 | 8.3 | Alt text in both languages from content files | M |
 | 8.4 | Art direction: hero uses different crops for desktop and mobile | M |
 
@@ -145,7 +145,7 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 
 | ID | Requirement | P |
 |---|---|---|
-| 11.1 | All contact details come from `site.json`; nothing hard-coded | M |
+| 11.1 | All contact details come from `site.json`; nothing hard-coded. Preview email: `grant.e.rogers@gmail.com`. Email addresses are protected from spam-harvesting bots (e.g. assembled with JavaScript, with an accessible fallback) | M |
 | 11.2 | Booking: if `bookingUrl` is empty, every "Book a conversation" leads to the Book page with an honest fallback ("Booking opens soon — email me") using the preview email; when set, a Cal.com link or embed (embed loaded only after a click) | M |
 | 11.3 | WhatsApp click-to-chat (`wa.me`) with prefilled localised message; hidden while the number is empty | M |
 | 11.4 | Contact form built with honeypot and localised success/error states, but hidden while `contactForm` is off; never fakes a successful submission | S |
@@ -199,7 +199,7 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 
 | ID | Requirement | P |
 |---|---|---|
-| 16.1 | `README.md` for a non-developer on Windows: what the stack is, how to run it | M |
+| 16.1 | `README.md` for a non-developer: what the stack is, where the live preview is, and that everything is edited on github.com or via Claude Code on the web | M |
 | 16.2 | `DEPLOY.md` (2.10) | M |
 | 16.3 | `CONTENT-EDITING.md` (3.8) | M |
 | 16.4 | `PLACEHOLDERS.md`: every placeholder, where it is, what Grant needs to supply | M |

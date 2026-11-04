@@ -1,6 +1,6 @@
 # Master prompt for Claude Code
 
-Paste everything inside the block into Claude Code, opened in a local clone of this repo. The detail lives in `knowledge/requirements.md` (numbered IDs) and the always-on rules in `CLAUDE.md`, so this prompt stays short.
+Paste everything inside the block into Claude Code on the web (claude.ai/code), connected to this GitHub repo. Nothing needs installing. The detail lives in `knowledge/requirements.md` (numbered IDs) and the always-on rules in `CLAUDE.md`, so this prompt stays short.
 
 ```
 You are a senior product designer and front-end engineer building Grant Rogers' bilingual (English/Spanish) 1:1 wellness coaching website in this repo. It must look like a top independent studio made it — never a generic AI template.
