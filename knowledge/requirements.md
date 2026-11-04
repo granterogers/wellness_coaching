@@ -47,7 +47,7 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 | 3.2 | Astro content collections with schemas so missing required fields fail the build | M |
 | 3.3 | Pillars loaded only from content; renaming, adding or removing one needs no code change; layout works with 3–8 pillars | M |
 | 3.4 | `content/shared/site.json`: name, email, WhatsApp, booking URL, social links (Instagram, LinkedIn), credentials and publications taken only from confirmed items in `knowledge/credentials.md`, feature flags | M |
-| 3.5 | Feature flags (default in brackets): `freePractice` (off), `voiceClip` (off until an audio file exists), `testimonials` (off until real quotes), `spanish` (on), `contactForm` (off until an endpoint exists), `indexing` (off — see 13.8) | M |
+| 3.5 | Feature flags (default in brackets): `freePractice` (off), `voiceClip` (on: shows the audio placeholder until the file exists — Grant, copy round 2), `testimonials` (off until real quotes), `spanish` (on), `contactForm` (off until an endpoint exists), `indexing` (off — see 13.8) | M |
 | 3.6 | Spanish copy: if `content/es/home.md` is missing, generate a careful draft in Spain Spanish, addressing the reader as "tú", with `translation_status: draft`, listed in `PLACEHOLDERS.md` | M |
 | 3.7 | UI strings (nav, buttons, labels, form messages, pacer labels) in one i18n file per language | M |
 | 3.8 | `CONTENT-EDITING.md`: how Grant changes text, pillars, photos and flags on github.com (no software needed), step by step, including uploading a photo to its slot | M |
@@ -75,7 +75,7 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 | 5.4 | Pillars: desktop = large numbered typographic index, hover and focus reveal description + example practice; mobile = accordion. Sexual wellbeing only inside its pillar | M |
 | 5.5 | Programme: four phases; desktop = pinned stepped timeline (≥1024px) with mono labels ("PHASE 01 / BASELINE"); mobile = vertical stepper; inclusions row; no prices ("investment is discussed on our call") | M |
 | 5.6 | About teaser: portrait, short story, mono fact list, link to 4.3 | M |
-| 5.7 | Voice clip (10.x), shown only when `voiceClip` flag is on | S |
+| 5.7 | Voice clip (10.x), shown when `voiceClip` flag is on; until Grant's recording exists, a designed audio placeholder ("Recording to come") with the transcript stands in its place | S |
 | 5.8 | Proof: up to three first-name stories (before / what we did / now) + single quotes elsewhere; looks right with 1–2; hidden while `testimonials` is off | S |
 | 5.9 | Free practice email capture, flag `freePractice` | L |
 | 5.10 | FAQ: accessible accordion + FAQPage structured data; questions from approved copy | M |
@@ -139,7 +139,7 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 |---|---|---|
 | 10.1 | Custom accessible audio player (play/pause, progress, time), styled to the design system; never autoplays | S |
 | 10.2 | Transcript shown alongside, both languages | S |
-| 10.3 | Audio file slot `src/assets/audio/voice-en.mp3` (and `-es`); component hidden until the file exists and flag `voiceClip` is on | S |
+| 10.3 | Audio file slot `src/assets/audio/voice-en.mp3` (and `-es`); the player replaces the placeholder automatically once the file exists; whole section hidden only if `voiceClip` is off | S |
 
 ## 11. Integrations and forms (preview-safe)
 
