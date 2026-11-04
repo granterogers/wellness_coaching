@@ -32,6 +32,8 @@ A credibility and portfolio website for Grant Rogers' personalised 1:1 wellness 
 
 ## Still needed from Grant
 
+- A contact email to use on the preview (booking fallback, requirement 11.2)
+
 - Photos (see shot list in `design-system.md`)
 - Credentials: trainings (style, hours, provider), degrees, published research
 - Client quotes, with permission
@@ -47,6 +49,7 @@ A credibility and portfolio website for Grant Rogers' personalised 1:1 wellness 
 - `pillars-draft.md` — current draft pillars (editable)
 - `voice-and-messaging.md` — tone, key messages, words to use and avoid
 - `scope-and-boundaries.md` — coaching scope and referral rules
+- `requirements.md` — numbered specification of every feature (the build contract)
 - `design-system.md` — research-backed design direction, palettes, type, motion, photography
-- `master-prompt.md` — the prompt for Claude Code to build the site
+- `master-prompt.md` — the short prompt for Claude Code; phases mapped to requirement IDs
 - `roadmap.md` — status, next steps, future ideas

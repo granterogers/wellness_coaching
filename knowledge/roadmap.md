@@ -2,8 +2,20 @@
 
 ## Status (4 November 2026)
 
-- Done: positioning, knowledge base, design research, master prompt, logo vectorised, UK operations plan (private repo)
-- Next: homepage copy draft → three design prototypes → build in Claude Code → free preview link
+- Done: positioning, knowledge base, design research, numbered requirements (`requirements.md`, 120 items), master prompt mapped to them, logo vectorised, client language from 5 interviews, UK operations plan (offline)
+- Next: Grant's inputs below → homepage copy → three prototypes → build
+
+## Grant's inputs still needed
+
+- Preview contact email (booking fallback)
+- Credentials (trainings, degrees, publications)
+- Minimum viable photo set (before sharing the link)
+- Voice clip (optional for first build; feature flag)
+
+## One-off setup before Claude Code
+
+- Install Node LTS, Git and Claude Code on Windows
+- Repo Settings → Pages → Source: GitHub Actions (or let Claude Code do it with the GitHub CLI)
 
 ## Steps
 

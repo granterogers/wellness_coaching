@@ -1,0 +1,211 @@
+# Requirements — numbered specification
+
+Every feature has an ID. Claude Code tracks each one in `REQUIREMENTS-STATUS.md` (see 1.6). Nothing is done until its ID is marked `done` with evidence. To add or drop a feature, edit this file — never just ask in chat.
+
+Priority: **M** = must have for the preview · **S** = should have for the preview · **L** = later (built behind a flag or documented, not active).
+
+---
+
+## 1. Process and gates
+
+| ID | Requirement | P |
+|---|---|---|
+| 1.1 | Read `CLAUDE.md`, `knowledge/brief.md` and this file before any work | M |
+| 1.2 | Phase 0: critique `master-prompt.md` and this file (gaps, contradictions, generic-output risks); propose fixes; wait for Grant's OK. Allowed before gates 1.3–1.4 are met | M |
+| 1.3 | Copy gate: no page sections built until `content/en/home.md` has `status: approved` in its frontmatter | M |
+| 1.4 | Design gate: no page sections built until `design/CHOSEN.md` names the chosen prototype file | M |
+| 1.5 | No invented facts: credentials, testimonials, numbers, research claims and client stories only from `knowledge/` or `content/`; otherwise a visible `[[PLACEHOLDER: …]]` listed in `PLACEHOLDERS.md` | M |
+| 1.6 | Maintain `REQUIREMENTS-STATUS.md`: every ID in this file with status (`done` / `partial` / `blocked` / `later`) and evidence (file path or screenshot). Update at the end of every phase | M |
+| 1.7 | Visual self-review each phase: Playwright screenshots at 390px and 1440px saved to `review/phase-N/`; compare with the chosen prototype; list 10 ways it looks generic; fix; re-screenshot | M |
+| 1.8 | One commit (or more) per phase, with a plain-English summary | M |
+| 1.9 | Ask Grant before adding any dependency not listed in 2.x | M |
+| 1.10 | Confidentiality: never add interview transcripts, interviewee names or identifying details (public repo) | M |
+| 1.11 | Copy written in this file or the master prompt (e.g. example headlines) is illustrative only; approved copy in `content/` always wins | M |
+
+## 2. Tech stack and hosting
+
+| ID | Requirement | P |
+|---|---|---|
+| 2.1 | Astro (latest stable), static output | M |
+| 2.2 | Tailwind CSS v4; design tokens as CSS custom properties | M |
+| 2.3 | GSAP (incl. ScrollTrigger, SplitText) and Lenis, from npm, loaded only on pages that use them | M |
+| 2.4 | astro:assets for images (AVIF/WebP, responsive srcset) | M |
+| 2.5 | @astrojs/sitemap with i18n | M |
+| 2.6 | Fonts self-hosted via @fontsource (Newsreader, Hanken Grotesk, IBM Plex Mono), subsets latin + latin-ext | M |
+| 2.7 | Social-share image generation at build: one small library only (e.g. satori-based); Grant approves the choice per 1.9 | S |
+| 2.8 | Playwright (dev only) for screenshots and smoke tests | M |
+| 2.9 | GitHub Actions workflow builds and deploys to GitHub Pages at `granterogers.github.io/wellness_coaching`; Astro `site` and `base` set so every link and asset works under `/wellness_coaching/` | M |
+| 2.10 | `DEPLOY.md` explains enabling Pages ("Settings → Pages → Source: GitHub Actions"), and the later move to Cloudflare Pages + custom domain as a config change | M |
+| 2.11 | Node LTS; `npm run dev`, `npm run build`, `npm run preview`, `npm run check` (types + content schemas + link check), `npm run shots` (screenshots) | M |
+| 2.12 | No backend, no database, no cookies, no tracking during the preview | M |
+
+## 3. Content architecture
+
+| ID | Requirement | P |
+|---|---|---|
+| 3.1 | `content/en/home.md` is the approved copy document (one file, one heading per section). The build reads it directly or Claude Code converts it into collection files **verbatim** — no rewording | M |
+| 3.2 | Astro content collections with schemas so missing required fields fail the build | M |
+| 3.3 | Pillars loaded only from content; renaming, adding or removing one needs no code change; layout works with 3–8 pillars | M |
+| 3.4 | `content/shared/site.json`: name, email, WhatsApp, booking URL, social links, credentials, publications (title, journal, year, DOI), feature flags | M |
+| 3.5 | Feature flags (default in brackets): `freePractice` (off), `voiceClip` (off until an audio file exists), `testimonials` (off until real quotes), `spanish` (on), `contactForm` (off until an endpoint exists), `indexing` (off — see 13.8) | M |
+| 3.6 | Spanish copy: if `content/es/home.md` is missing, generate a careful neutral-Castilian draft with `translation_status: draft`, listed in `PLACEHOLDERS.md` | M |
+| 3.7 | UI strings (nav, buttons, labels, form messages, pacer labels) in one i18n file per language | M |
+| 3.8 | `CONTENT-EDITING.md`: how Grant changes text, pillars, photos and flags on github.com, step by step | M |
+
+## 4. Pages (each mirrored under /en/ and /es/)
+
+| ID | Requirement | P |
+|---|---|---|
+| 4.1 | Home | M |
+| 4.2 | Programme (phases in detail, what's included, how it works week to week) | S |
+| 4.3 | About (story, credentials, "lab notebook" facts, full logo per 7.3) | S |
+| 4.4 | Approach / evidence notes (reasons behind practices; sources linked) | L |
+| 4.5 | Book (booking embed or fallback per 11.2) | M |
+| 4.6 | Privacy (UK GDPR) and Terms — template text clearly marked "draft, not legal advice" | M |
+| 4.7 | Designed 404 with a short breathing prompt | M |
+| 4.8 | Root `/wellness_coaching/` sends visitors to `/en/` (static redirect), with a gentle "Ver en español" suggestion for Spanish-language browsers; never auto-redirects to Spanish | M |
+
+## 5. Home page sections (order as in the approved copy)
+
+| ID | Requirement | P |
+|---|---|---|
+| 5.1 | Hero: headline (serif, roman + italic mix) leading with "scientist turned practitioner"; subhead; primary CTA "Book a conversation"; secondary CTA "How it works" (scrolls to 5.5); portrait (16:9 desktop, 4:5 mobile); ambient breath pacer (9.1) | M |
+| 5.2 | Recognition: the problem in three short observations | M |
+| 5.3 | Approach: three principles, each with a one-line reason | M |
+| 5.4 | Pillars: desktop = large numbered typographic index, hover and focus reveal description + example practice; mobile = accordion. Sexual wellbeing only inside its pillar | M |
+| 5.5 | Programme: four phases; desktop = pinned stepped timeline (≥1024px) with mono labels ("PHASE 01 / BASELINE"); mobile = vertical stepper; inclusions row; no prices ("investment is discussed on our call") | M |
+| 5.6 | About teaser: portrait, short story, mono fact list, link to 4.3 | M |
+| 5.7 | Voice clip (10.x), shown only when `voiceClip` flag is on | S |
+| 5.8 | Proof: up to three first-name stories (before / what we did / now) + single quotes elsewhere; looks right with 1–2; hidden while `testimonials` is off | S |
+| 5.9 | Free practice email capture, flag `freePractice` | L |
+| 5.10 | FAQ: accessible accordion + FAQPage structured data; questions from approved copy | M |
+| 5.11 | Final CTA in a dark "night" section: booking + email + WhatsApp | M |
+| 5.12 | Footer: nav, language switch, contact, scope disclaimer line, legal links, year, full logo per 7.3 | M |
+| 5.13 | Sticky mobile CTA bar: appears after the hero, hides when the final CTA is in view | M |
+| 5.14 | Header: icon + "Grant Rogers" wordmark, nav, language switch, CTA; condenses on scroll | M |
+
+## 6. Design system
+
+| ID | Requirement | P |
+|---|---|---|
+| 6.1 | Implement `knowledge/design-system.md`, matching the chosen prototype | M |
+| 6.2 | Palette of the chosen prototype as default; the other palettes as alternate themes via `?theme=a|b|c` (preview only, for comparison) | S |
+| 6.3 | Fluid type scale; serif display, sans body, mono labels as specified | M |
+| 6.4 | 12-column grid (4 on mobile), 8px spacing scale, generous section padding, asymmetric compositions | M |
+| 6.5 | Hairline rules instead of shadowed cards; figure captions in mono ("FIG. 02 — …") | M |
+| 6.6 | **Orbit motif from the logo** as the site's graphic language: thin orbit ellipses and an "electron" dot used for section dividers, scroll progress and the breath pacer; a gentle wave line (the logo's snake) as the breath waveform. This is the main defence against generic "editorial template" output | M |
+| 6.7 | Anti-default test (design-system.md) applied to every section and recorded in the phase review | M |
+| 6.8 | No forbidden fonts, colours, patterns or phrases (list in `CLAUDE.md`) | M |
+| 6.9 | No automatic dark mode in v1: the site's own light and "night" sections are fixed by design | M |
+
+## 7. Brand and logo
+
+| ID | Requirement | P |
+|---|---|---|
+| 7.1 | Header and favicon: `assets/brand/icon.svg` + Newsreader wordmark "Grant Rogers" | M |
+| 7.2 | Apple touch icon: `assets/brand/icon-180.png`; full favicon set generated from `icon.svg` | M |
+| 7.3 | Full figurative logo (`logo-currentcolor.svg`) only in footer and About; never in hero; never under 64px | M |
+| 7.4 | Logo files referenced from one place, so a refined logo is a file swap | M |
+
+## 8. Imagery
+
+| ID | Requirement | P |
+|---|---|---|
+| 8.1 | Photo slots with fixed filenames in `src/assets/photos/` (e.g. `hero-wide.jpg`, `hero-tall.jpg`, `about.jpg`, `practice-1.jpg`, `work-1.jpg`, `texture-1.jpg`), documented in `CONTENT-EDITING.md`; dropping a file in replaces the placeholder | M |
+| 8.2 | Placeholders are intentional typographic panels (palette tone, mono label "FIG. 01 — PORTRAIT, PENDING", thin rule) — never grey boxes or stock | M |
+| 8.3 | Alt text in both languages from content files | M |
+| 8.4 | Art direction: hero uses different crops for desktop and mobile | M |
+
+## 9. Motion and signature interactions
+
+| ID | Requirement | P |
+|---|---|---|
+| 9.1 | Breath pacer: SVG orbit/ring (per 6.6) expands 4s, contracts 6s, localised "in"/"out" labels; ambient in hero | M |
+| 9.2 | Tap/click starts "60 seconds with me": guided cycle with gentle count and a short completion message; pause/stop control; keyboard operable; `aria-live="polite"` updates | M |
+| 9.3 | Pacer reused in the Breathe pillar | S |
+| 9.4 | Under reduced motion the pacer uses no scaling: text cues and a slow opacity change only, still usable | M |
+| 9.5 | Headline line-by-line masked reveal, once per page load | M |
+| 9.6 | Section entrances varied by purpose (never one identical fade everywhere) | M |
+| 9.7 | Image clip reveals; parallax ≤ 8% | S |
+| 9.8 | Programme timeline pinning only at ≥1024px | M |
+| 9.9 | Lenis smooth scroll only on desktop fine-pointer devices | M |
+| 9.10 | One motion utility controls everything and honours `prefers-reduced-motion` (content appears immediately) | M |
+| 9.11 | Animate only transform and opacity; zero layout shift | M |
+| 9.12 | Subtle link and button micro-interactions (underline draw, fill slide); no custom cursor | S |
+
+## 10. Voice feature
+
+| ID | Requirement | P |
+|---|---|---|
+| 10.1 | Custom accessible audio player (play/pause, progress, time), styled to the design system; never autoplays | S |
+| 10.2 | Transcript shown alongside, both languages | S |
+| 10.3 | Audio file slot `src/assets/audio/voice-en.mp3` (and `-es`); component hidden until the file exists and flag `voiceClip` is on | S |
+
+## 11. Integrations and forms (preview-safe)
+
+| ID | Requirement | P |
+|---|---|---|
+| 11.1 | All contact details come from `site.json`; nothing hard-coded | M |
+| 11.2 | Booking: if `bookingUrl` is empty, every "Book a conversation" leads to the Book page with an honest fallback ("Booking opens soon — email me") using the preview email; when set, a Cal.com link or embed (embed loaded only after a click) | M |
+| 11.3 | WhatsApp click-to-chat (`wa.me`) with prefilled localised message; hidden while the number is empty | M |
+| 11.4 | Contact form built with honeypot and localised success/error states, but hidden while `contactForm` is off; never fakes a successful submission | S |
+| 11.5 | No third-party embeds that set cookies during the preview | M |
+
+## 12. Languages
+
+| ID | Requirement | P |
+|---|---|---|
+| 12.1 | Locales `en` and `es`, routes `/en/…` and `/es/…` | M |
+| 12.2 | Language switcher ("EN / ES" text, not flags-only — flags may sit beside the text) links to the equivalent page; current language marked `aria-current` | M |
+| 12.3 | `lang` attribute correct per page; date and number formats localised | M |
+| 12.4 | Draft Spanish pages show a small, discreet "Traducción en revisión" note until approved | S |
+| 12.5 | Layouts tested with Spanish text (20–30% longer): no overflow in nav, buttons or hero | M |
+
+## 13. SEO and preview indexing
+
+| ID | Requirement | P |
+|---|---|---|
+| 13.1 | Per-page, per-language title and meta description | M |
+| 13.2 | Canonical + hreflang (en, es, x-default) on every page | M |
+| 13.3 | Social-share tags and images per page and language (2.7) | S |
+| 13.4 | Sitemap + robots.txt | M |
+| 13.5 | Structured data: Person, ProfessionalService (online, worldwide, en/es), FAQPage | S |
+| 13.6 | One `h1` per page; semantic landmarks | M |
+| 13.7 | Sexual wellbeing never in hero, page titles, meta descriptions or share images | M |
+| 13.8 | **Preview is not indexed**: while flag `indexing` is off, every page has `noindex, nofollow` and robots.txt disallows all. Flipping the flag at launch restores indexing | M |
+
+## 14. Accessibility
+
+| ID | Requirement | P |
+|---|---|---|
+| 14.1 | WCAG 2.2 AA colour contrast, including text on photos and night sections | M |
+| 14.2 | Visible focus states; skip link; full keyboard support (menu, accordions, pacer, audio, language switch) | M |
+| 14.3 | Tap targets ≥ 44px | M |
+| 14.4 | Reduced motion honoured everywhere (9.10) | M |
+| 14.5 | Screen-reader labels for icon-only controls; decorative SVGs hidden from assistive tech | M |
+
+## 15. Performance and quality
+
+| ID | Requirement | P |
+|---|---|---|
+| 15.1 | Lighthouse mobile ≥ 95 in Performance, Accessibility, Best Practices, SEO (SEO measured with `indexing` on in a local build) | M |
+| 15.2 | LCP < 2.0s, CLS < 0.05 on mobile emulation | M |
+| 15.3 | Home page JavaScript ≤ 120KB gzipped | M |
+| 15.4 | No horizontal scroll at 360, 390, 768, 1024, 1440, 1920px | M |
+| 15.5 | Tested in Chrome, Safari (iOS emulation) and Firefox; real-phone check documented by Grant | S |
+| 15.6 | `npm run check` passes: types, content schemas, internal links, no `[[PLACEHOLDER` missing from `PLACEHOLDERS.md` | M |
+
+## 16. Documentation and handover
+
+| ID | Requirement | P |
+|---|---|---|
+| 16.1 | `README.md` for a non-developer on Windows: what the stack is, how to run it | M |
+| 16.2 | `DEPLOY.md` (2.10) | M |
+| 16.3 | `CONTENT-EDITING.md` (3.8) | M |
+| 16.4 | `PLACEHOLDERS.md`: every placeholder, where it is, what Grant needs to supply | M |
+| 16.5 | `REQUIREMENTS-STATUS.md` (1.6) complete at the end: every M marked `done`, every S `done` or explained | M |
+| 16.6 | `LAUNCH-CHECKLIST.md`: switching on indexing, domain, booking, forms, analytics, legal review — pointing to the operations plan | S |
+
+## 17. Out of scope for the preview
+
+Payments, client portal/app, blog, newsletter sending, analytics accounts, cookie banner, automatic dark mode, more than two languages, any account sign-ups.

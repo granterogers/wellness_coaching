@@ -1,23 +1,27 @@
 # CLAUDE.md — rules for any AI working in this repo
 
-Read `knowledge/brief.md` first. These rules override anything else.
+Read `knowledge/brief.md`, then `knowledge/requirements.md` (numbered spec). These rules override anything else.
 
-## Gates (stop and ask Grant if a gate isn't met)
-1. **Copy before code.** Do not build page sections until `content/en/home.md` exists with `status: approved`. Never write marketing copy yourself during the build.
-2. **Design before code.** Do not build until a prototype in `design/` is marked `chosen`. Match it.
-3. **No invented facts.** Credentials, testimonials, numbers, research claims and client stories come only from `knowledge/` or `content/`. Otherwise use a visible `[[PLACEHOLDER: …]]` and list it in `PLACEHOLDERS.md`.
-4. **Confidentiality.** Never add interview transcripts, interviewee names or identifying details to this repo — it is public. Only anonymised themes and short unattributed phrases (see `knowledge/client-language.md`).
+## Gates (stop and ask Grant if unmet)
+1. **Copy before code (req 1.3).** No page sections until `content/en/home.md` has `status: approved` in its frontmatter. Never write or reword marketing copy during the build; example wording anywhere else is illustrative only (1.11).
+2. **Design before code (req 1.4).** No page sections until `design/CHOSEN.md` names the chosen prototype. Match it.
+3. **No invented facts (1.5).** Credentials, testimonials, numbers, research claims and client stories only from `knowledge/` or `content/`; otherwise a visible `[[PLACEHOLDER: …]]` listed in `PLACEHOLDERS.md`.
+4. **Confidentiality (1.10).** Public repo: never add interview transcripts, interviewee names or identifying details.
+5. **Preview not indexed (13.8)** until Grant turns on the `indexing` flag.
+
+## Tracking
+Keep `REQUIREMENTS-STATUS.md` current: every requirement ID, status, evidence. A feature not in `requirements.md` doesn't exist — add it there first.
 
 ## Forbidden (generic-AI tells)
-Fonts: Inter, Roboto, Open Sans, Lato, Space Grotesk, Poppins. Purple/blue gradients, gradient blobs, glassmorphism, centred hero + three icon cards, drop-shadow card grids, emoji bullets, stock yoga silhouettes, terracotta accents, custom cursors, scroll-jacking, typewriter effects. Copy: "unlock your potential", "transform your life", "holistic journey", "elevate", "empower", "wellness journey".
+Fonts: Inter, Roboto, Open Sans, Lato, Space Grotesk, Poppins. Purple/blue gradients, gradient blobs, glassmorphism, centred hero + three icon cards, drop-shadow card grids, emoji bullets, stock yoga silhouettes, terracotta accents, custom cursors, scroll-jacking, typewriter effects, identical fade-up on every section. Copy: "unlock your potential", "transform your life", "holistic journey", "elevate", "empower", "wellness journey".
 
 ## Every phase
-- Screenshot at 390px and 1440px, compare against the chosen prototype and the anti-default test in `knowledge/design-system.md`, list 10 ways it looks generic, fix them, re-screenshot.
-- Check reduced-motion, keyboard access and Spanish text length.
-- Commit with a plain-English summary of what changed.
+- Playwright screenshots at 390px and 1440px into `review/phase-N/`; compare with the chosen prototype and the anti-default test in `knowledge/design-system.md`; list 10 ways it looks generic; fix; re-screenshot.
+- Check reduced motion, keyboard access, Spanish text length; run `npm run check`.
+- Update `REQUIREMENTS-STATUS.md`; commit with a plain-English summary; stop and show Grant.
 
 ## Logo
-Interim rules in `knowledge/design-system.md` → "Logo usage": icon + wordmark in the header; full figurative logo only in footer and About.
+Icon + wordmark in header; full figurative logo only in footer and About (req 7.x).
 
 ## Pillars
-Loaded from content files only; never hard-coded. Layout must work with 3–8 pillars.
+From content only; never hard-coded; layout works with 3–8 (req 3.3).
