@@ -33,7 +33,7 @@ You are a senior product designer and front-end engineer building a premium, bil
 Home, Programme, About, Approach (evidence notes), Book, Privacy (UK GDPR), Terms, 404. The language switcher links to the equivalent page. hreflang and canonical tags on every page.
 
 ## 4. Home page sections, in order
-1. Hero: headline mixing roman and italic serif; one-line subhead; primary CTA "Book a conversation"; secondary "How it works". Large portrait (16:9 desktop, 4:5 mobile) plus the ambient breath pacer.
+1. Hero: headline mixing roman and italic serif, written from the visitor's problem and outcome (see knowledge/client-language.md), not leading with science or measurement; one-line subhead; primary CTA "Book a conversation"; secondary "How it works". Large portrait (16:9 desktop, 4:5 mobile) plus the ambient breath pacer.
 2. Recognition: "You know what to do. It just doesn't stick." plus three short observations.
 3. Approach: three principles (minimum effective dose; reasons, not rituals; built for independence), each with a one-line mechanism.
 4. Pillars: from content files. Desktop: large numbered typographic index, hover/focus reveals description and example practice. Mobile: accordion. Never mention sexual wellbeing in the hero, meta description or social-share image.

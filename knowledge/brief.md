@@ -13,7 +13,7 @@ A credibility and portfolio website for Grant Rogers' personalised 1:1 wellness 
 | Brand name | "Grant Rogers" for now (final brand name undecided) |
 | Purpose | Credibility / portfolio site to send people to |
 | Audience | Men and women equally |
-| Positioning | "Scientist turned practitioner" — hero line and backbone of About |
+| Positioning | Lead with the visitor's problem and outcome in their own words. "Scientist turned practitioner" is reassurance (no hype, reasons explained) and the backbone of About, not the headline promise (see `client-language.md`) |
 | Offer | One flagship 1:1 programme, 3–6 months, fully online |
 | Pillars | Flexible draft — see `pillars-draft.md`; must be easy to change later |
 | Sexual wellbeing | Covered inside one pillar, never the headline |
@@ -36,7 +36,7 @@ A credibility and portfolio website for Grant Rogers' personalised 1:1 wellness 
 - Credentials: trainings (style, hours, provider), degrees, published research
 - Client quotes, with permission
 - Voice clip recording (20–30 seconds)
-- Interview transcripts (to anonymise into `client-language.md`)
+- More interviews (5 done; see `client-language.md`)
 
 ## Files
 

@@ -47,7 +47,7 @@ A design fails if a viewer could swap the logo and use it for any other coach. C
 
 ## Typography (free Google Fonts)
 
-- Display: **Newsreader** — mix roman and italic in one headline, e.g. "Calm you can *measure*."
+- Display: **Newsreader** — mix roman and italic in one headline, e.g. "Sleep like you *used to*." (example only; see client-language.md: avoid measurement-led headlines)
 - Body/UI: **Hanken Grotesk** 400/500/600
 - Labels/data: **IBM Plex Mono** 400, uppercase, 0.08em tracking, 12–13px — e.g. `PHASE 02 / STABILISE`, "Fig. 02 — Exhale bias"
 - Fluid scale: display 56–112px, H2 36–64px, H3 22–28px, body 17–19px / 1.6, lines 60–72 characters

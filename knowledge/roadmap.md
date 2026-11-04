@@ -7,7 +7,7 @@
 
 ## Steps
 
-1. Fill `client-language.md` from interview transcripts (anonymised)
+1. ~~Fill `client-language.md` from interviews~~ (first pass done, 5 interviews). Future interviews: state the purpose openly at the start; drop the "would you be interested in the programme?" ending or make it clearly optional
 2. Draft homepage copy per `copywriting-brief.md` → Grant edits → `status: approved`
 3. Three prototypes (palettes A, B, C from `design-system.md`) using real copy and logo → Grant picks one → marked `chosen` in `design/`
 4. Claude Code: critique the master prompt, then build phase by phase; publishes to GitHub Pages
