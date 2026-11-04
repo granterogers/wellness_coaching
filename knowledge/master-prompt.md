@@ -2,13 +2,19 @@
 
 Paste everything inside the block into Claude Code, opened in a local clone of this repo.
 
+**Before using it:** `content/en/home.md` must be approved and a prototype in `design/` marked `chosen` (see `CLAUDE.md` → Gates). The short, always-on rules live in `CLAUDE.md`, which Claude Code reads automatically; this prompt holds the detail.
+
 ```
 You are a senior product designer and front-end engineer building a premium, bilingual (English/Spanish) personal website for Grant Rogers' 1:1 wellness coaching, in this repo (granterogers/wellness_coaching). It must look like a top independent studio built it, not a generic AI template. Work in small, reviewable phases and commit after each one.
 
-## 0. Sources of truth — read first, never invent facts
-- knowledge/brief.md (read first), knowledge/offer.md, knowledge/pillars-draft.md, knowledge/voice-and-messaging.md, knowledge/scope-and-boundaries.md, knowledge/design-system.md
-- If a design prototype exists in design/ and is marked chosen, match its look exactly.
-- If approved copy exists in content/, use it word for word.
+## 0. Before anything else
+- Read CLAUDE.md and obey its gates. If copy isn't approved or no prototype is chosen, stop and tell me.
+- Then critique this prompt: list gaps, contradictions, and places you'd likely produce generic output. Propose fixes and wait for my OK before Phase 1.
+
+## Sources of truth — never invent facts
+- knowledge/brief.md (read first), knowledge/copywriting-brief.md, knowledge/client-language.md, knowledge/offer.md, knowledge/pillars-draft.md, knowledge/voice-and-messaging.md, knowledge/scope-and-boundaries.md, knowledge/design-system.md
+- Match the prototype in design/ marked chosen.
+- Use the approved copy in content/ word for word. Do not write marketing copy yourself.
 - Where information is missing (photos, credentials, publications, testimonials, booking URL, WhatsApp number, email), insert visible placeholders like [[PLACEHOLDER: booking link]] and list every one in PLACEHOLDERS.md. Never fabricate credentials, testimonials, statistics or research claims.
 
 ## 1. Stack (explain it in README.md for a non-developer on Windows)
@@ -41,12 +47,12 @@ Home, Programme, About, Approach (evidence notes), Book, Privacy (UK GDPR), Term
 12. Footer: navigation, language switch, contact, scope disclaimer line, legal links, year.
 
 ## 5. Design system
-Implement knowledge/design-system.md as CSS custom properties plus Tailwind theme: palette A tokens, palette B as an alternate theme previewable with ?theme=night, Newsreader / Hanken Grotesk / IBM Plex Mono self-hosted via @fontsource with latin-ext for Spanish, fluid type scale, 12-column grid, hairline rules, figure captions in mono.
-Logo: use assets/brand/logo-currentcolor.svg at 64px and above; assets/brand/icon.svg for favicon and small sizes; icon-180.png as the Apple touch icon.
-FORBIDDEN: Inter, Roboto, Open Sans, Lato, Space Grotesk, Poppins; purple/blue gradients; glassmorphism; gradient blobs; centred hero plus three icon cards; emoji bullets; stock yoga silhouettes; drop-shadow card grids; terracotta accent; custom cursors; scroll-jacking; typewriter effects; "unlock your potential", "transform your life", "holistic journey".
+Implement knowledge/design-system.md as CSS custom properties plus Tailwind theme, using the palette of the chosen prototype; keep the other palettes as alternate themes previewable with ?theme=a|b|c, Newsreader / Hanken Grotesk / IBM Plex Mono self-hosted via @fontsource with latin-ext for Spanish, fluid type scale, 12-column grid, hairline rules, figure captions in mono.
+Logo (interim): header = assets/brand/icon.svg plus a "Grant Rogers" wordmark in Newsreader; favicon = icon.svg; Apple touch icon = icon-180.png. The full figurative logo (logo-currentcolor.svg) appears only in the footer and About, never in the hero.
+FORBIDDEN: see CLAUDE.md. Apply the anti-default test in design-system.md to every section.
 
 ## 6. Imagery
-src/assets/photos/ with labelled placeholder blocks (e.g. "HERO PORTRAIT 16:9 — Grant by window") until real photos arrive; list required crops in PLACEHOLDERS.md. Meaningful alt text in both languages.
+src/assets/photos/ with intentional typographic placeholder panels (palette texture tone, mono label like "FIG. 01 — PORTRAIT, PENDING", thin rule; never grey boxes or stock) until real photos arrive; list required crops in PLACEHOLDERS.md. Meaningful alt text in both languages.
 
 ## 7. Motion
 - Breath pacer exactly as specified in design-system.md: 4s in, 6s out; tap/click starts a 60-second guided cycle; pausable; keyboard accessible; aria-live updates; reused in the Breathe pillar.
@@ -68,7 +74,7 @@ Per-page, per-language title and description, social-share tags, canonical, href
 - Lighthouse mobile 95+ in all four categories; LCP under 2s; CLS under 0.05; home page JS under 120KB gzipped.
 - WCAG 2.2 AA: contrast, visible focus, skip link, keyboard navigation for accordions, pacer, menu and audio player.
 - No horizontal scroll at 360, 390, 768, 1024, 1440, 1920px; tap targets 44px+; Spanish text (20–30% longer) must not overflow.
-- VISUAL SELF-REVIEW: after each phase, take screenshots at 390px and 1440px (Playwright), compare against the chosen prototype and reference sites in knowledge/design-system.md, list 10 ways the build looks templated or generic, fix them, re-screenshot.
+- VISUAL SELF-REVIEW as defined in CLAUDE.md, using Playwright screenshots at 390px and 1440px.
 
 ## 12. Phases (commit after each, summarise changes)
 1. Scaffold: Astro, Tailwind, i18n, content collections, tokens, fonts, GitHub Pages workflow; README for Windows.
@@ -77,5 +83,5 @@ Per-page, per-language title and description, social-share tags, canonical, href
 4. Motion layer and breath pacer with reduced-motion fallbacks.
 5. Secondary pages, forms, audio player, legal pages, SEO.
 6. Performance and accessibility audit, fixes, DEPLOY.md, PLACEHOLDERS.md, CONTENT-EDITING.md.
-Ask before adding any dependency not listed here.
+Ask before adding any dependency not listed here. Work one phase at a time; at the end of each, re-read CLAUDE.md and the relevant section of this prompt before continuing.
 ```

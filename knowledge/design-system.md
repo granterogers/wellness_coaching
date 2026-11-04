@@ -26,14 +26,24 @@ Source: design research, November 2026 (award-recognised wellness and health sit
 
 ## Palettes
 
-**A — Field Notes (recommended)**
-- Paper `#F2EFE9` (background), Bone `#E6E0D5` (alternate sections), Ink `#15191A` (text), Graphite `#5A5F5C` (secondary text), Rule `#CFC8BB` (hairlines)
-- Night `#101415` (dark sections), Moonlight `#E9E4DA` (text on Night)
+**Caution — the cream trap.** Warm cream/off-white backgrounds with serif headlines are now a recognised AI-default "tasteful" look. Palette A is therefore shifted to a cooler, neutral stone and must earn its place in the prototype comparison rather than being assumed.
+
+**A — Field Notes (neutral stone)**
+- Paper `#EEEEEA` (background), Stone `#E2E2DC` (alternate sections), Ink `#15191A` (text), Graphite `#5A5F5C` (secondary text), Rule `#CBCBC3` (hairlines)
+- Night `#101415` (dark sections), Moonlight `#E6E6E0` (text on Night)
 - Accent: Deep Kelp `#2F4A40` (links, buttons). Signal: Phosphor `#D4F06A` (tiny data marks, breath pacer glow, focus rings on dark — at most ~2% of the surface)
 
-**B — Night Practice (moody alternative)**: `#0E1112` base, `#171B1C` surface, `#ECE7DD` text, `#9A9D97` muted, brass `#C9A56A` accent.
+**B — Night Practice (dark)**: `#0E1112` base, `#171B1C` surface, `#ECE7DD` text, `#9A9D97` muted, brass `#C9A56A` accent.
 
-**C — Mediterranean Morning (warmer)**: `#F5F0E6` lime-wash, `#1C2B35` deep sea, `#6B7046` olive, `#E4A44B` sun (sparingly).
+**C — Tidal (cool, non-cream)**: Mist `#E6EBEA` background, Deep Water `#13232A` text and dark sections, Slate Sea `#2E5E66` accent, Sand `#D9C27A` signal (sparingly).
+
+## Anti-default test (apply to every prototype and build)
+
+A design fails if a viewer could swap the logo and use it for any other coach. Check:
+1. Would it still be recognisable as Grant's with the logo removed? (Signature: breath pacer, mono "lab notebook" labels, figure captions, real photos.)
+2. None of the forbidden patterns (see `CLAUDE.md`).
+3. Is anything there only because templates usually have it? Remove it.
+4. Does the hero say who it's for and what changes within 10 seconds?
 
 ## Typography (free Google Fonts)
 
@@ -64,9 +74,12 @@ An SVG ring that expands over 4 seconds (in) and contracts over 6 seconds (out),
 
 A 20–30 second clip of Grant guiding a breath, with a play button and transcript, in the Restore section. Never autoplays.
 
-## Logo usage
+## Logo usage (interim)
 
-Files in `assets/brand/`. Full logo at 64px and above; `icon.svg` (snake + orbit) below that and for the favicon.
+The current figurative logo is under review (reads as male; some AI-generation artefacts — see `roadmap.md`). Until it's refined:
+- Header and favicon: `icon.svg` (snake + orbit) plus a typographic wordmark "Grant Rogers" in Newsreader.
+- The full figurative logo appears only in the footer and the About section, never in the hero.
+Files are in `assets/brand/`.
 
 ## Photography
 
@@ -92,5 +105,19 @@ Shot list:
 19. Wearable showing heart-rate data, no brand logos
 20. Candid laughing moment
 21–25. Details: feet on wooden floor, hands in mudra, watch placed on a book, tea
+
+### Minimum viable photo set (before sharing the preview with anyone)
+
+1. Hero portrait (horizontal, with a vertical crop)
+2. About portrait
+3. One practice shot (meditation, breath or mobility)
+4. One working shot (desk or video call)
+5. One texture or landscape
+
+Phone + tripod + window light is enough.
+
+### Placeholders until then
+
+Never grey boxes or stock photos. Use intentional-looking typographic panels: a texture tone from the palette, a mono label ("FIG. 01 — PORTRAIT, PENDING") and a thin rule. The preview should look deliberate, not unfinished.
 
 AI may enhance real photos (light, colour, clutter removal, extended backgrounds, upscaling) and generate non-person textures. It must not generate realistic images of Grant: that undermines trust and, under EU AI Act Article 50, would need visible labelling.

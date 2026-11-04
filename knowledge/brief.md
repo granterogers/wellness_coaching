@@ -20,7 +20,9 @@ A credibility and portfolio website for Grant Rogers' personalised 1:1 wellness 
 | Pricing | Not shown; "Book a conversation" |
 | Languages | English + Spanish, switchable; Spanish reviewed by a native speaker |
 | Design | See `design-system.md` (light "field notebook" direction recommended by research; final direction chosen from 3 prototypes) |
-| Logo | Grant's atom + meditator + snake logo, vectorised in `assets/brand/`; to be refined (see `roadmap.md`) |
+| Logo | Grant's atom + meditator + snake logo, vectorised in `assets/brand/`; interim usage rules in `design-system.md`; to be refined (see `roadmap.md`) |
+| Build order | Copy approved → prototype chosen → build (gates in `CLAUDE.md`) |
+| Sharing the preview | Only after the minimum viable photo set is in |
 | Signature interaction | Breath pacer (see `design-system.md`) |
 | Voice | A short audio clip of Grant's voice is a planned feature |
 | Hosting (now) | Free preview on GitHub Pages: `granterogers.github.io/wellness_coaching`. No domain, email or payments until Grant is satisfied with the site |
@@ -34,9 +36,13 @@ A credibility and portfolio website for Grant Rogers' personalised 1:1 wellness 
 - Credentials: trainings (style, hours, provider), degrees, published research
 - Client quotes, with permission
 - Voice clip recording (20–30 seconds)
+- Interview transcripts (to anonymise into `client-language.md`)
 
 ## Files
 
+- `../CLAUDE.md` — hard rules and gates for any AI working in the repo
+- `copywriting-brief.md` — how copy is written and approved before building
+- `client-language.md` — anonymised phrases and themes from interviews
 - `offer.md` — the offer, programme phases, differentiators
 - `pillars-draft.md` — current draft pillars (editable)
 - `voice-and-messaging.md` — tone, key messages, words to use and avoid

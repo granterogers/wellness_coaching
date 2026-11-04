@@ -7,13 +7,23 @@
 
 ## Steps
 
-1. Draft homepage copy (Grant edits) → saved to `content/en/`
-2. Three hero/homepage prototypes (field notebook / night practice / Mediterranean) using the real logo and copy → Grant picks one → saved to `design/`
-3. Claude Code builds from `master-prompt.md`; publishes to GitHub Pages
-4. Self-shoot easy photos; record voice clip
-5. Feedback round: 5–10 testers via a short feedback form
-6. Human design review (one hour with a working designer); include the logo
-7. When satisfied: domain, email, booking, forms, payments, insurance (see private repo `strategy/operations-uk.md`)
+1. Fill `client-language.md` from interview transcripts (anonymised)
+2. Draft homepage copy per `copywriting-brief.md` → Grant edits → `status: approved`
+3. Three prototypes (palettes A, B, C from `design-system.md`) using real copy and logo → Grant picks one → marked `chosen` in `design/`
+4. Claude Code: critique the master prompt, then build phase by phase; publishes to GitHub Pages
+5. Minimum viable photo set + voice clip swapped in **before** sharing the link
+6. Validation round (below)
+7. Human design review (one hour with a working designer), including the logo
+8. When satisfied: domain, email, booking, forms, payments, insurance
+
+## Validation plan
+
+The research figures behind the design choices are directional (some are old or from other industries), so real reactions decide.
+
+- 5–10 testers from the target audience, using a short feedback form
+- Ask: in one sentence, what does Grant offer and for whom? (target: most answer correctly) · How credible did it feel, 1–5? · How likely to book a conversation, 0–10? · What would you change first?
+- Watch one or two people use it on their phone without help, if possible
+- Change what three or more people mention; ignore one-offs
 
 ## Logo — notes for refinement
 
