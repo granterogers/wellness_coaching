@@ -47,3 +47,22 @@ The research figures behind the design choices are directional (some are old or 
 - Kundalini Yoga for Men as a specific offer (origin of the logo's "KYM" file name)
 - Yoga Nidra lead magnet
 - Short talking intro video
+
+## Open threads (as of 4 November 2026)
+
+Decide before the homepage copy is written (the copy and FAQ depend on these):
+- Programme rhythm: session length and frequency (e.g. fortnightly 60-minute calls plus weekly check-ins), check-in channel, what's included
+- What happens on the discovery call, and what the next step after it is
+- Session languages and time zones offered
+
+Start now, in parallel (longest lead times):
+- Ask past clients (Stefan, Mira, Maria) for short written feedback with permission — the site has no proof yet
+- Photo shoot for the minimum set (`photo-slots.md`)
+- Voice clip recording
+- Find a native Spanish reviewer
+- Logo: brief for a designer, or decide to keep the interim icon + wordmark
+
+Watch out for:
+- Copy approval: limit to two rounds of edits, then approve and move on
+- The account used for this project should be Grant's personal one, not a workplace account
+- Future idea: the accountability app Grant has prototyped (daily practice check-offs synced to the coach) — not in scope for the site
