@@ -25,6 +25,13 @@ The pillars are a flexible draft, kept in `pillars-draft.md` so they can change 
 
 Between sessions: personalised routines, short video demonstrations, guided recordings and music, practice plans and accountability check-ins.
 
+## Programme rhythm (Grant, 4 November 2026)
+
+- **Sessions:** 1:1 by video. Length and frequency are set for each client's situation and needs; no fixed schedule is promised on the site.
+- **Between sessions:** clients get in touch as needed; no fixed check-in schedule.
+- **Discovery call ("Book a conversation"):** free, 30 minutes. We talk through goals, schedule and anything a doctor should see first. If it's a fit, Grant emails a written plan and the investment within two days. No pressure on the call.
+- **Languages and time zones:** English or Spanish; clients anywhere in the world, with morning and evening slots across time zones.
+
 ## What makes it different
 
 - **Evidence-informed.** Practices are explained, and clients learn what is well supported, what is plausible, and what is simply experiential.
