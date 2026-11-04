@@ -1,5 +1,7 @@
 # Client language (from research interviews)
 
+**Purpose: wording only.** Use these phrases to make copy sound like real people. They do **not** shape the offer, pillars, positioning or services — those come from `brief.md` and `offer.md`.
+
 Status: first pass, 5 interviews (September–November 2026). Mixed group: men and women, roughly 40s–late 50s, in demanding careers, self-employed, between jobs, or full-time parenting.
 
 Public file, so confidentiality rules apply: no names, employers, locations, ages tied to a person, or health conditions tied to a person. Phrases are short and unattributed. Auto-transcripts were noisy, so only clearly captured phrases are quoted; the rest is paraphrased.
@@ -54,12 +56,8 @@ Public file, so confidentiality rules apply: no names, employers, locations, age
 
 Nervous system, regulation, holistic, optimise, biohacking, evidence-based, protocol, journey, vitality, mindfulness. Use plain words: sleep, tired, strong, energy, stress, switch off, stick with it, get older.
 
-## Implications for copy and design
+## How to use this in copy
 
-- Lead with the visitor's problem and outcome in their own words (sleep, energy, strength, staying capable with age, making it stick around real life), not with science.
-- "Scientist turned practitioner" works as **reassurance**: no hype, no fads, reasons explained, cutting through the noise. It shouldn't be the headline promise. Avoid measurement-led headlines such as "Calm you can measure".
-- Embodiment matters. Photos must show Grant living the practice.
-- Data is optional and light ("we can track it if you like; you don't have to").
-- Sell the relationship: weekly human check-ins, honest challenging questions, built around your life stage.
-- Small and doable: 5–10 minute practices that survive a bad week.
-- No-pressure, transparent calls to action: say plainly what the conversation is for.
+- Borrow plain words and rhythms ("switch off", "tired throughout the day", "stick with it", "lighter in your body") instead of industry terms.
+- Keep calls to action no-pressure and plain about what the conversation is for.
+- Never quote these phrases as testimonials — they are not endorsements.

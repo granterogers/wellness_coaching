@@ -13,7 +13,7 @@ A credibility and portfolio website for Grant Rogers' personalised 1:1 wellness 
 | Brand name | "Grant Rogers" for now (final brand name undecided) |
 | Purpose | Credibility / portfolio site to send people to |
 | Audience | Men and women equally |
-| Positioning | Lead with the visitor's problem and outcome in their own words. "Scientist turned practitioner" is reassurance (no hype, reasons explained) and the backbone of About, not the headline promise (see `client-language.md`) |
+| Positioning | "Scientist turned practitioner" — hero line and backbone of About (Grant's decision) |
 | Offer | One flagship 1:1 programme, 3–6 months, fully online |
 | Pillars | Flexible draft — see `pillars-draft.md`; must be easy to change later |
 | Sexual wellbeing | Covered inside one pillar, never the headline |
@@ -42,7 +42,7 @@ A credibility and portfolio website for Grant Rogers' personalised 1:1 wellness 
 
 - `../CLAUDE.md` — hard rules and gates for any AI working in the repo
 - `copywriting-brief.md` — how copy is written and approved before building
-- `client-language.md` — anonymised phrases and themes from interviews
+- `client-language.md` — anonymised phrases from interviews, for wording only (does not shape the offer or positioning)
 - `offer.md` — the offer, programme phases, differentiators
 - `pillars-draft.md` — current draft pillars (editable)
 - `voice-and-messaging.md` — tone, key messages, words to use and avoid
