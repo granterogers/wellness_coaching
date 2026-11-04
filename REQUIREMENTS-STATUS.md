@@ -7,7 +7,7 @@ Last updated: Phase 0, 4 November 2026.
 | ID | P | Phase | Status | Evidence / notes |
 |---|---|---|---|---|
 | 1.1 | M | all | done | Read CLAUDE.md, brief.md, requirements.md and all of knowledge/ (Phase 0) |
-| 1.2 | M | all | partial | Fixes applied (see Phase 0 log below); decisions D1–D6 waiting for Grant |
+| 1.2 | M | all | done | Fixes applied and decisions D1–D5 answered (below) |
 | 1.3 | M | all | blocked | `content/en/home.md` not yet drafted |
 | 1.4 | M | all | blocked | No prototypes yet; `design/CHOSEN.md` missing |
 | 1.5 | M | all | todo | Applies throughout |
@@ -23,7 +23,7 @@ Last updated: Phase 0, 4 November 2026.
 | 2.4 | M | 1 | todo |  |
 | 2.5 | M | 1 | todo |  |
 | 2.6 | M | 1 | todo |  |
-| 2.7 | S | 5 | todo | Library choice waiting for Grant (D4) |
+| 2.7 | S | 5 | todo | satori + @resvg/resvg-js approved (D4) |
 | 2.8 | M | 1 | todo |  |
 | 2.9 | M | 1 | todo |  |
 | 2.10 | M | 1 | todo |  |
@@ -34,7 +34,7 @@ Last updated: Phase 0, 4 November 2026.
 | 3.3 | M | 3 | todo |  |
 | 3.4 | M | 1 | todo |  |
 | 3.5 | M | 1 | todo |  |
-| 3.6 | M | 3 | todo | Spanish variety waiting for Grant (D2) |
+| 3.6 | M | 3 | todo | Spain Spanish, tú (D2) |
 | 3.7 | M | 1 | todo |  |
 | 3.8 | M | 6 | todo |  |
 | 4.1 | M | 5 | todo |  |
@@ -127,7 +127,7 @@ Last updated: Phase 0, 4 November 2026.
 | 16.5 | M | 6 | todo |  |
 | 16.6 | S | 6 | todo |  |
 
-Totals: blocked 2, done 2, later 2, partial 1, todo 113
+Totals: blocked 2, done 3, later 2, todo 113
 
 ## Phase 0 log — fixes applied
 
@@ -154,7 +154,7 @@ Totals: blocked 2, done 2, later 2, partial 1, todo 113
 | F19 | Voice file's "words that resonate" (nervous-system regulation, evidence-informed…) clash with words clients never use | Plain word in headlines/buttons; term once in body, explained. Pillars need an example practice for 5.4 | `copywriting-brief.md` |
 | F20 | README still described `index.html`; images README pointed to a different photo folder | Both updated | `README.md`, `assets/images/README.md` |
 
-## Open decisions for Grant
+## Phase 0 decisions — all approved by Grant, 4 November 2026 (recorded in `requirements.md`, `copywriting-brief.md`, `credentials.md`)
 
 - **D1 Copy beyond the home page.** The copy gate covers only `home.md`, but Programme (4.2), About (4.3), Book (4.5), 404 (4.7) and meta descriptions (13.1) need words, and the build may not write marketing copy. Recommended: draft `content/en/pages.md` in the copy step, reviewed in the same two rounds; I write functional microcopy (buttons, form messages, alt text from photo briefs) during the build and list it in `PLACEHOLDERS.md` for review.
 - **D2 Spanish variety.** "Neutral-Castilian" (3.6) is ambiguous. Recommended: Spain Spanish with "tú".

@@ -12,7 +12,7 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 |---|---|---|
 | 1.1 | Read `CLAUDE.md`, `knowledge/brief.md` and this file before any work | M |
 | 1.2 | Phase 0: critique `master-prompt.md` and this file (gaps, contradictions, generic-output risks); apply clear fixes directly and list them; list anything that needs Grant's decision and wait for his answers. Allowed before gates 1.3–1.4 are met | M |
-| 1.3 | Copy gate: no page sections built until `content/en/home.md` has `status: approved` in its frontmatter | M |
+| 1.3 | Copy gate: no page sections built until `content/en/home.md` has `status: approved` in its frontmatter; pages other than Home also need `content/en/pages.md` approved (drafted and reviewed with `home.md`) | M |
 | 1.4 | Design gate: no page sections built until `design/CHOSEN.md` names the chosen prototype file | M |
 | 1.5 | No invented facts: credentials, testimonials, numbers, research claims and client stories only from `knowledge/` or `content/`; otherwise a visible `[[PLACEHOLDER: …]]` listed in `PLACEHOLDERS.md` | M |
 | 1.6 | Maintain `REQUIREMENTS-STATUS.md`: every ID in this file with status (`todo` / `done` / `partial` / `blocked` / `later`) and evidence (file path or screenshot). Update at the end of every phase | M |
@@ -27,14 +27,14 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 | ID | Requirement | P |
 |---|---|---|
 | 2.1 | Astro (latest stable), static output | M |
-| 2.2 | Tailwind CSS v4; design tokens as CSS custom properties | M |
+| 2.2 | Tailwind CSS v4 (via `@tailwindcss/vite`); design tokens as CSS custom properties | M |
 | 2.3 | GSAP (incl. ScrollTrigger, SplitText) and Lenis, from npm, loaded only on pages that use them | M |
 | 2.4 | astro:assets for images (AVIF/WebP, responsive srcset) | M |
 | 2.5 | @astrojs/sitemap with i18n | M |
 | 2.6 | Fonts self-hosted via @fontsource (Newsreader, Hanken Grotesk, IBM Plex Mono), subsets latin + latin-ext | M |
-| 2.7 | Social-share image generation at build: one small library only (e.g. satori-based); Grant approves the choice per 1.9 | S |
-| 2.8 | Playwright (dev only) for screenshots and smoke tests | M |
-| 2.9 | GitHub Actions workflow builds and deploys to GitHub Pages at `granterogers.github.io/wellness_coaching`; Astro `site` and `base` set so every link and asset works under `/wellness_coaching/`. The three design prototypes stay published at `/wellness_coaching/design/prototype-a.html` (and `-b`, `-c`) after the build, for comparison | M |
+| 2.7 | Social-share image generation at build with `satori` + `@resvg/resvg-js` (approved by Grant, Phase 0) | S |
+| 2.8 | Playwright (dev only) for screenshots and smoke tests; `lighthouse` (dev only) for 15.1; `@astrojs/check` + `typescript` for the types check (all approved by Grant, Phase 0) | M |
+| 2.9 | GitHub Actions workflow builds and deploys to GitHub Pages at `granterogers.github.io/wellness_coaching`; Astro `site` and `base` set so every link and asset works under `/wellness_coaching/`. Deploys from `main`; Claude merges the working branch into `main` at each stop point (Grant, Phase 0). The three design prototypes stay published at `/wellness_coaching/design/prototype-a.html` (and `-b`, `-c`) after the build, for comparison | M |
 | 2.10 | `DEPLOY.md` explains enabling Pages ("Settings → Pages → Source: GitHub Actions"), and the later move to Cloudflare Pages + custom domain as a config change | M |
 | 2.11 | Everything runs in the cloud: built with Claude Code on the web and deployed by GitHub Actions — Grant installs nothing. Scripts: `npm run build`, `npm run check` (types + content schemas + internal link check + placeholder check per 15.6; link and placeholder checks are small in-repo scripts, not extra dependencies), `npm run shots` (screenshots) | M |
 | 2.12 | No backend, no database, no cookies, no tracking during the preview | M |
@@ -48,7 +48,7 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 | 3.3 | Pillars loaded only from content; renaming, adding or removing one needs no code change; layout works with 3–8 pillars | M |
 | 3.4 | `content/shared/site.json`: name, email, WhatsApp, booking URL, social links (Instagram, LinkedIn), credentials and publications taken only from confirmed items in `knowledge/credentials.md`, feature flags | M |
 | 3.5 | Feature flags (default in brackets): `freePractice` (off), `voiceClip` (off until an audio file exists), `testimonials` (off until real quotes), `spanish` (on), `contactForm` (off until an endpoint exists), `indexing` (off — see 13.8) | M |
-| 3.6 | Spanish copy: if `content/es/home.md` is missing, generate a careful neutral-Castilian draft with `translation_status: draft`, listed in `PLACEHOLDERS.md` | M |
+| 3.6 | Spanish copy: if `content/es/home.md` is missing, generate a careful draft in Spain Spanish, addressing the reader as "tú", with `translation_status: draft`, listed in `PLACEHOLDERS.md` | M |
 | 3.7 | UI strings (nav, buttons, labels, form messages, pacer labels) in one i18n file per language | M |
 | 3.8 | `CONTENT-EDITING.md`: how Grant changes text, pillars, photos and flags on github.com (no software needed), step by step, including uploading a photo to its slot | M |
 

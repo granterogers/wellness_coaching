@@ -21,4 +21,7 @@ Copy is written and approved **before** any build. It lives in `content/en/` (Sp
 - Pillars: each needs a name, a one-line description, and one example practice with its one-line reason (the desktop index reveals these, requirement 5.4).
 
 ## Homepage sections to write
-Hero (headline, subhead, 2 CTAs) · Recognition (problem, 3 observations) · Approach (3 principles) · Pillars (from `pillars-draft.md`) · Programme (4 phases) · About · Voice clip intro line + transcript · Proof (placeholders until real quotes) · FAQ (7–8) · Final CTA · Footer disclaimer line.
+`content/en/home.md`: Hero (headline, subhead, 2 CTAs) · Recognition (problem, 3 observations) · Approach (3 principles) · Pillars (from `pillars-draft.md`) · Programme (4 phases) · About · Voice clip intro line + transcript · Proof (placeholders until real quotes) · FAQ (7–8) · Final CTA · Footer disclaimer line.
+
+## Other pages to write (`content/en/pages.md`, same review rounds)
+Programme (4.2) · About (4.3) · Book, including the "booking opens soon" fallback (4.5, 11.2) · 404 breathing prompt (4.7) · page titles and meta descriptions (13.1). Interface text (buttons, form messages, alt text from photo briefs) is written during the build and listed in `PLACEHOLDERS.md` for review.

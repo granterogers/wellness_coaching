@@ -49,7 +49,7 @@ Also from Grant's notes (WS02): men's retreat sessions (Ibiza), women's retreats
 
 - Two MSc degrees: computational physics and marine biodiversity & biotechnology (Heriot-Watt University)
 - Co-author of 7 peer-reviewed scientific papers (Scientific Reports, Remote Sensing, Frontiers in Marine Science); 15+ years across scientific research, GIS and technical training (the source line above — not "15+ years in research" alone)
-- Experienced trainer: has taught technical skills to 100+ professionals and 30+ researchers
+- Experienced trainer: 40+ technical workshops for international clients; GIS and R training for 30+ postgraduate researchers (Grant, Phase 0: don't say "100+ professionals")
 - CMAS 3-star freediver
 - Kundalini Yoga teacher (i-Sky Institute) and SOMA Breathwork instructor
 - Teaching since 2020 (6+ years); retreats and festivals in Ibiza and Gran Canaria
