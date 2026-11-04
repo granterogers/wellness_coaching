@@ -1,7 +1,7 @@
 ---
 status: draft
 language: en
-round: 1
+round: 2
 updated: 2026-11-04
 ---
 
@@ -161,7 +161,7 @@ It depends on you. We set the rhythm of sessions around your situation and what 
 Three to six months, depending on your goals. Investment is discussed on our call, once we know what you need.
 
 ### What happens on the first call?
-It's free and takes thirty minutes on video. We talk about what you want, what's getting in the way, and whether anything should go to a doctor first. If it looks like a fit, I'll email you a written plan and the investment within two days. There's no pressure on the call.
+It's free and takes thirty minutes on video. We talk about what you want, what's getting in the way, and whether anything should go to a doctor first. If it looks like a fit, I'll email you a written plan and the investment. There's no pressure on the call.
 
 ### Which languages, and where do I need to be?
 Sessions are in English or Spanish, online, wherever you live. I offer morning and evening times so most time zones can find a slot.
@@ -170,7 +170,7 @@ Sessions are in English or Spanish, online, wherever you live. I offer morning a
 
 **Heading:** Start with a conversation.
 
-**Body:** Thirty minutes, free, on video. If it looks like a fit, you'll have a written plan within two days. If it doesn't, I'll tell you.
+**Body:** Thirty minutes, free, on video. If it looks like a fit, I'll send you a written plan. If it doesn't, I'll tell you.
 
 **Primary button:** Book a conversation
 

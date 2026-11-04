@@ -50,7 +50,7 @@ The research figures behind the design choices are directional (some are old or 
 
 ## Open threads (as of 4 November 2026)
 
-~~Decide before the homepage copy is written~~ — decided 4 November 2026, see "Programme rhythm" in `offer.md`: sessions customised per client, check-ins as needed, free 30-minute discovery call then a written plan within two days, English or Spanish worldwide.
+~~Decide before the homepage copy is written~~ — decided 4 November 2026, see "Programme rhythm" in `offer.md`: sessions customised per client, check-ins as needed, free 30-minute discovery call then a written plan, English or Spanish worldwide.
 
 Start now, in parallel (longest lead times):
 - Ask three past clients (names in the private repo) for short written feedback with permission — the site has no proof yet

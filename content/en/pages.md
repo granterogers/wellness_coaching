@@ -1,7 +1,7 @@
 ---
 status: draft
 language: en
-round: 1
+round: 2
 updated: 2026-11-04
 ---
 
@@ -114,7 +114,7 @@ Pranayama Home, Gran Canaria · Casa Solara, Ibiza · The Festival of Consciousn
 
 **Heading:** Book a conversation
 
-**Intro:** Thirty minutes, free, on video. We'll talk about what you want, what's getting in the way, and whether anything should go to a doctor first. If it looks like a fit, I'll email you a written plan and the investment within two days. If it doesn't, I'll tell you, and point you somewhere better if I can.
+**Intro:** Thirty minutes, free, on video. We'll talk about what you want, what's getting in the way, and whether anything should go to a doctor first. If it looks like a fit, I'll email you a written plan and the investment. If it doesn't, I'll tell you, and point you somewhere better if I can.
 
 **Booking fallback heading:** Booking opens soon
 

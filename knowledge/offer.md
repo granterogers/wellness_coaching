@@ -29,7 +29,7 @@ Between sessions: personalised routines, short video demonstrations, guided reco
 
 - **Sessions:** 1:1 by video. Length and frequency are set for each client's situation and needs; no fixed schedule is promised on the site.
 - **Between sessions:** clients get in touch as needed; no fixed check-in schedule.
-- **Discovery call ("Book a conversation"):** free, 30 minutes. We talk through goals, schedule and anything a doctor should see first. If it's a fit, Grant emails a written plan and the investment within two days. No pressure on the call.
+- **Discovery call ("Book a conversation"):** free, 30 minutes. We talk through goals, schedule and anything a doctor should see first. If it's a fit, Grant emails a written plan and the investment. No pressure on the call.
 - **Languages and time zones:** English or Spanish; clients anywhere in the world, with morning and evening slots across time zones.
 
 ## What makes it different

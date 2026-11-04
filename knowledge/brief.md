@@ -29,6 +29,7 @@ A credibility and portfolio website for Grant Rogers' personalised 1:1 wellness 
 | Hosting (launch) | Cloudflare Pages + own domain |
 | Tax / legal | Grant is UK tax resident. UK rules only (UK GDPR, UK consumer law). No Spanish legal pages |
 | Preview contact | `grant.e.rogers@gmail.com` (spam-protected on the site) |
+| WhatsApp | +34 603 834 206 (click-to-chat button on the site, req 11.3) |
 | Build environment | Claude Code on the web + GitHub Actions; nothing installed locally |
 | Photos | Descriptive placeholders until real photos arrive — slot briefs in `photo-slots.md` |
 | Account sign-ups | Done later by a browser agent (Claude in Chrome / Cowork) where possible; Grant handles logins, codes and payment details |
