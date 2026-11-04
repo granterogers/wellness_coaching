@@ -11,8 +11,9 @@ This repo holds two things: the website itself, and the knowledge base the websi
 | `knowledge/` | Single source of truth: brief, offer, voice, scope. Read `knowledge/brief.md` first. |
 | `content/` | The words the website displays, one file per language (English, Spanish). |
 | `assets/brand/` | Logo and icon files (see its README). |
-| `assets/images/` | Photos and graphics used on the site. |
-| `index.html` | The website (to be built). |
+| `assets/images/` | Photos not tied to a site slot (site photos go in `src/assets/photos/`). |
+| `design/` | The three prototypes and `CHOSEN.md`. |
+| `src/` | The website (Astro; built after copy and design are approved). |
 
 ## Working with an AI assistant
 

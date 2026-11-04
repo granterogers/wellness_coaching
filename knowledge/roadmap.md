@@ -56,7 +56,7 @@ Decide before the homepage copy is written (the copy and FAQ depend on these):
 - Session languages and time zones offered
 
 Start now, in parallel (longest lead times):
-- Ask past clients (Stefan, Mira, Maria) for short written feedback with permission — the site has no proof yet
+- Ask three past clients (names in the private repo) for short written feedback with permission — the site has no proof yet
 - Photo shoot for the minimum set (`photo-slots.md`)
 - Voice clip recording
 - Find a native Spanish reviewer

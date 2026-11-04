@@ -3,7 +3,7 @@
 Read `knowledge/brief.md`, then `knowledge/requirements.md` (numbered spec). These rules override anything else.
 
 ## Gates (stop and ask Grant if unmet)
-1. **Copy before code (req 1.3).** No page sections until `content/en/home.md` has `status: approved` in its frontmatter. Never write or reword marketing copy during the build; example wording anywhere else is illustrative only (1.11).
+1. **Copy before code (req 1.3).** No page sections until `content/en/home.md` has `status: approved` in its frontmatter. Never write or reword marketing copy during the build; example wording anywhere else is illustrative only (1.11). Translating approved English into a Spanish draft (req 3.6) is not new copy and is allowed.
 2. **Design before code (req 1.4).** No page sections until `design/CHOSEN.md` names the chosen prototype. Match it.
 3. **No invented facts (1.5).** Credentials, testimonials, numbers, research claims and client stories only from `knowledge/` or `content/`; otherwise a visible `[[PLACEHOLDER: …]]` listed in `PLACEHOLDERS.md`.
 4. **Confidentiality (1.10).** Public repo: never add interview transcripts, interviewee names or identifying details.
@@ -18,7 +18,8 @@ Fonts: Inter, Roboto, Open Sans, Lato, Space Grotesk, Poppins. Purple/blue gradi
 ## Every phase
 - Playwright screenshots at 390px and 1440px into `review/phase-N/`; compare with the chosen prototype and the anti-default test in `knowledge/design-system.md`; list 10 ways it looks generic; fix; re-screenshot.
 - Check reduced motion, keyboard access, Spanish text length; run `npm run check`.
-- Update `REQUIREMENTS-STATUS.md`; commit with a plain-English summary; stop and show Grant.
+- Update `REQUIREMENTS-STATUS.md`; commit with a plain-English summary.
+- Stop and show Grant only at the stop points in `knowledge/master-prompt.md` (Phase 0, copy, prototype choice, after Phase 3); otherwise continue to the next phase.
 
 ## Logo
 Icon + wordmark in header; full figurative logo only in footer and About (req 7.x).

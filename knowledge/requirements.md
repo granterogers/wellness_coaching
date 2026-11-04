@@ -11,11 +11,11 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 | ID | Requirement | P |
 |---|---|---|
 | 1.1 | Read `CLAUDE.md`, `knowledge/brief.md` and this file before any work | M |
-| 1.2 | Phase 0: critique `master-prompt.md` and this file (gaps, contradictions, generic-output risks); propose fixes; wait for Grant's OK. Allowed before gates 1.3–1.4 are met | M |
+| 1.2 | Phase 0: critique `master-prompt.md` and this file (gaps, contradictions, generic-output risks); apply clear fixes directly and list them; list anything that needs Grant's decision and wait for his answers. Allowed before gates 1.3–1.4 are met | M |
 | 1.3 | Copy gate: no page sections built until `content/en/home.md` has `status: approved` in its frontmatter | M |
 | 1.4 | Design gate: no page sections built until `design/CHOSEN.md` names the chosen prototype file | M |
 | 1.5 | No invented facts: credentials, testimonials, numbers, research claims and client stories only from `knowledge/` or `content/`; otherwise a visible `[[PLACEHOLDER: …]]` listed in `PLACEHOLDERS.md` | M |
-| 1.6 | Maintain `REQUIREMENTS-STATUS.md`: every ID in this file with status (`done` / `partial` / `blocked` / `later`) and evidence (file path or screenshot). Update at the end of every phase | M |
+| 1.6 | Maintain `REQUIREMENTS-STATUS.md`: every ID in this file with status (`todo` / `done` / `partial` / `blocked` / `later`) and evidence (file path or screenshot). Update at the end of every phase | M |
 | 1.7 | Visual self-review each phase: Playwright screenshots at 390px and 1440px saved to `review/phase-N/`; compare with the chosen prototype; list 10 ways it looks generic; fix; re-screenshot | M |
 | 1.8 | One commit (or more) per phase, with a plain-English summary | M |
 | 1.9 | Ask Grant before adding any dependency not listed in 2.x | M |
@@ -34,9 +34,9 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 | 2.6 | Fonts self-hosted via @fontsource (Newsreader, Hanken Grotesk, IBM Plex Mono), subsets latin + latin-ext | M |
 | 2.7 | Social-share image generation at build: one small library only (e.g. satori-based); Grant approves the choice per 1.9 | S |
 | 2.8 | Playwright (dev only) for screenshots and smoke tests | M |
-| 2.9 | GitHub Actions workflow builds and deploys to GitHub Pages at `granterogers.github.io/wellness_coaching`; Astro `site` and `base` set so every link and asset works under `/wellness_coaching/` | M |
+| 2.9 | GitHub Actions workflow builds and deploys to GitHub Pages at `granterogers.github.io/wellness_coaching`; Astro `site` and `base` set so every link and asset works under `/wellness_coaching/`. The three design prototypes stay published at `/wellness_coaching/design/prototype-a.html` (and `-b`, `-c`) after the build, for comparison | M |
 | 2.10 | `DEPLOY.md` explains enabling Pages ("Settings → Pages → Source: GitHub Actions"), and the later move to Cloudflare Pages + custom domain as a config change | M |
-| 2.11 | Everything runs in the cloud: built with Claude Code on the web and deployed by GitHub Actions — Grant installs nothing. Scripts: `npm run build`, `npm run check` (types + content schemas + link check), `npm run shots` (screenshots) | M |
+| 2.11 | Everything runs in the cloud: built with Claude Code on the web and deployed by GitHub Actions — Grant installs nothing. Scripts: `npm run build`, `npm run check` (types + content schemas + internal link check + placeholder check per 15.6; link and placeholder checks are small in-repo scripts, not extra dependencies), `npm run shots` (screenshots) | M |
 | 2.12 | No backend, no database, no cookies, no tracking during the preview | M |
 
 ## 3. Content architecture
@@ -63,15 +63,15 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 | 4.5 | Book (booking embed or fallback per 11.2) | M |
 | 4.6 | Privacy (UK GDPR) and Terms — template text clearly marked "draft, not legal advice" | M |
 | 4.7 | Designed 404 with a short breathing prompt | M |
-| 4.8 | Root `/wellness_coaching/` sends visitors to `/en/` (static redirect), with a gentle "Ver en español" suggestion for Spanish-language browsers; never auto-redirects to Spanish | M |
+| 4.8 | Root `/wellness_coaching/` sends visitors to `/en/` (static redirect). On English pages, browsers set to Spanish see a small, dismissible "Ver en español" link (dismissal remembered for the session only; no cookies); never auto-redirects to Spanish | M |
 
 ## 5. Home page sections (order as in the approved copy)
 
 | ID | Requirement | P |
 |---|---|---|
 | 5.1 | Hero: headline (serif, roman + italic mix) leading with "scientist turned practitioner"; subhead; primary CTA "Book a conversation"; secondary CTA "How it works" (scrolls to 5.5); portrait (16:9 desktop, 4:5 mobile); ambient breath pacer (9.1) | M |
-| 5.2 | Recognition: the problem in three short observations | M |
-| 5.3 | Approach: three principles, each with a one-line reason | M |
+| 5.2 | Recognition: the problem in three short observations, never laid out as three equal cards or icon columns | M |
+| 5.3 | Approach: three principles, each with a one-line reason; a different layout from 5.2 (e.g. numbered annotations beside P05), never three icon cards | M |
 | 5.4 | Pillars: desktop = large numbered typographic index, hover and focus reveal description + example practice; mobile = accordion. Sexual wellbeing only inside its pillar | M |
 | 5.5 | Programme: four phases; desktop = pinned stepped timeline (≥1024px) with mono labels ("PHASE 01 / BASELINE"); mobile = vertical stepper; inclusions row; no prices ("investment is discussed on our call") | M |
 | 5.6 | About teaser: portrait, short story, mono fact list, link to 4.3 | M |
@@ -81,8 +81,8 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 | 5.10 | FAQ: accessible accordion + FAQPage structured data; questions from approved copy | M |
 | 5.11 | Final CTA in a dark "night" section: booking + email + WhatsApp | M |
 | 5.12 | Footer: nav, language switch, contact, scope disclaimer line, legal links, year, full logo per 7.3 | M |
-| 5.13 | Sticky mobile CTA bar: appears after the hero, hides when the final CTA is in view | M |
-| 5.14 | Header: icon + "Grant Rogers" wordmark, nav, language switch, CTA; condenses on scroll | M |
+| 5.13 | Sticky mobile CTA bar (<768px): appears after the hero, hides when the final CTA is in view; it replaces the header CTA on mobile | M |
+| 5.14 | Header: icon + "Grant Rogers" wordmark, nav, language switch, CTA (CTA from 768px up; 5.13 carries it on mobile); condenses on scroll | M |
 
 ## 6. Design system
 
@@ -104,14 +104,14 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 |---|---|---|
 | 7.1 | Header and favicon: `assets/brand/icon.svg` + Newsreader wordmark "Grant Rogers" | M |
 | 7.2 | Apple touch icon: `assets/brand/icon-180.png`; full favicon set generated from `icon.svg` | M |
-| 7.3 | Full figurative logo (`logo-currentcolor.svg`) only in footer and About; never in hero; never under 64px | M |
+| 7.3 | Full figurative logo (`logo-currentcolor.svg`) only in the footer and on the About page (4.3); never in the hero or the home About teaser; never under 64px | M |
 | 7.4 | Logo files referenced from one place, so a refined logo is a file swap | M |
 
 ## 8. Imagery
 
 | ID | Requirement | P |
 |---|---|---|
-| 8.1 | Photo slots exactly as listed in `knowledge/photo-slots.md` (IDs P01–P18, fixed file names in `src/assets/photos/`); dropping a file in replaces the placeholder; pillar slots follow pillar IDs in content | M |
+| 8.1 | Photo slots exactly as listed in `knowledge/photo-slots.md` (IDs P01–P18, fixed file names in `src/assets/photos/`); dropping a file in replaces the placeholder; `.jpg`, `.jpeg`, `.png` and `.webp` all accepted (iPhone HEIC must be exported as JPG first — explained in `CONTENT-EDITING.md`); pillar slots follow pillar IDs in content | M |
 | 8.2 | **Descriptive placeholders**: each empty slot shows a designed panel (palette texture tone, thin rule, orbit motif) with the slot's brief from `photo-slots.md` in mono type — subject, framing, orientation, setting, mood — in the page's language. Correct aspect ratio so swapping in the real photo causes no layout change. Never stock, never grey boxes | M |
 | 8.3 | Alt text in both languages from content files | M |
 | 8.4 | Art direction: hero uses different crops for desktop and mobile | M |
@@ -120,14 +120,14 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 
 | ID | Requirement | P |
 |---|---|---|
-| 9.1 | Breath pacer: SVG orbit/ring (per 6.6) expands 4s, contracts 6s, localised "in"/"out" labels; ambient in hero | M |
+| 9.1 | Breath pacer: SVG orbit/ring (per 6.6) expands 4s, contracts 6s, localised "in"/"out" labels; ambient in hero, with a visible pause control for the ambient loop (WCAG 2.2.2) | M |
 | 9.2 | Tap/click starts "60 seconds with me": guided cycle with gentle count and a short completion message; pause/stop control; keyboard operable; `aria-live="polite"` updates | M |
 | 9.3 | Pacer reused in the Breathe pillar | S |
 | 9.4 | Under reduced motion the pacer uses no scaling: text cues and a slow opacity change only, still usable | M |
 | 9.5 | Headline line-by-line masked reveal, once per page load | M |
 | 9.6 | Section entrances varied by purpose (never one identical fade everywhere) | M |
 | 9.7 | Image clip reveals; parallax ≤ 8% | S |
-| 9.8 | Programme timeline pinning only at ≥1024px | M |
+| 9.8 | Programme timeline pinning only at ≥1024px; native scroll speed and distance are never altered (no scroll-jacking, no snapping) | M |
 | 9.9 | Lenis smooth scroll only on desktop fine-pointer devices | M |
 | 9.10 | One motion utility controls everything and honours `prefers-reduced-motion` (content appears immediately) | M |
 | 9.11 | Animate only transform and opacity; zero layout shift | M |
@@ -172,7 +172,7 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 | 13.5 | Structured data: Person, ProfessionalService (online, worldwide, en/es), FAQPage | S |
 | 13.6 | One `h1` per page; semantic landmarks | M |
 | 13.7 | Sexual wellbeing never in hero, page titles, meta descriptions or share images | M |
-| 13.8 | **Preview is not indexed**: while flag `indexing` is off, every page has `noindex, nofollow` and robots.txt disallows all. Flipping the flag at launch restores indexing | M |
+| 13.8 | **Preview is not indexed**: while flag `indexing` is off, every page (design prototypes included) has `noindex, nofollow` and robots.txt disallows all, from the very first deploy. Flipping the flag at launch restores indexing | M |
 
 ## 14. Accessibility
 
