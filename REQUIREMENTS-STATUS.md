@@ -9,7 +9,7 @@ Last updated: Phase 0, 4 November 2026.
 | 1.1 | M | all | done | Read CLAUDE.md, brief.md, requirements.md and all of knowledge/ (Phase 0) |
 | 1.2 | M | all | done | Fixes applied and decisions D1–D5 answered (below) |
 | 1.3 | M | all | done | `content/en/home.md` and `content/en/pages.md`: `status: approved` after two rounds (Grant, 4 Nov 2026) |
-| 1.4 | M | all | blocked | No prototypes yet; `design/CHOSEN.md` missing |
+| 1.4 | M | all | blocked | Prototypes A, B, C built (`design/prototype-*.html`, screenshots in `review/prototypes/`); waiting for Grant's choice |
 | 1.5 | M | all | todo | Applies throughout |
 | 1.6 | M | all | done | This file |
 | 1.7 | M | all | todo | Applies throughout |
