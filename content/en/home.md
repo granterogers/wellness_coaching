@@ -1,5 +1,5 @@
 ---
-status: draft
+status: approved
 language: en
 round: 2
 updated: 2026-11-04
@@ -129,6 +129,8 @@ A routine you own, with plans for travel and busy periods.
 ## Voice
 
 **Intro line:** One minute of a session, in my voice.
+
+[[PLACEHOLDER: voice clip — Grant records this script (20–30 seconds) later; file goes in src/assets/audio/voice-en.mp3. Until then the site shows an audio placeholder here.]]
 
 **Transcript:** Let's take a minute together. Sit however you are; there's nothing to get right. Breathe in through your nose for four… and let it go, slowly, for six. Again. In for four… and out for six, a little longer than feels natural. Notice your shoulders. Let them drop. One more. In… and all the way out. That's it. That's the whole practice. You can do it anywhere.
 

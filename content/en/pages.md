@@ -1,5 +1,5 @@
 ---
-status: draft
+status: approved
 language: en
 round: 2
 updated: 2026-11-04
