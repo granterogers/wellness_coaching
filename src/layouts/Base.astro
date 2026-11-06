@@ -1,6 +1,8 @@
 ---
 import '../styles/global.css';
 import { siteData } from '../lib/site';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 import { type Lang, url } from '../i18n';
 
 interface Props { lang: Lang; title: string; description: string; path?: string; draftTranslation?: boolean }
@@ -23,11 +25,17 @@ const alt = (l: Lang) => new URL(url(`${l}/${path}`), Astro.site).href;
   <link rel="alternate" hreflang="x-default" href={alt('en')} />
   <meta name="color-scheme" content="light dark" />
   <link rel="icon" href={url('brand/icon.svg')} type="image/svg+xml" />
+  <link rel="icon" href={url('brand/favicon-32.png')} sizes="32x32" type="image/png" />
   <link rel="apple-touch-icon" href={url('brand/icon-180.png')} />
+  <link rel="manifest" href={url('manifest.webmanifest')} />
   <script is:inline>try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t}catch(e){}</script>
   <slot name="head" />
 </head>
 <body>
+  <Header lang={lang} path={path} />
   <slot />
+  <Footer lang={lang} path={path} />
+  <slot name="after" />
+  <script>import '../scripts/site.ts';</script>
 </body>
 </html>

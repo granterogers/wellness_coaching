@@ -2,7 +2,7 @@
 
 Every ID in `knowledge/requirements.md` (121). Status: `todo` / `done` / `partial` / `blocked` / `later`. Updated at the end of every phase (1.6).
 
-Last updated: Phase 1, 6 November 2026.
+Last updated: Phase 2, 6 November 2026.
 
 | ID | P | Phase | Status | Evidence / notes |
 |---|---|---|---|---|
@@ -44,7 +44,7 @@ Last updated: Phase 1, 6 November 2026.
 | 4.5 | M | 5 | todo |  |
 | 4.6 | M | 5 | todo |  |
 | 4.7 | M | 5 | todo |  |
-| 4.8 | M | 2 | todo |  |
+| 4.8 | M | 2 | done | Root meta-refresh to /en/ (`src/pages/index.astro`); dismissible "Ver en español" for Spanish browsers, session-only (`site.ts`) |
 | 5.1 | M | 3 | todo |  |
 | 5.2 | M | 3 | todo |  |
 | 5.3 | M | 3 | todo |  |
@@ -56,22 +56,22 @@ Last updated: Phase 1, 6 November 2026.
 | 5.9 | L | 5 | later | Not active in the preview |
 | 5.10 | M | 3 | todo |  |
 | 5.11 | M | 3 | todo |  |
-| 5.12 | M | 2 | todo |  |
+| 5.12 | M | 2 | partial | `Footer.astro`; legal links appear when Privacy/Terms pages exist (Phase 5) |
 | 5.13 | M | 3 | todo |  |
-| 5.14 | M | 2 | todo |  |
-| 6.1 | M | 2 | todo |  |
-| 6.2 | S | 2 | todo |  |
-| 6.3 | M | 2 | todo |  |
-| 6.4 | M | 2 | todo |  |
-| 6.5 | M | 2 | todo |  |
-| 6.6 | M | 2, 4 | todo |  |
+| 5.14 | M | 2 | done | `src/components/Header.astro`; condenses on scroll; CTA from 768px |
+| 6.1 | M | 2 | partial | Tokens and components from prototype D — `src/styles/`; sections in Phase 3 |
+| 6.2 | S | 2 | done | Prototypes A–D published at /design/ (`scripts/copy-prototypes.mjs`) |
+| 6.3 | M | 2 | done | Fluid scale: display 44–88px, H2 36–60px, body 17–19px — `src/styles/base.css`, `components.css` |
+| 6.4 | M | 2 | done | `.grid` 12/4 columns, 8px spacing tokens — `components.css` |
+| 6.5 | M | 2 | done | Hairline rules throughout, no shadows — `components.css` |
+| 6.6 | M | 2, 4 | partial | Orbit in pacer and night section (Phase 3) |
 | 6.7 | M | 6 | todo |  |
 | 6.8 | M | 6 | todo |  |
-| 6.9 | M | 2 | todo |  |
-| 7.1 | M | 2 | todo |  |
-| 7.2 | M | 2 | todo |  |
-| 7.3 | M | 2 | todo |  |
-| 7.4 | M | 2 | todo |  |
+| 6.9 | M | 2 | done | Light (A) / dark (C) tokens, device default, header toggle, localStorage, applied before paint — `tokens.css`, `Base.astro`, `src/scripts/site.ts`; review/phase-2 |
+| 7.1 | M | 2 | done | Inline icon + Newsreader wordmark; favicon from icon.svg — `Header.astro`, `Base.astro` |
+| 7.2 | M | 2 | done | `scripts/favicons.mjs` → public/brand (32, 180, 192, 512) + manifest |
+| 7.3 | M | 2 | done | Full logo only in footer (and About page), 96px — `Footer.astro` |
+| 7.4 | M | 2 | done | `src/lib/brand.ts` is the only place logo files are referenced |
 | 8.1 | M | 3 | todo |  |
 | 8.2 | M | 3 | todo |  |
 | 8.3 | M | 3 | todo |  |
@@ -98,8 +98,8 @@ Last updated: Phase 1, 6 November 2026.
 | 11.4 | S | 5 | todo |  |
 | 11.5 | M | 5 | todo |  |
 | 12.1 | M | 1 | done | `/en/` and `/es/` routes — `src/pages/[lang]/` |
-| 12.2 | M | 2 | todo |  |
-| 12.3 | M | 2 | todo |  |
+| 12.2 | M | 2 | done | "EN / ES" text links to the same page, `aria-current` — `Header.astro`, `Footer.astro` |
+| 12.3 | M | 2 | done | `lang` en-GB / es-ES per page — `Base.astro` |
 | 12.4 | S | 3 | todo |  |
 | 12.5 | M | 3 | todo |  |
 | 13.1 | M | 5 | todo |  |
@@ -128,7 +128,7 @@ Last updated: Phase 1, 6 November 2026.
 | 16.5 | M | 6 | todo |  |
 | 16.6 | S | 6 | todo |  |
 
-Totals: done 21, later 2, partial 2, todo 96
+Totals: done 34, later 2, partial 5, todo 80
 
 ## Phase 0 log — fixes applied
 

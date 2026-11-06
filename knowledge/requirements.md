@@ -89,7 +89,7 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 | ID | Requirement | P |
 |---|---|---|
 | 6.1 | Implement `knowledge/design-system.md`, matching the chosen prototype | M |
-| 6.2 | Palette of the chosen prototype as default; the other palettes as alternate themes via `?theme=a|b|c` (preview only, for comparison) | S |
+| 6.2 | Palette comparisons stay available as the published prototypes at `/design/` (preview only). The `?theme=a|b|c` switch is dropped: light and dark mode (6.9) replace it (Grant chose D, 6 Nov 2026) | S |
 | 6.3 | Fluid type scale; serif display, sans body, mono labels as specified | M |
 | 6.4 | 12-column grid (4 on mobile), 8px spacing scale, generous section padding, asymmetric compositions | M |
 | 6.5 | Hairline rules instead of shadowed cards; figure captions in mono ("FIG. 02 — …") | M |
