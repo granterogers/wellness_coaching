@@ -1,8 +1,6 @@
-const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+import { CYCLE, level, reduceMotion as reduce } from './breath';
 const ZONES = ['feet', 'legs', 'hips', 'belly', 'chest', 'arms', 'shoulders', 'face'];
-const AMBIENT = 3500, GUIDED = 15000, CYCLE = 10000, IN = 4000;
-const ease = (x: number) => 0.5 - 0.5 * Math.cos(Math.PI * x);
-const level = (t: number) => (t < IN ? ease(t / IN) : 1 - ease((t - IN) / (CYCLE - IN)));
+const AMBIENT = 3500, GUIDED = 15000;
 
 document.querySelectorAll<HTMLElement>('[data-scan]').forEach((box) => {
   const section = box.closest('section')!;

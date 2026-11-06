@@ -1,8 +1,6 @@
 // Breath pacer behaviour. The ambient loop has a visible pause (WCAG 2.2.2); the guided minute is six 10-second breaths.
-const reduce = matchMedia('(prefers-reduced-motion: reduce)');
-const IN = 4000, CYCLE = 10000, GUIDED = 60000;
-const ease = (x: number) => 0.5 - 0.5 * Math.cos(Math.PI * x);
-const level = (t: number) => (t < IN ? ease(t / IN) : 1 - ease((t - IN) / (CYCLE - IN)));
+import { IN, CYCLE, level, reduceMotion as reduce } from './breath';
+const GUIDED = 60000;
 
 document.querySelectorAll<HTMLElement>('[data-pacer]').forEach((fig) => {
   const S = JSON.parse(fig.dataset.strings!) as Record<string, string>;

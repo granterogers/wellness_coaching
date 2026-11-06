@@ -1,3 +1,4 @@
+export {};
 // Site-wide behaviour. Everything works without it; this only adds polish.
 const root = document.documentElement;
 
