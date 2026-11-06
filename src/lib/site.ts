@@ -16,3 +16,10 @@ export async function homeCopy(lang: Lang) {
 export async function photoSlots() {
   return (await getCollection('photos')).map((p) => ({ id: p.id, ...p.data }));
 }
+
+export async function pageCopy(lang: Lang, page: string) {
+  const entry = (await getEntry('pages', `${lang}/${page}`)) ?? (await getEntry('pages', `en/${page}`));
+  if (!entry) throw new Error(`content/en/pages.md has no "# ${page}" page`);
+  const d = entry.data;
+  return { ...d, section: (title: string) => d.sections.find((s) => s.title === title) };
+}

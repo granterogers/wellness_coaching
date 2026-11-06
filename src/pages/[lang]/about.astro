@@ -1,0 +1,43 @@
+---
+import Base from '../../layouts/Base.astro';
+import Photo from '../../components/Photo.astro';
+import { pageCopy, siteData } from '../../lib/site';
+import { fullLogoUrl } from '../../lib/brand';
+import { inline } from '../../lib/copy';
+import { type Lang, url } from '../../i18n';
+
+export function getStaticPaths() { return [{ params: { lang: 'en' } }, { params: { lang: 'es' } }]; }
+const lang = Astro.params.lang as Lang;
+const p = await pageCopy(lang, 'about');
+const site = await siteData();
+const story = p.section('Story'), notebook = p.section('Lab notebook'), taught = p.section("Where I've taught");
+---
+<Base lang={lang} title={p.labels['Page title']} description={p.labels['Meta description']} path="about/" draftTranslation={p.translation_status === 'draft'}>
+  <main id="main">
+    <section class="page-head"><div class="wrap grid">
+      <div class="about-page-text">
+        <h1 class="display">{p.labels['Heading']}</h1>
+        <div class="prose" style="margin-top:32px">{story?.paras.map((t) => <p>{t}</p>)}</div>
+      </div>
+      <div class="about-page-photos">
+        <Photo slot="P03" lang={lang} tint="t5" sizes="(min-width: 1024px) 30vw, 100vw" eager />
+        <Photo slot="P04" lang={lang} tint="t3" sizes="(min-width: 1024px) 30vw, 100vw" />
+      </div>
+    </div></section>
+    <section class="section"><div class="wrap grid">
+      <h2 class="h2 about-nb-h">{notebook?.title}</h2>
+      <div class="about-nb">
+        <ul class="facts">{notebook?.list.map((f) => <li set:html={inline(f)} />)}</ul>
+        <a class="more draw" href={site.publications.url} rel="noopener">{notebook?.labels['Publications link']} ↗</a>
+      </div>
+    </div></section>
+    <section class="section"><div class="wrap grid">
+      <h2 class="h2 about-nb-h">{taught?.title}</h2>
+      <div class="about-nb">
+        <ul class="taught">{taught?.paras.join(' ').split('·').map((x) => <li>{x.trim()}</li>)}</ul>
+        <span class="logo-full logo-about" role="img" aria-label={`${site.name} logo`} style={`--logo:url(${fullLogoUrl})`}></span>
+        <p class="ctas"><a class="btn" href={url(`${lang}/book/`)}>{p.labels['Button']}</a></p>
+      </div>
+    </div></section>
+  </main>
+</Base>

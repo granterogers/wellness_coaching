@@ -1,0 +1,29 @@
+---
+// Breath pacer (9.1, 9.2, 9.4): 4 s in, 6 s out; tap for a guided minute; pausable; announced politely; no scaling under reduced motion.
+import { t, type Lang } from '../i18n';
+interface Props { lang: Lang; hint: string }
+const { lang, hint } = Astro.props;
+const s = {
+  in: t(lang, 'pacer.in'), out: t(lang, 'pacer.out'), breathIn: t(lang, 'pacer.breathIn'), breathOut: t(lang, 'pacer.breathOut'),
+  progress: t(lang, 'pacer.progress'), done: t(lang, 'pacer.done'), stopped: t(lang, 'pacer.stopped'),
+  pause: t(lang, 'pacer.pause'), resume: t(lang, 'pacer.resume'),
+};
+---
+<figure class="pacer" data-pacer data-strings={JSON.stringify(s)}>
+  <button class="pacer-btn" type="button" aria-describedby={`pacer-hint-${lang}`} data-pacer-start>
+    <svg viewBox="-200 -200 400 400" aria-hidden="true" focusable="false">
+      <g transform="rotate(-28)"><ellipse class="pacer-orbit" rx="186" ry="76" /></g>
+      <g class="pacer-ring"><circle class="pacer-glow" r="118" /><circle class="pacer-circle" r="118" /></g>
+      <g transform="rotate(-28)"><circle class="pacer-electron" r="7" cx="186" cy="0" /></g>
+    </svg>
+    <span class="pacer-label" data-pacer-label>{s.in}</span>
+  </button>
+  <figcaption>
+    <p class="pacer-hint" id={`pacer-hint-${lang}`} data-pacer-hint>{hint}</p>
+    <p class="pacer-meta"><span class="mono">{t(lang, 'pacer.timing')}</span>
+      <button type="button" class="link-btn mono" data-pacer-pause aria-pressed="false">{s.pause}</button>
+      <button type="button" class="link-btn mono" data-pacer-stop hidden>{t(lang, 'pacer.stop')}</button></p>
+  </figcaption>
+  <p class="sr-only" aria-live="polite" data-pacer-live></p>
+</figure>
+<script>import '../scripts/pacer.ts';</script>

@@ -103,6 +103,7 @@
   .hero { padding: var(--s8) 0; }
   .hero-pacer { margin-top: var(--s6); }
   .hero-pacer .pacer { max-width: 280px; margin: 0 auto; }
+  @media (max-width: 1023px) { .hero-pacer figcaption { text-align: center; } .hero-pacer .pacer-meta { justify-content: center; } }
   .hero-photo { margin-top: var(--s6); }
   @media (min-width: 1024px) {
     .hero { padding-top: var(--s12); }
@@ -205,7 +206,8 @@
 
   /* Night section: final CTA (5.11) */
   .night { background: var(--night); color: var(--night-ink); --ink: var(--night-ink); --muted: var(--night-muted); --rule: var(--night-rule); --accent: var(--warm); }
-  .final { padding: var(--s16) 0 var(--s12); overflow: hidden; border-top: 0 !important; }
+  .final { position: relative; padding: var(--s16) 0 var(--s12); overflow: hidden; border-top: 0 !important; }
+  .hero, .night { position: relative; }
   .final-bg { position: absolute; inset: 0; opacity: .6; }
   .final-bg .photo, .final-bg .placeholder, .final-bg img { height: 100%; aspect-ratio: auto; border-radius: 0; }
   .final-bg .placeholder { --glow: 8%; }
@@ -250,4 +252,36 @@
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
+
+@layer components {
+  .hero-photo picture img { aspect-ratio: 4 / 5; object-fit: cover; width: 100%; height: auto; border-radius: 4px; }
+  @media (min-width: 768px) { .hero-photo picture img { aspect-ratio: 16 / 9; } }
+
+  /* Voice clip (5.7, 10.x): placeholder until Grant's recording exists */
+  .voice-intro { margin-bottom: var(--s3); }
+  .audio-placeholder { display: flex; align-items: center; gap: var(--s3); padding: var(--s3); border: 1px dashed var(--rule-strong); border-radius: 999px; max-width: 520px; color: var(--muted); }
+  .audio-placeholder p { margin: 0; white-space: nowrap; }
+  .wave { flex: 1; height: 28px; }
+  .wave path { fill: none; stroke: var(--accent); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+  .voice-transcript { margin-top: var(--s4); }
+  .voice-transcript .mono { color: var(--muted); margin: 0 0 var(--s1); }
+  .voice-transcript p:last-child { font-family: var(--serif); font-style: italic; font-size: 1.125rem; max-width: 36em; margin: 0; }
+  @media (min-width: 1024px) { .voice-player { grid-column: 1 / 6; } .voice-transcript { grid-column: 7 / -1; margin: 0; } }
+}
+
+@layer components {
+  .page-head .display { font-size: clamp(2.75rem, 2rem + 3vw, 4.75rem); }
+  .about-page-photos { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s2); margin-top: var(--s6); }
+  .about-nb .facts { margin-top: 0; }
+  .taught { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+  .taught li { padding: 12px 0; border-bottom: 1px solid var(--rule); }
+  .logo-about { width: 120px; margin-top: var(--s6); }
+  .book-box { padding: var(--s12) 0; }
+  .book-box .btn-ghost { color: var(--night-ink); border-color: var(--night-muted); }
+  @media (min-width: 1024px) {
+    .about-page-text { grid-column: 1 / 8; }
+    .about-page-photos { grid-column: 9 / -1; grid-template-columns: 1fr; margin: 0; }
+    .about-nb-h { grid-column: 1 / 5; } .about-nb { grid-column: 6 / -1; }
+  }
 }

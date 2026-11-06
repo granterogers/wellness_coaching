@@ -74,7 +74,7 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 | 5.3 | Approach: three principles, each with a one-line reason; a different layout from 5.2 (e.g. numbered annotations beside P05), never three icon cards | M |
 | 5.4 | Pillars side by side, like columns (Grant, 6 Nov 2026): desktop = one row of columns (wraps to rows of 4 above 6 pillars), each with photo, number, name, description, example practice and its reason, all visible; under 1024px = a horizontal swipeable row with the next pillar peeking in, keyboard-scrollable. No decorative diagram. Sexual wellbeing only inside its pillar | M |
 | 5.5 | Programme: four phases as one simple left-to-right timeline on desktop (line with four numbered points, text under each), a vertical stepper on mobile; nothing pinned; inclusions row; no prices ("investment is discussed on our call") | M |
-| 5.6 | About teaser: portrait, short story, mono fact list, link to 4.3 | M |
+| 5.6 | About teaser: portrait, short story, fact list on hairlines (sans, not mono — Grant's "noisy" feedback), link to 4.3 | M |
 | 5.7 | Voice clip (10.x), shown when `voiceClip` flag is on; until Grant's recording exists, a designed audio placeholder ("Recording to come") with the transcript stands in its place | S |
 | 5.8 | Proof: up to three first-name stories (before / what we did / now) + single quotes elsewhere; looks right with 1–2; hidden while `testimonials` is off | S |
 | 5.9 | Free practice email capture, flag `freePractice` | L |

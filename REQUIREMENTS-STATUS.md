@@ -2,7 +2,7 @@
 
 Every ID in `knowledge/requirements.md` (121). Status: `todo` / `done` / `partial` / `blocked` / `later`. Updated at the end of every phase (1.6).
 
-Last updated: Phase 2, 6 November 2026.
+Last updated: Phase 3, 6 November 2026.
 
 | ID | P | Phase | Status | Evidence / notes |
 |---|---|---|---|---|
@@ -12,7 +12,7 @@ Last updated: Phase 2, 6 November 2026.
 | 1.4 | M | all | done | `design/CHOSEN.md` names `prototype-d.html` (Grant, 6 Nov 2026) |
 | 1.5 | M | all | todo | Applies throughout |
 | 1.6 | M | all | done | This file |
-| 1.7 | M | all | todo | Applies throughout |
+| 1.7 | M | all | partial | review/phase-1, phase-2, phase-3 (+ REVIEW.md) |
 | 1.8 | M | all | todo | Applies throughout |
 | 1.9 | M | all | todo | Applies throughout |
 | 1.10 | M | all | todo | Applies throughout |
@@ -29,42 +29,42 @@ Last updated: Phase 2, 6 November 2026.
 | 2.10 | M | 1 | done | `DEPLOY.md` |
 | 2.11 | M | 1 | done | `npm run build`, `npm run check`, `npm run shots` — `package.json`, `scripts/` |
 | 2.12 | M | 1 | done | No backend, cookies or tracking; theme choice in localStorage only |
-| 3.1 | M | 3 | todo |  |
+| 3.1 | M | 3 | done | Copy read word for word from `content/<lang>/home.md` — `src/lib/copy.ts` |
 | 3.2 | M | 1 | done | `src/content.config.ts` (schemas fail the build; en copy must be approved) |
-| 3.3 | M | 3 | todo |  |
+| 3.3 | M | 3 | done | Pillars only from content; grid uses n columns (≤6) or rows of 4 (7–8) — `src/pages/[lang]/index.astro` |
 | 3.4 | M | 1 | done | `content/shared/site.json` |
 | 3.5 | M | 1 | done | Flags in `site.json` (voiceClip on per Grant) |
-| 3.6 | M | 3 | todo | Spain Spanish, tú (D2) |
+| 3.6 | M | 3 | done | `content/es/home.md`, `content/es/pages.md` — Spain Spanish, tú, `translation_status: draft` |
 | 3.7 | M | 1 | done | `src/i18n/en.json`, `es.json` |
 | 3.8 | M | 6 | todo |  |
-| 4.1 | M | 5 | todo |  |
+| 4.1 | M | 5 | done | `src/pages/[lang]/index.astro` |
 | 4.2 | S | 5 | todo |  |
-| 4.3 | S | 5 | todo |  |
+| 4.3 | S | 5 | done | `src/pages/[lang]/about.astro`: story, lab notebook, where I've taught, full logo |
 | 4.4 | L | 5 | later | Not active in the preview |
-| 4.5 | M | 5 | todo |  |
+| 4.5 | M | 5 | done | `src/pages/[lang]/book.astro` with honest fallback |
 | 4.6 | M | 5 | todo |  |
 | 4.7 | M | 5 | todo |  |
 | 4.8 | M | 2 | done | Root meta-refresh to /en/ (`src/pages/index.astro`); dismissible "Ver en español" for Spanish browsers, session-only (`site.ts`) |
-| 5.1 | M | 3 | todo |  |
-| 5.2 | M | 3 | todo |  |
-| 5.3 | M | 3 | todo |  |
-| 5.4 | M | 3 | todo |  |
-| 5.5 | M | 3 | todo |  |
-| 5.6 | M | 3 | todo |  |
-| 5.7 | S | 5 | todo |  |
+| 5.1 | M | 3 | done | Hero: offer-first headline, subhead, 2 CTAs, art-directed photo slot, pacer — review/phase-3 |
+| 5.2 | M | 3 | done | Statements on hairlines beside P13 — review/phase-3 |
+| 5.3 | M | 3 | done | Numbered principles, heading left — review/phase-3 |
+| 5.4 | M | 3 | done | Pillar columns side by side; swipe row under 1024px — review/phase-3 |
+| 5.5 | M | 3 | done | Left-to-right timeline, vertical stepper on mobile, inclusions, price line |
+| 5.6 | M | 3 | done | About teaser with P03, story, facts, link to /about/ |
+| 5.7 | S | 5 | partial | Section with audio placeholder + transcript; real player in Phase 5 |
 | 5.8 | S | 5 | todo |  |
 | 5.9 | L | 5 | later | Not active in the preview |
-| 5.10 | M | 3 | todo |  |
-| 5.11 | M | 3 | todo |  |
+| 5.10 | M | 3 | done | Native `<details>` accordion + FAQPage JSON-LD |
+| 5.11 | M | 3 | done | Night section with P16, orbit, booking + email + WhatsApp |
 | 5.12 | M | 2 | partial | `Footer.astro`; legal links appear when Privacy/Terms pages exist (Phase 5) |
-| 5.13 | M | 3 | todo |  |
+| 5.13 | M | 3 | done | `[data-mobile-cta]`, tested: hidden over hero and final CTA |
 | 5.14 | M | 2 | done | `src/components/Header.astro`; condenses on scroll; CTA from 768px |
-| 6.1 | M | 2 | partial | Tokens and components from prototype D — `src/styles/`; sections in Phase 3 |
+| 6.1 | M | 2 | done | Matches prototype D — review/phase-3 |
 | 6.2 | S | 2 | done | Prototypes A–D published at /design/ (`scripts/copy-prototypes.mjs`) |
 | 6.3 | M | 2 | done | Fluid scale: display 44–88px, H2 36–60px, body 17–19px — `src/styles/base.css`, `components.css` |
 | 6.4 | M | 2 | done | `.grid` 12/4 columns, 8px spacing tokens — `components.css` |
 | 6.5 | M | 2 | done | Hairline rules throughout, no shadows — `components.css` |
-| 6.6 | M | 2, 4 | partial | Orbit in pacer and night section (Phase 3) |
+| 6.6 | M | 2, 4 | done | Orbit in pacer and night section only |
 | 6.7 | M | 6 | todo |  |
 | 6.8 | M | 6 | todo |  |
 | 6.9 | M | 2 | done | Light (A) / dark (C) tokens, device default, header toggle, localStorage, applied before paint — `tokens.css`, `Base.astro`, `src/scripts/site.ts`; review/phase-2 |
@@ -72,14 +72,14 @@ Last updated: Phase 2, 6 November 2026.
 | 7.2 | M | 2 | done | `scripts/favicons.mjs` → public/brand (32, 180, 192, 512) + manifest |
 | 7.3 | M | 2 | done | Full logo only in footer (and About page), 96px — `Footer.astro` |
 | 7.4 | M | 2 | done | `src/lib/brand.ts` is the only place logo files are referenced |
-| 8.1 | M | 3 | todo |  |
-| 8.2 | M | 3 | todo |  |
-| 8.3 | M | 3 | todo |  |
-| 8.4 | M | 3 | todo |  |
-| 9.1 | M | 4 | todo |  |
-| 9.2 | M | 4 | todo |  |
+| 8.1 | M | 3 | done | `content/shared/photos.json` (P01–P18), `src/components/Photo.astro` picks up `src/assets/photos/<file>.*` |
+| 8.2 | M | 3 | done | Warm tonal placeholders with one short line, correct ratio — `Photo.astro` |
+| 8.3 | M | 3 | done | Alt text en/es in `photos.json` |
+| 8.4 | M | 3 | done | `HeroPhoto.astro`: 16:9 from 768px, 4:5 on phones, one `<picture>` |
+| 9.1 | M | 4 | partial | Pacer works (4 s / 6 s, ambient, pause); motion polish in Phase 4 |
+| 9.2 | M | 4 | done | Guided minute, count, completion message, pause/stop, keyboard, aria-live — tested |
 | 9.3 | S | 4 | todo |  |
-| 9.4 | M | 4 | todo |  |
+| 9.4 | M | 4 | done | Reduced motion: opacity only, no scaling — tested |
 | 9.5 | M | 4 | todo |  |
 | 9.6 | M | 4 | todo |  |
 | 9.7 | S | 4 | todo |  |
@@ -92,16 +92,16 @@ Last updated: Phase 2, 6 November 2026.
 | 10.1 | S | 5 | todo |  |
 | 10.2 | S | 5 | todo |  |
 | 10.3 | S | 5 | todo |  |
-| 11.1 | M | 3 | todo |  |
-| 11.2 | M | 3 | todo |  |
-| 11.3 | M | 3 | todo |  |
+| 11.1 | M | 3 | done | Contact from `site.json`; email assembled in JS, readable fallback, not in page source |
+| 11.2 | M | 3 | done | All "Book a conversation" → /book/ with email/WhatsApp fallback while `bookingUrl` is empty |
+| 11.3 | M | 3 | done | wa.me link with localised message; hidden if number empty |
 | 11.4 | S | 5 | todo |  |
 | 11.5 | M | 5 | todo |  |
 | 12.1 | M | 1 | done | `/en/` and `/es/` routes — `src/pages/[lang]/` |
 | 12.2 | M | 2 | done | "EN / ES" text links to the same page, `aria-current` — `Header.astro`, `Footer.astro` |
 | 12.3 | M | 2 | done | `lang` en-GB / es-ES per page — `Base.astro` |
-| 12.4 | S | 3 | todo |  |
-| 12.5 | M | 3 | todo |  |
+| 12.4 | S | 3 | done | "Traducción en revisión" note on draft Spanish pages — `Base.astro` |
+| 12.5 | M | 3 | done | No overflow at 360–1440px in Spanish — review/phase-3/REVIEW.md |
 | 13.1 | M | 5 | todo |  |
 | 13.2 | M | 5 | todo |  |
 | 13.3 | S | 5 | todo |  |
@@ -128,7 +128,7 @@ Last updated: Phase 2, 6 November 2026.
 | 16.5 | M | 6 | todo |  |
 | 16.6 | S | 6 | todo |  |
 
-Totals: done 34, later 2, partial 5, todo 80
+Totals: done 62, later 2, partial 6, todo 51
 
 ## Phase 0 log — fixes applied
 

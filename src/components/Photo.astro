@@ -1,0 +1,26 @@
+---
+// A photo slot (requirement 8.1): shows the real photo once src/assets/photos/<file>.(jpg|jpeg|png|webp) exists,
+// otherwise a designed placeholder in the right aspect ratio, so swapping in the photo causes no layout shift (8.2).
+import { Picture } from 'astro:assets';
+import { photoSlots } from '../lib/site';
+import { t, type Lang } from '../i18n';
+interface Props { slot: string; lang: Lang; tint?: string; sizes?: string; class?: string; eager?: boolean }
+const { slot, lang, tint = 't1', sizes = '100vw', class: cls, eager = false } = Astro.props;
+const all = await photoSlots();
+// "pillar:<id>" picks the slot whose pillar matches the pillar ID in content (8.1)
+const s = slot.startsWith('pillar:') ? all.find((p) => p.pillar === slot.slice(7)) : all.find((p) => p.id === slot);
+if (!s && slot.startsWith('pillar:')) console.warn(`No photo slot for ${slot}; add one to content/shared/photos.json`);
+if (!s && !slot.startsWith('pillar:')) throw new Error(`Unknown photo slot ${slot} (see content/shared/photos.json)`);
+const files = import.meta.glob<{ default: ImageMetadata }>('/src/assets/photos/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true });
+const match = s && Object.entries(files).find(([k]) => k.split('/').pop()!.replace(/\.[^.]+$/, '') === s.file);
+---
+{s && <figure class:list={['photo', cls]} style={`--ratio:${s.ratio};--tint:var(--${tint})`}>
+  {match ? (
+    <Picture src={match[1].default} alt={s.alt[lang]} formats={['avif', 'webp']} widths={[480, 800, 1200, 1600]} sizes={sizes}
+      loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : 'auto'} />
+  ) : (
+    <div class="placeholder" role="img" aria-label={`${t(lang, 'photo.toCome')}: ${s.short[lang]}`}>
+      <p class="placeholder-label" aria-hidden="true"><span class="mono">{t(lang, 'photo.toCome')}</span>{s.short[lang]}</p>
+    </div>
+  )}
+</figure>}

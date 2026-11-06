@@ -3,7 +3,7 @@ import { defineCollection } from 'astro:content';
 import { file } from 'astro/loaders';
 import { z } from 'astro/zod';
 import { readFileSync } from 'node:fs';
-import { loadHome, homeLanguages } from './lib/copy';
+import { loadHome, homeLanguages, loadPages, pageLanguages } from './lib/copy';
 
 const text = z.string().min(1);
 
@@ -48,12 +48,12 @@ const site = defineCollection({
   loader: async () => [{ id: 'site', ...JSON.parse(readFileSync('content/shared/site.json', 'utf8')) }],
   schema: z.object({
     name: text,
-    email: z.string().email(),
+    email: z.email(),
     whatsapp: z.string().regex(/^\d*$/, 'WhatsApp number: digits only, with country code, e.g. 34603834206'),
-    bookingUrl: z.union([z.literal(''), z.string().url()]),
-    social: z.object({ instagram: z.string().url(), linkedin: z.string().url(), researchgate: z.string().url() }),
+    bookingUrl: z.union([z.literal(''), z.url()]),
+    social: z.object({ instagram: z.url(), linkedin: z.url(), researchgate: z.url() }),
     credentials: z.array(text),
-    publications: z.object({ count: z.number(), journals: z.array(text), url: z.string().url() }),
+    publications: z.object({ count: z.number(), journals: z.array(text), url: z.url() }),
     flags: z.object({
       freePractice: z.boolean(), voiceClip: z.boolean(), testimonials: z.boolean(),
       spanish: z.boolean(), contactForm: z.boolean(), indexing: z.boolean(),
@@ -73,4 +73,22 @@ const photos = defineCollection({
   }),
 });
 
-export const collections = { home, site, photos };
+const pages = defineCollection({
+  loader: async () => pageLanguages().flatMap(loadPages),
+  schema: z
+    .object({
+      lang: z.enum(['en', 'es']),
+      page: text,
+      status: z.enum(['draft', 'approved']).optional(),
+      translation_status: z.enum(['draft', 'approved']).optional(),
+      labels: z.record(z.string(), z.string()),
+      sections: z.array(z.object({
+        title: text, labels: z.record(z.string(), z.string()), paras: z.array(z.string()), list: z.array(z.string()),
+        items: z.array(z.object({ title: text, text: z.string() })),
+      })),
+    })
+    .refine((d) => d.lang !== 'en' || d.status === 'approved', { message: 'content/en/pages.md needs "status: approved" (requirement 1.3)' })
+    .refine((d) => !!d.labels['Page title'], { message: 'Every page in pages.md needs a **Page title:** line' }),
+});
+
+export const collections = { home, site, photos, pages };

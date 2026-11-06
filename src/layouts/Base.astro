@@ -3,10 +3,10 @@ import '../styles/global.css';
 import { siteData } from '../lib/site';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { type Lang, url } from '../i18n';
+import { type Lang, t, url } from '../i18n';
 
 interface Props { lang: Lang; title: string; description: string; path?: string; draftTranslation?: boolean }
-const { lang, title, description, path = '' } = Astro.props;
+const { lang, title, description, path = '', draftTranslation = false } = Astro.props;
 const site = await siteData();
 const canonical = new URL(url(`${lang}/${path}`), Astro.site).href;
 const alt = (l: Lang) => new URL(url(`${l}/${path}`), Astro.site).href;
@@ -33,6 +33,7 @@ const alt = (l: Lang) => new URL(url(`${l}/${path}`), Astro.site).href;
 </head>
 <body>
   <Header lang={lang} path={path} />
+  {draftTranslation && <p class="wrap review-note mono" lang="es">{t('es', 'es.review')}</p>}
   <slot />
   <Footer lang={lang} path={path} />
   <slot name="after" />

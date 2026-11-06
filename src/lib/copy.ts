@@ -7,6 +7,8 @@ import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
 export type Section = {
+  raw: string;
+  paras: string[];
   labels: Record<string, string>;
   items: { title: string; labels: Record<string, string>; text: string }[];
   list: string[];
@@ -40,29 +42,57 @@ function paragraphs(txt: string): string {
     .join(' ');
 }
 
-export function readSections(file: string, level = '## '): { fm: Record<string, string>; sections: Record<string, Section> } {
-  const [fm, raw] = frontmatter(readFileSync(file, 'utf8'));
-  const body = raw.replace(/<!--[\s\S]*?-->/g, '');
+function parseText(body: string, level: '# ' | '## '): Record<string, Section> {
   const sections: Record<string, Section> = {};
-  const parts = body.split(new RegExp(`^${level.replace(/ /, '\\s')}`, 'm')).slice(1);
+  const parts = body.split(new RegExp(`^${level === '# ' ? '#' : '##'}\\s`, 'm')).slice(1);
   for (const part of parts) {
     const nl = part.indexOf('\n');
-    const name = part.slice(0, nl).trim();
-    const rest = part.slice(nl + 1);
+    const name = (nl < 0 ? part : part.slice(0, nl)).trim();
+    const rest = nl < 0 ? '' : part.slice(nl + 1);
     const [head, ...items] = rest.split(/^###\s/m);
     sections[name] = {
+      raw: rest,
       labels: labels(rest),
       list: head.split('\n').filter((l) => l.startsWith('- ')).map((l) => l.slice(2).trim()),
       text: paragraphs(head),
+      paras: head.split(/\n\s*\n/).map(paragraphs).filter(Boolean),
       items: items.map((it) => {
         const i = it.indexOf('\n');
-        const t = i < 0 ? it : it.slice(i + 1);
+        const t = i < 0 ? '' : it.slice(i + 1);
         return { title: (i < 0 ? it : it.slice(0, i)).trim(), labels: labels(t), text: paragraphs(t) };
       }),
     };
   }
-  return { fm, sections };
+  return sections;
 }
+
+export function readSections(file: string, level: '# ' | '## ' = '## ') {
+  const [fm, raw] = frontmatter(readFileSync(file, 'utf8'));
+  return { fm, sections: parseText(raw.replace(/<!--[\s\S]*?-->/g, ''), level) };
+}
+
+/** content/<lang>/pages.md: "# Page" headings, each with labels and "## Section" blocks. */
+export function loadPages(lang: string) {
+  const file = join(ROOT, 'content', lang, 'pages.md');
+  const { fm, sections } = readSections(file, '# ');
+  return Object.entries(sections).map(([name, page]) => {
+    const head = page.raw.split(/^##\s/m)[0];
+    return {
+      id: `${lang}/${slug(name)}`,
+      lang,
+      page: slug(name),
+      status: fm.status,
+      translation_status: fm.translation_status,
+      labels: labels(head),
+      sections: Object.entries(parseText(page.raw, '## ')).map(([title, s]) => ({
+        title, labels: s.labels, paras: s.paras, list: s.list,
+        items: s.items.map((i) => ({ title: i.title, text: i.text })),
+      })),
+    };
+  });
+}
+
+export const pageLanguages = () => ['en', 'es'].filter((l) => existsSync(join(ROOT, 'content', l, 'pages.md')));
 
 const slug = (s: string) =>
   s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');

@@ -1,0 +1,30 @@
+---
+// Hero art direction (8.4): P01 (16:9) from 768px up, P02 (4:5) on phones — one <picture> once both photos exist.
+import { getImage } from 'astro:assets';
+import Photo from './Photo.astro';
+import { photoSlots } from '../lib/site';
+import type { Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const slots = await photoSlots();
+const wide = slots.find((p) => p.id === 'P01')!, tall = slots.find((p) => p.id === 'P02')!;
+const files = import.meta.glob<{ default: ImageMetadata }>('/src/assets/photos/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true });
+const find = (f: string) => Object.entries(files).find(([k]) => k.split('/').pop()!.replace(/\.[^.]+$/, '') === f)?.[1].default;
+const w = find(wide.file), n = find(tall.file);
+const wImg = w && (await getImage({ src: w, widths: [800, 1200, 1600, 2000], format: 'webp' }));
+const nImg = n && (await getImage({ src: n, widths: [400, 600, 800, 1000], format: 'webp' }));
+---
+{wImg && nImg ? (
+  <figure class="photo" style="--ratio:4/5">
+    <picture>
+      <source media="(min-width: 768px)" srcset={wImg.srcSet.attribute} sizes="(min-width: 1360px) 1300px, 100vw" />
+      <img src={nImg.src} srcset={nImg.srcSet.attribute} sizes="100vw" alt={wide.alt[lang]} fetchpriority="high" loading="eager"
+        style="aspect-ratio:auto" width={n!.width} height={n!.height} />
+    </picture>
+  </figure>
+) : (
+  <>
+    <Photo slot="P01" lang={lang} class="only-wide" eager sizes="(min-width: 1360px) 1300px, 100vw" />
+    <Photo slot="P02" lang={lang} class="only-narrow" eager />
+  </>
+)}

@@ -1,15 +1,153 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { homeCopy } from '../../lib/site';
-import { type Lang } from '../../i18n';
+import Pacer from '../../components/Pacer.astro';
+import Photo from '../../components/Photo.astro';
+import HeroPhoto from '../../components/HeroPhoto.astro';
+import { homeCopy, pageCopy, siteData } from '../../lib/site';
+import { type Lang, t, url } from '../../i18n';
 
 export function getStaticPaths() { return [{ params: { lang: 'en' } }, { params: { lang: 'es' } }]; }
 const lang = Astro.params.lang as Lang;
-const copy = await homeCopy(lang);
+const c = await homeCopy(lang);
+const meta = await pageCopy(lang, 'home');
+const site = await siteData();
+const book = url(`${lang}/book/`);
+const [, roman, italic] = c.hero.headline.match(/^(.*?)\s*\*(.*)\*\s*$/) ?? [, c.hero.headline, ''];
+const n = c.pillars.items.length;
+const cols = n <= 6 ? n : 4;
+const tints = ['t1', 't2', 't3', 't4', 't5', 't6'];
+const [mu, md] = site.email.split('@');
+const wa = site.whatsapp && `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(t(lang, 'contact.whatsappMessage'))}`;
+const faqLd = {
+  '@context': 'https://schema.org', '@type': 'FAQPage',
+  mainEntity: c.faq.items.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
 ---
-<Base lang={lang} title="Grant Rogers" description={copy.hero.subhead}>
-  <main id="main" class="wrap" style="padding:64px 0">
-    <p class="mono">Phase 1 scaffold · {lang}</p>
-    <h1 class="display" set:html={copy.hero.headline.replace(/\*([^*]+)\*/g, '<em>$1</em>')} />
+<Base lang={lang} title={meta.labels['Page title']} description={meta.labels['Meta description']} draftTranslation={lang === 'es' && c.translation_status === 'draft'}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+  <main id="main">
+    <section class="hero" data-hero aria-labelledby="h-hero">
+      <div class="wrap grid">
+        <div class="hero-text">
+          <h1 class="display" id="h-hero"><span class="line"><span>{roman}</span></span> {italic && <span class="line"><em>{italic}</em></span>}</h1>
+          <p class="lede">{c.hero.subhead}</p>
+          <p class="ctas"><a class="btn" href={book}>{c.hero.primary}</a><a class="btn btn-ghost" href="#programme">{c.hero.secondary}</a></p>
+        </div>
+        <div class="hero-pacer"><Pacer lang={lang} hint={c.hero.pacerHint} /></div>
+        <div class="hero-photo"><HeroPhoto lang={lang} /></div>
+      </div>
+    </section>
+
+    <section class="section recognition" aria-labelledby="h-recog">
+      <div class="wrap grid">
+        <div class="recog-photo"><Photo slot="P13" lang={lang} tint="t3" sizes="(min-width: 1024px) 40vw, 100vw" /></div>
+        <div class="recog-text">
+          <h2 class="h2" id="h-recog">{c.recognition.heading}</h2>
+          <ul class="observations">{c.recognition.items.map((o) => <li>{o}</li>)}</ul>
+          <p class="closing">{c.recognition.closing}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section approach" id="approach" aria-labelledby="h-approach">
+      <div class="wrap grid">
+        <h2 class="h2" id="h-approach">{c.approach.heading}</h2>
+        <ol class="principles">
+          {c.approach.items.map((p, i) => (
+            <li><span class="num" aria-hidden="true">{i + 1}</span><div><h3 class="h3">{p.title}</h3><p>{p.text}</p></div></li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <section class="section tinted pillars-sec" id="pillars" aria-labelledby="h-pillars">
+      <div class="wrap">
+        <div class="grid sec-head"><h2 class="h2" id="h-pillars">{c.pillars.heading}</h2><p class="sec-intro">{c.pillars.intro}</p></div>
+        <p class="mono swipe-hint" aria-hidden="true">{t(lang, 'pillars.swipe', { n })}</p>
+      </div>
+      <div class="pillar-scroll" tabindex="0" role="region" aria-label={t(lang, 'pillars.region', { heading: c.pillars.heading })}>
+        <ol class="pillar-row" style={`--cols:${cols}`}>
+          {c.pillars.items.map((p, i) => (
+            <li class:list={['pillar', { 'row-start': i % cols === 0 }]} id={`pillar-${p.id}`}>
+              <Photo slot={`pillar:${p.id}`} lang={lang} tint={tints[i % 6]} sizes="(min-width: 1024px) 16vw, 78vw" />
+              <p class="mono pillar-n">{String(i + 1).padStart(2, '0')}</p>
+              <h3 class="pillar-name">{p.name}</h3>
+              <p class="pillar-desc">{p.description}</p>
+              <p class="pillar-practice"><span class="mono">{t(lang, 'pillars.try')}</span>{p.practice}</p>
+              <p class="pillar-why">{p.why}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <section class="section programme" id="programme" aria-labelledby="h-programme">
+      <div class="wrap grid">
+        <div class="prog-head"><h2 class="h2" id="h-programme">{c.programme.heading}</h2><p class="sec-intro">{c.programme.intro}</p></div>
+        <div class="prog-photo"><Photo slot="P06" lang={lang} tint="t4" sizes="(min-width: 1024px) 40vw, 100vw" /></div>
+        <ol class="timeline">
+          {c.programme.phases.map((p) => (
+            <li class="step"><p class="mono step-n">{p.label} {p.num}</p><h3 class="h3">{p.name}</h3><p>{p.text}</p></li>
+          ))}
+        </ol>
+        <div class="included-row"><h3 class="mono included-h">{t(lang, 'programme.included')}</h3><ul class="included">{c.programme.included.map((x) => <li>{x}</li>)}</ul></div>
+        <p class="price">{c.programme.price}</p>
+      </div>
+    </section>
+
+    <section class="section about-teaser" id="about" aria-labelledby="h-about">
+      <div class="wrap grid">
+        <div class="about-photo"><Photo slot="P03" lang={lang} tint="t5" sizes="(min-width: 1024px) 30vw, 100vw" /></div>
+        <div class="about-text">
+          <h2 class="h2" id="h-about">{c.about.heading}</h2>
+          <p class="about-body">{c.about.body}</p>
+          <ul class="facts">{c.about.facts.map((f) => <li>{f}</li>)}</ul>
+          <a class="more draw" href={url(`${lang}/about/`)}>{c.about.link} →</a>
+        </div>
+      </div>
+    </section>
+
+    {site.flags.voiceClip && (
+      <section class="section voice" aria-labelledby="h-voice">
+        <div class="wrap grid">
+          <div class="voice-player">
+            <h2 class="h3 voice-intro" id="h-voice">{c.voice.intro}</h2>
+            <div class="audio-placeholder" role="note">
+              <svg class="wave" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 20 C 25 4, 50 4, 75 20 S 125 36, 150 20 S 200 4, 225 20 S 275 36, 300 20" /></svg>
+              <p class="mono">{t(lang, 'voice.placeholder')}</p>
+            </div>
+          </div>
+          <div class="voice-transcript"><p class="mono">{t(lang, 'voice.transcript')}</p><p>{c.voice.transcript}</p></div>
+        </div>
+      </section>
+    )}
+
+    <section class="section faq" id="faq" aria-labelledby="h-faq">
+      <div class="wrap grid">
+        <h2 class="h2" id="h-faq">{c.faq.heading}</h2>
+        <div class="faq-list">
+          {c.faq.items.map((f) => (<details class="faq-item"><summary>{f.q}</summary><p>{f.a}</p></details>))}
+        </div>
+      </div>
+    </section>
+
+    <section class="night final" id="book" aria-labelledby="h-book">
+      <div class="final-bg" aria-hidden="true"><Photo slot="P16" lang={lang} tint="night-alt" /></div>
+      <svg class="final-orbit" viewBox="-400 -160 800 320" aria-hidden="true" focusable="false"><g transform="rotate(-10)"><ellipse rx="390" ry="118" /></g><circle class="final-electron" cx="318" cy="-78" r="6" /></svg>
+      <div class="wrap grid final-inner">
+        <div class="final-text">
+          <h2 class="h2" id="h-book">{c.finalCta.heading}</h2>
+          <p class="lede">{c.finalCta.body}</p>
+          <p class="ctas"><a class="btn btn-warm" href={book}>{c.finalCta.primary}</a></p>
+        </div>
+        <ul class="contact-list">
+          <li><span class="mono">{t(lang, 'contact.email')}</span>
+            <a href={book} data-mail data-u={mu} data-d={md} data-subject={t(lang, 'contact.subject')}>{c.finalCta.email}</a>
+            <span class="mail-text" data-mail-text data-u={mu} data-d={md}>{t(lang, 'contact.emailFallback')}</span></li>
+          {wa && <li><span class="mono">{t(lang, 'contact.whatsapp')}</span><a href={wa} rel="noopener">{c.finalCta.whatsapp}</a></li>}
+        </ul>
+      </div>
+    </section>
   </main>
+  <div slot="after" class="mobile-cta off" data-mobile-cta inert><a class="btn" href={book}>{c.hero.primary}</a></div>
 </Base>
