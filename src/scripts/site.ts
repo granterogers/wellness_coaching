@@ -47,3 +47,28 @@ if (bar && hero && fin) {
   new IntersectionObserver(([e]) => { pastHero = !e.isIntersecting && e.boundingClientRect.top < 0; upd(); }).observe(hero);
   new IntersectionObserver(([e]) => { atEnd = e.isIntersecting; upd(); }).observe(fin);
 }
+
+// Switching language keeps your place (12.2): remember which section is at the top of the screen and how far into it
+// you are, then restore that position on the other language's page (the text lengths differ, so pixels alone won't do).
+const KEY = 'lang-pos';
+document.querySelectorAll<HTMLAnchorElement>('.flags a, .foot-meta a[hreflang], .foot-meta a[lang]').forEach((a) => {
+  a.addEventListener('click', () => {
+    const secs = [...document.querySelectorAll<HTMLElement>('main > section[id]')]; // same ids in every language
+    const here = secs.filter((s) => s.getBoundingClientRect().top <= 80).pop();
+    const pos = here
+      ? { id: here.id, f: (80 - here.getBoundingClientRect().top) / Math.max(1, here.offsetHeight) }
+      : { id: '', f: scrollY / Math.max(1, document.documentElement.scrollHeight - innerHeight) };
+    try { sessionStorage.setItem(KEY, JSON.stringify(pos)); } catch { /* ignore */ }
+  });
+});
+try {
+  const saved = sessionStorage.getItem(KEY);
+  if (saved) {
+    sessionStorage.removeItem(KEY);
+    const { id, f } = JSON.parse(saved) as { id: string; f: number };
+    const el = id ? document.getElementById(id) : null;
+    const y = el ? el.getBoundingClientRect().top + scrollY + f * el.offsetHeight - 80
+                 : f * (document.documentElement.scrollHeight - innerHeight);
+    window.scrollTo({ top: Math.max(0, y), behavior: 'instant' as ScrollBehavior });
+  }
+} catch { /* ignore */ }

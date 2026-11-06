@@ -15,7 +15,6 @@ const home = defineCollection({
       status: z.enum(['draft', 'approved']).optional(),
       translation_status: z.enum(['draft', 'approved']).optional(),
       hero: z.object({ headline: text, subhead: text, primary: text, secondary: text, pacerHint: text }),
-      recognition: z.object({ heading: text, items: z.array(text).length(3), closing: text }),
       pillars: z.object({
         heading: text,
         intro: text,

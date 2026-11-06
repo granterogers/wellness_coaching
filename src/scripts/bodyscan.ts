@@ -6,6 +6,8 @@ document.querySelectorAll<HTMLElement>('[data-scan]').forEach((box) => {
   const section = box.closest('section')!;
   const S = JSON.parse(box.dataset.strings!) as { names: Record<string, string>; count: string; done: string; stopped: string; pause: string; resume: string };
   const svg = box.querySelector('svg')!;
+  const dot = box.querySelector<SVGCircleElement>('[data-scan-electron]')!;
+  const TH = (-6 * Math.PI) / 180, RX = 124, RY = 230, CX = 100, CY = 222;
   const groups = ZONES.map((z) => box.querySelector<SVGGElement>(`[data-zone="${z}"]`)!);
   const name = box.querySelector<HTMLElement>('[data-scan-name]')!;
   const count = box.querySelector<HTMLElement>('[data-scan-count]')!;
@@ -30,6 +32,11 @@ document.querySelectorAll<HTMLElement>('[data-scan]').forEach((box) => {
     if (!paused && visible) {
       const run = now - start;
       svg.style.setProperty('--b', reduce.matches ? '.5' : level(run % CYCLE).toFixed(3));
+      if (!reduce.matches) {
+        const a = (2 * Math.PI * (run % (CYCLE * 2))) / (CYCLE * 2), x = RX * Math.cos(a), y = RY * Math.sin(a);
+        dot.setAttribute('cx', (CX + x * Math.cos(TH) - y * Math.sin(TH)).toFixed(2));
+        dot.setAttribute('cy', (CY + x * Math.sin(TH) + y * Math.cos(TH)).toFixed(2));
+      }
       if (guided) {
         if (run >= GUIDED * ZONES.length) finish(S.done); else show(Math.floor(run / GUIDED));
       } else if (run > 4000 || last >= 0) {

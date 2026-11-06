@@ -119,11 +119,6 @@ export function loadHome(lang: string) {
       headline: hero['Headline'], subhead: hero['Subhead'], primary: hero['Primary button'],
       secondary: hero['Secondary button'], pacerHint: hero['Pacer hint'],
     },
-    recognition: {
-      heading: S('Recognition').labels['Heading'],
-      items: S('Recognition').items.map((i) => i.text),
-      closing: S('Recognition').labels['Closing line'],
-    },
     pillars: {
       heading: S('Pillars').labels['Heading'],
       intro: S('Pillars').labels['Intro'],

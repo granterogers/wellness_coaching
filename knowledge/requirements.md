@@ -69,10 +69,10 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 
 | ID | Requirement | P |
 |---|---|---|
-| 5.1 | Hero: headline (serif, roman + italic mix) leading with the offer — evidence-based, customised wellness practices, no woo (Grant, 6 Nov 2026); Grant's "scientist turned practitioner" story belongs in About, not the hero; subhead; primary CTA "Book a conversation"; secondary CTA "How it works" (scrolls to 5.5); portrait (16:9 desktop, 4:5 mobile); ambient breath pacer (9.1) | M |
-| 5.2 | Recognition: the problem in three short observations, never laid out as three equal cards or icon columns | M |
+| 5.1 | Hero: headline (serif, roman + italic mix) leading with the offer — evidence-based, customised wellness practices, no woo (Grant, 6 Nov 2026); subhead; primary CTA "Book a conversation"; secondary CTA "How it works" (scrolls to 5.5); ambient breath pacer (9.1). No large photo under the hero (Grant, 6 Nov 2026: "not necessary"); the portrait lives in the About section | M |
+| 5.2 | ~~Recognition section~~ — removed at Grant's request (6 Nov 2026) | M |
 | 5.3 | ~~Approach section~~ — removed at Grant's request (6 Nov 2026). The "evidence, built around you" message lives in the hero, pillars and FAQ | M |
-| 5.4 | Pillars side by side, like columns (Grant, 6 Nov 2026): desktop = one row of columns (wraps to rows of 4 above 6 pillars), each with photo, number, name, description, example practice and its reason, all visible; photos the same size and every row of text (number, name, description, "Try", reason) aligned across the columns (CSS subgrid); under 1024px = a horizontal swipeable row with the next pillar peeking in, keyboard-scrollable. No decorative diagram. Sexual wellbeing only inside its pillar | M |
+| 5.4 | Pillars side by side, like columns, text centred in each column (Grant, 6 Nov 2026): desktop = one row of columns (wraps to rows of 4 above 6 pillars), each with photo, number, name, description, example practice and its reason, all visible; photos the same size and every row of text (number, name, description, "Try", reason) aligned across the columns (CSS subgrid); under 1024px = a horizontal swipeable row with the next pillar peeking in, keyboard-scrollable. No decorative diagram. Sexual wellbeing only inside its pillar | M |
 | 5.5 | Programme: four phases as one simple left-to-right timeline on desktop (line with four numbered points, text under each), a vertical stepper on mobile; nothing pinned; inclusions row; no prices ("investment is discussed on our call") | M |
 | 5.6 | About teaser: portrait, short story, fact list on hairlines (sans, not mono — Grant's "noisy" feedback), link to 4.3 | M |
 | 5.7 | Voice clip (10.x), shown when `voiceClip` flag is on; until Grant's recording exists, a designed audio placeholder ("Recording to come") with the transcript stands in its place | S |
@@ -114,7 +114,7 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 | 8.1 | Photo slots exactly as listed in `knowledge/photo-slots.md` (IDs P01–P18, fixed file names in `src/assets/photos/`); dropping a file in replaces the placeholder; `.jpg`, `.jpeg`, `.png` and `.webp` all accepted (iPhone HEIC must be exported as JPG first — explained in `CONTENT-EDITING.md`); pillar slots follow pillar IDs in content | M |
 | 8.2 | **Descriptive placeholders**: each empty slot shows a soft, warm tonal panel in the palette with one short line saying what the photo will be (e.g. "Photo to come — Grant by a window, morning light"); the full brief stays in `photo-slots.md` and in the image's alt text. Correct aspect ratio so swapping in the real photo causes no layout change. Never stock, never grey boxes, no grid textures | M |
 | 8.3 | Alt text in both languages from content files | M |
-| 8.4 | Art direction: hero uses different crops for desktop and mobile | M |
+| 8.4 | Art direction: any photo used at different shapes on phone and desktop gets its own crop (the hero photo was removed, so this applies if a wide photo is added back) | M |
 
 ## 9. Motion and signature interactions
 
@@ -132,7 +132,7 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 | 9.10 | One motion utility controls everything and honours `prefers-reduced-motion` (content appears immediately) | M |
 | 9.11 | Animate only transform and opacity; zero layout shift | M |
 | 9.12 | Subtle link and button micro-interactions (underline draw, fill slide); no custom cursor | S |
-| 9.13 | **Mini Yoga Nidra body scan** (Grant, 6 Nov 2026): a gender-neutral figure lying down, drawn in the same thin line style as the pacer; tap to start a short guided scan (about two minutes) in which each body zone (feet, legs, hips, belly, chest, hands and arms, shoulders, face) gently lights up in turn with a short localised cue; pause/stop; keyboard operable; `aria-live="polite"` cues; under reduced motion only the highlight changes. Shown in its own small section after the pillars, introduced by the Restore pillar's name and description from content. On screen it uses only the zone names and a one-line hint (interface text, listed for review); spoken or longer cues would be new copy for Grant to approve | S |
+| 9.13 | **Mini Yoga Nidra body scan** (Grant, 6 Nov 2026): a small, anatomically proportioned, gender-neutral figure lying down (seen from above, head at the top), drawn in the same thin line style as the pacer and about the same size, inside the same orbit with a drifting dot; tap to start a short guided scan (about two minutes) in which each body zone (feet, legs, hips, belly, chest, hands and arms, shoulders, face) gently lights up in turn with a short localised cue; pause/stop; keyboard operable; `aria-live="polite"` cues; under reduced motion only the highlight changes. Shown in its own small section after the pillars, introduced by the Restore pillar's name and description from content. On screen it uses only the zone names and a one-line hint (interface text, listed for review); spoken or longer cues would be new copy for Grant to approve | S |
 
 ## 10. Voice feature
 
@@ -157,7 +157,7 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 | ID | Requirement | P |
 |---|---|---|
 | 12.1 | Locales `en` and `es`, routes `/en/…` and `/es/…` | M |
-| 12.2 | Language switcher: a UK flag and a Spanish flag, top right of the header (Grant, 6 Nov 2026), linking to the equivalent page; each flag has an accessible name ("English", "Español"), `lang`/`hreflang`, a 44px tap target, and the current language is marked `aria-current` and visibly ringed | M |
+| 12.2 | Language switcher: a UK flag and a Spanish flag, top right of the header (Grant, 6 Nov 2026), linking to the equivalent page; each flag has an accessible name ("English", "Español"), `lang`/`hreflang`, a 44px tap target, and the current language is marked `aria-current` and visibly ringed. Switching language keeps the visitor at the same place on the page (same section, same relative position), not back at the top | M |
 | 12.3 | `lang` attribute correct per page; date and number formats localised | M |
 | 12.4 | Draft Spanish pages show a small, discreet "Traducción en revisión" note until approved | S |
 | 12.5 | Layouts tested with Spanish text (20–30% longer): no overflow in nav, buttons or hero | M |

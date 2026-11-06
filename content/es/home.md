@@ -23,21 +23,6 @@ labels and the **ID:** lines (they link each pillar to its photo).
 
 **Pacer hint:** Toca el círculo y respira conmigo durante sesenta segundos.
 
-## Recognition
-
-**Heading:** No te falta información.
-
-### 1
-Es la una de la madrugada y tu cabeza sigue a mil por hora.
-
-### 2
-No tienes nada grave. Es ese cansancio que dura todo el día, y un cuerpo más rígido y pesado que antes.
-
-### 3
-Ya lo has intentado. Empezaste al 500 % y luego el trabajo, los niños o un mal mes lo echaron todo abajo.
-
-**Closing line:** Nada de eso es falta de conocimiento. La rutina nunca se pensó para la vida que tienes de verdad.
-
 ## Pillars
 
 **Heading:** Los seis pilares del bienestar

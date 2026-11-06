@@ -2,7 +2,7 @@
 
 Every ID in `knowledge/requirements.md` (121). Status: `todo` / `done` / `partial` / `blocked` / `later`. Updated at the end of every phase (1.6).
 
-Last updated: Phase 3 revisions, 6 November 2026.
+Last updated: Phase 3 revisions (2), 6 November 2026.
 
 | ID | P | Phase | Status | Evidence / notes |
 |---|---|---|---|---|
@@ -45,10 +45,10 @@ Last updated: Phase 3 revisions, 6 November 2026.
 | 4.6 | M | 5 | todo |  |
 | 4.7 | M | 5 | todo |  |
 | 4.8 | M | 2 | done | Root redirect to /en/; Spanish banner removed per Grant — `src/pages/index.astro` |
-| 5.1 | M | 3 | done | Hero: offer-first headline, subhead, 2 CTAs, art-directed photo slot, pacer — review/phase-3 |
-| 5.2 | M | 3 | done | Statements on hairlines beside P13 — review/phase-3 |
+| 5.1 | M | 3 | done | Offer-first hero with pacer; large photo removed per Grant — review/phase-3 |
+| 5.2 | M | 3 | done | Removed at Grant's request (6 Nov 2026) |
 | 5.3 | M | 3 | done | Removed at Grant's request (6 Nov 2026) |
-| 5.4 | M | 3 | done | Equal columns, CSS subgrid aligns every text row; photos identical size (measured 176px / 281px) — review/phase-3 |
+| 5.4 | M | 3 | done | Equal columns, centred text, subgrid-aligned rows, identical photo sizes — review/phase-3 |
 | 5.5 | M | 3 | done | Left-to-right timeline, vertical stepper on mobile, inclusions, price line |
 | 5.6 | M | 3 | done | About teaser with P03, story, facts, link to /about/ |
 | 5.7 | S | 5 | partial | Section with audio placeholder + transcript; real player in Phase 5 |
@@ -75,7 +75,7 @@ Last updated: Phase 3 revisions, 6 November 2026.
 | 8.1 | M | 3 | done | `content/shared/photos.json` (P01–P18), `src/components/Photo.astro` picks up `src/assets/photos/<file>.*` |
 | 8.2 | M | 3 | done | Warm tonal placeholders with one short line, correct ratio — `Photo.astro` |
 | 8.3 | M | 3 | done | Alt text en/es in `photos.json` |
-| 8.4 | M | 3 | done | `HeroPhoto.astro`: 16:9 from 768px, 4:5 on phones, one `<picture>` |
+| 8.4 | M | 3 | done | `HeroPhoto.astro` kept for any wide photo added back; hero photo removed per Grant |
 | 9.1 | M | 4 | partial | Pacer works (4 s / 6 s, ambient, pause); motion polish in Phase 4 |
 | 9.2 | M | 4 | done | Guided minute, count, completion message, pause/stop, keyboard, aria-live — tested |
 | 9.3 | S | 4 | todo |  |
@@ -88,7 +88,7 @@ Last updated: Phase 3 revisions, 6 November 2026.
 | 9.10 | M | 4 | todo |  |
 | 9.11 | M | 4 | todo |  |
 | 9.12 | S | 4 | todo |  |
-| 9.13 | S | 4 | done | `src/components/BodyScan.astro`, `src/scripts/bodyscan.ts`: 8 zones, breath glow, guided 2 min, pause/stop, aria-live, reduced motion |
+| 9.13 | S | 4 | done | Small anatomical figure in an orbit with drifting dot; 8 zones glow with the breath; guided 2 min; pause/stop; aria-live; reduced motion — `BodyScan.astro`, `bodyscan.ts` |
 | 10.1 | S | 5 | todo |  |
 | 10.2 | S | 5 | todo |  |
 | 10.3 | S | 5 | todo |  |
@@ -98,7 +98,7 @@ Last updated: Phase 3 revisions, 6 November 2026.
 | 11.4 | S | 5 | todo |  |
 | 11.5 | M | 5 | todo |  |
 | 12.1 | M | 1 | done | `/en/` and `/es/` routes — `src/pages/[lang]/` |
-| 12.2 | M | 2 | done | UK / Spain flags with accessible names, 44px targets, aria-current ring — `Header.astro`, `src/lib/brand.ts` |
+| 12.2 | M | 2 | done | Flags; switching keeps the same section and relative position (tested: 0.28→0.28, 0.58→0.58) — `src/scripts/site.ts` |
 | 12.3 | M | 2 | done | `lang` en-GB / es-ES per page — `Base.astro` |
 | 12.4 | S | 3 | done | "Traducción en revisión" note on draft Spanish pages — `Base.astro` |
 | 12.5 | M | 3 | done | No overflow at 360–1440px in Spanish — review/phase-3/REVIEW.md |

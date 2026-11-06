@@ -28,6 +28,7 @@ General direction (all slots): natural light, real places, slightly warm colour 
 | P18 | `texture-stone.jpg` | Programme or Approach background detail | No people | Macro, **square 1:1** | Stone, sand or bark | Grounded, natural |
 
 Notes
+- Not used on the current homepage (Grant, 6 Nov 2026): P01/P02 (hero photo removed) and P13 (Recognition section removed). The slots stay, so a photo can be added back later.
 - Pillar slots follow the pillar IDs in content. If a pillar is renamed, added or removed, its slot is renamed, added or removed with it, and the brief is updated here.
 - Minimum set before sharing the preview: P01/P02, P03, one of P07–P12, P06, one of P16–P18.
 - Textures (P16–P18) may be AI-generated or from a free library; photos of Grant must be real (see `design-system.md`).

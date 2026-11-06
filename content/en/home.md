@@ -23,21 +23,6 @@ When you're happy, change "status: draft" to "status: approved" at the top.
 
 **Pacer hint:** Tap the circle for sixty seconds of breathing with me.
 
-## Recognition
-
-**Heading:** You don't need more information.
-
-### 1
-It's one in the morning and your brain is still running a million miles.
-
-### 2
-You're not ill. It's just tiredness throughout the day, and a body that feels stiffer and heavier than it used to.
-
-### 3
-You've started before. You went in at 500%, then work, the kids or one bad month took it apart.
-
-**Closing line:** None of that is a knowledge problem. The routine was never built for the life you actually have.
-
 ## Pillars
 
 **Heading:** The six pillars of wellness

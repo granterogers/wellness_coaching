@@ -2,7 +2,6 @@
 import Base from '../../layouts/Base.astro';
 import Pacer from '../../components/Pacer.astro';
 import Photo from '../../components/Photo.astro';
-import HeroPhoto from '../../components/HeroPhoto.astro';
 import BodyScan from '../../components/BodyScan.astro';
 import { homeCopy, pageCopy, siteData } from '../../lib/site';
 import { type Lang, t, url } from '../../i18n';
@@ -28,7 +27,7 @@ const faqLd = {
 <Base lang={lang} title={meta.labels['Page title']} description={meta.labels['Meta description']} draftTranslation={lang === 'es' && c.translation_status === 'draft'}>
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqLd)} />
   <main id="main">
-    <section class="hero" data-hero aria-labelledby="h-hero">
+    <section class="hero" id="intro" data-hero aria-labelledby="h-hero">
       <div class="wrap grid">
         <div class="hero-text">
           <h1 class="display" id="h-hero"><span class="line"><span>{roman}</span></span> {italic && <span class="line"><em>{italic}</em></span>}</h1>
@@ -36,18 +35,6 @@ const faqLd = {
           <p class="ctas"><a class="btn" href={book}>{c.hero.primary}</a><a class="btn btn-ghost" href="#programme">{c.hero.secondary}</a></p>
         </div>
         <div class="hero-pacer"><Pacer lang={lang} hint={c.hero.pacerHint} /></div>
-        <div class="hero-photo"><HeroPhoto lang={lang} /></div>
-      </div>
-    </section>
-
-    <section class="section recognition" aria-labelledby="h-recog">
-      <div class="wrap grid">
-        <div class="recog-photo"><Photo slot="P13" lang={lang} tint="t3" sizes="(min-width: 1024px) 40vw, 100vw" /></div>
-        <div class="recog-text">
-          <h2 class="h2" id="h-recog">{c.recognition.heading}</h2>
-          <ul class="observations">{c.recognition.items.map((o) => <li>{o}</li>)}</ul>
-          <p class="closing">{c.recognition.closing}</p>
-        </div>
       </div>
     </section>
 
@@ -101,7 +88,7 @@ const faqLd = {
     </section>
 
     {site.flags.voiceClip && (
-      <section class="section voice" aria-labelledby="h-voice">
+      <section class="section voice" id="voice" aria-labelledby="h-voice">
         <div class="wrap grid">
           <div class="voice-player">
             <h2 class="h3 voice-intro" id="h-voice">{c.voice.intro}</h2>
