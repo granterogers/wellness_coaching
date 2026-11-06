@@ -98,8 +98,10 @@ def plate(pid, ratio, tint, cls=""):
 def header(key):
     cta = md(HOME["Hero"]["labels"]["Primary button"])
     switch = " ".join(f'<a href="prototype-{k}.html"{" aria-current=page" if k == key else ""}>{k.upper()}</a>' for k in "abcd")
-    toggle = ('<button type="button" class="theme-btn mono" data-theme-toggle aria-pressed="false">'
-              '<span class="theme-dot" aria-hidden="true"></span><span data-theme-label>Dark mode</span></button>') if key == "d" else ""
+    toggle = ('<button type="button" class="theme-btn" data-theme-toggle aria-label="Switch to dark mode">'
+              '<svg class="ti ti-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>'
+              '<svg class="ti ti-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>'
+              '<span data-theme-label>Dark</span></button>') if key == "d" else ""
     return f'''
 <a class="skip" href="#main">Skip to content</a>
 <div class="proto-bar"><div class="wrap"><span class="mono">Prototype {NAMES[key]}</span>
@@ -296,6 +298,8 @@ section{position:relative}
 /* header (5.14) */
 .site-header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 94%,transparent);border-bottom:1px solid transparent;transition:border-color .6s var(--ease)}
 .header-row{display:flex;align-items:center;gap:var(--s3);min-height:76px;transition:min-height .6s var(--ease)}
+.wordmark,.lang{white-space:nowrap}
+@media (max-width:479px){.header-row{gap:10px}.wordmark{font-size:1.1875rem}.brand .icon{width:26px;height:26px}.theme-btn{padding:0 12px 0 10px}}
 .site-header.condensed{border-bottom-color:var(--rule)}.site-header.condensed .header-row{min-height:60px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto;min-height:44px}
 .brand .icon{width:30px;height:30px;color:var(--accent)}
@@ -309,9 +313,11 @@ section{position:relative}
 @media (min-width:1024px){.nav{display:flex}}
 
 /* light / dark toggle (6.9) */
-.theme-btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;background:none;color:inherit;border:1px solid var(--rule-strong);border-radius:999px;cursor:pointer}
-.theme-dot{width:12px;height:12px;border-radius:50%;background:var(--ink);box-shadow:inset -4px 0 0 var(--bg)}
-@media (max-width:420px){.theme-btn [data-theme-label]{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.theme-btn{padding:0 15px}}
+.theme-btn{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 14px 0 12px;background:none;color:inherit;font:500 .875rem var(--sans);border:1px solid var(--rule-strong);border-radius:999px;cursor:pointer}
+.theme-btn:hover{border-color:var(--ink)}
+.ti{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.ti-sun{display:none}
+.is-dark .ti-sun{display:block}.is-dark .ti-moon{display:none}
 body{transition:background-color .6s var(--ease),color .6s var(--ease)}
 
 /* photo placeholders (8.2): soft warm tone, one short line */
@@ -517,7 +523,8 @@ JS = r'''
   if (tbtn) {
     const root = document.documentElement, dark = matchMedia('(prefers-color-scheme: dark)');
     const isDark = () => root.dataset.theme ? root.dataset.theme === 'dark' : dark.matches;
-    const sync = () => { const d = isDark(); tbtn.setAttribute('aria-pressed', String(d)); };
+    const label = tbtn.querySelector('[data-theme-label]');
+    const sync = () => { const d = isDark(); root.classList.toggle('is-dark', d); label.textContent = d ? 'Light' : 'Dark'; tbtn.setAttribute('aria-label', d ? 'Switch to light mode' : 'Switch to dark mode'); };
     tbtn.addEventListener('click', () => {
       const next = isDark() ? 'light' : 'dark'; root.dataset.theme = next;
       try { localStorage.setItem('theme', next); } catch (e) {}

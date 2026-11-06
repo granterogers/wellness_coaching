@@ -19,7 +19,7 @@ PHASES 1–6 — Build. For each phase: implement the listed IDs; run the visual
 Phase 1 — Scaffold: 2.1–2.6, 2.8–2.12, 3.2, 3.4, 3.5, 3.7, 12.1, 13.8 (noindex from the first deploy), 16.1
 Phase 2 — Foundations: 6.1–6.6, 6.9, 7.1–7.4, 5.14, 5.12, 12.2, 12.3, 4.8
 Phase 3 — Home content: 3.1, 3.3, 3.6, 5.1–5.6, 5.10, 5.11, 5.13, 8.1–8.4, 12.4, 12.5, 11.1–11.3 (the pacer is drawn statically here and animated in Phase 4) — STOP for my approval
-Phase 4 — Motion and signature: 9.1–9.12, 6.6 (motif in motion), 14.4
+Phase 4 — Motion and signature: 9.1–9.13, 6.6 (motif in motion), 14.4
 Phase 5 — Pages and features: 4.1–4.7, 5.7, 5.8, 5.9 (flagged off), 10.1–10.3, 11.4, 11.5, 13.1–13.7, 2.7
 Phase 6 — Audit and handover: 6.7, 6.8, 14.1–14.5, 15.1–15.6, 16.2–16.6, 3.8
 

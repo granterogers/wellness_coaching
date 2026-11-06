@@ -1,6 +1,6 @@
 # Requirements status
 
-Every ID in `knowledge/requirements.md` (120). Status: `todo` / `done` / `partial` / `blocked` / `later`. Updated at the end of every phase (1.6).
+Every ID in `knowledge/requirements.md` (121). Status: `todo` / `done` / `partial` / `blocked` / `later`. Updated at the end of every phase (1.6).
 
 Last updated: Phase 0, 4 November 2026.
 
@@ -9,7 +9,7 @@ Last updated: Phase 0, 4 November 2026.
 | 1.1 | M | all | done | Read CLAUDE.md, brief.md, requirements.md and all of knowledge/ (Phase 0) |
 | 1.2 | M | all | done | Fixes applied and decisions D1–D5 answered (below) |
 | 1.3 | M | all | done | Round 3 approved by Grant (6 Nov 2026): headline "Science-based wellness, built around your life."; `home.md` and `pages.md` `status: approved` |
-| 1.4 | M | all | blocked | Round 2 prototypes (warm palettes, side-by-side pillars, simple timeline) in `design/prototype-*.html`, screenshots in `review/prototypes/`; waiting for Grant's choice |
+| 1.4 | M | all | done | `design/CHOSEN.md` names `prototype-d.html` (Grant, 6 Nov 2026) |
 | 1.5 | M | all | todo | Applies throughout |
 | 1.6 | M | all | done | This file |
 | 1.7 | M | all | todo | Applies throughout |
@@ -88,6 +88,7 @@ Last updated: Phase 0, 4 November 2026.
 | 9.10 | M | 4 | todo |  |
 | 9.11 | M | 4 | todo |  |
 | 9.12 | S | 4 | todo |  |
+| 9.13 | S | 4 | todo | Added by Grant 6 Nov 2026; cue copy needs approval |
 | 10.1 | S | 5 | todo |  |
 | 10.2 | S | 5 | todo |  |
 | 10.3 | S | 5 | todo |  |
@@ -127,7 +128,7 @@ Last updated: Phase 0, 4 November 2026.
 | 16.5 | M | 6 | todo |  |
 | 16.6 | S | 6 | todo |  |
 
-Totals: blocked 1, done 4, later 2, todo 113
+Totals: done 5, later 2, todo 114
 
 ## Phase 0 log — fixes applied
 

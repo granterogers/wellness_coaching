@@ -132,6 +132,7 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 | 9.10 | One motion utility controls everything and honours `prefers-reduced-motion` (content appears immediately) | M |
 | 9.11 | Animate only transform and opacity; zero layout shift | M |
 | 9.12 | Subtle link and button micro-interactions (underline draw, fill slide); no custom cursor | S |
+| 9.13 | **Mini Yoga Nidra body scan** (Grant, 6 Nov 2026): a gender-neutral figure lying down, drawn in the same thin line style as the pacer; tap to start a short guided scan (about two minutes) in which each body zone (feet, legs, hips, belly, chest, hands and arms, shoulders, face) gently lights up in turn with a short localised cue; pause/stop; keyboard operable; `aria-live="polite"` cues; under reduced motion only the highlight changes. Shown with the Restore pillar. Cue wording is copy: drafted in `content/en/practices.md` and approved by Grant before it goes live | S |
 
 ## 10. Voice feature
 
