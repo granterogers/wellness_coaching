@@ -1,5 +1,5 @@
 ---
-status: draft
+status: approved
 language: en
 round: 3
 updated: 2026-11-04
@@ -12,7 +12,7 @@ Page titles and descriptions are what shows in browser tabs and search results.
 
 # Home
 
-**Page title:** Grant Rogers — evidence-based 1:1 wellness coaching, online
+**Page title:** Grant Rogers — science-based 1:1 wellness coaching, online
 
 **Meta description:** Private online coaching over three to six months, for busy people who know what to do and can't make it stick. Sleep, energy, strength and a routine that fits your life.
 

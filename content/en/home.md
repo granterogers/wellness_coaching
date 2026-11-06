@@ -1,5 +1,5 @@
 ---
-status: draft
+status: approved
 language: en
 round: 3
 updated: 2026-11-04
@@ -13,7 +13,7 @@ When you're happy, change "status: draft" to "status: approved" at the top.
 
 ## Hero
 
-**Headline:** Wellness with the evidence left in. *And the woo left out.*
+**Headline:** Science-based wellness, *built around your life.*
 
 **Subhead:** Private 1:1 coaching, online, over three to six months. Breathwork, movement, meditation and deep rest, chosen for your goals, your body and your schedule, with the reasoning behind every practice. For busy people who know what they should be doing and want it to stick this time.
 

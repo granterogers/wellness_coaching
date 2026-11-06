@@ -34,8 +34,8 @@ jobs:
           <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
           <meta name="robots" content="noindex, nofollow"><title>Grant Rogers · preview</title>
           <style>body{font:18px/1.6 Georgia,serif;margin:0;padding:48px 20px;background:#EEEEEA;color:#15191A}main{max-width:560px;margin:auto}a{display:block;padding:14px 0;border-top:1px solid #CBCBC3;color:inherit}</style></head>
-          <body><main><h1>Design prototypes</h1><p>Same copy, three directions. Pick one.</p>
-          <a href="design/prototype-a.html">A — Field Notes</a><a href="design/prototype-b.html">B — Night Practice</a><a href="design/prototype-c.html">C — Tidal</a></main></body></html>
+          <body><main><h1>Design prototypes</h1><p>Same copy, round 2. D is A (light) and C (dark) in one site with a toggle.</p>
+          <a href="design/prototype-d.html">D — Light &amp; dark (A + C)</a><a href="design/prototype-a.html">A — Sage &amp; Saffron</a><a href="design/prototype-b.html">B — Linen &amp; Teal</a><a href="design/prototype-c.html">C — Moss &amp; Honey</a></main></body></html>
           HTML
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

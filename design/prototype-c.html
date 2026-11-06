@@ -9,30 +9,8 @@
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/icon-180.png">
 <link rel="preload" href="fonts/newsreader-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
-<style>:root{
-  --bg: #1D2420;
-  --alt: #252E29;
-  --ink: #EFE8D8;
-  --muted: #AEB3A6;
-  --rule: #34403A;
-  --rule-strong: #6A766E;
-  --accent: #E2B65C;
-  --on-accent: #1D2420;
-  --warm: #E2B65C;
-  --on-warm: #1D2420;
-  --night: #141916;
-  --night-alt: #1B221E;
-  --night-ink: #EFE8D8;
-  --night-muted: #AEB3A6;
-  --night-rule: #2C3631;
-  --t1: #2C3830;
-  --t2: #3D3A28;
-  --t3: #2E3637;
-  --t4: #3B3226;
-  --t5: #28382F;
-  --t6: #33303A;
-  --glow: 10%;
-}
+<script>try{var t=localStorage.getItem("theme");if(t&&false)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>:root{--bg:#1D2420;--alt:#252E29;--ink:#EFE8D8;--muted:#AEB3A6;--rule:#34403A;--rule-strong:#6A766E;--accent:#E2B65C;--on-accent:#1D2420;--warm:#E2B65C;--on-warm:#1D2420;--night:#141916;--night-alt:#1B221E;--night-ink:#EFE8D8;--night-muted:#AEB3A6;--night-rule:#2C3631;--t1:#2C3830;--t2:#3D3A28;--t3:#2E3637;--t4:#3B3226;--t5:#28382F;--t6:#33303A;--glow:10%;}
 @font-face{font-family:"Newsreader";font-style:normal;font-weight:200 800;font-display:swap;src:url(fonts/newsreader-latin-opsz-normal.woff2) format("woff2")}
 @font-face{font-family:"Newsreader";font-style:italic;font-weight:200 800;font-display:swap;src:url(fonts/newsreader-latin-opsz-italic.woff2) format("woff2")}
 @font-face{font-family:"Hanken Grotesk";font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/hanken-grotesk-latin-wght-normal.woff2) format("woff2")}
@@ -97,6 +75,12 @@ section{position:relative}
 .header-cta{display:none}
 @media (min-width:768px){.header-cta{display:inline-flex}}
 @media (min-width:1024px){.nav{display:flex}}
+
+/* light / dark toggle (6.9) */
+.theme-btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;background:none;color:inherit;border:1px solid var(--rule-strong);border-radius:999px;cursor:pointer}
+.theme-dot{width:12px;height:12px;border-radius:50%;background:var(--ink);box-shadow:inset -4px 0 0 var(--bg)}
+@media (max-width:420px){.theme-btn [data-theme-label]{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.theme-btn{padding:0 15px}}
+body{transition:background-color .6s var(--ease),color .6s var(--ease)}
 
 /* photo placeholders (8.2): soft warm tone, one short line */
 .plate{margin:0}
@@ -241,10 +225,11 @@ section{position:relative}
 
 <a class="skip" href="#main">Skip to content</a>
 <div class="proto-bar"><div class="wrap"><span class="mono">Prototype C — Moss & Honey</span>
-  <nav aria-label="Compare prototypes" class="mono"><a href="prototype-a.html">A</a> <a href="prototype-b.html">B</a> <a href="prototype-c.html" aria-current=page>C</a></nav></div></div>
+  <nav aria-label="Compare prototypes" class="mono"><a href="prototype-a.html">A</a> <a href="prototype-b.html">B</a> <a href="prototype-c.html" aria-current=page>C</a> <a href="prototype-d.html">D</a></nav></div></div>
 <header class="site-header" id="top"><div class="wrap header-row">
   <a class="brand" href="#top"><svg class="icon" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-linecap="round"><ellipse cx="32" cy="32" rx="27" ry="11" transform="rotate(-28 32 32)" stroke-width="3.4" stroke-dasharray="118 14"/><path d="M32 8 c-7 6 7 10 0 16 c-7 6 7 10 0 16 c-7 6 7 10 0 16" stroke-width="4.2"/></g><circle cx="53" cy="20.6" r="4.6" fill="currentColor"/></svg><span class="wordmark">Grant Rogers</span></a>
   <nav class="nav" aria-label="Main"><a href="#approach">Approach</a><a href="#pillars">Pillars</a><a href="#programme">Programme</a><a href="#book">Contact</a></nav>
+  
   <p class="lang mono"><a href="#" aria-current="true" lang="en">EN</a> / <a href="#" lang="es" title="Spanish version follows the build">ES</a></p>
   <a class="btn btn-small header-cta" href="#book">Book a conversation</a>
 </div></header>
@@ -253,7 +238,7 @@ section{position:relative}
 <section class="hero" aria-labelledby="h-hero"><div class="wrap grid">
   <div class="hero-text">
     <p class="mono eyebrow">1:1 coaching · online · English &amp; Spanish</p>
-    <h1 class="display" id="h-hero"><span class="line"><span>Wellness with the evidence left in.</span></span> <span class="line"><em>And the woo left out.</em></span></h1>
+    <h1 class="display" id="h-hero"><span class="line"><span>Science-based wellness,</span></span> <span class="line"><em>built around your life.</em></span></h1>
     <p class="lede">Private 1:1 coaching, online, over three to six months. Breathwork, movement, meditation and deep rest, chosen for your goals, your body and your schedule, with the reasoning behind every practice. For busy people who know what they should be doing and want it to stick this time.</p>
     <p class="ctas"><a class="btn" href="#book">Book a conversation</a><a class="btn btn-ghost" href="#programme">How it works</a></p>
   </div>
@@ -439,6 +424,20 @@ section{position:relative}
     stopBtn.addEventListener('click', () => finish('Stopped.'));
     requestAnimationFrame(frame);
   });
+
+  // Light / dark toggle (6.9): device setting first, then the visitor's choice, remembered on this device
+  const tbtn = document.querySelector('[data-theme-toggle]');
+  if (tbtn) {
+    const root = document.documentElement, dark = matchMedia('(prefers-color-scheme: dark)');
+    const isDark = () => root.dataset.theme ? root.dataset.theme === 'dark' : dark.matches;
+    const sync = () => { const d = isDark(); tbtn.setAttribute('aria-pressed', String(d)); };
+    tbtn.addEventListener('click', () => {
+      const next = isDark() ? 'light' : 'dark'; root.dataset.theme = next;
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      sync();
+    });
+    dark.addEventListener('change', sync); sync();
+  }
 
   // Sticky mobile CTA (5.13): after the hero, hidden when the final CTA is in view
   const bar = document.querySelector('[data-mobile-cta]'), hero = document.querySelector('.hero'), fin = document.querySelector('#book');

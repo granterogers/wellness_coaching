@@ -52,6 +52,7 @@ def parse_slots(text):
     return slots
 
 
+NAMES = {"a": "A — Sage & Saffron", "b": "B — Linen & Teal", "c": "C — Moss & Honey", "d": "D — Light & dark (A + C)"}
 HOME = parse_home((ROOT / "content/en/home.md").read_text())
 SLOTS = parse_slots((ROOT / "knowledge/photo-slots.md").read_text())
 PILLAR_SLOT = {"Breathe": "P07", "Move": "P08", "Focus": "P09", "Restore": "P10", "Vitality": "P11", "Grow": "P12"}
@@ -96,14 +97,17 @@ def plate(pid, ratio, tint, cls=""):
 # ---------------------------------------------------------------- sections
 def header(key):
     cta = md(HOME["Hero"]["labels"]["Primary button"])
-    switch = " ".join(f'<a href="prototype-{k}.html"{" aria-current=page" if k == key else ""}>{k.upper()}</a>' for k in "abc")
+    switch = " ".join(f'<a href="prototype-{k}.html"{" aria-current=page" if k == key else ""}>{k.upper()}</a>' for k in "abcd")
+    toggle = ('<button type="button" class="theme-btn mono" data-theme-toggle aria-pressed="false">'
+              '<span class="theme-dot" aria-hidden="true"></span><span data-theme-label>Dark mode</span></button>') if key == "d" else ""
     return f'''
 <a class="skip" href="#main">Skip to content</a>
-<div class="proto-bar"><div class="wrap"><span class="mono">Prototype {PALETTES[key]["name"]}</span>
+<div class="proto-bar"><div class="wrap"><span class="mono">Prototype {NAMES[key]}</span>
   <nav aria-label="Compare prototypes" class="mono">{switch}</nav></div></div>
 <header class="site-header" id="top"><div class="wrap header-row">
   <a class="brand" href="#top">{ICON}<span class="wordmark">Grant Rogers</span></a>
   <nav class="nav" aria-label="Main"><a href="#approach">Approach</a><a href="#pillars">Pillars</a><a href="#programme">Programme</a><a href="#book">Contact</a></nav>
+  {toggle}
   <p class="lang mono"><a href="#" aria-current="true" lang="en">EN</a> / <a href="#" lang="es" title="Spanish version follows the build">ES</a></p>
   <a class="btn btn-small header-cta" href="#book">{cta}</a>
 </div></header>'''
@@ -304,6 +308,12 @@ section{position:relative}
 @media (min-width:768px){.header-cta{display:inline-flex}}
 @media (min-width:1024px){.nav{display:flex}}
 
+/* light / dark toggle (6.9) */
+.theme-btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;background:none;color:inherit;border:1px solid var(--rule-strong);border-radius:999px;cursor:pointer}
+.theme-dot{width:12px;height:12px;border-radius:50%;background:var(--ink);box-shadow:inset -4px 0 0 var(--bg)}
+@media (max-width:420px){.theme-btn [data-theme-label]{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.theme-btn{padding:0 15px}}
+body{transition:background-color .6s var(--ease),color .6s var(--ease)}
+
 /* photo placeholders (8.2): soft warm tone, one short line */
 .plate{margin:0}
 .plate-inner{aspect-ratio:var(--ratio);position:relative;border-radius:4px;overflow:hidden;
@@ -502,6 +512,20 @@ JS = r'''
     requestAnimationFrame(frame);
   });
 
+  // Light / dark toggle (6.9): device setting first, then the visitor's choice, remembered on this device
+  const tbtn = document.querySelector('[data-theme-toggle]');
+  if (tbtn) {
+    const root = document.documentElement, dark = matchMedia('(prefers-color-scheme: dark)');
+    const isDark = () => root.dataset.theme ? root.dataset.theme === 'dark' : dark.matches;
+    const sync = () => { const d = isDark(); tbtn.setAttribute('aria-pressed', String(d)); };
+    tbtn.addEventListener('click', () => {
+      const next = isDark() ? 'light' : 'dark'; root.dataset.theme = next;
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      sync();
+    });
+    dark.addEventListener('change', sync); sync();
+  }
+
   // Sticky mobile CTA (5.13): after the hero, hidden when the final CTA is in view
   const bar = document.querySelector('[data-mobile-cta]'), hero = document.querySelector('.hero'), fin = document.querySelector('#book');
   let pastHero = false, atEnd = false;
@@ -513,9 +537,19 @@ JS = r'''
 '''
 
 
+def tokens(t):
+    return "".join(f"--{k.replace('_', '-')}:{v};" for k, v in t.items() if k != "name")
+
+
+def theme_css(key):
+    if key != "d":
+        return f":root{{{tokens(PALETTES[key])}}}"
+    light, dark = tokens(PALETTES["a"]) + "color-scheme:light;", tokens(PALETTES["c"]) + "color-scheme:dark;"
+    return (f":root{{{light}}}:root[data-theme=dark]{{{dark}}}"
+            f"@media (prefers-color-scheme:dark){{:root:not([data-theme=light]){{{dark}}}}}")
+
+
 def page(key):
-    t = PALETTES[key]
-    tokens = "\n".join(f"  --{k.replace('_', '-')}: {v};" for k, v in t.items() if k != "name")
     return f'''<!doctype html>
 <html lang="en">
 <head>
@@ -523,13 +557,12 @@ def page(key):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Prototype {key.upper()} · Grant Rogers</title>
-<meta name="description" content="Design prototype {t["name"]} for Grant Rogers' coaching site. Not for sharing.">
+<meta name="description" content="Design prototype {NAMES[key]} for Grant Rogers' coaching site. Not for sharing.">
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/icon-180.png">
 <link rel="preload" href="fonts/newsreader-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
-<style>:root{{
-{tokens}
-}}{CSS}</style>
+<script>try{{var t=localStorage.getItem("theme");if(t&&{str(key == "d").lower()})document.documentElement.dataset.theme=t}}catch(e){{}}</script>
+<style>{theme_css(key)}{CSS}</style>
 </head>
 <body class="proto-{key}">
 {header(key)}
@@ -548,6 +581,6 @@ def page(key):
 
 
 if __name__ == "__main__":
-    for k in "abc":
+    for k in "abcd":
         (OUT / f"prototype-{k}.html").write_text(page(k))
         print("wrote", f"design/prototype-{k}.html")

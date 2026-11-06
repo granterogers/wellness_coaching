@@ -42,6 +42,8 @@ Grant, 6 November 2026, on round 1: "a bit clinical… lacking any nice colours�
 
 Contrast (checked): all text pairs above pass AA (4.7–13:1). The warm colour is never body text on a light background; it is used for fills, the pacer glow, number marks and buttons with dark text (6.9:1 A, 5.3:1 B).
 
+**Light and dark mode (Grant, 6 Nov 2026; requirement 6.9):** A is the light theme and C the dark theme of one site, with a header toggle. B stays as a comparison only.
+
 ### Round 1 palettes (retired)
 
 **Caution — the cream trap.** Warm cream/off-white backgrounds with serif headlines are now a recognised AI-default "tasteful" look. Palette A is therefore shifted to a cooler, neutral stone and must earn its place in the prototype comparison rather than being assumed.

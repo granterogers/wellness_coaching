@@ -96,7 +96,7 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 | 6.6 | **Orbit motif from the logo**, used sparingly and only where it does a job: the breath pacer, and at most one quiet line in the night section. Never as decoration without a purpose (Grant, 6 Nov 2026: the six-point orbit diagram was noise) | M |
 | 6.7 | Anti-default test (design-system.md) applied to every section and recorded in the phase review | M |
 | 6.8 | No forbidden fonts, colours, patterns or phrases (list in `CLAUDE.md`) | M |
-| 6.9 | No automatic dark mode in v1: the site's own light and "night" sections are fixed by design | M |
+| 6.9 | Light and dark mode (Grant, 6 Nov 2026): light = palette A Sage & Saffron, dark = palette C Moss & Honey. First visit follows the device setting; a visible, labelled toggle in the header lets visitors choose, remembered on that device (localStorage, no cookies) and applied before first paint (no flash). Both themes meet 14.1; "night" sections stay dark in both | M |
 
 ## 7. Brand and logo
 
@@ -208,4 +208,4 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 
 ## 17. Out of scope for the preview
 
-Payments, client portal/app, blog, newsletter sending, analytics accounts, cookie banner, automatic dark mode, more than two languages, any account sign-ups.
+Payments, client portal/app, blog, newsletter sending, analytics accounts, cookie banner, more than two languages, any account sign-ups.
