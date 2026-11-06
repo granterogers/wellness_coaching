@@ -38,22 +38,9 @@ Ya lo has intentado. Empezaste al 500 % y luego el trabajo, los niños o un mal
 
 **Closing line:** Nada de eso es falta de conocimiento. La rutina nunca se pensó para la vida que tienes de verdad.
 
-## Approach
-
-**Heading:** Qué lo hace diferente
-
-### Evidencia, no humo
-Cada práctica tiene su porqué. Sabrás qué está bien respaldado, qué es plausible y qué simplemente merece la pena probar. No hace falta creer en nada.
-
-### Hecho a tu medida
-Tus objetivos, tu cuerpo, tu agenda. Nada viene de serie, y el plan cambia cuando cambia tu vida.
-
-### Tan pequeño que dura
-Una práctica de cinco minutos que haces en tu peor día vale más que una hora que te saltas. Construimos a partir de lo que se mantiene, hasta que puedas seguir sin mí.
-
 ## Pillars
 
-**Heading:** Seis áreas de trabajo
+**Heading:** Los seis pilares del bienestar
 
 **Intro:** No trabajarás las seis a la vez. Empezamos por lo que más te importa y añadimos el resto cuando lo básico se sostiene.
 

@@ -5,7 +5,7 @@ interface Props { lang: Lang; hint: string }
 const { lang, hint } = Astro.props;
 const s = {
   in: t(lang, 'pacer.in'), out: t(lang, 'pacer.out'), breathIn: t(lang, 'pacer.breathIn'), breathOut: t(lang, 'pacer.breathOut'),
-  progress: t(lang, 'pacer.progress'), done: t(lang, 'pacer.done'), stopped: t(lang, 'pacer.stopped'),
+  progress: t(lang, 'pacer.progress', { n: '{n}', s: '{s}' }), done: t(lang, 'pacer.done'), stopped: t(lang, 'pacer.stopped'),
   pause: t(lang, 'pacer.pause'), resume: t(lang, 'pacer.resume'),
 };
 ---

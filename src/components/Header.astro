@@ -1,5 +1,5 @@
 ---
-import { iconSvg } from '../lib/brand';
+import { iconSvg, flagUK, flagES } from '../lib/brand';
 import { siteData, homeCopy } from '../lib/site';
 import { type Lang, t, url } from '../i18n';
 interface Props { lang: Lang; path?: string }
@@ -8,7 +8,7 @@ const site = await siteData();
 const copy = await homeCopy(lang);
 const home = url(`${lang}/`);
 const nav = [
-  ['nav.approach', 'approach'], ['nav.pillars', 'pillars'], ['nav.programme', 'programme'], ['nav.contact', 'book'],
+  ['nav.pillars', 'pillars'], ['nav.programme', 'programme'], ['nav.about', 'about'], ['nav.contact', 'book'],
 ] as const;
 ---
 <a class="skip" href="#main">{t(lang, 'skip')}</a>
@@ -26,17 +26,13 @@ const nav = [
       <span data-theme-label>{t(lang, 'theme.toDark')}</span>
     </button>
     {site.flags.spanish && (
-      <p class="lang mono" aria-label={t(lang, 'lang.label')}>
-        <a href={url(`en/${path}`)} hreflang="en" lang="en" aria-current={lang === 'en' ? 'true' : undefined} title={t('en', 'lang.en')}>EN</a> /
-        <a href={url(`es/${path}`)} hreflang="es" lang="es" aria-current={lang === 'es' ? 'true' : undefined} title={t('es', 'lang.es')}>ES</a>
-      </p>
+      <nav class="flags" aria-label={t(lang, 'lang.label')}>
+        <a href={url(`en/${path}`)} hreflang="en" lang="en" aria-current={lang === 'en' ? 'true' : undefined}>
+          <Fragment set:html={flagUK} /><span class="sr-only">English</span></a>
+        <a href={url(`es/${path}`)} hreflang="es" lang="es" aria-current={lang === 'es' ? 'true' : undefined}>
+          <Fragment set:html={flagES} /><span class="sr-only">Español</span></a>
+      </nav>
     )}
     <a class="btn btn-small header-cta" href={`${home}#book`}>{copy.hero.primary}</a>
   </div>
 </header>
-{lang === 'en' && site.flags.spanish && (
-  <div class="es-suggest" data-es-suggest hidden>
-    <div class="wrap"><a href={url(`es/${path}`)} lang="es" hreflang="es">{t('es', 'es.suggest')}</a>
-      <button type="button" data-es-dismiss aria-label={t('es', 'es.dismiss')}>×</button></div>
-  </div>
-)}

@@ -36,18 +36,6 @@ document.querySelectorAll<HTMLAnchorElement>('[data-mail]').forEach((a) => {
 });
 document.querySelectorAll<HTMLElement>('[data-mail-text]').forEach((s) => { s.textContent = `${s.dataset.u}@${s.dataset.d}`; });
 
-// "Ver en español" for Spanish-language browsers on English pages; dismissal lasts this session only (4.8)
-const sug = document.querySelector<HTMLElement>('[data-es-suggest]');
-if (sug) {
-  let dismissed = false;
-  try { dismissed = sessionStorage.getItem('es-dismissed') === '1'; } catch { /* ignore */ }
-  if (!dismissed && navigator.languages.some((l) => l.toLowerCase().startsWith('es'))) sug.hidden = false;
-  sug.querySelector('[data-es-dismiss]')?.addEventListener('click', () => {
-    sug.hidden = true;
-    try { sessionStorage.setItem('es-dismissed', '1'); } catch { /* ignore */ }
-  });
-}
-
 // Sticky mobile CTA (5.13): appears after the hero, hides when the final CTA is in view
 const bar = document.querySelector<HTMLElement>('[data-mobile-cta]');
 const hero = document.querySelector('[data-hero]');

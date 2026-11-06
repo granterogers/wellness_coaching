@@ -2,7 +2,7 @@
 
 Every ID in `knowledge/requirements.md` (121). Status: `todo` / `done` / `partial` / `blocked` / `later`. Updated at the end of every phase (1.6).
 
-Last updated: Phase 3, 6 November 2026.
+Last updated: Phase 3 revisions, 6 November 2026.
 
 | ID | P | Phase | Status | Evidence / notes |
 |---|---|---|---|---|
@@ -44,11 +44,11 @@ Last updated: Phase 3, 6 November 2026.
 | 4.5 | M | 5 | done | `src/pages/[lang]/book.astro` with honest fallback |
 | 4.6 | M | 5 | todo |  |
 | 4.7 | M | 5 | todo |  |
-| 4.8 | M | 2 | done | Root meta-refresh to /en/ (`src/pages/index.astro`); dismissible "Ver en español" for Spanish browsers, session-only (`site.ts`) |
+| 4.8 | M | 2 | done | Root redirect to /en/; Spanish banner removed per Grant — `src/pages/index.astro` |
 | 5.1 | M | 3 | done | Hero: offer-first headline, subhead, 2 CTAs, art-directed photo slot, pacer — review/phase-3 |
 | 5.2 | M | 3 | done | Statements on hairlines beside P13 — review/phase-3 |
-| 5.3 | M | 3 | done | Numbered principles, heading left — review/phase-3 |
-| 5.4 | M | 3 | done | Pillar columns side by side; swipe row under 1024px — review/phase-3 |
+| 5.3 | M | 3 | done | Removed at Grant's request (6 Nov 2026) |
+| 5.4 | M | 3 | done | Equal columns, CSS subgrid aligns every text row; photos identical size (measured 176px / 281px) — review/phase-3 |
 | 5.5 | M | 3 | done | Left-to-right timeline, vertical stepper on mobile, inclusions, price line |
 | 5.6 | M | 3 | done | About teaser with P03, story, facts, link to /about/ |
 | 5.7 | S | 5 | partial | Section with audio placeholder + transcript; real player in Phase 5 |
@@ -88,7 +88,7 @@ Last updated: Phase 3, 6 November 2026.
 | 9.10 | M | 4 | todo |  |
 | 9.11 | M | 4 | todo |  |
 | 9.12 | S | 4 | todo |  |
-| 9.13 | S | 4 | todo | Added by Grant 6 Nov 2026; cue copy needs approval |
+| 9.13 | S | 4 | done | `src/components/BodyScan.astro`, `src/scripts/bodyscan.ts`: 8 zones, breath glow, guided 2 min, pause/stop, aria-live, reduced motion |
 | 10.1 | S | 5 | todo |  |
 | 10.2 | S | 5 | todo |  |
 | 10.3 | S | 5 | todo |  |
@@ -98,7 +98,7 @@ Last updated: Phase 3, 6 November 2026.
 | 11.4 | S | 5 | todo |  |
 | 11.5 | M | 5 | todo |  |
 | 12.1 | M | 1 | done | `/en/` and `/es/` routes — `src/pages/[lang]/` |
-| 12.2 | M | 2 | done | "EN / ES" text links to the same page, `aria-current` — `Header.astro`, `Footer.astro` |
+| 12.2 | M | 2 | done | UK / Spain flags with accessible names, 44px targets, aria-current ring — `Header.astro`, `src/lib/brand.ts` |
 | 12.3 | M | 2 | done | `lang` en-GB / es-ES per page — `Base.astro` |
 | 12.4 | S | 3 | done | "Traducción en revisión" note on draft Spanish pages — `Base.astro` |
 | 12.5 | M | 3 | done | No overflow at 360–1440px in Spanish — review/phase-3/REVIEW.md |
@@ -128,7 +128,7 @@ Last updated: Phase 3, 6 November 2026.
 | 16.5 | M | 6 | todo |  |
 | 16.6 | S | 6 | todo |  |
 
-Totals: done 62, later 2, partial 6, todo 51
+Totals: done 63, later 2, partial 6, todo 50
 
 ## Phase 0 log — fixes applied
 

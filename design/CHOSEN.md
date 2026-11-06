@@ -8,3 +8,10 @@
 - Grant's round 1 notes still apply: warm, not clinical; no noise (no grid textures, figure captions, section eyebrows or decorative diagrams); easy-to-follow reading order.
 - Sections the prototype doesn't show (Recognition, About teaser, FAQ, voice clip) follow the same rules.
 - To add later: mini Yoga Nidra body scan with the Restore pillar (requirement 9.13).
+
+## Changes after the first homepage review (Grant, 6 Nov 2026)
+
+- "How this is different" section removed.
+- No "Ver en español" banner; the header shows a UK flag and a Spanish flag instead of "EN / ES".
+- Pillars heading: "The six pillars of wellness"; everything in the pillar columns lines up across columns.
+- Mini Yoga Nidra body scan added after the pillars (requirement 9.13), in the pacer's line style.

@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import Pacer from '../../components/Pacer.astro';
 import Photo from '../../components/Photo.astro';
 import HeroPhoto from '../../components/HeroPhoto.astro';
+import BodyScan from '../../components/BodyScan.astro';
 import { homeCopy, pageCopy, siteData } from '../../lib/site';
 import { type Lang, t, url } from '../../i18n';
 
@@ -16,6 +17,7 @@ const [, roman, italic] = c.hero.headline.match(/^(.*?)\s*\*(.*)\*\s*$/) ?? [, c
 const n = c.pillars.items.length;
 const cols = n <= 6 ? n : 4;
 const tints = ['t1', 't2', 't3', 't4', 't5', 't6'];
+const restore = c.pillars.items.find((p) => p.id === 'restore');
 const [mu, md] = site.email.split('@');
 const wa = site.whatsapp && `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(t(lang, 'contact.whatsappMessage'))}`;
 const faqLd = {
@@ -49,17 +51,6 @@ const faqLd = {
       </div>
     </section>
 
-    <section class="section approach" id="approach" aria-labelledby="h-approach">
-      <div class="wrap grid">
-        <h2 class="h2" id="h-approach">{c.approach.heading}</h2>
-        <ol class="principles">
-          {c.approach.items.map((p, i) => (
-            <li><span class="num" aria-hidden="true">{i + 1}</span><div><h3 class="h3">{p.title}</h3><p>{p.text}</p></div></li>
-          ))}
-        </ol>
-      </div>
-    </section>
-
     <section class="section tinted pillars-sec" id="pillars" aria-labelledby="h-pillars">
       <div class="wrap">
         <div class="grid sec-head"><h2 class="h2" id="h-pillars">{c.pillars.heading}</h2><p class="sec-intro">{c.pillars.intro}</p></div>
@@ -68,8 +59,8 @@ const faqLd = {
       <div class="pillar-scroll" tabindex="0" role="region" aria-label={t(lang, 'pillars.region', { heading: c.pillars.heading })}>
         <ol class="pillar-row" style={`--cols:${cols}`}>
           {c.pillars.items.map((p, i) => (
-            <li class:list={['pillar', { 'row-start': i % cols === 0 }]} id={`pillar-${p.id}`}>
-              <Photo slot={`pillar:${p.id}`} lang={lang} tint={tints[i % 6]} sizes="(min-width: 1024px) 16vw, 78vw" />
+            <li class:list={['pillar', { 'row-start': i % cols === 0, 'row-end': (i + 1) % cols === 0 || i === n - 1 }]} id={`pillar-${p.id}`}>
+              <div class="pillar-media"><Photo slot={`pillar:${p.id}`} lang={lang} tint={tints[i % 6]} sizes="(min-width: 1024px) 16vw, 78vw" /></div>
               <p class="mono pillar-n">{String(i + 1).padStart(2, '0')}</p>
               <h3 class="pillar-name">{p.name}</h3>
               <p class="pillar-desc">{p.description}</p>
@@ -80,6 +71,8 @@ const faqLd = {
         </ol>
       </div>
     </section>
+
+    {restore && <BodyScan lang={lang} title={restore.name} text={restore.description} />}
 
     <section class="section programme" id="programme" aria-labelledby="h-programme">
       <div class="wrap grid">

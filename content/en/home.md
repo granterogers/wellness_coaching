@@ -38,22 +38,9 @@ You've started before. You went in at 500%, then work, the kids or one bad month
 
 **Closing line:** None of that is a knowledge problem. The routine was never built for the life you actually have.
 
-## Approach
-
-**Heading:** How this is different
-
-### Evidence, not woo
-Every practice comes with its reason. You'll know what's well supported, what's plausible, and what's simply worth trying. No belief system required.
-
-### Built around you
-Your goals, your body, your schedule. Nothing comes off the shelf, and the plan changes when your life does.
-
-### Small enough to last
-A five-minute practice you do on your worst day beats an hour you skip. We build up from what survives, until you can run it without me.
-
 ## Pillars
 
-**Heading:** Six areas we draw on
+**Heading:** The six pillars of wellness
 
 **Intro:** You won't work on all six at once. We start where it matters most for you, and add the rest when the basics hold.
 

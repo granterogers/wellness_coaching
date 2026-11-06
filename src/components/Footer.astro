@@ -17,7 +17,6 @@ const year = new Date().getFullYear();
     <div class="foot-logo"><span class="logo-full" role="img" aria-label={`${site.name} logo`} style={`--logo:url(${fullLogoUrl})`}></span></div>
     <p class="foot-disclaimer">{copy.footer.disclaimer}</p>
     <nav class="foot-nav" aria-label={t(lang, 'nav.footer')}>
-      <a class="draw" href={`${home}#approach`}>{t(lang, 'nav.approach')}</a>
       <a class="draw" href={`${home}#pillars`}>{t(lang, 'nav.pillars')}</a>
       <a class="draw" href={`${home}#programme`}>{t(lang, 'nav.programme')}</a>
       {has('about') && <a class="draw" href={url(`${lang}/about/`)}>{t(lang, 'nav.about')}</a>}

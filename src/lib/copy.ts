@@ -124,10 +124,6 @@ export function loadHome(lang: string) {
       items: S('Recognition').items.map((i) => i.text),
       closing: S('Recognition').labels['Closing line'],
     },
-    approach: {
-      heading: S('Approach').labels['Heading'],
-      items: S('Approach').items.map((i) => ({ title: i.title, text: i.text })),
-    },
     pillars: {
       heading: S('Pillars').labels['Heading'],
       intro: S('Pillars').labels['Intro'],

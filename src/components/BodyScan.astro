@@ -1,0 +1,58 @@
+---
+// Mini Yoga Nidra body scan (requirement 9.13): a figure lying down, seen from above, in thin lines.
+// Zones light up in turn (feet → face), breathing with the same 4 s / 6 s rhythm as the pacer.
+// Ambient loop is pausable (WCAG 2.2.2); tap for the guided two-minute scan; reduced motion = highlight only.
+import { t, type Lang } from '../i18n';
+interface Props { lang: Lang; title: string; text: string }
+const { lang, title, text } = Astro.props;
+const zones = ['feet', 'legs', 'hips', 'belly', 'chest', 'arms', 'shoulders', 'face'] as const;
+const names = Object.fromEntries(zones.map((z) => [z, t(lang, `scan.${z}` as any)]));
+const S = { names, count: t(lang, 'scan.count', { n: '{n}' }), done: t(lang, 'scan.done'), stopped: t(lang, 'pacer.stopped'), pause: t(lang, 'pacer.pause'), resume: t(lang, 'pacer.resume') };
+// capsule = outline stroke + slightly thinner inner stroke, so a single path reads as a hollow limb
+// Shapes are drawn once for the top half; the bottom arm, leg and foot are mirrored across the body's centre line (y = 110).
+const mirror = 'translate(0 220) scale(1 -1)';
+const torso = 'M118 70 C132 62 160 62 180 66 C230 74 290 80 332 78 C356 77 370 92 370 110 C370 128 356 143 332 142 C290 140 230 146 180 154 C160 158 132 158 118 150 C108 144 104 128 104 110 C104 92 108 76 118 70 Z';
+const arm = 'M128 66 C170 50 230 42 300 40 C340 39 372 40 394 40 C402 40 404 47 398 51 C376 53 340 52 300 52 C240 54 182 61 142 76 Z';
+const leg = 'M336 82 C440 78 520 80 580 84 C630 87 670 88 696 89 C703 90 704 99 697 100 C670 101 630 101 580 102 C520 104 440 106 336 106 Z';
+---
+<section class="section bodyscan" id="restore-scan" aria-labelledby="h-scan">
+  <div class="wrap grid">
+    <div class="scan-text">
+      <p class="mono eyebrow">{t(lang, 'scan.label')}</p>
+      <h2 class="h2" id="h-scan">{title}</h2>
+      <p>{text}</p>
+      <p class="scan-hint" id={`scan-hint-${lang}`}>{t(lang, 'scan.hint')}</p>
+      <p class="scan-meta"><span class="mono">{t(lang, 'scan.timing')}</span>
+        <button type="button" class="link-btn mono" data-scan-pause aria-pressed="false">{S.pause}</button>
+        <button type="button" class="link-btn mono" data-scan-stop hidden>{t(lang, 'pacer.stop')}</button></p>
+    </div>
+    <div class="scan-figure" data-scan data-strings={JSON.stringify(S)}>
+      <button type="button" class="scan-btn" aria-describedby={`scan-hint-${lang}`} aria-label={t(lang, 'scan.region')} data-scan-start>
+        <svg viewBox="30 20 720 180" aria-hidden="true" focusable="false">
+          <ellipse class="scan-orbit" cx="392" cy="110" rx="356" ry="88" />
+          <g class="bz" data-zone="feet">
+            <ellipse class="shape" cx="714" cy="83" rx="17" ry="8" transform="rotate(-38 714 83)" />
+            <g transform={mirror}><ellipse class="shape" cx="714" cy="83" rx="17" ry="8" transform="rotate(-38 714 83)" /></g>
+          </g>
+          <g class="bz" data-zone="legs">
+            <path class="shape" d={leg} /><g transform={mirror}><path class="shape" d={leg} /></g>
+          </g>
+          <g class="bz" data-zone="arms">
+            <path class="shape" d={arm} /><ellipse class="shape" cx="412" cy="45" rx="13" ry="8" transform="rotate(4 412 45)" />
+            <g transform={mirror}><path class="shape" d={arm} /><ellipse class="shape" cx="412" cy="45" rx="13" ry="8" transform="rotate(4 412 45)" /></g>
+          </g>
+          <path class="shape torso" d={torso} />
+          <path class="shape neck" d="M96 98 C104 101 110 101 116 100 L116 120 C110 119 104 119 96 122 Z" />
+          <g class="bz" data-zone="hips"><ellipse class="area" cx="338" cy="110" rx="26" ry="28" /></g>
+          <g class="bz" data-zone="belly"><ellipse class="area" cx="278" cy="110" rx="32" ry="26" /></g>
+          <g class="bz" data-zone="chest"><ellipse class="area" cx="208" cy="110" rx="38" ry="34" /></g>
+          <g class="bz" data-zone="shoulders"><ellipse class="area" cx="138" cy="110" rx="22" ry="42" /></g>
+          <g class="bz" data-zone="face"><ellipse class="shape" cx="72" cy="110" rx="26" ry="30" /></g>
+        </svg>
+      </button>
+      <p class="scan-zone-label" aria-hidden="true"><span data-scan-name>{names.feet}</span><span class="mono" data-scan-count></span></p>
+      <p class="sr-only" aria-live="polite" data-scan-live></p>
+    </div>
+  </div>
+</section>
+<script>import '../scripts/bodyscan.ts';</script>
