@@ -1,0 +1,15 @@
+@layer base {
+  :root { --serif: var(--font-serif); --sans: var(--font-sans); --mono: var(--font-mono);
+    --s1: 8px; --s2: 16px; --s3: 24px; --s4: 32px; --s6: 48px; --s8: 64px; --s12: 96px; --s16: 128px; --ease: cubic-bezier(.45,.05,.25,1); }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: clamp(17px, 16px + .25vw, 19px); line-height: 1.6; }
+  a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .2em; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+}
+@layer components {
+  .wrap { max-width: 1360px; margin: 0 auto; padding: 0 20px; }
+  @media (min-width: 768px) { .wrap { padding: 0 32px; } }
+  .mono { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; line-height: 1.5; }
+  .display { text-wrap: balance; font-family: var(--serif); font-weight: 360; font-size: clamp(2.75rem, 2.1rem + 3.4vw, 5.5rem); line-height: 1.02; letter-spacing: -.02em; margin: 0; }
+  .display em { font-style: italic; font-weight: 330; color: var(--accent); }
+}

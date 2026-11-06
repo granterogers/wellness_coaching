@@ -1,0 +1,15 @@
+---
+import Base from '../../layouts/Base.astro';
+import { homeCopy } from '../../lib/site';
+import { type Lang } from '../../i18n';
+
+export function getStaticPaths() { return [{ params: { lang: 'en' } }, { params: { lang: 'es' } }]; }
+const lang = Astro.params.lang as Lang;
+const copy = await homeCopy(lang);
+---
+<Base lang={lang} title="Grant Rogers" description={copy.hero.subhead}>
+  <main id="main" class="wrap" style="padding:64px 0">
+    <p class="mono">Phase 1 scaffold · {lang}</p>
+    <h1 class="display" set:html={copy.hero.headline.replace(/\*([^*]+)\*/g, '<em>$1</em>')} />
+  </main>
+</Base>

@@ -1,0 +1,34 @@
+{
+  "name": "Grant Rogers",
+  "email": "grant.e.rogers@gmail.com",
+  "whatsapp": "34603834206",
+  "bookingUrl": "",
+  "social": {
+    "instagram": "https://instagram.com/grantrogerswellness",
+    "linkedin": "https://linkedin.com/in/grant-rogers-wellness",
+    "researchgate": "https://www.researchgate.net/profile/Grant-Rogers"
+  },
+  "credentials": [
+    "MSc Computational Physics, Heriot-Watt University, 2000–2004",
+    "MSc Marine Biodiversity & Biotechnology, Heriot-Watt University, 2014–2015",
+    "Co-author of 7 peer-reviewed papers",
+    "15+ years across scientific research, GIS and technical training",
+    "Kundalini Yoga Teacher Training, i-Sky Institute, 2019–2020",
+    "SOMA Breathwork Instructor, Level 1, SOMA Villa, Ibiza, 2021",
+    "CMAS 3-star freediver",
+    "Teaching since 2020, in English and Spanish"
+  ],
+  "publications": {
+    "count": 7,
+    "journals": ["Scientific Reports", "Remote Sensing", "Frontiers in Marine Science"],
+    "url": "https://www.researchgate.net/profile/Grant-Rogers"
+  },
+  "flags": {
+    "freePractice": false,
+    "voiceClip": true,
+    "testimonials": false,
+    "spanish": true,
+    "contactForm": false,
+    "indexing": false
+  }
+}

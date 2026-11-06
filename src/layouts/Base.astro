@@ -1,0 +1,33 @@
+---
+import '../styles/global.css';
+import { siteData } from '../lib/site';
+import { type Lang, url } from '../i18n';
+
+interface Props { lang: Lang; title: string; description: string; path?: string; draftTranslation?: boolean }
+const { lang, title, description, path = '' } = Astro.props;
+const site = await siteData();
+const canonical = new URL(url(`${lang}/${path}`), Astro.site).href;
+const alt = (l: Lang) => new URL(url(`${l}/${path}`), Astro.site).href;
+---
+<!doctype html>
+<html lang={lang === 'en' ? 'en-GB' : 'es-ES'}>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  {!site.flags.indexing && <meta name="robots" content="noindex, nofollow" />}
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  <link rel="alternate" hreflang="en" href={alt('en')} />
+  {site.flags.spanish && <link rel="alternate" hreflang="es" href={alt('es')} />}
+  <link rel="alternate" hreflang="x-default" href={alt('en')} />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href={url('brand/icon.svg')} type="image/svg+xml" />
+  <link rel="apple-touch-icon" href={url('brand/icon-180.png')} />
+  <script is:inline>try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t}catch(e){}</script>
+  <slot name="head" />
+</head>
+<body>
+  <slot />
+</body>
+</html>

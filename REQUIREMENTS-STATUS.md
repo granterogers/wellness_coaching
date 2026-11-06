@@ -2,7 +2,7 @@
 
 Every ID in `knowledge/requirements.md` (121). Status: `todo` / `done` / `partial` / `blocked` / `later`. Updated at the end of every phase (1.6).
 
-Last updated: Phase 0, 4 November 2026.
+Last updated: Phase 1, 6 November 2026.
 
 | ID | P | Phase | Status | Evidence / notes |
 |---|---|---|---|---|
@@ -17,25 +17,25 @@ Last updated: Phase 0, 4 November 2026.
 | 1.9 | M | all | todo | Applies throughout |
 | 1.10 | M | all | todo | Applies throughout |
 | 1.11 | M | all | todo | Applies throughout |
-| 2.1 | M | 1 | todo |  |
-| 2.2 | M | 1 | todo |  |
-| 2.3 | M | 1 | todo |  |
-| 2.4 | M | 1 | todo |  |
-| 2.5 | M | 1 | todo |  |
-| 2.6 | M | 1 | todo |  |
+| 2.1 | M | 1 | done | Astro 7.4.7, `output: 'static'` — `astro.config.mjs` |
+| 2.2 | M | 1 | done | Tailwind v4 via `@tailwindcss/vite`; tokens as custom properties in `src/styles/tokens.css` |
+| 2.3 | M | 1 | partial | gsap + lenis installed; loaded only where used (Phase 4) |
+| 2.4 | M | 1 | partial | astro:assets ready; photo component in Phase 3 |
+| 2.5 | M | 1 | done | @astrojs/sitemap with en-GB/es-ES — `astro.config.mjs` |
+| 2.6 | M | 1 | done | latin + latin-ext only — `src/styles/fonts.css` (from @fontsource) |
 | 2.7 | S | 5 | todo | satori + @resvg/resvg-js approved (D4) |
-| 2.8 | M | 1 | todo |  |
-| 2.9 | M | 1 | todo |  |
-| 2.10 | M | 1 | todo |  |
-| 2.11 | M | 1 | todo |  |
-| 2.12 | M | 1 | todo |  |
+| 2.8 | M | 1 | done | Playwright `scripts/shots.mjs`; lighthouse + @astrojs/check dev deps |
+| 2.9 | M | 1 | done | `.github/workflows/pages.yml`; `site`/`base` set; prototypes kept at /design/ (`scripts/copy-prototypes.mjs`) |
+| 2.10 | M | 1 | done | `DEPLOY.md` |
+| 2.11 | M | 1 | done | `npm run build`, `npm run check`, `npm run shots` — `package.json`, `scripts/` |
+| 2.12 | M | 1 | done | No backend, cookies or tracking; theme choice in localStorage only |
 | 3.1 | M | 3 | todo |  |
-| 3.2 | M | 1 | todo |  |
+| 3.2 | M | 1 | done | `src/content.config.ts` (schemas fail the build; en copy must be approved) |
 | 3.3 | M | 3 | todo |  |
-| 3.4 | M | 1 | todo |  |
-| 3.5 | M | 1 | todo |  |
+| 3.4 | M | 1 | done | `content/shared/site.json` |
+| 3.5 | M | 1 | done | Flags in `site.json` (voiceClip on per Grant) |
 | 3.6 | M | 3 | todo | Spain Spanish, tú (D2) |
-| 3.7 | M | 1 | todo |  |
+| 3.7 | M | 1 | done | `src/i18n/en.json`, `es.json` |
 | 3.8 | M | 6 | todo |  |
 | 4.1 | M | 5 | todo |  |
 | 4.2 | S | 5 | todo |  |
@@ -97,7 +97,7 @@ Last updated: Phase 0, 4 November 2026.
 | 11.3 | M | 3 | todo |  |
 | 11.4 | S | 5 | todo |  |
 | 11.5 | M | 5 | todo |  |
-| 12.1 | M | 1 | todo |  |
+| 12.1 | M | 1 | done | `/en/` and `/es/` routes — `src/pages/[lang]/` |
 | 12.2 | M | 2 | todo |  |
 | 12.3 | M | 2 | todo |  |
 | 12.4 | S | 3 | todo |  |
@@ -109,7 +109,7 @@ Last updated: Phase 0, 4 November 2026.
 | 13.5 | S | 5 | todo |  |
 | 13.6 | M | 5 | todo |  |
 | 13.7 | M | 5 | todo |  |
-| 13.8 | M | 1 | todo |  |
+| 13.8 | M | 1 | done | noindex meta while `indexing` false (`src/layouts/Base.astro`); `src/pages/robots.txt.ts` |
 | 14.1 | M | 6 | todo |  |
 | 14.2 | M | 6 | todo |  |
 | 14.3 | M | 6 | todo |  |
@@ -121,14 +121,14 @@ Last updated: Phase 0, 4 November 2026.
 | 15.4 | M | 6 | todo |  |
 | 15.5 | S | 6 | todo |  |
 | 15.6 | M | 6 | todo |  |
-| 16.1 | M | 1 | todo |  |
+| 16.1 | M | 1 | done | `README.md` |
 | 16.2 | M | 6 | todo |  |
 | 16.3 | M | 6 | todo |  |
 | 16.4 | M | 6 | todo |  |
 | 16.5 | M | 6 | todo |  |
 | 16.6 | S | 6 | todo |  |
 
-Totals: done 5, later 2, todo 114
+Totals: done 21, later 2, partial 2, todo 96
 
 ## Phase 0 log — fixes applied
 

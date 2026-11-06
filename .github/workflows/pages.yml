@@ -1,5 +1,5 @@
-# Publishes the preview to GitHub Pages: granterogers.github.io/wellness_coaching
-# For now: the three design prototypes. The Astro build replaces this in Phase 1 and keeps /design/ (req 2.9).
+# Builds the site and publishes the preview to GitHub Pages: granterogers.github.io/wellness_coaching (requirement 2.9).
+# The design prototypes stay at /wellness_coaching/design/.
 name: Deploy preview to GitHub Pages
 
 on:
@@ -24,22 +24,16 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
-      - name: Assemble site
-        run: |
-          mkdir -p _site/design
-          cp design/prototype-*.html _site/design/
-          cp -r design/fonts design/assets _site/design/
-          printf 'User-agent: *\nDisallow: /\n' > _site/robots.txt
-          cat > _site/index.html <<'HTML'
-          <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-          <meta name="robots" content="noindex, nofollow"><title>Grant Rogers · preview</title>
-          <style>body{font:18px/1.6 Georgia,serif;margin:0;padding:48px 20px;background:#EEEEEA;color:#15191A}main{max-width:560px;margin:auto}a{display:block;padding:14px 0;border-top:1px solid #CBCBC3;color:inherit}</style></head>
-          <body><main><h1>Design prototypes</h1><p>Same copy, round 2. D is A (light) and C (dark) in one site with a toggle.</p>
-          <a href="design/prototype-d.html">D — Light &amp; dark (A + C)</a><a href="design/prototype-a.html">A — Sage &amp; Saffron</a><a href="design/prototype-b.html">B — Linen &amp; Teal</a><a href="design/prototype-c.html">C — Moss &amp; Honey</a></main></body></html>
-          HTML
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Check and build
+        run: npx astro check && npm run build && node scripts/check-links.mjs && node scripts/check-placeholders.mjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: _site
+          path: dist
       - id: deployment
         uses: actions/deploy-pages@v4

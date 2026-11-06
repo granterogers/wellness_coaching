@@ -1,0 +1,29 @@
+/* Design tokens (requirement 2.2, 6.1). Light = palette A Sage & Saffron, dark = palette C Moss & Honey (6.9, design/CHOSEN.md). */
+:root {
+  --bg: #ECEDE4; --alt: #E1E5D6; --ink: #1F2A24; --muted: #56615A; --rule: #CDD2C2; --rule-strong: #7D877E;
+  --accent: #3F5F4A; --on-accent: #F4F2EA; --warm: #E3A63E; --on-warm: #1F2A24;
+  --night: #22302A; --night-alt: #2B3A33; --night-ink: #EFEDE4; --night-muted: #AEB8AE; --night-rule: #3A4A42;
+  --t1: #D7DFCB; --t2: #F1DDAF; --t3: #E9E0CC; --t4: #D6E0DD; --t5: #EED6A2; --t6: #CBD5BE; --glow: 38%;
+  color-scheme: light;
+}
+:root[data-theme='dark'] {
+  --bg: #1D2420; --alt: #252E29; --ink: #EFE8D8; --muted: #AEB3A6; --rule: #34403A; --rule-strong: #6A766E;
+  --accent: #E2B65C; --on-accent: #1D2420; --warm: #E2B65C; --on-warm: #1D2420;
+  --night: #141916; --night-alt: #1B221E; --night-ink: #EFE8D8; --night-muted: #AEB3A6; --night-rule: #2C3631;
+  --t1: #2C3830; --t2: #3D3A28; --t3: #2E3637; --t4: #3B3226; --t5: #28382F; --t6: #33303A; --glow: 10%;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #1D2420; --alt: #252E29; --ink: #EFE8D8; --muted: #AEB3A6; --rule: #34403A; --rule-strong: #6A766E;
+    --accent: #E2B65C; --on-accent: #1D2420; --warm: #E2B65C; --on-warm: #1D2420;
+    --night: #141916; --night-alt: #1B221E; --night-ink: #EFE8D8; --night-muted: #AEB3A6; --night-rule: #2C3631;
+    --t1: #2C3830; --t2: #3D3A28; --t3: #2E3637; --t4: #3B3226; --t5: #28382F; --t6: #33303A; --glow: 10%;
+    color-scheme: dark;
+  }
+}
+@theme {
+  --font-serif: "Newsreader", Georgia, serif;
+  --font-sans: "Hanken Grotesk", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}

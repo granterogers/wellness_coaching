@@ -1,0 +1,260 @@
+[
+ {
+  "id": "P01",
+  "file": "hero-wide",
+  "ratio": "16/9",
+  "short": {
+   "en": "Grant by a large window, morning light",
+   "es": "Grant junto a una ventana grande, luz de mañana"
+  },
+  "alt": {
+   "en": "Grant by a large window, morning light",
+   "es": "Grant junto a una ventana grande, luz de mañana"
+  },
+  "brief": "Grant, solo · Medium close-up, waist up; horizontal 16:9; Grant on one third, empty space on the other two-thirds for the headline · Indoors by a large window, soft morning side light · Calm, present, looking just off camera; slight smile"
+ },
+ {
+  "id": "P02",
+  "file": "hero-tall",
+  "ratio": "4/5",
+  "short": {
+   "en": "Grant by a window, head and shoulders",
+   "es": "Grant junto a una ventana, cabeza y hombros"
+  },
+  "alt": {
+   "en": "Grant by a window, head and shoulders",
+   "es": "Grant junto a una ventana, cabeza y hombros"
+  },
+  "brief": "Same as P01 · Vertical 4:5 crop, head and shoulders, space above head · Same as P01 · Same moment as P01"
+ },
+ {
+  "id": "P03",
+  "file": "about-portrait",
+  "ratio": "4/5",
+  "short": {
+   "en": "Grant, chest-up portrait, looking at the camera",
+   "es": "Grant, retrato de medio cuerpo, mirando a cámara"
+  },
+  "alt": {
+   "en": "Grant, chest-up portrait, looking at the camera",
+   "es": "Grant, retrato de medio cuerpo, mirando a cámara"
+  },
+  "brief": "Grant, solo · Chest up, vertical 4:5, looking directly at camera · Plain wall or soft outdoor background, even light · Warm, trustworthy, approachable"
+ },
+ {
+  "id": "P04",
+  "file": "about-profile-bw",
+  "ratio": "4/5",
+  "short": {
+   "en": "Grant in profile, black and white",
+   "es": "Grant de perfil, en blanco y negro"
+  },
+  "alt": {
+   "en": "Grant in profile, black and white",
+   "es": "Grant de perfil, en blanco y negro"
+  },
+  "brief": "Grant, solo, side profile · Head and shoulders, vertical 4:5; converted to black and white · Hard side light from a window, dark background · Thoughtful, serious, \"scientist\""
+ },
+ {
+  "id": "P05",
+  "file": "work-desk",
+  "ratio": "3/2",
+  "short": {
+   "en": "Hands at a desk with a notebook and data",
+   "es": "Manos en un escritorio con libreta y datos"
+  },
+  "alt": {
+   "en": "Hands at a desk with a notebook and data",
+   "es": "Manos en un escritorio con libreta y datos"
+  },
+  "brief": "Grant's hands, face partly visible or not at all · Close, over-the-shoulder, horizontal 3:2 · Desk with notebook, pen, laptop or printed data; daylight · Focused; \"the reasoning behind it\""
+ },
+ {
+  "id": "P06",
+  "file": "work-call",
+  "ratio": "3/2",
+  "short": {
+   "en": "Grant on a video call, over the shoulder",
+   "es": "Grant en una videollamada, por encima del hombro"
+  },
+  "alt": {
+   "en": "Grant on a video call, over the shoulder",
+   "es": "Grant en una videollamada, por encima del hombro"
+  },
+  "brief": "Grant on a video call (client blurred or out of frame) · Over-the-shoulder showing laptop screen, horizontal 3:2 · Home workspace, natural light · Shows the coaching is online and 1:1"
+ },
+ {
+  "id": "P07",
+  "file": "pillar-breathe",
+  "ratio": "1/1",
+  "short": {
+   "en": "Hand resting on the ribs, eyes closed",
+   "es": "Mano apoyada en las costillas, ojos cerrados"
+  },
+  "alt": {
+   "en": "Hand resting on the ribs, eyes closed",
+   "es": "Mano apoyada en las costillas, ojos cerrados"
+  },
+  "brief": "Grant, solo · Close-up of torso: hand resting on ribs/belly, eyes closed if face visible; square 1:1 · Soft indoor light · Slow, quiet",
+  "pillar": "breathe"
+ },
+ {
+  "id": "P08",
+  "file": "pillar-move",
+  "ratio": "1/1",
+  "short": {
+   "en": "A mobility posture on a wooden floor",
+   "es": "Una postura de movilidad sobre suelo de madera"
+  },
+  "alt": {
+   "en": "A mobility posture on a wooden floor",
+   "es": "Una postura de movilidad sobre suelo de madera"
+  },
+  "brief": "Grant, solo · Full body in a mobility or yoga posture (deep squat, hip opener or spinal wave); square 1:1 · Wooden floor or outdoor terrace, morning light · Strong, fluid, unforced",
+  "pillar": "move"
+ },
+ {
+  "id": "P09",
+  "file": "pillar-focus",
+  "ratio": "1/1",
+  "short": {
+   "en": "Seated meditation, lots of space",
+   "es": "Meditación sentada, mucho espacio"
+  },
+  "alt": {
+   "en": "Seated meditation, lots of space",
+   "es": "Meditación sentada, mucho espacio"
+  },
+  "brief": "Grant, solo · Wide shot, small in frame, seated meditation on a cushion; square 1:1 · Minimal room or by the sea; lots of empty space · Stillness",
+  "pillar": "focus"
+ },
+ {
+  "id": "P10",
+  "file": "pillar-restore",
+  "ratio": "1/1",
+  "short": {
+   "en": "Yoga Nidra under a blanket, from above",
+   "es": "Yoga Nidra bajo una manta, desde arriba"
+  },
+  "alt": {
+   "en": "Yoga Nidra under a blanket, from above",
+   "es": "Yoga Nidra bajo una manta, desde arriba"
+  },
+  "brief": "Grant, solo, lying down · From directly above, lying under a blanket (Yoga Nidra); square 1:1 · Dim, warm evening light · Deep rest; suits the dark \"night\" section",
+  "pillar": "restore"
+ },
+ {
+  "id": "P11",
+  "file": "pillar-vitality",
+  "ratio": "1/1",
+  "short": {
+   "en": "Outdoors, strong and moving",
+   "es": "Al aire libre, con fuerza y en movimiento"
+  },
+  "alt": {
+   "en": "Outdoors, strong and moving",
+   "es": "Al aire libre, con fuerza y en movimiento"
+  },
+  "brief": "Grant, solo · Medium-wide, outdoors, strength or dynamic movement (e.g. carrying, climbing, swimming); square 1:1 · Coast or mountain, bright natural light · Energy, capability; nothing sexual or suggestive",
+  "pillar": "vitality"
+ },
+ {
+  "id": "P12",
+  "file": "pillar-grow",
+  "ratio": "1/1",
+  "short": {
+   "en": "Walking away down a path, golden hour",
+   "es": "Caminando por un sendero, hora dorada"
+  },
+  "alt": {
+   "en": "Walking away down a path, golden hour",
+   "es": "Caminando por un sendero, hora dorada"
+  },
+  "brief": "Grant, solo, from behind · Wide, walking away down a path; square 1:1 · Nature path, golden hour · Forward movement, independence",
+  "pillar": "grow"
+ },
+ {
+  "id": "P13",
+  "file": "real-life",
+  "ratio": "3/2",
+  "short": {
+   "en": "Coffee, phone, notebook and keys on a table",
+   "es": "Café, móvil, libreta y llaves sobre una mesa"
+  },
+  "alt": {
+   "en": "Coffee, phone, notebook and keys on a table",
+   "es": "Café, móvil, libreta y llaves sobre una mesa"
+  },
+  "brief": "No person, or hands only · Overhead still life, horizontal 3:2 · Kitchen or café table: coffee, phone, notebook, keys · Ordinary busy life; \"this has to fit around real life\""
+ },
+ {
+  "id": "P14",
+  "file": "retreat-group",
+  "ratio": "16/9",
+  "short": {
+   "en": "A retreat group from behind, facing the sea",
+   "es": "Un grupo de retiro de espaldas, frente al mar"
+  },
+  "alt": {
+   "en": "A retreat group from behind, facing the sea",
+   "es": "Un grupo de retiro de espaldas, frente al mar"
+  },
+  "brief": "Group of 5–15 people, from behind, no identifiable faces · Wide, horizontal 16:9 · Outdoors facing the sea or in a bright studio · Shared practice; written consent from participants"
+ },
+ {
+  "id": "P15",
+  "file": "instrument-hands",
+  "ratio": "3/2",
+  "short": {
+   "en": "Hands on an instrument, warm light",
+   "es": "Manos sobre un instrumento, luz cálida"
+  },
+  "alt": {
+   "en": "Hands on an instrument, warm light",
+   "es": "Manos sobre un instrumento, luz cálida"
+  },
+  "brief": "Grant's hands only · Close-up, horizontal 3:2 · Hands on harmonium, singing bowl, tanpura or drum; warm light · Sound and mantra side of the work"
+ },
+ {
+  "id": "P16",
+  "file": "texture-water",
+  "ratio": "16/9",
+  "short": {
+   "en": "Calm water at dusk",
+   "es": "Agua en calma al atardecer"
+  },
+  "alt": {
+   "en": "Calm water at dusk",
+   "es": "Agua en calma al atardecer"
+  },
+  "brief": "No people · Full-bleed, horizontal 16:9, must work darkened · Calm water surface at dusk · Quiet; text sits on top, so low contrast and detail"
+ },
+ {
+  "id": "P17",
+  "file": "texture-light",
+  "ratio": "3/2",
+  "short": {
+   "en": "Morning light through linen",
+   "es": "Luz de mañana a través del lino"
+  },
+  "alt": {
+   "en": "Morning light through linen",
+   "es": "Luz de mañana a través del lino"
+  },
+  "brief": "No people · Horizontal 3:2 · Morning light through linen or a window onto a wall · Gentle, abstract"
+ },
+ {
+  "id": "P18",
+  "file": "texture-stone",
+  "ratio": "1/1",
+  "short": {
+   "en": "Stone, sand or bark, close up",
+   "es": "Piedra, arena o corteza, de cerca"
+  },
+  "alt": {
+   "en": "Stone, sand or bark, close up",
+   "es": "Piedra, arena o corteza, de cerca"
+  },
+  "brief": "No people · Macro, square 1:1 · Stone, sand or bark · Grounded, natural"
+ }
+]

@@ -1,24 +1,25 @@
 # Wellness Coaching — Grant Rogers
 
-Source repository for Grant Rogers' 1:1 wellness coaching website. Preview: GitHub Pages (`granterogers.github.io/wellness_coaching`).
+The website for Grant Rogers' 1:1 wellness coaching, plus the knowledge base its words come from.
 
-This repo holds two things: the website itself, and the knowledge base the website's content is written from. Any update to the offer, wording or design starts in `knowledge/`, then flows into `content/` and the site.
+**Live preview:** https://granterogers.github.io/wellness_coaching/ (not indexed by search engines yet).
 
-## Structure
+## How it works, in plain terms
 
-| Folder | What lives here |
-|---|---|
-| `knowledge/` | Single source of truth: brief, offer, voice, scope. Read `knowledge/brief.md` first. |
-| `content/` | The words the website displays, one file per language (English, Spanish). |
-| `assets/brand/` | Logo and icon files (see its README). |
-| `assets/images/` | Photos not tied to a site slot (site photos go in `src/assets/photos/`). |
-| `design/` | The three prototypes and `CHOSEN.md`. |
-| `src/` | The website (Astro; built after copy and design are approved). |
+- **Nothing to install.** You edit text on github.com (or ask Claude Code on the web to do it). When a change reaches the `main` branch, GitHub builds and publishes the site in about 3 minutes.
+- **The words** live in `content/` — one file per language. `content/en/home.md` is the homepage, `content/en/pages.md` the other pages. The site uses them word for word.
+- **Settings** (email, WhatsApp, booking link, which features are switched on) live in `content/shared/site.json`.
+- **Photos** go in `src/assets/photos/` with the file names listed in `knowledge/photo-slots.md`. Until a photo exists, the site shows a labelled placeholder.
+- **Decisions and rules** live in `knowledge/` (start with `knowledge/brief.md`) and `CLAUDE.md`.
 
-## Working with an AI assistant
+How to change text, pillars, photos and switches step by step: `CONTENT-EDITING.md`. Publishing and the later move to your own domain: `DEPLOY.md`. What's built and what's left: `REQUIREMENTS-STATUS.md`. What's still waiting for you: `PLACEHOLDERS.md`.
 
-Start any new chat by pointing it at this repo and asking it to read `knowledge/brief.md` before doing anything else. That file summarises every decision made so far, so nothing depends on earlier chat history.
+## The technical bits (for whoever maintains it)
+
+Astro (static site) · Tailwind CSS v4 · GSAP and Lenis for motion · self-hosted fonts (Newsreader, Hanken Grotesk, IBM Plex Mono) · GitHub Actions → GitHub Pages.
+
+Commands: `npm run build` · `npm run check` (types, content, links, placeholders) · `npm run shots -- <phase>` (screenshots).
 
 ## Private material
 
-Workbooks, research interviews, client stories and strategy notes are kept in a separate private repository (`wellness_coaching_private`), because this repo is public.
+Workbooks, research interviews, client stories and strategy notes are in a separate private repository (`wellness_coaching_private`), because this repo is public.
