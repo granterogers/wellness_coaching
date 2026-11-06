@@ -24,7 +24,25 @@ Source: design research, November 2026 (award-recognised wellness and health sit
 | [Early (Peter Attia)](https://earlymedical.com) | Confident credentials paragraph |
 | [Othership Learn](https://www.othership.us/learn) | Evidence notes as content |
 
-## Palettes
+## Palettes — round 2 (current)
+
+Grant, 6 November 2026, on round 1: "a bit clinical… lacking any nice colours… a little harsh". Round 2 keeps one disciplined accent per palette but adds a warm second colour and soft warm tints (pillar photo panels, the pacer's glow, the night section). Still no terracotta, no gradient blobs.
+
+| Token | A — Sage & Saffron | B — Linen & Teal | C — Moss & Honey (dark) |
+|---|---|---|---|
+| Background | `#ECEDE4` | `#F2EDE3` | `#1D2420` |
+| Alternate section | `#E1E5D6` | `#E9E1D2` | `#252E29` |
+| Text | `#1F2A24` | `#1E2A2C` | `#EFE8D8` |
+| Secondary text | `#56615A` | `#5C6461` | `#AEB3A6` |
+| Hairline / control outline | `#CDD2C2` / `#7D877E` | `#D8CFBE` / `#8A8475` | `#34403A` / `#6A766E` |
+| Accent (links, buttons) | Forest `#3F5F4A` | Teal `#1F5E5F` | Honey `#E2B65C` (dark text on it) |
+| Warm colour | Saffron `#E3A63E` | Ochre `#D08C2E` | Honey `#E2B65C` |
+| Night section | `#22302A` | `#173232` | `#141916` |
+| Pillar tints | sage, saffron, oat, mist, honey, moss | sand, sea-mist, ochre, sage, linen, pale teal | deep moss, olive, slate, umber, pine, dusk |
+
+Contrast (checked): all text pairs above pass AA (4.7–13:1). The warm colour is never body text on a light background; it is used for fills, the pacer glow, number marks and buttons with dark text (6.9:1 A, 5.3:1 B).
+
+### Round 1 palettes (retired)
 
 **Caution — the cream trap.** Warm cream/off-white backgrounds with serif headlines are now a recognised AI-default "tasteful" look. Palette A is therefore shifted to a cooler, neutral stone and must earn its place in the prototype comparison rather than being assumed.
 
@@ -69,8 +87,8 @@ A design fails if a viewer could swap the logo and use it for any other coach. C
 |---|---|
 | Hero = big serif headline left, photo right, two buttons | Build the hero around the pacer and its figure caption ("FIG. 00 — RESTING BREATH, 4s IN / 6s OUT"); the photo carries a caption like a plate in a field notebook |
 | Recognition (3) and Approach (3) become two rows of three cards | 5.2 as a short typeset list set against P13; 5.3 as numbered margin notes beside P05. Never the same layout twice |
-| Pillars as "01 — Breathe" numbered rows (the stock editorial index) | Each pillar gets a position on an orbit line beside the list and its own mono "practice" line, so the index reads as a diagram, not a menu |
-| Mono labels sprinkled everywhere as decoration | Mono only where it carries information: phase numbers, figure captions, facts, the pacer. If a label says nothing, delete it |
+| Pillars as "01 — Breathe" numbered rows (the stock editorial index) | Pillars as actual columns side by side, each with its photo and practice (Grant, round 2). No decorative orbit diagram |
+| Mono labels sprinkled everywhere as decoration (Grant: "noisy") | Mono only for phase numbers, pillar numbers, the pacer timing and fact lists. No "FIG." captions on placeholders, no section eyebrows, no grid textures |
 | Dark final-CTA band with a centred heading and button | Night section uses P16 and the orbit; the CTA sits off-centre with the contact options as a plain list |
 | FAQ with plus icons in a boxed list | Numbered questions (Q.01) on hairlines, answers in body type |
 | Copy any coach could use ("personalised", "sustainable", "real life") | The copywriting brief's competitor test, and specifics from `offer.md` and `credentials.md` |

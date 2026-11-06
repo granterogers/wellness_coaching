@@ -1,7 +1,7 @@
 ---
-status: approved
+status: draft
 language: en
-round: 2
+round: 3
 updated: 2026-11-04
 ---
 
@@ -13,9 +13,9 @@ When you're happy, change "status: draft" to "status: approved" at the top.
 
 ## Hero
 
-**Headline:** Scientist turned practitioner. *Health that survives your busiest week.*
+**Headline:** Wellness with the evidence left in. *And the woo left out.*
 
-**Subhead:** Private 1:1 coaching, online, over three to six months. For capable, busy people who know what they should be doing and can't make it stick. Together we build a routine for sleep, energy and strength that fits around your work and family, and keeps working when life gets loud.
+**Subhead:** Private 1:1 coaching, online, over three to six months. Breathwork, movement, meditation and deep rest, chosen for your goals, your body and your schedule, with the reasoning behind every practice. For busy people who know what they should be doing and want it to stick this time.
 
 **Primary button:** Book a conversation
 
@@ -40,16 +40,16 @@ You've started before. You went in at 500%, then work, the kids or one bad month
 
 ## Approach
 
-**Heading:** Three rules I coach by
+**Heading:** How this is different
 
-### Start smaller than feels useful
-A five-minute practice you do on your worst day beats an hour you skip. We build up from whatever survives.
+### Evidence, not woo
+Every practice comes with its reason. You'll know what's well supported, what's plausible, and what's simply worth trying. No belief system required.
 
-### Every practice comes with its reason
-No belief system required. You'll know what's well supported, what's plausible, and what's simply worth trying.
+### Built around you
+Your goals, your body, your schedule. Nothing comes off the shelf, and the plan changes when your life does.
 
-### The goal is to not need me
-By the end you run your own practice, including the plan for travel, illness and bad weeks.
+### Small enough to last
+A five-minute practice you do on your worst day beats an hour you skip. We build up from what survives, until you can run it without me.
 
 ## Pillars
 

@@ -69,11 +69,11 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 
 | ID | Requirement | P |
 |---|---|---|
-| 5.1 | Hero: headline (serif, roman + italic mix) leading with "scientist turned practitioner"; subhead; primary CTA "Book a conversation"; secondary CTA "How it works" (scrolls to 5.5); portrait (16:9 desktop, 4:5 mobile); ambient breath pacer (9.1) | M |
+| 5.1 | Hero: headline (serif, roman + italic mix) leading with the offer — evidence-based, customised wellness practices, no woo (Grant, 6 Nov 2026); Grant's "scientist turned practitioner" story belongs in About, not the hero; subhead; primary CTA "Book a conversation"; secondary CTA "How it works" (scrolls to 5.5); portrait (16:9 desktop, 4:5 mobile); ambient breath pacer (9.1) | M |
 | 5.2 | Recognition: the problem in three short observations, never laid out as three equal cards or icon columns | M |
 | 5.3 | Approach: three principles, each with a one-line reason; a different layout from 5.2 (e.g. numbered annotations beside P05), never three icon cards | M |
-| 5.4 | Pillars: desktop = large numbered typographic index, hover and focus reveal description + example practice; mobile = accordion. Sexual wellbeing only inside its pillar | M |
-| 5.5 | Programme: four phases; desktop = pinned stepped timeline (≥1024px) with mono labels ("PHASE 01 / BASELINE"); mobile = vertical stepper; inclusions row; no prices ("investment is discussed on our call") | M |
+| 5.4 | Pillars side by side, like columns (Grant, 6 Nov 2026): desktop = one row of columns (wraps to rows of 4 above 6 pillars), each with photo, number, name, description, example practice and its reason, all visible; under 1024px = a horizontal swipeable row with the next pillar peeking in, keyboard-scrollable. No decorative diagram. Sexual wellbeing only inside its pillar | M |
+| 5.5 | Programme: four phases as one simple left-to-right timeline on desktop (line with four numbered points, text under each), a vertical stepper on mobile; nothing pinned; inclusions row; no prices ("investment is discussed on our call") | M |
 | 5.6 | About teaser: portrait, short story, mono fact list, link to 4.3 | M |
 | 5.7 | Voice clip (10.x), shown when `voiceClip` flag is on; until Grant's recording exists, a designed audio placeholder ("Recording to come") with the transcript stands in its place | S |
 | 5.8 | Proof: up to three first-name stories (before / what we did / now) + single quotes elsewhere; looks right with 1–2; hidden while `testimonials` is off | S |
@@ -93,7 +93,7 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 | 6.3 | Fluid type scale; serif display, sans body, mono labels as specified | M |
 | 6.4 | 12-column grid (4 on mobile), 8px spacing scale, generous section padding, asymmetric compositions | M |
 | 6.5 | Hairline rules instead of shadowed cards; figure captions in mono ("FIG. 02 — …") | M |
-| 6.6 | **Orbit motif from the logo** as the site's graphic language: thin orbit ellipses and an "electron" dot used for section dividers, scroll progress and the breath pacer; a gentle wave line (the logo's snake) as the breath waveform. This is the main defence against generic "editorial template" output | M |
+| 6.6 | **Orbit motif from the logo**, used sparingly and only where it does a job: the breath pacer, and at most one quiet line in the night section. Never as decoration without a purpose (Grant, 6 Nov 2026: the six-point orbit diagram was noise) | M |
 | 6.7 | Anti-default test (design-system.md) applied to every section and recorded in the phase review | M |
 | 6.8 | No forbidden fonts, colours, patterns or phrases (list in `CLAUDE.md`) | M |
 | 6.9 | No automatic dark mode in v1: the site's own light and "night" sections are fixed by design | M |
@@ -112,7 +112,7 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 | ID | Requirement | P |
 |---|---|---|
 | 8.1 | Photo slots exactly as listed in `knowledge/photo-slots.md` (IDs P01–P18, fixed file names in `src/assets/photos/`); dropping a file in replaces the placeholder; `.jpg`, `.jpeg`, `.png` and `.webp` all accepted (iPhone HEIC must be exported as JPG first — explained in `CONTENT-EDITING.md`); pillar slots follow pillar IDs in content | M |
-| 8.2 | **Descriptive placeholders**: each empty slot shows a designed panel (palette texture tone, thin rule, orbit motif) with the slot's brief from `photo-slots.md` in mono type — subject, framing, orientation, setting, mood — in the page's language. Correct aspect ratio so swapping in the real photo causes no layout change. Never stock, never grey boxes | M |
+| 8.2 | **Descriptive placeholders**: each empty slot shows a soft, warm tonal panel in the palette with one short line saying what the photo will be (e.g. "Photo to come — Grant by a window, morning light"); the full brief stays in `photo-slots.md` and in the image's alt text. Correct aspect ratio so swapping in the real photo causes no layout change. Never stock, never grey boxes, no grid textures | M |
 | 8.3 | Alt text in both languages from content files | M |
 | 8.4 | Art direction: hero uses different crops for desktop and mobile | M |
 
@@ -127,7 +127,7 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 | 9.5 | Headline line-by-line masked reveal, once per page load | M |
 | 9.6 | Section entrances varied by purpose (never one identical fade everywhere) | M |
 | 9.7 | Image clip reveals; parallax ≤ 8% | S |
-| 9.8 | Programme timeline pinning only at ≥1024px; native scroll speed and distance are never altered (no scroll-jacking, no snapping) | M |
+| 9.8 | No pinned or scroll-linked sections; native scroll speed and distance are never altered (no scroll-jacking, no snapping on the page) | M |
 | 9.9 | Lenis smooth scroll only on desktop fine-pointer devices | M |
 | 9.10 | One motion utility controls everything and honours `prefers-reduced-motion` (content appears immediately) | M |
 | 9.11 | Animate only transform and opacity; zero layout shift | M |

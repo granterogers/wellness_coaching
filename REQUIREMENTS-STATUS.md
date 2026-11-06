@@ -8,8 +8,8 @@ Last updated: Phase 0, 4 November 2026.
 |---|---|---|---|---|
 | 1.1 | M | all | done | Read CLAUDE.md, brief.md, requirements.md and all of knowledge/ (Phase 0) |
 | 1.2 | M | all | done | Fixes applied and decisions D1–D5 answered (below) |
-| 1.3 | M | all | done | `content/en/home.md` and `content/en/pages.md`: `status: approved` after two rounds (Grant, 4 Nov 2026) |
-| 1.4 | M | all | blocked | Prototypes A, B, C built (`design/prototype-*.html`, screenshots in `review/prototypes/`); waiting for Grant's choice |
+| 1.3 | M | all | partial | Round 3 (Grant reopened positioning, 6 Nov 2026): hero and Approach rewritten offer-first; `home.md` and `pages.md` back to `status: draft` |
+| 1.4 | M | all | blocked | Round 2 prototypes (warm palettes, side-by-side pillars, simple timeline) in `design/prototype-*.html`, screenshots in `review/prototypes/`; waiting for Grant's choice |
 | 1.5 | M | all | todo | Applies throughout |
 | 1.6 | M | all | done | This file |
 | 1.7 | M | all | todo | Applies throughout |
@@ -127,7 +127,7 @@ Last updated: Phase 0, 4 November 2026.
 | 16.5 | M | 6 | todo |  |
 | 16.6 | S | 6 | todo |  |
 
-Totals: blocked 1, done 4, later 2, todo 113
+Totals: blocked 1, done 3, partial 1, later 2, todo 113
 
 ## Phase 0 log — fixes applied
 

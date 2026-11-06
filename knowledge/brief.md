@@ -13,13 +13,13 @@ A credibility and portfolio website for Grant Rogers' personalised 1:1 wellness 
 | Brand name | "Grant Rogers" for now (final brand name undecided) |
 | Purpose | Credibility / portfolio site to send people to |
 | Audience | Men and women equally |
-| Positioning | "Scientist turned practitioner" — hero line and backbone of About (Grant's decision) |
+| Positioning | Lead with the offer, not Grant: evidence-based wellness practices, customised to each person, no woo. Grant's science background ("scientist turned practitioner") is the backbone of About, further down (Grant, 6 November 2026; replaces the earlier hero decision) |
 | Offer | One flagship 1:1 programme, 3–6 months, fully online |
 | Pillars | Flexible draft — see `pillars-draft.md`; must be easy to change later |
 | Sexual wellbeing | Covered inside one pillar, never the headline |
 | Pricing | Not shown; "Book a conversation" |
 | Languages | English + Spanish, switchable; Spanish reviewed by a native speaker |
-| Design | See `design-system.md` (light "field notebook" direction recommended by research; final direction chosen from 3 prototypes) |
+| Design | See `design-system.md`. Round 1 prototypes were too clinical, monochrome and noisy (Grant, 6 Nov 2026); round 2 is warmer, quieter, with side-by-side pillars and a simple timeline. Final direction chosen from the round 2 prototypes |
 | Logo | Grant's atom + meditator + snake logo, vectorised in `assets/brand/`; interim usage rules in `design-system.md`; to be refined (see `roadmap.md`) |
 | Build order | Copy approved → prototype chosen → build (gates in `CLAUDE.md`) |
 | Sharing the preview | Only after the minimum viable photo set is in |
