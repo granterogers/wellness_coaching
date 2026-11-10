@@ -141,7 +141,6 @@ export function loadHome(lang: string) {
       heading: S('About').labels['Heading'], body: S('About').labels['Body'],
       facts: S('About').list, link: S('About').labels['Link'],
     },
-    voice: { intro: S('Voice').labels['Intro line'], transcript: S('Voice').labels['Transcript'] },
     proof: { heading: S('Proof').labels['Heading'] },
     faq: { heading: S('FAQ').labels['Heading'], items: S('FAQ').items.map((i) => ({ q: i.title, a: i.text })) },
     finalCta: {
@@ -159,4 +158,17 @@ export const homeLanguages = () => ['en', 'es'].filter((l) => existsSync(join(RO
 export function inline(s: string): string {
   const esc = s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   return esc.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+}
+
+/** content/<lang>/practices.md: timed voice scripts for the pacer and body scan (requirement 10.4). */
+export function loadPractices(lang: string) {
+  const file = join(ROOT, 'content', lang, 'practices.md');
+  if (!existsSync(file)) return null;
+  const { fm, sections } = readSections(file, '# ');
+  const lines = (name: string) =>
+    (sections[name]?.list ?? []).map((l) => {
+      const m = l.match(/^\[(\d+):(\d\d)\]\s*(.*)$/);
+      return m ? { at: Number(m[1]) * 60 + Number(m[2]), text: m[3] } : { at: -1, text: l };
+    });
+  return { status: fm.status, translation_status: fm.translation_status, pacer: lines('Breath pacer'), bodyscan: lines('Body scan') };
 }

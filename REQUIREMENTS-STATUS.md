@@ -1,8 +1,8 @@
 # Requirements status
 
-Every ID in `knowledge/requirements.md` (121). Status: `todo` / `done` / `partial` / `blocked` / `later`. Updated at the end of every phase (1.6).
+Every ID in `knowledge/requirements.md` (122). Status: `todo` / `done` / `partial` / `blocked` / `later`. Updated at the end of every phase (1.6).
 
-Last updated: Phase 3 revisions (2), 6 November 2026.
+Last updated: Phase 3 revisions (3), 10 November 2026.
 
 | ID | P | Phase | Status | Evidence / notes |
 |---|---|---|---|---|
@@ -51,7 +51,7 @@ Last updated: Phase 3 revisions (2), 6 November 2026.
 | 5.4 | M | 3 | done | Equal columns, centred text, subgrid-aligned rows, identical photo sizes — review/phase-3 |
 | 5.5 | M | 3 | done | Left-to-right timeline, vertical stepper on mobile, inclusions, price line |
 | 5.6 | M | 3 | done | About teaser with P03, story, facts, link to /about/ |
-| 5.7 | S | 5 | partial | Section with audio placeholder + transcript; real player in Phase 5 |
+| 5.7 | S | 5 | done | Voice folded into the pacer and body scan (10.4) |
 | 5.8 | S | 5 | todo |  |
 | 5.9 | L | 5 | later | Not active in the preview |
 | 5.10 | M | 3 | done | Native `<details>` accordion + FAQPage JSON-LD |
@@ -88,12 +88,13 @@ Last updated: Phase 3 revisions (2), 6 November 2026.
 | 9.10 | M | 4 | todo |  |
 | 9.11 | M | 4 | todo |  |
 | 9.12 | S | 4 | todo |  |
-| 9.13 | S | 4 | done | Small anatomical figure in an orbit with drifting dot; 8 zones glow with the breath; guided 2 min; pause/stop; aria-live; reduced motion — `BodyScan.astro`, `bodyscan.ts` |
-| 10.1 | S | 5 | todo |  |
-| 10.2 | S | 5 | todo |  |
-| 10.3 | S | 5 | todo |  |
+| 9.13 | S | 4 | done | Same size as the pacer (380px / 300px measured); 23 parts in traditional order, joints as faint lines — `BodyScan.astro`, `bodyscan.ts` |
+| 10.1 | S | 5 | partial | Widget controls (play via tap, pause/stop, voice on/off); never autoplays |
+| 10.2 | S | 5 | partial | Transcript under each widget once the scripts are approved |
+| 10.3 | S | 5 | done | `src/lib/audio.ts` picks up `src/assets/audio/{pacer,bodyscan}-{en,es}.mp3` |
+| 10.4 | S | 5 | partial | Playback synced to the recording's clock, Voice on/off, transcripts — built; waiting for Grant's approval of `content/en/practices.md` and the recordings |
 | 11.1 | M | 3 | done | Contact from `site.json`; email assembled in JS, readable fallback, not in page source |
-| 11.2 | M | 3 | done | All "Book a conversation" → /book/ with email/WhatsApp fallback while `bookingUrl` is empty |
+| 11.2 | M | 3 | done | All CTAs → /book/; marked Calendly placeholder + email/WhatsApp fallback while `bookingUrl` is empty; Calendly loads only after a click — `src/pages/[lang]/book.astro` |
 | 11.3 | M | 3 | done | wa.me link with localised message; hidden if number empty |
 | 11.4 | S | 5 | todo |  |
 | 11.5 | M | 5 | todo |  |
@@ -128,7 +129,7 @@ Last updated: Phase 3 revisions (2), 6 November 2026.
 | 16.5 | M | 6 | todo |  |
 | 16.6 | S | 6 | todo |  |
 
-Totals: done 63, later 2, partial 6, todo 50
+Totals: done 65, later 2, partial 8, todo 47
 
 ## Phase 0 log — fixes applied
 

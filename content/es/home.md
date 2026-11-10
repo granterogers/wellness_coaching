@@ -104,14 +104,6 @@ Una rutina propia, con planes para los viajes y las épocas de más trabajo.
 
 **Link:** Más sobre mí
 
-## Voice
-
-**Intro line:** Un minuto de una sesión, con mi voz.
-
-[[PLACEHOLDER: voice clip — Spanish recording of this script later, as src/assets/audio/voice-es.mp3. Until then the site shows an audio placeholder here.]]
-
-**Transcript:** Vamos a tomarnos un minuto. Siéntate como estés; no hay nada que hacer bien. Inhala por la nariz contando cuatro… y suelta, despacio, contando seis. Otra vez. Inhala en cuatro… y exhala en seis, un poco más largo de lo que te sale natural. Fíjate en tus hombros. Déjalos caer. Una más. Inhala… y suelta todo el aire. Eso es. Esa es toda la práctica. Puedes hacerla en cualquier sitio.
-
 ## Proof
 
 **Heading:** En sus palabras

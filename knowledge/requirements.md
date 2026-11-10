@@ -75,7 +75,7 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 | 5.4 | Pillars side by side, like columns, text centred in each column (Grant, 6 Nov 2026): desktop = one row of columns (wraps to rows of 4 above 6 pillars), each with photo, number, name, description, example practice and its reason, all visible; photos the same size and every row of text (number, name, description, "Try", reason) aligned across the columns (CSS subgrid); under 1024px = a horizontal swipeable row with the next pillar peeking in, keyboard-scrollable. No decorative diagram. Sexual wellbeing only inside its pillar | M |
 | 5.5 | Programme: four phases as one simple left-to-right timeline on desktop (line with four numbered points, text under each), a vertical stepper on mobile; nothing pinned; inclusions row; no prices ("investment is discussed on our call") | M |
 | 5.6 | About teaser: portrait, short story, fact list on hairlines (sans, not mono — Grant's "noisy" feedback), link to 4.3 | M |
-| 5.7 | Voice clip (10.x), shown when `voiceClip` flag is on; until Grant's recording exists, a designed audio placeholder ("Recording to come") with the transcript stands in its place | S |
+| 5.7 | Voice: Grant's voice lives inside the breath pacer and the body scan (10.4), not in a separate section (Grant, 10 Nov 2026) | S |
 | 5.8 | Proof: up to three first-name stories (before / what we did / now) + single quotes elsewhere; looks right with 1–2; hidden while `testimonials` is off | S |
 | 5.9 | Free practice email capture, flag `freePractice` | L |
 | 5.10 | FAQ: accessible accordion + FAQPage structured data; questions from approved copy | M |
@@ -132,7 +132,7 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 | 9.10 | One motion utility controls everything and honours `prefers-reduced-motion` (content appears immediately) | M |
 | 9.11 | Animate only transform and opacity; zero layout shift | M |
 | 9.12 | Subtle link and button micro-interactions (underline draw, fill slide); no custom cursor | S |
-| 9.13 | **Mini Yoga Nidra body scan** (Grant, 6 Nov 2026): a small, anatomically proportioned, gender-neutral figure lying down (seen from above, head at the top), drawn in the same thin line style as the pacer and about the same size, inside the same orbit with a drifting dot; tap to start a short guided scan (about two minutes) in which each body zone (feet, legs, hips, belly, chest, hands and arms, shoulders, face) gently lights up in turn with a short localised cue; pause/stop; keyboard operable; `aria-live="polite"` cues; under reduced motion only the highlight changes. Shown in its own small section after the pillars, introduced by the Restore pillar's name and description from content. On screen it uses only the zone names and a one-line hint (interface text, listed for review); spoken or longer cues would be new copy for Grant to approve | S |
+| 9.13 | **Mini Yoga Nidra body scan** (Grant, 6 and 10 Nov 2026): a small, anatomically proportioned, gender-neutral figure lying down (seen from above, head at the top), in the pacer's thin line style and **the same size as the pacer**, inside the same orbit with a drifting dot; the body is **subdivided into 23 parts** in the traditional rotation (right side hand → foot, left side hand → foot, then crown, face, throat, chest, belly, pelvis, whole body), joints shown as faint lines; each part glows in turn with the breath; tap for the guided scan (about two minutes); pause/stop; keyboard operable; `aria-live="polite"` names each part; reduced motion = highlight only. Shown in a compact band after the pillars, introduced by the Restore pillar's name and description from content | S |
 
 ## 10. Voice feature
 
@@ -140,14 +140,15 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 |---|---|---|
 | 10.1 | Custom accessible audio player (play/pause, progress, time), styled to the design system; never autoplays | S |
 | 10.2 | Transcript shown alongside, both languages | S |
-| 10.3 | Audio file slot `src/assets/audio/voice-en.mp3` (and `-es`); the player replaces the placeholder automatically once the file exists; whole section hidden only if `voiceClip` is off | S |
+| 10.3 | Audio file slots in `src/assets/audio/`: `pacer-en.mp3`, `bodyscan-en.mp3` (and `-es`). A widget's voice switches on automatically once its file exists; until then the widget says "Voice: recording to come" | S |
+| 10.4 | **Grant's voice in the widgets** (Grant, 10 Nov 2026): when the visitor taps the pacer or the body scan, Grant's recording plays and the animation follows the recording's clock, so they stay in sync; a Voice on/off control; never plays without a tap; transcript available under each widget. Scripts (timed to the animations) live in `content/en/practices.md`, approved by Grant before recording | S |
 
 ## 11. Integrations and forms (preview-safe)
 
 | ID | Requirement | P |
 |---|---|---|
 | 11.1 | All contact details come from `site.json`; nothing hard-coded. Preview email: `grant.e.rogers@gmail.com`. Email addresses are protected from spam-harvesting bots (e.g. assembled with JavaScript, with an accessible fallback) | M |
-| 11.2 | Booking: if `bookingUrl` is empty, every "Book a conversation" leads to the Book page with an honest fallback ("Booking opens soon — email me") using the preview email; when set, a Cal.com link or embed (embed loaded only after a click) | M |
+| 11.2 | Booking with **Calendly** (Grant, 10 Nov 2026). Every "Book a conversation" leads to the Book page. While `bookingUrl` in `site.json` is empty, the page shows a clearly marked placeholder where the calendar will sit, plus the honest fallback ("Booking opens soon — email me") with email and WhatsApp. Once set, the Calendly calendar loads in the page only after the visitor clicks "Show available times" (no Calendly cookies before that), with a plain link as well | M |
 | 11.3 | WhatsApp click-to-chat (`wa.me`) with prefilled localised message; hidden while the number is empty | M |
 | 11.4 | Contact form built with honeypot and localised success/error states, but hidden while `contactForm` is off; never fakes a successful submission | S |
 | 11.5 | No third-party embeds that set cookies during the preview | M |

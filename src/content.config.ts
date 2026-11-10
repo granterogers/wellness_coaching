@@ -28,7 +28,6 @@ const home = defineCollection({
         price: text,
       }),
       about: z.object({ heading: text, body: text, facts: z.array(text).min(1), link: text }),
-      voice: z.object({ intro: text, transcript: text }),
       proof: z.object({ heading: text }),
       faq: z.object({ heading: text, items: z.array(z.object({ q: text, a: text })).min(1) }),
       finalCta: z.object({ heading: text, body: text, primary: text, email: text, whatsapp: text }),

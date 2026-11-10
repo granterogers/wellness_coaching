@@ -87,21 +87,6 @@ const faqLd = {
       </div>
     </section>
 
-    {site.flags.voiceClip && (
-      <section class="section voice" id="voice" aria-labelledby="h-voice">
-        <div class="wrap grid">
-          <div class="voice-player">
-            <h2 class="h3 voice-intro" id="h-voice">{c.voice.intro}</h2>
-            <div class="audio-placeholder" role="note">
-              <svg class="wave" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 20 C 25 4, 50 4, 75 20 S 125 36, 150 20 S 200 4, 225 20 S 275 36, 300 20" /></svg>
-              <p class="mono">{t(lang, 'voice.placeholder')}</p>
-            </div>
-          </div>
-          <div class="voice-transcript"><p class="mono">{t(lang, 'voice.transcript')}</p><p>{c.voice.transcript}</p></div>
-        </div>
-      </section>
-    )}
-
     <section class="section faq" id="faq" aria-labelledby="h-faq">
       <div class="wrap grid">
         <h2 class="h2" id="h-faq">{c.faq.heading}</h2>

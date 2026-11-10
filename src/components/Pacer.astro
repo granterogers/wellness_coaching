@@ -1,13 +1,16 @@
 ---
 // Breath pacer (9.1, 9.2, 9.4): 4 s in, 6 s out; tap for a guided minute; pausable; announced politely; no scaling under reduced motion.
 import { t, type Lang } from '../i18n';
+import { voiceFor, transcriptFor } from '../lib/audio';
 interface Props { lang: Lang; hint: string }
 const { lang, hint } = Astro.props;
 const s = {
   in: t(lang, 'pacer.in'), out: t(lang, 'pacer.out'), breathIn: t(lang, 'pacer.breathIn'), breathOut: t(lang, 'pacer.breathOut'),
   progress: t(lang, 'pacer.progress', { n: '{n}', s: '{s}' }), done: t(lang, 'pacer.done'), stopped: t(lang, 'pacer.stopped'),
-  pause: t(lang, 'pacer.pause'), resume: t(lang, 'pacer.resume'),
+  pause: t(lang, 'pacer.pause'), resume: t(lang, 'pacer.resume'), voiceOn: t(lang, 'voice.on'), voiceOff: t(lang, 'voice.off'),
 };
+const audio = voiceFor('pacer', lang);
+const transcript = transcriptFor('pacer', lang);
 ---
 <figure class="pacer" data-pacer data-strings={JSON.stringify(s)}>
   <button class="pacer-btn" type="button" aria-describedby={`pacer-hint-${lang}`} data-pacer-start>
@@ -22,8 +25,12 @@ const s = {
     <p class="pacer-hint" id={`pacer-hint-${lang}`} data-pacer-hint>{hint}</p>
     <p class="pacer-meta"><span class="mono">{t(lang, 'pacer.timing')}</span>
       <button type="button" class="link-btn mono" data-pacer-pause aria-pressed="false">{s.pause}</button>
-      <button type="button" class="link-btn mono" data-pacer-stop hidden>{t(lang, 'pacer.stop')}</button></p>
+      <button type="button" class="link-btn mono" data-pacer-stop hidden>{t(lang, 'pacer.stop')}</button>
+      {audio ? <button type="button" class="link-btn mono" data-voice-toggle aria-pressed="true">{s.voiceOn}</button>
+             : <span class="mono voice-soon">{t(lang, 'voice.toCome')}</span>}</p>
+    {transcript && <details class="transcript"><summary class="mono">{t(lang, 'voice.transcript')}</summary>{transcript.map((l) => <p>{l}</p>)}</details>}
   </figcaption>
+  {audio && <audio preload="none" src={audio} data-voice></audio>}
   <p class="sr-only" aria-live="polite" data-pacer-live></p>
 </figure>
 <script>import '../scripts/pacer.ts';</script>

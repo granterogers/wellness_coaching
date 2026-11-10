@@ -17,20 +17,39 @@ const wa = site.whatsapp && `https://wa.me/${site.whatsapp}?text=${encodeURIComp
       <p class="lede">{p.labels['Intro']}</p>
     </div></section>
     <section class="section night book-box" id="book"><div class="wrap grid">
-      {site.bookingUrl ? (
-        // Requirement 11.2: a plain link to the booking page; any embed only loads after a click (no cookies before then).
-        <div class="final-text"><p class="ctas"><a class="btn btn-warm" href={site.bookingUrl} rel="noopener">{p.labels['Heading']}</a></p></div>
-      ) : (
-        <div class="final-text">
-          <h2 class="h2">{p.labels['Booking fallback heading']}</h2>
-          <p class="lede">{p.labels['Booking fallback body']}</p>
-          <p class="ctas">
-            <a class="btn btn-warm" href="#book" data-mail data-u={mu} data-d={md} data-subject={t(lang, 'contact.subject')}>{p.labels['Email button']}</a>
-            {wa && <a class="btn btn-ghost" href={wa} rel="noopener">{p.labels['WhatsApp button']}</a>}
-          </p>
-          <p class="mail-text" data-mail-text data-u={mu} data-d={md}>{t(lang, 'contact.emailFallback')}</p>
-        </div>
-      )}
+      <div class="final-text">
+        {site.bookingUrl ? (
+          <div class="calendar" data-calendar data-src={site.bookingUrl}>
+            <p class="ctas"><button type="button" class="btn btn-warm" data-calendar-show>{t(lang, 'book.show')}</button>
+              <a class="btn btn-ghost" href={site.bookingUrl} target="_blank" rel="noopener">{t(lang, 'book.open')} ↗</a></p>
+            <div class="calendar-frame" data-calendar-frame hidden></div>
+          </div>
+        ) : (
+          <div class="calendar-placeholder" role="note">
+            <p class="mono">{t(lang, 'book.calendarToCome')}</p>
+            <p>{t(lang, 'book.calendarNote')}</p>
+          </div>
+        )}
+        <h2 class="h2">{p.labels['Booking fallback heading']}</h2>
+        <p class="lede">{p.labels['Booking fallback body']}</p>
+        <p class="ctas">
+          <a class="btn btn-warm" href="#book" data-mail data-u={mu} data-d={md} data-subject={t(lang, 'contact.subject')}>{p.labels['Email button']}</a>
+          {wa && <a class="btn btn-ghost" href={wa} rel="noopener">{p.labels['WhatsApp button']}</a>}
+        </p>
+        <p class="mail-text" data-mail-text data-u={mu} data-d={md}>{t(lang, 'contact.emailFallback')}</p>
+      </div>
     </div></section>
   </main>
 </Base>
+<script>
+  // Calendly loads only after a click, so no third-party cookies before the visitor asks (requirements 11.2, 11.5)
+  document.querySelectorAll<HTMLElement>('[data-calendar]').forEach((box) => {
+    box.querySelector('[data-calendar-show]')?.addEventListener('click', (e) => {
+      const frame = box.querySelector<HTMLElement>('[data-calendar-frame]')!;
+      const src = new URL(box.dataset.src!);
+      src.searchParams.set('embed_domain', location.hostname); src.searchParams.set('embed_type', 'Inline'); src.searchParams.set('hide_gdpr_banner', '1');
+      frame.innerHTML = `<iframe src="${src.href}" title="Calendly" loading="lazy"></iframe>`;
+      frame.hidden = false; (e.currentTarget as HTMLElement).remove();
+    });
+  });
+</script>
