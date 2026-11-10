@@ -118,7 +118,7 @@ Pranayama Home, Gran Canaria · Casa Solara, Ibiza · The Festival of Consciousn
 
 **Booking fallback heading:** Booking opens soon
 
-**Booking fallback body:** Online booking isn't set up yet. Email me with a couple of times that suit you, and the time zone you're in, and I'll reply to arrange it.
+**Booking fallback body:** Online booking isn't set up yet. Message me on WhatsApp with a couple of times that suit you, and the time zone you're in, and I'll reply to arrange it.
 
 **Email button:** Email me
 

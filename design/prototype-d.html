@@ -356,7 +356,6 @@ body{transition:background-color .6s var(--ease),color .6s var(--ease)}
       <p class="ctas"><a class="btn btn-warm" data-mail data-subject="Book a conversation" href="#book">Book a conversation</a></p>
     </div>
     <ul class="contact-list">
-      <li><span class="mono">Email</span><a data-mail href="#book">Email me</a><span class="mail-text" data-mail-text>grant.e.rogers (at) gmail (dot) com</span></li>
       <li><span class="mono">WhatsApp</span><a href="https://wa.me/34603834206?text=Hi%20Grant%2C%20I%27d%20like%20to%20book%20a%20conversation." rel="noopener">Message me on WhatsApp</a></li>
     </ul>
   </div>
@@ -378,7 +377,7 @@ body{transition:background-color .6s var(--ease),color .6s var(--ease)}
   addEventListener('scroll', onScroll, {passive: true}); onScroll();
 
   // Email assembled in JS (11.1)
-  const addr = ['grant.e.rogers', 'gmail.com'].join('@');
+  const addr = '';
   document.querySelectorAll('[data-mail]').forEach(a => a.href = 'mailto:' + addr + (a.dataset.subject ? '?subject=' + encodeURIComponent(a.dataset.subject) : ''));
   document.querySelectorAll('[data-mail-text]').forEach(s => s.textContent = addr);
 

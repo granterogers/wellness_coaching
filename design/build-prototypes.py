@@ -225,7 +225,6 @@ def final_cta():
       <p class="ctas"><a class="btn btn-warm" data-mail data-subject="Book a conversation" href="#book">{md(f["Primary button"])}</a></p>
     </div>
     <ul class="contact-list">
-      <li><span class="mono">Email</span><a data-mail href="#book">{md(f["Email label"])}</a><span class="mail-text" data-mail-text>grant.e.rogers (at) gmail (dot) com</span></li>
       <li><span class="mono">WhatsApp</span><a href="{wa}" rel="noopener">{md(f["WhatsApp label"])}</a></li>
     </ul>
   </div>
@@ -467,7 +466,7 @@ JS = r'''
   addEventListener('scroll', onScroll, {passive: true}); onScroll();
 
   // Email assembled in JS (11.1)
-  const addr = ['grant.e.rogers', 'gmail.com'].join('@');
+  const addr = '';
   document.querySelectorAll('[data-mail]').forEach(a => a.href = 'mailto:' + addr + (a.dataset.subject ? '?subject=' + encodeURIComponent(a.dataset.subject) : ''));
   document.querySelectorAll('[data-mail-text]').forEach(s => s.textContent = addr);
 

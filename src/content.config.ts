@@ -45,7 +45,7 @@ const site = defineCollection({
   loader: async () => [{ id: 'site', ...JSON.parse(readFileSync('content/shared/site.json', 'utf8')) }],
   schema: z.object({
     name: text,
-    email: z.email(),
+    email: z.union([z.literal(''), z.email()]), // empty = no email anywhere on the site (Grant, 10 Nov 2026)
     whatsapp: z.string().regex(/^\d*$/, 'WhatsApp number: digits only, with country code, e.g. 34603834206'),
     bookingUrl: z.union([z.literal(''), z.url()]),
     social: z.object({ instagram: z.url(), linkedin: z.url(), researchgate: z.url() }),

@@ -3,7 +3,7 @@ import { CYCLE, level, reduceMotion as reduce } from './breath';
 const SETTLE = 10000, PART = 5000, WHOLE = 10000, AMBIENT = 2000;
 
 document.querySelectorAll<HTMLElement>('[data-scan]').forEach((box) => {
-  const section = box.closest('section')!;
+  const section = box;
   const S = JSON.parse(box.dataset.strings!) as {
     zones: string[]; names: Record<string, string>; count: string; done: string; stopped: string;
     pause: string; resume: string; voiceOn: string; voiceOff: string;
@@ -12,7 +12,7 @@ document.querySelectorAll<HTMLElement>('[data-scan]').forEach((box) => {
   const TOTAL = SETTLE + parts.length * PART + WHOLE;
   const svg = box.querySelector('svg')!;
   const dot = box.querySelector<SVGCircleElement>('[data-scan-electron]')!;
-  const TH = (-6 * Math.PI) / 180, RX = 124, RY = 230, CX = 100, CY = 222;
+  const TH = (-6 * Math.PI) / 180, RX = 118, RY = 228, CX = 100, CY = 222;
   const groups = new Map(S.zones.map((z) => [z, box.querySelector<SVGGElement>(`[data-zone="${z}"]`)]));
   const name = box.querySelector<HTMLElement>('[data-scan-name]')!;
   const count = box.querySelector<HTMLElement>('[data-scan-count]')!;

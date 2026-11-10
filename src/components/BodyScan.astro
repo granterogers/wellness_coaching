@@ -1,11 +1,11 @@
 ---
-// Mini Yoga Nidra body scan (requirement 9.13): same size as the breath pacer. A figure lying on its back, seen from
-// above (head at the top), so the person's RIGHT side is on the viewer's left. 23 parts in the traditional rotation,
-// each a band clipped to the body outline; joints drawn as faint lines. Grant's voice (10.4) drives the clock when present.
+// Mini Yoga Nidra body scan (requirement 9.13): a small widget, the same scale as the breath pacer.
+// A figure lying on its back, seen from above (head at the top), so the person's RIGHT side is on the viewer's left.
+// The body is one continuous outline (left half drawn, right half mirrored); 23 parts are bands clipped to it.
 import { t, type Lang } from '../i18n';
 import { voiceFor, transcriptFor } from '../lib/audio';
-interface Props { lang: Lang; title: string; text: string }
-const { lang, title, text } = Astro.props;
+interface Props { lang: Lang }
+const { lang } = Astro.props;
 const side = ['hand', 'forearm', 'upperarm', 'shoulder', 'hip', 'thigh', 'lowerleg', 'foot'];
 const zones = [...side.map((z) => `r-${z}`), ...side.map((z) => `l-${z}`), 'crown', 'face', 'throat', 'chest', 'belly', 'pelvis', 'whole'];
 const names = Object.fromEntries([...zones, 'settle'].map((z) => [z, t(lang, `scan.${z}` as any)]));
@@ -15,71 +15,62 @@ const S = {
 };
 const audio = voiceFor('bodyscan', lang);
 const transcript = transcriptFor('bodyscan', lang);
-const mirror = 'translate(200 0) scale(-1 1)';
-const torso = 'M86 76 C70 78 58 82 56 96 C56 112 60 124 62 134 C64 150 72 160 72 174 C72 186 64 196 64 208 C64 220 70 230 82 236 L118 236 C130 230 136 220 136 208 C136 196 128 186 128 174 C128 160 136 150 138 134 C140 124 144 112 144 96 C142 82 130 78 114 76 Z';
-const arm = 'M58 90 C48 108 44 138 44 168 C42 196 38 222 36 244 L47 246 C50 222 54 196 56 170 C57 152 60 138 63 124 Z';
-const leg = 'M66 212 C63 250 63 290 67 322 C70 350 73 375 76 398 L88 398 C88 375 91 350 93 322 C96 290 98 262 100 236 L82 236 C74 232 68 224 66 212 Z';
-const hand = { cx: 40, cy: 261, rx: 6.5, ry: 14, transform: 'rotate(8 40 261)' };
-const foot = { cx: 79, cy: 413, rx: 7.5, ry: 16, transform: 'rotate(22 79 413)' };
-const head = { cx: 100, cy: 40, rx: 20, ry: 25 };
-const neck = 'M90 62 L110 62 L112 78 L88 78 Z';
-// One side's parts, drawn on the viewer's left (the person's right); the other side mirrors them.
+const M = 'translate(200 0) scale(-1 1)';
+// Proportions: about 8 heads tall. Crown y 8, chin 60, shoulders 80, chest 112, navel 164, crotch 220, knee 322, ankle 400.
+const halfOpen = 'M100 8 C89 8 82 16 82 29 C82 41 85 51 91 57 L92 64 C91 72 80 77 66 81 C59 83 55 86 54 92 C56 100 62 106 64 112 C64 130 70 150 72 165 C73 180 66 192 64 204 C63 212 64 222 66 234 C67 262 70 296 70 322 C69 334 66 344 67 356 C68 372 74 388 75 400 C73 410 66 422 66 430 C66 437 72 439 76 434 C81 426 84 412 85 401 C86 388 90 372 90 356 C90 344 88 334 88 322 C88 296 94 262 97 236 C98 228 99 222 100 220';
+const half = `${halfOpen} L100 8 Z`;
+const arm = 'M55 86 C46 92 42 106 41 122 C40 140 37 158 36 174 C35 192 33 212 31 233 C30 241 27 248 27 256 C27 266 31 272 35 272 C39 272 41 264 41 256 C41 249 41 243 41 236 C43 214 45 194 46 176 C47 160 49 140 56 118 C58 108 60 96 60 88 Z';
+const band = (y: number, h: number, clip: string, x = 0, w = 200) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" clip-path="url(#${clip})"/>`;
 const sideParts = (p: string) => [
-  [`${p}-hand`, `<ellipse cx="${hand.cx}" cy="${hand.cy}" rx="${hand.rx}" ry="${hand.ry}" transform="${hand.transform}"/>`],
-  [`${p}-forearm`, `<rect x="10" y="168" width="60" height="80" clip-path="url(#cArm)"/>`],
-  [`${p}-upperarm`, `<rect x="10" y="80" width="60" height="88" clip-path="url(#cArm)"/>`],
-  [`${p}-shoulder`, `<rect x="50" y="72" width="50" height="34" clip-path="url(#cTorso)"/>`],
-  [`${p}-hip`, `<rect x="56" y="196" width="30" height="44" clip-path="url(#cTorso)"/>`],
-  [`${p}-thigh`, `<rect x="55" y="200" width="50" height="122" clip-path="url(#cLeg)"/>`],
-  [`${p}-lowerleg`, `<rect x="55" y="322" width="50" height="78" clip-path="url(#cLeg)"/>`],
-  [`${p}-foot`, `<ellipse cx="${foot.cx}" cy="${foot.cy}" rx="${foot.rx}" ry="${foot.ry}" transform="${foot.transform}"/>`],
+  [`${p}-hand`, band(236, 40, 'bsArm')],
+  [`${p}-forearm`, band(174, 62, 'bsArm')],
+  [`${p}-upperarm`, band(84, 90, 'bsArm')],
+  [`${p}-shoulder`, `<ellipse cx="68" cy="94" rx="24" ry="15" clip-path="url(#bsHalf)"/>`],
+  [`${p}-hip`, band(190, 36, 'bsHalf', 56, 30)],
+  [`${p}-thigh`, band(226, 96, 'bsHalf', 56, 44)],
+  [`${p}-lowerleg`, band(322, 78, 'bsHalf', 56, 44)],
+  [`${p}-foot`, band(400, 42, 'bsHalf', 56, 44)],
 ];
 const centre = [
-  ['crown', `<rect x="70" y="10" width="60" height="26" clip-path="url(#cHead)"/>`],
-  ['face', `<rect x="70" y="36" width="60" height="34" clip-path="url(#cHead)"/>`],
-  ['throat', `<path d="${neck}"/>`],
-  ['chest', `<rect x="50" y="106" width="100" height="44" clip-path="url(#cTorso)"/>`],
-  ['belly', `<rect x="50" y="150" width="100" height="46" clip-path="url(#cTorso)"/>`],
-  ['pelvis', `<rect x="86" y="196" width="28" height="44" clip-path="url(#cTorso)"/>`],
+  ['crown', band(6, 24, 'bsBody', 70, 60)],
+  ['face', band(30, 31, 'bsBody', 70, 60)],
+  ['throat', band(61, 15, 'bsBody', 86, 28)],
+  ['chest', band(92, 48, 'bsBody', 56, 88)],
+  ['belly', band(140, 50, 'bsBody', 56, 88)],
+  ['pelvis', band(190, 34, 'bsBody', 86, 28)],
 ];
 const g = ([z, el]: string[]) => `<g class="bz" data-zone="${z}">${el}</g>`;
-const limbs = (cls: string) => `<path class="${cls}" d="${arm}"/><ellipse class="${cls}" cx="${hand.cx}" cy="${hand.cy}" rx="${hand.rx}" ry="${hand.ry}" transform="${hand.transform}"/><path class="${cls}" d="${leg}"/><ellipse class="${cls}" cx="${foot.cx}" cy="${foot.cy}" rx="${foot.rx}" ry="${foot.ry}" transform="${foot.transform}"/>`;
-const body = (cls: string) => `${limbs(cls)}<g transform="${mirror}">${limbs(cls)}</g><path class="${cls}" d="${torso}"/><path class="${cls}" d="${neck}"/><ellipse class="${cls}" cx="${head.cx}" cy="${head.cy}" rx="${head.rx}" ry="${head.ry}"/>`;
-const joints = `<path d="M43 168 H58 M37 245 H48 M66 322 H94 M76 398 H88"/>`;
 const svg = `
 <defs>
-  <clipPath id="cArm"><path d="${arm}"/></clipPath><clipPath id="cLeg"><path d="${leg}"/></clipPath>
-  <clipPath id="cTorso"><path d="${torso}"/></clipPath><clipPath id="cHead"><ellipse cx="${head.cx}" cy="${head.cy}" rx="${head.rx}" ry="${head.ry}"/></clipPath>
+  <path id="bsHalfP" d="${half}"/><path id="bsArmP" d="${arm}"/>
+  <clipPath id="bsHalf"><use href="#bsHalfP"/></clipPath>
+  <clipPath id="bsArm"><use href="#bsArmP"/></clipPath>
+  <clipPath id="bsBody"><use href="#bsHalfP"/><use href="#bsHalfP" transform="${M}"/></clipPath>
+  <mask id="bsNoArm" maskUnits="userSpaceOnUse" x="-40" y="-20" width="280" height="480"><rect x="-40" y="-20" width="280" height="480" fill="white"/><use href="#bsArmP" fill="black"/><use href="#bsArmP" transform="${M}" fill="black"/></mask>
+  <mask id="bsNoBody" maskUnits="userSpaceOnUse" x="-40" y="-20" width="280" height="480"><rect x="-40" y="-20" width="280" height="480" fill="white"/><use href="#bsHalfP" fill="black"/><use href="#bsHalfP" transform="${M}" fill="black"/></mask>
 </defs>
-<ellipse class="scan-orbit" cx="100" cy="222" rx="124" ry="230" transform="rotate(-6 100 222)"/>
-<g class="sil">${body('b')}</g>
-<g class="zones">${sideParts('r').map(g).join('')}<g transform="${mirror}">${sideParts('l').map(g).join('')}</g>${centre.map(g).join('')}</g>
-<g class="lines">${body('o')}</g>
-<g class="joints">${joints}<g transform="${mirror}">${joints}</g><path d="M60 106 H140 M66 150 H134 M64 196 H136 M86 196 V236 M114 196 V236 M80 70 H120"/></g>
-<circle class="scan-electron" r="5" cx="224" cy="222" data-scan-electron/>`;
+<ellipse class="scan-orbit" cx="100" cy="222" rx="118" ry="228" transform="rotate(-6 100 222)"/>
+<g class="sil"><use href="#bsHalfP"/><use href="#bsHalfP" transform="${M}"/><use href="#bsArmP"/><use href="#bsArmP" transform="${M}"/></g>
+<g class="zones">${sideParts('r').map(g).join('')}<g transform="${M}">${sideParts('l').map(g).join('')}</g>${centre.map(g).join('')}</g>
+<g class="lines"><g mask="url(#bsNoArm)"><path d="${halfOpen}"/><path d="${halfOpen}" transform="${M}"/></g><g mask="url(#bsNoBody)"><path d="${arm}"/><path d="${arm}" transform="${M}"/></g></g>
+<circle class="scan-electron" r="5" cx="218" cy="222" data-scan-electron/>`;
 ---
-<section class="bodyscan" id="restore-scan" aria-labelledby="h-scan">
-  <div class="wrap scan-wrap">
-    <div class="scan-text">
-      <p class="mono eyebrow">{t(lang, 'scan.label')}</p>
-      <h2 class="h2" id="h-scan">{title}</h2>
-      <p>{text}</p>
-      <p class="scan-hint" id={`scan-hint-${lang}`}>{t(lang, 'scan.hint')}</p>
-      <p class="scan-meta"><span class="mono">{t(lang, 'scan.timing')}</span>
-        <button type="button" class="link-btn mono" data-scan-pause aria-pressed="false">{S.pause}</button>
-        <button type="button" class="link-btn mono" data-scan-stop hidden>{t(lang, 'pacer.stop')}</button>
-        {audio ? <button type="button" class="link-btn mono" data-voice-toggle aria-pressed="true">{S.voiceOn}</button>
-               : <span class="mono voice-soon">{t(lang, 'voice.toCome')}</span>}</p>
-      {transcript && <details class="transcript"><summary class="mono">{t(lang, 'voice.transcript')}</summary>{transcript.map((l) => <p>{l}</p>)}</details>}
-    </div>
-    <figure class="scan-figure" data-scan data-strings={JSON.stringify(S)}>
-      <button type="button" class="scan-btn" aria-describedby={`scan-hint-${lang}`} aria-label={t(lang, 'scan.region')} data-scan-start>
-        <svg viewBox="-40 -10 280 460" aria-hidden="true" focusable="false" set:html={svg} />
-      </button>
-      <figcaption class="scan-zone-label" aria-hidden="true"><span data-scan-name>{names['r-hand']}</span><span class="mono" data-scan-count></span></figcaption>
-      <p class="sr-only" aria-live="polite" data-scan-live></p>
-      {audio && <audio preload="none" src={audio} data-voice></audio>}
-    </figure>
-  </div>
-</section>
+<figure class="scan" data-scan data-strings={JSON.stringify(S)} id="restore-scan">
+  <p class="mono scan-label">{t(lang, 'scan.label')}</p>
+  <button type="button" class="scan-btn" aria-describedby={`scan-hint-${lang}`} aria-label={t(lang, 'scan.region')} data-scan-start>
+    <svg viewBox="-30 -12 260 464" aria-hidden="true" focusable="false" set:html={svg} />
+  </button>
+  <p class="scan-zone-label" aria-hidden="true"><span data-scan-name>{names['r-hand']}</span><span class="mono" data-scan-count></span></p>
+  <figcaption>
+    <p class="scan-hint" id={`scan-hint-${lang}`}>{t(lang, 'scan.hint')}</p>
+    <p class="scan-meta"><span class="mono">{t(lang, 'scan.timing')}</span>
+      <button type="button" class="link-btn mono" data-scan-pause aria-pressed="false">{S.pause}</button>
+      <button type="button" class="link-btn mono" data-scan-stop hidden>{t(lang, 'pacer.stop')}</button>
+      {audio ? <button type="button" class="link-btn mono" data-voice-toggle aria-pressed="true">{S.voiceOn}</button>
+             : <span class="mono voice-soon">{t(lang, 'voice.toCome')}</span>}</p>
+    {transcript && <details class="transcript"><summary class="mono">{t(lang, 'voice.transcript')}</summary>{transcript.map((l) => <p>{l}</p>)}</details>}
+  </figcaption>
+  <p class="sr-only" aria-live="polite" data-scan-live></p>
+  {audio && <audio preload="none" src={audio} data-voice></audio>}
+</figure>
 <script>import '../scripts/bodyscan.ts';</script>

@@ -16,8 +16,8 @@ const [, roman, italic] = c.hero.headline.match(/^(.*?)\s*\*(.*)\*\s*$/) ?? [, c
 const n = c.pillars.items.length;
 const cols = n <= 6 ? n : 4;
 const tints = ['t1', 't2', 't3', 't4', 't5', 't6'];
-const restore = c.pillars.items.find((p) => p.id === 'restore');
-const [mu, md] = site.email.split('@');
+const [mu, md] = site.email ? site.email.split('@') : ['', ''];
+const mailFallback = site.email ? `${mu} (at) ${md.replace(/\./g, ' (dot) ')}` : '';
 const wa = site.whatsapp && `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(t(lang, 'contact.whatsappMessage'))}`;
 const faqLd = {
   '@context': 'https://schema.org', '@type': 'FAQPage',
@@ -59,8 +59,6 @@ const faqLd = {
       </div>
     </section>
 
-    {restore && <BodyScan lang={lang} title={restore.name} text={restore.description} />}
-
     <section class="section programme" id="programme" aria-labelledby="h-programme">
       <div class="wrap grid">
         <div class="prog-head"><h2 class="h2" id="h-programme">{c.programme.heading}</h2><p class="sec-intro">{c.programme.intro}</p></div>
@@ -77,7 +75,7 @@ const faqLd = {
 
     <section class="section about-teaser" id="about" aria-labelledby="h-about">
       <div class="wrap grid">
-        <div class="about-photo"><Photo slot="P03" lang={lang} tint="t5" sizes="(min-width: 1024px) 30vw, 100vw" /></div>
+        <div class="about-widget"><BodyScan lang={lang} /></div>
         <div class="about-text">
           <h2 class="h2" id="h-about">{c.about.heading}</h2>
           <p class="about-body">{c.about.body}</p>
@@ -106,9 +104,9 @@ const faqLd = {
           <p class="ctas"><a class="btn btn-warm" href={book}>{c.finalCta.primary}</a></p>
         </div>
         <ul class="contact-list">
-          <li><span class="mono">{t(lang, 'contact.email')}</span>
+          {site.email && <li><span class="mono">{t(lang, 'contact.email')}</span>
             <a href={book} data-mail data-u={mu} data-d={md} data-subject={t(lang, 'contact.subject')}>{c.finalCta.email}</a>
-            <span class="mail-text" data-mail-text data-u={mu} data-d={md}>{t(lang, 'contact.emailFallback')}</span></li>
+            <span class="mail-text" data-mail-text data-u={mu} data-d={md}>{mailFallback}</span></li>}
           {wa && <li><span class="mono">{t(lang, 'contact.whatsapp')}</span><a href={wa} rel="noopener">{c.finalCta.whatsapp}</a></li>}
         </ul>
       </div>

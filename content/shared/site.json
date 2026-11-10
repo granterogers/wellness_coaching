@@ -1,6 +1,6 @@
 {
   "name": "Grant Rogers",
-  "email": "grant.e.rogers@gmail.com",
+  "email": "",
   "whatsapp": "34603834206",
   "bookingUrl": "",
   "social": {
@@ -20,7 +20,11 @@
   ],
   "publications": {
     "count": 7,
-    "journals": ["Scientific Reports", "Remote Sensing", "Frontiers in Marine Science"],
+    "journals": [
+      "Scientific Reports",
+      "Remote Sensing",
+      "Frontiers in Marine Science"
+    ],
     "url": "https://www.researchgate.net/profile/Grant-Rogers"
   },
   "flags": {

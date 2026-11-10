@@ -117,7 +117,7 @@ Pranayama Home, Gran Canaria · Casa Solara, Ibiza · The Festival of Consciousn
 
 **Booking fallback heading:** La reserva online llega pronto
 
-**Booking fallback body:** La reserva online aún no está activa. Escríbeme con un par de horarios que te vengan bien y tu huso horario, y te respondo para organizarlo.
+**Booking fallback body:** La reserva online aún no está activa. Escríbeme por WhatsApp con un par de horarios que te vengan bien y tu huso horario, y te respondo para organizarlo.
 
 **Email button:** Escríbeme
 

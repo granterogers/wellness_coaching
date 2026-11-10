@@ -16,3 +16,4 @@
 - Pillars heading: "The six pillars of wellness"; everything in the pillar columns lines up across columns.
 - Mini Yoga Nidra body scan added after the pillars (requirement 9.13), in the pacer's line style.
 - Second review: Recognition section and the large hero photo removed; pillar text centred; body scan made small and anatomical, like the pacer; switching language keeps your place on the page.
+- Third review (10 Nov 2026): body scan is a small widget beside the bio, same scale as the pacer, with a continuous anatomical outline and 23 parts; no email address anywhere on the site (WhatsApp + Calendly only).

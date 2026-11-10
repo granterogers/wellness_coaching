@@ -28,7 +28,7 @@ A credibility and portfolio website for Grant Rogers' personalised 1:1 wellness 
 | Hosting (now) | Free preview on GitHub Pages: `granterogers.github.io/wellness_coaching`. No domain, email or payments until Grant is satisfied with the site |
 | Hosting (launch) | Cloudflare Pages + own domain |
 | Tax / legal | Grant is UK tax resident. UK rules only (UK GDPR, UK consumer law). No Spanish legal pages |
-| Preview contact | `grant.e.rogers@gmail.com` (spam-protected on the site) |
+| Contact on the site | WhatsApp and Calendly booking only; no email address shown (Grant, 10 Nov 2026) |
 | WhatsApp | +34 603 834 206 (click-to-chat button on the site, req 11.3) |
 | Build environment | Claude Code on the web + GitHub Actions; nothing installed locally |
 | Photos | Descriptive placeholders until real photos arrive — slot briefs in `photo-slots.md` |

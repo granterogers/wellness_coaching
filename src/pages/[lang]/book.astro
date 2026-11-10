@@ -7,7 +7,8 @@ export function getStaticPaths() { return [{ params: { lang: 'en' } }, { params:
 const lang = Astro.params.lang as Lang;
 const p = await pageCopy(lang, 'book');
 const site = await siteData();
-const [mu, md] = site.email.split('@');
+const [mu, md] = site.email ? site.email.split('@') : ['', ''];
+const mailFallback = site.email ? `${mu} (at) ${md.replace(/\./g, ' (dot) ')}` : '';
 const wa = site.whatsapp && `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(t(lang, 'contact.whatsappMessage'))}`;
 ---
 <Base lang={lang} title={p.labels['Page title']} description={p.labels['Meta description']} path="book/" draftTranslation={p.translation_status === 'draft'}>
@@ -33,10 +34,10 @@ const wa = site.whatsapp && `https://wa.me/${site.whatsapp}?text=${encodeURIComp
         <h2 class="h2">{p.labels['Booking fallback heading']}</h2>
         <p class="lede">{p.labels['Booking fallback body']}</p>
         <p class="ctas">
-          <a class="btn btn-warm" href="#book" data-mail data-u={mu} data-d={md} data-subject={t(lang, 'contact.subject')}>{p.labels['Email button']}</a>
-          {wa && <a class="btn btn-ghost" href={wa} rel="noopener">{p.labels['WhatsApp button']}</a>}
+          {wa && <a class="btn btn-warm" href={wa} rel="noopener">{p.labels['WhatsApp button']}</a>}
+          {site.email && <a class="btn btn-ghost" href="#book" data-mail data-u={mu} data-d={md} data-subject={t(lang, 'contact.subject')}>{p.labels['Email button']}</a>}
         </p>
-        <p class="mail-text" data-mail-text data-u={mu} data-d={md}>{t(lang, 'contact.emailFallback')}</p>
+        {site.email && <p class="mail-text" data-mail-text data-u={mu} data-d={md}>{mailFallback}</p>}
       </div>
     </div></section>
   </main>

@@ -74,7 +74,7 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 | 5.3 | ~~Approach section~~ — removed at Grant's request (6 Nov 2026). The "evidence, built around you" message lives in the hero, pillars and FAQ | M |
 | 5.4 | Pillars side by side, like columns, text centred in each column (Grant, 6 Nov 2026): desktop = one row of columns (wraps to rows of 4 above 6 pillars), each with photo, number, name, description, example practice and its reason, all visible; photos the same size and every row of text (number, name, description, "Try", reason) aligned across the columns (CSS subgrid); under 1024px = a horizontal swipeable row with the next pillar peeking in, keyboard-scrollable. No decorative diagram. Sexual wellbeing only inside its pillar | M |
 | 5.5 | Programme: four phases as one simple left-to-right timeline on desktop (line with four numbered points, text under each), a vertical stepper on mobile; nothing pinned; inclusions row; no prices ("investment is discussed on our call") | M |
-| 5.6 | About teaser: portrait, short story, fact list on hairlines (sans, not mono — Grant's "noisy" feedback), link to 4.3 | M |
+| 5.6 | About teaser: the body scan widget (9.13) on the left beside the bio (Grant, 10 Nov 2026; his portrait is on the About page), short story, fact list on hairlines, link to 4.3 | M |
 | 5.7 | Voice: Grant's voice lives inside the breath pacer and the body scan (10.4), not in a separate section (Grant, 10 Nov 2026) | S |
 | 5.8 | Proof: up to three first-name stories (before / what we did / now) + single quotes elsewhere; looks right with 1–2; hidden while `testimonials` is off | S |
 | 5.9 | Free practice email capture, flag `freePractice` | L |
@@ -147,8 +147,8 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 
 | ID | Requirement | P |
 |---|---|---|
-| 11.1 | All contact details come from `site.json`; nothing hard-coded. Preview email: `grant.e.rogers@gmail.com`. Email addresses are protected from spam-harvesting bots (e.g. assembled with JavaScript, with an accessible fallback) | M |
-| 11.2 | Booking with **Calendly** (Grant, 10 Nov 2026). Every "Book a conversation" leads to the Book page. While `bookingUrl` in `site.json` is empty, the page shows a clearly marked placeholder where the calendar will sit, plus the honest fallback ("Booking opens soon — email me") with email and WhatsApp. Once set, the Calendly calendar loads in the page only after the visitor clicks "Show available times" (no Calendly cookies before that), with a plain link as well | M |
+| 11.1 | All contact details come from `site.json`; nothing hard-coded. **No email address on the site** (Grant, 10 Nov 2026): contact is WhatsApp and the Calendly booking; email appears only if an address is put back in `site.json`, and is then assembled with JavaScript so bots can't harvest it | M |
+| 11.2 | Booking with **Calendly** (Grant, 10 Nov 2026). Every "Book a conversation" leads to the Book page. While `bookingUrl` in `site.json` is empty, the page shows a clearly marked placeholder where the calendar will sit, plus the honest fallback ("Booking opens soon — message me on WhatsApp"). Once set, the Calendly calendar loads in the page only after the visitor clicks "Show available times" (no Calendly cookies before that), with a plain link as well | M |
 | 11.3 | WhatsApp click-to-chat (`wa.me`) with prefilled localised message; hidden while the number is empty | M |
 | 11.4 | Contact form built with honeypot and localised success/error states, but hidden while `contactForm` is off; never fakes a successful submission | S |
 | 11.5 | No third-party embeds that set cookies during the preview | M |
