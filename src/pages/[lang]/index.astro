@@ -75,13 +75,14 @@ const faqLd = {
 
     <section class="section about-teaser" id="about" aria-labelledby="h-about">
       <div class="wrap grid">
-        <div class="about-widget"><BodyScan lang={lang} /></div>
+        <div class="about-photo"><Photo slot="P03" lang={lang} tint="t5" sizes="(min-width: 1024px) 30vw, 100vw" /></div>
         <div class="about-text">
           <h2 class="h2" id="h-about">{c.about.heading}</h2>
           <p class="about-body">{c.about.body}</p>
           <ul class="facts">{c.about.facts.map((f) => <li>{f}</li>)}</ul>
           <a class="more draw" href={url(`${lang}/about/`)}>{c.about.link} →</a>
         </div>
+        <div class="about-widget"><BodyScan lang={lang} /></div>
       </div>
     </section>
 

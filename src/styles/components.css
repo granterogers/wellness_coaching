@@ -197,7 +197,8 @@
   .facts li { padding: 12px 0; border-bottom: 1px solid var(--rule); font-size: .9375rem; }
   .more { display: inline-block; margin-top: var(--s4); font-weight: 600; }
   @media (min-width: 768px) { .facts { grid-template-columns: 1fr 1fr; } }
-  @media (min-width: 1024px) { .about-photo { grid-column: 1 / 5; margin: 0; } .about-text { grid-column: 6 / -1; } }
+  .about-widget { margin-top: var(--s6); }
+  @media (min-width: 1024px) { .about-photo { grid-column: 1 / 5; grid-row: 1; margin: 0; } .about-text { grid-column: 6 / -1; grid-row: 1 / span 2; } .about-widget { grid-column: 1 / 5; grid-row: 2; } }
 
   /* FAQ (5.10): native disclosure, keyboard-accessible without script */
   .faq-list { margin: 0; padding: 0; border-top: 1px solid var(--rule-strong); }
@@ -314,12 +315,11 @@
   .transcript p { margin: 0 0 6px; font-size: .9375rem; }
   .voice-soon { color: var(--muted); }
   @media (min-width: 1024px) {
-    .about-widget { grid-column: 1 / 5; align-self: start; }
-    .scan { margin: 0; }
+    .scan { margin: 0 auto; }
     .scan-btn svg { height: 300px; }
   }
   .scan-orbit { fill: none; stroke: var(--rule-strong); stroke-width: 1; opacity: .7; }
-  .about-teaser .about-text { align-self: center; }
+  .about-teaser .about-text { align-self: start; }
 }
 
 @layer components {

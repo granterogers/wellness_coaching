@@ -2,7 +2,7 @@
 
 Every ID in `knowledge/requirements.md` (122). Status: `todo` / `done` / `partial` / `blocked` / `later`. Updated at the end of every phase (1.6).
 
-Last updated: Phase 3 revisions (4), 10 November 2026.
+Last updated: Phase 3 revisions (5), 10 November 2026.
 
 | ID | P | Phase | Status | Evidence / notes |
 |---|---|---|---|---|
@@ -50,7 +50,7 @@ Last updated: Phase 3 revisions (4), 10 November 2026.
 | 5.3 | M | 3 | done | Removed at Grant's request (6 Nov 2026) |
 | 5.4 | M | 3 | done | Equal columns, centred text, subgrid-aligned rows, identical photo sizes — review/phase-3 |
 | 5.5 | M | 3 | done | Left-to-right timeline, vertical stepper on mobile, inclusions, price line |
-| 5.6 | M | 3 | done | About teaser: body scan widget beside bio, facts, link to /about/ |
+| 5.6 | M | 3 | done | About teaser: portrait beside the bio, body scan widget under the portrait (mobile: photo → bio → widget) |
 | 5.7 | S | 5 | done | Voice folded into the pacer and body scan (10.4) |
 | 5.8 | S | 5 | todo |  |
 | 5.9 | L | 5 | later | Not active in the preview |
@@ -88,7 +88,7 @@ Last updated: Phase 3 revisions (4), 10 November 2026.
 | 9.10 | M | 4 | todo |  |
 | 9.11 | M | 4 | todo |  |
 | 9.12 | S | 4 | todo |  |
-| 9.13 | S | 4 | done | Small widget beside the bio (300px figure on desktop, like the pacer); continuous anatomical outline, 23 parts — `BodyScan.astro` |
+| 9.13 | S | 4 | done | Small widget under the portrait in About; 300px figure; continuous anatomical outline; 23 parts |
 | 10.1 | S | 5 | partial | Widget controls (play via tap, pause/stop, voice on/off); never autoplays |
 | 10.2 | S | 5 | partial | Transcript under each widget once the scripts are approved |
 | 10.3 | S | 5 | done | `src/lib/audio.ts` picks up `src/assets/audio/{pacer,bodyscan}-{en,es}.mp3` |
