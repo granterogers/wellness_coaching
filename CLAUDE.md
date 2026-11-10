@@ -19,6 +19,7 @@ Fonts: Inter, Roboto, Open Sans, Lato, Space Grotesk, Poppins. Purple/blue gradi
 - Playwright screenshots at 390px and 1440px into `review/phase-N/`; compare with the chosen prototype and the anti-default test in `knowledge/design-system.md`; list 10 ways it looks generic; fix; re-screenshot.
 - Check reduced motion, keyboard access, Spanish text length; run `npm run check`.
 - Update `REQUIREMENTS-STATUS.md`; commit with a plain-English summary.
+- After every change that is published, give Grant the live link(s) to the page(s) that changed (https://granterogers.github.io/wellness_coaching/…).
 - Stop and show Grant only at the stop points in `knowledge/master-prompt.md` (Phase 0, copy, prototype choice, after Phase 3); otherwise continue to the next phase.
 
 ## Logo
