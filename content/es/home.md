@@ -25,45 +25,33 @@ labels and the **ID:** lines (they link each pillar to its photo).
 
 ## Pillars
 
-**Heading:** Los seis pilares del bienestar
+**Heading:** Los cuatro pilares del bienestar
 
-**Intro:** No trabajarás las seis a la vez. Empezamos por lo que más te importa y añadimos el resto cuando lo básico se sostiene.
+**Intro:** No trabajarás los cuatro a la vez. Empezamos por lo que más te importa y añadimos el resto cuando lo básico se sostiene.
 
-### Respirar
-**ID:** breathe
-**Description:** Una respiración más lenta que puedes usar en cualquier sitio: antes de una reunión, en un atasco, a las tres de la mañana.
-**Example practice:** Cuatro segundos para inhalar, seis para exhalar, durante un minuto.
-**Why:** Las exhalaciones largas suelen llevar al cuerpo hacia el descanso; por eso solemos empezar aquí.
-
-### Moverse
-**ID:** move
-**Description:** Movilidad, fuerza y yoga para un cuerpo que pasa el día sentado.
-**Example practice:** Una rutina de diez minutos en el suelo antes del primer café.
-**Why:** Para caderas y espaldas rígidas, un poco cada día suele dar más que una sesión larga a la semana.
-
-### Atención
-**ID:** focus
-**Description:** Meditación y entrenamiento de la atención, sin necesidad de incienso.
-**Example practice:** Tres minutos contando respiraciones en tu mesa, con los ojos abiertos.
-**Why:** La práctica corta y regular es más fácil de mantener que las sesiones largas, y lo que cuenta es mantenerla.
-
-### Recuperarse
-**ID:** restore
-**Description:** Sueño, descanso profundo y recuperación, incluido el Yoga Nidra.
-**Example practice:** Una grabación guiada de Yoga Nidra para las noches en que tu cabeza no desconecta.
+### Sueño
+**ID:** sleep
+**Description:** Para una mente que no desconecta por la noche.
+**Example practice:** Un Yoga Nidra guiado para las noches en que tu cabeza no para.
 **Why:** Le da a una mente ocupada algo que seguir en lugar de algo contra lo que luchar.
 
-### Vitalidad
-**ID:** vitality
-**Description:** Energía, confianza en tu cuerpo y bienestar sexual, tratados en privado, con claridad y dentro del ámbito del coaching.
-**Example practice:** Conciencia del suelo pélvico integrada en tu rutina de movimiento.
-**Why:** Forma parte del mismo cuerpo que entrenas en todo lo demás, así que pertenece a la misma rutina. Lo clínico, al médico.
+### Fuerza
+**ID:** strength
+**Description:** Movilidad y fuerza para un cuerpo que pasa el día sentado y quiere seguir rindiendo con los años.
+**Example practice:** Diez minutos en el suelo antes del primer café.
+**Why:** Un poco cada día suele hacer más por unas caderas y una espalda rígidas que una sesión larga a la semana.
 
-### Crecer
-**ID:** grow
-**Description:** Hábitos que duran y una práctica que es tuya.
-**Example practice:** Una revisión semanal de diez minutos: qué ha funcionado, qué no y qué cambiamos.
-**Why:** Pequeños cambios cada semana mantienen viva una rutina cuando tu vida cambia a su alrededor.
+### Calma
+**ID:** calm
+**Description:** Respiración y meditación que puedes usar en cualquier sitio: antes de una reunión, en un atasco, a las tres de la mañana.
+**Example practice:** Cuatro segundos para inhalar, seis para exhalar, durante un minuto.
+**Why:** Las exhalaciones largas suelen llevar al cuerpo hacia el descanso.
+
+### Energía
+**ID:** energy
+**Description:** Energía, confianza en tu cuerpo y bienestar sexual, tratados en privado y con claridad.
+**Example practice:** Conciencia del suelo pélvico integrada en tu rutina de movimiento.
+**Why:** Es el mismo cuerpo que entrenas en todo lo demás. Lo clínico, al médico.
 
 ## Programme
 

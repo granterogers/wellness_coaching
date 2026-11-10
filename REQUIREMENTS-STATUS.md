@@ -2,7 +2,7 @@
 
 Every ID in `knowledge/requirements.md` (122). Status: `todo` / `done` / `partial` / `blocked` / `later`. Updated at the end of every phase (1.6).
 
-Last updated: Phase 3 revisions (5), 10 November 2026.
+Last updated: Phase 3 revisions (6), 10 November 2026.
 
 | ID | P | Phase | Status | Evidence / notes |
 |---|---|---|---|---|
@@ -31,7 +31,7 @@ Last updated: Phase 3 revisions (5), 10 November 2026.
 | 2.12 | M | 1 | done | No backend, cookies or tracking; theme choice in localStorage only |
 | 3.1 | M | 3 | done | Copy read word for word from `content/<lang>/home.md` — `src/lib/copy.ts` |
 | 3.2 | M | 1 | done | `src/content.config.ts` (schemas fail the build; en copy must be approved) |
-| 3.3 | M | 3 | done | Pillars only from content; grid uses n columns (≤6) or rows of 4 (7–8) — `src/pages/[lang]/index.astro` |
+| 3.3 | M | 3 | done | Pillars only from content (now four); grid uses n columns ≤6 or rows of 4; photo slots follow pillar IDs (`photos.json`) |
 | 3.4 | M | 1 | done | `content/shared/site.json` |
 | 3.5 | M | 1 | done | Flags in `site.json` (voiceClip on per Grant) |
 | 3.6 | M | 3 | done | `content/es/home.md`, `content/es/pages.md` — Spain Spanish, tú, `translation_status: draft` |
@@ -48,7 +48,7 @@ Last updated: Phase 3 revisions (5), 10 November 2026.
 | 5.1 | M | 3 | done | Offer-first hero with pacer; large photo removed per Grant — review/phase-3 |
 | 5.2 | M | 3 | done | Removed at Grant's request (6 Nov 2026) |
 | 5.3 | M | 3 | done | Removed at Grant's request (6 Nov 2026) |
-| 5.4 | M | 3 | done | Equal columns, centred text, subgrid-aligned rows, identical photo sizes — review/phase-3 |
+| 5.4 | M | 3 | done | Four pillars (Sleep, Strength, Calm, Energy) drawn as subtle columns (SVG capital/base, shaft edges); centred text; rows aligned (measured); photos same size |
 | 5.5 | M | 3 | done | Left-to-right timeline, vertical stepper on mobile, inclusions, price line |
 | 5.6 | M | 3 | done | About teaser: portrait beside the bio, body scan widget under the portrait (mobile: photo → bio → widget) |
 | 5.7 | S | 5 | done | Voice folded into the pacer and body scan (10.4) |

@@ -133,14 +133,18 @@
   .swipe-hint { color: var(--muted); margin: 0 0 var(--s2); }
   .pillar-scroll { overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding: 0 20px; scrollbar-width: thin; padding-bottom: var(--s2); }
   .pillar-scroll:focus-visible { outline-offset: -2px; }
-  .pillar-row { list-style: none; margin: 0; padding: 0 20px; display: grid; grid-auto-flow: column; grid-auto-columns: min(72vw, 300px);
+  .pillar-row { list-style: none; margin: 0; padding: 0 20px; display: grid; grid-auto-flow: column; grid-auto-columns: min(76vw, 320px);
     grid-template-rows: repeat(6, auto); column-gap: var(--s6); width: max-content; }
   /* Each pillar spans six shared rows, so photo, number, name, description, "Try" and reason line up across columns (5.4) */
   /* Equal columns; divider lines sit in the gaps, so every photo and text block has exactly the same width */
   .pillar { display: grid; grid-row: span 6; grid-template-rows: subgrid; align-content: start; scroll-snap-align: start;
-    padding: 0 0 var(--s3); position: relative; }
-  .pillar::before { content: ""; position: absolute; left: calc(var(--s6) / -2); top: 0; bottom: 0; width: 1px; background: var(--rule-strong); }
-  .pillar:first-child::before, .pillar.row-start::before { display: none; }
+    padding: 46px calc(10% + 18px) 52px; position: relative; }
+  /* Each pillar is lightly drawn as a column (5.4): capital and base are SVG lines; the shaft is two thin edges */
+  .pillar::before { content: ""; position: absolute; top: 26px; bottom: 24px; left: 10%; right: 10%; border-left: 1px solid var(--rule-strong); border-right: 1px solid var(--rule-strong); opacity: .55; pointer-events: none; }
+  .col-capital, .col-base { position: absolute; left: 0; width: 100%; overflow: visible; pointer-events: none; fill: none; stroke: var(--rule-strong); }
+  .col-capital { top: 0; height: 26px; }
+  .col-base { bottom: 0; height: 24px; }
+  .col-capital *, .col-base * { vector-effect: non-scaling-stroke; stroke-width: 1; }
   .pillar { text-align: center; }
   .pillar-media { margin-bottom: var(--s3); }
   .pillar-n { color: var(--accent); margin: 0 0 4px; align-self: end; }
@@ -155,10 +159,8 @@
     .pillar-scroll { overflow: visible; padding: 0; }
     .pillar-row { max-width: 1360px; margin: 0 auto; width: auto; grid-auto-flow: row; grid-auto-columns: auto; grid-template-rows: none;
       grid-template-columns: repeat(var(--cols), minmax(0, 1fr)); }
-    .pillar { width: auto; padding-top: var(--s3); margin-bottom: var(--s6); }
-    .pillar::after { content: ""; position: absolute; top: 0; left: calc(var(--s6) / -2); right: calc(var(--s6) / -2); height: 2px; background: var(--ink); }
-    .pillar.row-start::after { left: 0; }
-    .pillar.row-end::after { right: 0; }
+    .pillar { width: auto; margin-bottom: var(--s6); }
+
   }
 
   /* Programme (5.5): simple left-to-right timeline */

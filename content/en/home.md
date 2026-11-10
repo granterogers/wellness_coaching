@@ -25,39 +25,29 @@ When you're happy, change "status: draft" to "status: approved" at the top.
 
 ## Pillars
 
-**Heading:** The six pillars of wellness
+**Heading:** The four pillars of wellness
 
-**Intro:** You won't work on all six at once. We start where it matters most for you, and add the rest when the basics hold.
+**Intro:** You won't work on all four at once. We start where it matters most for you, and add the rest when the basics hold.
 
-### Breathe
-**Description:** Slower breathing you can use anywhere: before a meeting, in traffic, at 3am.
-**Example practice:** Four seconds in, six seconds out, for one minute.
-**Why:** Longer exhales tend to shift the body toward rest, which is why we usually start here.
-
-### Move
-**Description:** Mobility, strength and yoga for a body that sits all day.
-**Example practice:** A ten-minute floor routine before your first coffee.
-**Why:** For stiff hips and backs, a little every day tends to do more than a long session once a week.
-
-### Focus
-**Description:** Meditation and attention training, with no incense required.
-**Example practice:** Three minutes counting breaths at your desk, eyes open.
-**Why:** Short, regular practice is easier to keep than long sessions, and the keeping is what counts.
-
-### Restore
-**Description:** Sleep, deep rest and recovery, including Yoga Nidra.
-**Example practice:** A guided Yoga Nidra recording for the evenings your mind won't switch off.
+### Sleep
+**Description:** For a mind that won't switch off at night.
+**Example practice:** A guided Yoga Nidra for the nights your mind keeps running.
 **Why:** It gives a busy mind something to follow instead of something to fight.
 
-### Vitality
-**Description:** Energy, confidence in your body, and sexual wellbeing, talked about privately, plainly and within coaching scope.
-**Example practice:** Pelvic-floor awareness built into your movement routine.
-**Why:** It's part of the same body you train everywhere else, so it belongs in the same routine. Anything clinical goes to a doctor.
+### Strength
+**Description:** Mobility and strength for a body that sits all day and wants to keep performing as it gets older.
+**Example practice:** Ten minutes on the floor before your first coffee.
+**Why:** A little every day tends to do more for stiff hips and backs than one long session a week.
 
-### Grow
-**Description:** Habits that last, and a practice that's yours.
-**Example practice:** A ten-minute weekly review: what worked, what didn't, what we change.
-**Why:** Small changes every week keep a routine alive when your life changes around it.
+### Calm
+**Description:** Breathwork and meditation you can use anywhere: before a meeting, in traffic, at 3am.
+**Example practice:** Four seconds in, six out, for one minute.
+**Why:** Longer exhales tend to shift the body toward rest.
+
+### Energy
+**Description:** Energy, confidence in your body and sexual wellbeing, talked about privately and plainly.
+**Example practice:** Pelvic-floor awareness built into your movement routine.
+**Why:** It's the same body you train everywhere else. Anything clinical goes to a doctor.
 
 ## Programme
 
