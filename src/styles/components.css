@@ -138,13 +138,14 @@
   /* Each pillar spans six shared rows, so photo, number, name, description, "Try" and reason line up across columns (5.4) */
   /* Equal columns; divider lines sit in the gaps, so every photo and text block has exactly the same width */
   .pillar { display: grid; grid-row: span 6; grid-template-rows: subgrid; align-content: start; scroll-snap-align: start;
-    padding: 46px calc(10% + 18px) 52px; position: relative; }
-  /* Each pillar is lightly drawn as a column (5.4): capital and base are SVG lines; the shaft is two thin edges */
-  .pillar::before { content: ""; position: absolute; top: 26px; bottom: 24px; left: 10%; right: 10%; border-left: 1px solid var(--rule-strong); border-right: 1px solid var(--rule-strong); opacity: .55; pointer-events: none; }
-  .col-capital, .col-base { position: absolute; left: 0; width: 100%; overflow: visible; pointer-events: none; fill: none; stroke: var(--rule-strong); }
-  .col-capital { top: 0; height: 26px; }
-  .col-base { bottom: 0; height: 24px; }
-  .col-capital *, .col-base * { vector-effect: non-scaling-stroke; stroke-width: 1; }
+    padding: 36px 18px 40px; position: relative; }
+  /* Each pillar is hinted at as a column (5.4): a solid slab with one fine step, top and bottom. Nothing else. */
+  .col-capital, .col-base { position: absolute; left: 0; right: 0; height: 9px; pointer-events: none; }
+  .col-capital { top: 0; border-top: 4px solid var(--accent); }
+  .col-base { bottom: 0; border-bottom: 4px solid var(--accent); }
+  .col-capital::after, .col-base::after { content: ""; position: absolute; left: 7%; right: 7%; height: 1px; background: var(--accent); opacity: .55; }
+  .col-capital::after { top: 3px; }
+  .col-base::after { bottom: 3px; }
   .pillar { text-align: center; }
   .pillar-media { margin-bottom: var(--s3); }
   .pillar-n { color: var(--accent); margin: 0 0 4px; align-self: end; }

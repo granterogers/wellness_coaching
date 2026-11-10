@@ -47,8 +47,7 @@ const faqLd = {
         <ol class="pillar-row" style={`--cols:${cols}`}>
           {c.pillars.items.map((p, i) => (
             <li class:list={['pillar', { 'row-start': i % cols === 0, 'row-end': (i + 1) % cols === 0 || i === n - 1 }]} id={`pillar-${p.id}`}>
-              <svg class="col-capital" viewBox="0 0 100 26" preserveAspectRatio="none" aria-hidden="true" focusable="false"><rect x="1" y="1" width="98" height="7" rx="1" /><path d="M7 8 C10 15 20 18 50 18 C80 18 90 15 93 8" /><path d="M10 22 H90 M10 25 H90" /></svg>
-              <svg class="col-base" viewBox="0 0 100 24" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M10 1 H90 M10 4 H90" /><path d="M10 4 C5 4 4 11 7 12 H93 C96 11 95 4 90 4" /><rect x="2" y="14" width="96" height="9" rx="1" /></svg>
+              <span class="col-capital" aria-hidden="true"></span><span class="col-base" aria-hidden="true"></span>
               <div class="pillar-media"><Photo slot={`pillar:${p.id}`} lang={lang} tint={tints[i % 6]} sizes="(min-width: 1024px) 16vw, 78vw" /></div>
               <p class="mono pillar-n">{String(i + 1).padStart(2, '0')}</p>
               <h3 class="pillar-name">{p.name}</h3>
