@@ -18,8 +18,6 @@
  "pacer.in": "in",
  "pacer.out": "out",
  "pacer.timing": "4 s in · 6 s out",
- "pacer.pause": "Pause",
- "pacer.resume": "Resume",
  "pacer.stop": "Stop",
  "pacer.breathIn": "Breathe in",
  "pacer.breathOut": "Breathe out",
@@ -69,11 +67,10 @@
  "scan.crown": "Top of the head",
  "scan.throat": "Throat",
  "scan.pelvis": "Pelvis",
- "voice.on": "Voice on",
- "voice.off": "Voice off",
- "voice.toCome": "Voice: recording to come",
+ "voice.toCome": "Recording to come",
  "book.calendarToCome": "Booking calendar to come",
  "book.calendarNote": "Calendly will sit here once the link is set up.",
  "book.show": "Show available times",
- "book.open": "Open the calendar in a new tab"
+ "book.open": "Open the calendar in a new tab",
+ "voice.listen": "Listen"
 }

@@ -11,7 +11,7 @@ const zones = [...side.map((z) => `r-${z}`), ...side.map((z) => `l-${z}`), 'crow
 const names = Object.fromEntries([...zones, 'settle'].map((z) => [z, t(lang, `scan.${z}` as any)]));
 const S = {
   zones, names, count: t(lang, 'scan.count', { n: '{n}' }), done: t(lang, 'scan.done'), stopped: t(lang, 'pacer.stopped'),
-  pause: t(lang, 'pacer.pause'), resume: t(lang, 'pacer.resume'), voiceOn: t(lang, 'voice.on'), voiceOff: t(lang, 'voice.off'),
+  listen: t(lang, 'voice.listen'), stop: t(lang, 'pacer.stop'), toCome: t(lang, 'voice.toCome'),
 };
 const audio = voiceFor('bodyscan', lang);
 const transcript = transcriptFor('bodyscan', lang);
@@ -64,10 +64,8 @@ const svg = `
   <figcaption>
     <p class="scan-hint" id={`scan-hint-${lang}`}>{t(lang, 'scan.hint')}</p>
     <p class="scan-meta"><span class="mono">{t(lang, 'scan.timing')}</span>
-      <button type="button" class="link-btn mono" data-scan-pause aria-pressed="false">{S.pause}</button>
-      <button type="button" class="link-btn mono" data-scan-stop hidden>{t(lang, 'pacer.stop')}</button>
-      {audio ? <button type="button" class="link-btn mono" data-voice-toggle aria-pressed="true">{S.voiceOn}</button>
-             : <span class="mono voice-soon">{t(lang, 'voice.toCome')}</span>}</p>
+      <button type="button" class="link-btn mono listen-btn" data-listen>{S.listen}</button>
+      {!audio && <span class="mono voice-soon" data-voice-soon hidden>{S.toCome}</span>}</p>
     {transcript && <details class="transcript"><summary class="mono">{t(lang, 'voice.transcript')}</summary>{transcript.map((l) => <p>{l}</p>)}</details>}
   </figcaption>
   <p class="sr-only" aria-live="polite" data-scan-live></p>

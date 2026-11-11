@@ -18,8 +18,6 @@
  "pacer.in": "inhala",
  "pacer.out": "exhala",
  "pacer.timing": "4 s inhalar · 6 s exhalar",
- "pacer.pause": "Pausa",
- "pacer.resume": "Seguir",
  "pacer.stop": "Parar",
  "pacer.breathIn": "Inhala",
  "pacer.breathOut": "Exhala",
@@ -69,11 +67,10 @@
  "scan.crown": "Coronilla",
  "scan.throat": "Garganta",
  "scan.pelvis": "Pelvis",
- "voice.on": "Voz activada",
- "voice.off": "Voz desactivada",
- "voice.toCome": "Voz: grabación próximamente",
+ "voice.toCome": "Grabación próximamente",
  "book.calendarToCome": "Calendario de reservas próximamente",
  "book.calendarNote": "Aquí irá Calendly cuando el enlace esté listo.",
  "book.show": "Ver horarios disponibles",
- "book.open": "Abrir el calendario en otra pestaña"
+ "book.open": "Abrir el calendario en otra pestaña",
+ "voice.listen": "Escuchar"
 }

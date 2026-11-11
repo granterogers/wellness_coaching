@@ -120,8 +120,8 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 
 | ID | Requirement | P |
 |---|---|---|
-| 9.1 | Breath pacer: SVG orbit/ring (per 6.6) expands 4s, contracts 6s, localised "in"/"out" labels; ambient in hero, with a visible pause control for the ambient loop (WCAG 2.2.2) | M |
-| 9.2 | Tap/click starts "60 seconds with me": guided cycle with gentle count and a short completion message; pause/stop control; keyboard operable; `aria-live="polite"` updates | M |
+| 9.1 | Breath pacer: SVG orbit/ring (per 6.6) expands 4s, contracts 6s, localised "in"/"out" labels; ambient in hero: it breathes three times when it comes into view, then rests (Grant, 11 Nov 2026: no Pause link; WCAG 2.2.2 intent) | M |
+| 9.2 | Tap/click starts "60 seconds with me": guided cycle with gentle count and a short completion message; started by a **Listen** link (or a tap), which then reads Stop; keyboard operable; `aria-live="polite"` updates | M |
 | 9.3 | Pacer reused in the Breathe pillar | S |
 | 9.4 | Under reduced motion the pacer uses no scaling: text cues and a slow opacity change only, still usable | M |
 | 9.5 | Headline line-by-line masked reveal, once per page load | M |
@@ -132,7 +132,7 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 | 9.10 | One motion utility controls everything and honours `prefers-reduced-motion` (content appears immediately) | M |
 | 9.11 | Animate only transform and opacity; zero layout shift | M |
 | 9.12 | Subtle link and button micro-interactions (underline draw, fill slide); no custom cursor | S |
-| 9.13 | **Mini Yoga Nidra body scan** (Grant, 6 and 10 Nov 2026): a small, anatomically proportioned, gender-neutral figure lying down (seen from above, head at the top), in the pacer's thin line style and **the same size as the pacer**, inside the same orbit with a drifting dot; the body is **subdivided into 23 parts** in the traditional rotation (right side hand → foot, left side hand → foot, then crown, face, throat, chest, belly, pelvis, whole body), joints shown as faint lines; each part glows in turn with the breath; tap for the guided scan (about two minutes); pause/stop; keyboard operable; `aria-live="polite"` names each part; reduced motion = highlight only. Shown in a compact band after the pillars, introduced by the Restore pillar's name and description from content | S |
+| 9.13 | **Mini Yoga Nidra body scan** (Grant, 6 and 10 Nov 2026): a small, anatomically proportioned, gender-neutral figure lying down (seen from above, head at the top), in the pacer's thin line style and **the same size as the pacer**, inside the same orbit with a drifting dot; the body is **subdivided into 23 parts** in the traditional rotation (right side hand → foot, left side hand → foot, then crown, face, throat, chest, belly, pelvis, whole body), joints shown as faint lines; each part glows in turn with the breath; **Listen** link (or a tap) for the guided scan (about two minutes), which then reads Stop; with no tap it walks the parts once, then rests; keyboard operable; `aria-live="polite"` names each part; reduced motion = highlight only. Shown under Grant's portrait in About | S |
 
 ## 10. Voice feature
 
@@ -141,7 +141,7 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 | 10.1 | Custom accessible audio player (play/pause, progress, time), styled to the design system; never autoplays | S |
 | 10.2 | Transcript shown alongside, both languages | S |
 | 10.3 | Audio file slots in `src/assets/audio/`: `pacer-en.mp3`, `bodyscan-en.mp3` (and `-es`). A widget's voice switches on automatically once its file exists; until then the widget says "Voice: recording to come" | S |
-| 10.4 | **Grant's voice in the widgets** (Grant, 10 Nov 2026): when the visitor taps the pacer or the body scan, Grant's recording plays and the animation follows the recording's clock, so they stay in sync; a Voice on/off control; never plays without a tap; transcript available under each widget. Scripts (timed to the animations) live in `content/en/practices.md`, approved by Grant before recording | S |
+| 10.4 | **Grant's voice in the widgets** (Grant, 10 Nov 2026): when the visitor taps the pacer or the body scan, Grant's recording plays and the animation follows the recording's clock, so they stay in sync; a **Listen** link starts it and becomes Stop (Grant, 11 Nov 2026: replaces the Pause and Voice on/off links); until a recording exists, Listen runs the guided session silently with "Recording to come"; never plays without a tap; transcript available under each widget. Scripts (timed to the animations) live in `content/en/practices.md`, approved by Grant before recording | S |
 
 ## 11. Integrations and forms (preview-safe)
 

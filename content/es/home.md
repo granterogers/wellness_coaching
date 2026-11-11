@@ -25,7 +25,7 @@ labels and the **ID:** lines (they link each pillar to its photo).
 
 ## Pillars
 
-**Heading:** Los cuatro pilares del bienestar
+**Heading:** Mis cuatro pilares del bienestar
 
 **Intro:** No trabajarás los cuatro a la vez. Empezamos por lo que más te importa y añadimos el resto cuando lo básico se sostiene.
 

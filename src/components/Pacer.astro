@@ -1,5 +1,5 @@
 ---
-// Breath pacer (9.1, 9.2, 9.4): 4 s in, 6 s out; tap for a guided minute; pausable; announced politely; no scaling under reduced motion.
+// Breath pacer (9.1, 9.2, 9.4, 10.4): 4 s in, 6 s out; Listen (or a tap) plays Grant's guided minute; Stop ends it; announced politely; no scaling under reduced motion.
 import { t, type Lang } from '../i18n';
 import { voiceFor, transcriptFor } from '../lib/audio';
 interface Props { lang: Lang; hint: string }
@@ -7,7 +7,7 @@ const { lang, hint } = Astro.props;
 const s = {
   in: t(lang, 'pacer.in'), out: t(lang, 'pacer.out'), breathIn: t(lang, 'pacer.breathIn'), breathOut: t(lang, 'pacer.breathOut'),
   progress: t(lang, 'pacer.progress', { n: '{n}', s: '{s}' }), done: t(lang, 'pacer.done'), stopped: t(lang, 'pacer.stopped'),
-  pause: t(lang, 'pacer.pause'), resume: t(lang, 'pacer.resume'), voiceOn: t(lang, 'voice.on'), voiceOff: t(lang, 'voice.off'),
+  listen: t(lang, 'voice.listen'), stop: t(lang, 'pacer.stop'), toCome: t(lang, 'voice.toCome'),
 };
 const audio = voiceFor('pacer', lang);
 const transcript = transcriptFor('pacer', lang);
@@ -24,10 +24,8 @@ const transcript = transcriptFor('pacer', lang);
   <figcaption>
     <p class="pacer-hint" id={`pacer-hint-${lang}`} data-pacer-hint>{hint}</p>
     <p class="pacer-meta"><span class="mono">{t(lang, 'pacer.timing')}</span>
-      <button type="button" class="link-btn mono" data-pacer-pause aria-pressed="false">{s.pause}</button>
-      <button type="button" class="link-btn mono" data-pacer-stop hidden>{t(lang, 'pacer.stop')}</button>
-      {audio ? <button type="button" class="link-btn mono" data-voice-toggle aria-pressed="true">{s.voiceOn}</button>
-             : <span class="mono voice-soon">{t(lang, 'voice.toCome')}</span>}</p>
+      <button type="button" class="link-btn mono listen-btn" data-listen>{s.listen}</button>
+      {!audio && <span class="mono voice-soon" data-voice-soon hidden>{s.toCome}</span>}</p>
     {transcript && <details class="transcript"><summary class="mono">{t(lang, 'voice.transcript')}</summary>{transcript.map((l) => <p>{l}</p>)}</details>}
   </figcaption>
   {audio && <audio preload="none" src={audio} data-voice></audio>}
