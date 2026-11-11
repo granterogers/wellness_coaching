@@ -1,8 +1,7 @@
 // Breath pacer behaviour. Listen (or a tap on the circle) plays Grant's guided minute, six 10-second breaths;
-// the same button then reads Stop. With no tap, the circle breathes three times when it comes into view and then rests,
-// so nothing keeps moving beside the text (WCAG 2.2.2 intent).
+// the same button then reads Stop. Otherwise the circle breathes on a loop, with no pause control (Grant's decision, D-11 Nov).
 import { IN, CYCLE, level, reduceMotion as reduce } from './breath';
-const GUIDED = 60000, IDLE = CYCLE * 3;
+const GUIDED = 60000;
 
 document.querySelectorAll<HTMLElement>('[data-pacer]').forEach((fig) => {
   const S = JSON.parse(fig.dataset.strings!) as Record<string, string>;
@@ -31,7 +30,7 @@ document.querySelectorAll<HTMLElement>('[data-pacer]').forEach((fig) => {
     }
   };
   const finish = (msg: string) => {
-    guided = false; fig.classList.remove('guided'); start = performance.now() - IDLE; // stay at rest
+    guided = false; fig.classList.remove('guided'); start = performance.now();
     listen.textContent = S.listen; if (soon) soon.hidden = true;
     if (voice) { voice.pause(); voice.currentTime = 0; }
     label.textContent = S.in; hint.textContent = msg; live.textContent = msg;
@@ -46,8 +45,7 @@ document.querySelectorAll<HTMLElement>('[data-pacer]').forEach((fig) => {
   const frame = (now: number) => {
     if (visible) {
       const run = voiceClock() ?? now - start;
-      if (!guided && run >= IDLE) { draw(0); label.textContent = S.in; }
-      else {
+      {
         const t = run % CYCLE; draw(t);
         const phase = t < IN ? 'in' : 'out';
         const n = t < IN ? Math.floor(t / 1000) + 1 : Math.floor((t - IN) / 1000) + 1;
@@ -68,10 +66,7 @@ document.querySelectorAll<HTMLElement>('[data-pacer]').forEach((fig) => {
   fig.querySelector('[data-pacer-start]')!.addEventListener('click', toggle);
   listen.addEventListener('click', toggle);
   voice?.addEventListener('ended', () => { if (guided) finish(S.done); });
-  // Don't animate while off screen; breathe again (three times) each time it comes back into view
-  new IntersectionObserver(([e]) => {
-    if (e.isIntersecting && !visible && !guided) start = performance.now();
-    visible = e.isIntersecting;
-  }).observe(fig);
+  // Don't animate while off screen
+  new IntersectionObserver(([e]) => { visible = e.isIntersecting; }).observe(fig);
   requestAnimationFrame(frame);
 });

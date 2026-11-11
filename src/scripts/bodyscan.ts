@@ -1,6 +1,6 @@
 // Body scan behaviour (9.13, 10.4). Guided timeline: settle 10 s, 22 parts × 5 s, whole body 10 s (= the voice script).
-// Listen (or a tap on the figure) plays Grant's guided scan; the same button then reads Stop. With no tap, the figure
-// walks through the parts once when it comes into view and then rests (WCAG 2.2.2 intent).
+// Listen (or a tap on the figure) plays Grant's guided scan; the same button then reads Stop. Otherwise the figure
+// walks through the parts on a loop, with no pause control (Grant's decision, D-11 Nov).
 import { CYCLE, level, reduceMotion as reduce } from './breath';
 const SETTLE = 10000, PART = 5000, WHOLE = 10000, AMBIENT = 2000;
 
@@ -10,7 +10,7 @@ document.querySelectorAll<HTMLElement>('[data-scan]').forEach((box) => {
     listen: string; stop: string;
   };
   const parts = S.zones.filter((z) => z !== 'whole');
-  const TOTAL = SETTLE + parts.length * PART + WHOLE, IDLE = S.zones.length * AMBIENT;
+  const TOTAL = SETTLE + parts.length * PART + WHOLE;
   const svg = box.querySelector('svg')!;
   const dot = box.querySelector<SVGCircleElement>('[data-scan-electron]')!;
   const TH = (-6 * Math.PI) / 180, RX = 118, RY = 228, CX = 100, CY = 222;
@@ -21,7 +21,7 @@ document.querySelectorAll<HTMLElement>('[data-scan]').forEach((box) => {
   const listen = box.querySelector<HTMLButtonElement>('[data-listen]')!;
   const soon = box.querySelector<HTMLElement>('[data-voice-soon]');
   const voice = box.querySelector<HTMLAudioElement>('[data-voice]');
-  let start = performance.now(), guided = false, last = '', visible = true, resting = false;
+  let start = performance.now(), guided = false, last = '', visible = true;
 
   const show = (z: string, n: number) => {
     if (z === last) return;
@@ -33,18 +33,15 @@ document.querySelectorAll<HTMLElement>('[data-scan]').forEach((box) => {
     count.textContent = guided && n > 0 ? S.count.replace('{n}', String(n)) : '';
     if (guided) live.textContent = S.names[z];
   };
-  const rest = () => {
-    resting = true; last = '';
-    groups.forEach((g) => g?.classList.remove('on')); svg.classList.remove('whole', 'settle');
-    svg.style.setProperty('--b', '.5');
-  };
   const finish = (msg: string) => {
     guided = false; listen.textContent = S.listen; if (soon) soon.hidden = true;
     if (voice) { voice.pause(); voice.currentTime = 0; }
-    rest(); name.textContent = msg; count.textContent = ''; live.textContent = msg;
+    start = performance.now(); last = '';
+    groups.forEach((g) => g?.classList.remove('on')); svg.classList.remove('whole', 'settle');
+    name.textContent = msg; count.textContent = ''; live.textContent = msg;
   };
   const begin = () => {
-    guided = true; resting = false; last = ''; start = performance.now();
+    guided = true; last = ''; start = performance.now();
     listen.textContent = S.stop; if (soon) soon.hidden = false;
     if (voice) { voice.currentTime = 0; voice.play().catch(() => { /* blocked: runs on its own clock */ }); }
   };
@@ -54,7 +51,7 @@ document.querySelectorAll<HTMLElement>('[data-scan]').forEach((box) => {
     return i < parts.length ? [parts[i], i + 1] : ['whole', parts.length + 1];
   };
   const frame = (now: number) => {
-    if (visible && !resting) {
+    if (visible) {
       const run = guided && voice && !voice.paused ? voice.currentTime * 1000 : now - start;
       svg.style.setProperty('--b', reduce.matches ? '.5' : level(run % CYCLE).toFixed(3));
       if (!reduce.matches) {
@@ -64,10 +61,8 @@ document.querySelectorAll<HTMLElement>('[data-scan]').forEach((box) => {
       }
       if (guided) {
         if (run >= TOTAL) finish(S.done); else show(...at(run));
-      } else if (run >= IDLE) {
-        rest(); name.textContent = S.names['whole'];
       } else {
-        show(S.zones[Math.floor(run / AMBIENT)], 0);
+        show(S.zones[Math.floor(run / AMBIENT) % S.zones.length], 0);
       }
     }
     requestAnimationFrame(frame);
@@ -76,9 +71,6 @@ document.querySelectorAll<HTMLElement>('[data-scan]').forEach((box) => {
   box.querySelector('[data-scan-start]')!.addEventListener('click', toggle);
   listen.addEventListener('click', toggle);
   voice?.addEventListener('ended', () => { if (guided) finish(S.done); });
-  new IntersectionObserver(([e]) => {
-    if (e.isIntersecting && !visible && !guided) { start = performance.now(); resting = false; }
-    visible = e.isIntersecting;
-  }).observe(box);
+  new IntersectionObserver(([e]) => { visible = e.isIntersecting; }).observe(box);
   requestAnimationFrame(frame);
 });

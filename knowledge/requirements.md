@@ -120,7 +120,7 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 
 | ID | Requirement | P |
 |---|---|---|
-| 9.1 | Breath pacer: SVG orbit/ring (per 6.6) expands 4s, contracts 6s, localised "in"/"out" labels; ambient in hero: it breathes three times when it comes into view, then rests (Grant, 11 Nov 2026: no Pause link; WCAG 2.2.2 intent) | M |
+| 9.1 | Breath pacer: SVG orbit/ring (per 6.6) expands 4s, contracts 6s, localised "in"/"out" labels; ambient in hero, looping indefinitely with no pause control (Grant, 11 Nov 2026: his decision, accepted against WCAG 2.2.2; see D-11 Nov in REQUIREMENTS-STATUS.md) | M |
 | 9.2 | Tap/click starts "60 seconds with me": guided cycle with gentle count and a short completion message; started by a **Listen** link (or a tap), which then reads Stop; keyboard operable; `aria-live="polite"` updates | M |
 | 9.3 | Pacer reused in the Breathe pillar | S |
 | 9.4 | Under reduced motion the pacer uses no scaling: text cues and a slow opacity change only, still usable | M |
@@ -132,7 +132,7 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 | 9.10 | One motion utility controls everything and honours `prefers-reduced-motion` (content appears immediately) | M |
 | 9.11 | Animate only transform and opacity; zero layout shift | M |
 | 9.12 | Subtle link and button micro-interactions (underline draw, fill slide); no custom cursor | S |
-| 9.13 | **Mini Yoga Nidra body scan** (Grant, 6 and 10 Nov 2026): a small, anatomically proportioned, gender-neutral figure lying down (seen from above, head at the top), in the pacer's thin line style and **the same size as the pacer**, inside the same orbit with a drifting dot; the body is **subdivided into 23 parts** in the traditional rotation (right side hand → foot, left side hand → foot, then crown, face, throat, chest, belly, pelvis, whole body), joints shown as faint lines; each part glows in turn with the breath; **Listen** link (or a tap) for the guided scan (about two minutes), which then reads Stop; with no tap it walks the parts once, then rests; keyboard operable; `aria-live="polite"` names each part; reduced motion = highlight only. Shown under Grant's portrait in About | S |
+| 9.13 | **Mini Yoga Nidra body scan** (Grant, 6 and 10 Nov 2026): a small, anatomically proportioned, gender-neutral figure lying down (seen from above, head at the top), in the pacer's thin line style and **the same size as the pacer**, inside the same orbit with a drifting dot; the body is **subdivided into 23 parts** in the traditional rotation (right side hand → foot, left side hand → foot, then crown, face, throat, chest, belly, pelvis, whole body), joints shown as faint lines; each part glows in turn with the breath; **Listen** link (or a tap) for the guided scan (about two minutes), which then reads Stop; with no tap it walks the parts on a loop, indefinitely; keyboard operable; `aria-live="polite"` names each part; reduced motion = highlight only. Shown under Grant's portrait in About | S |
 
 ## 10. Voice feature
 

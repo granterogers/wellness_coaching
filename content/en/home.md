@@ -25,7 +25,7 @@ When you're happy, change "status: draft" to "status: approved" at the top.
 
 ## Pillars
 
-**Heading:** My four pillars of wellness
+**Heading:** Your four pillars of wellness
 
 **Intro:** You won't work on all four at once. We start where it matters most for you, and add the rest when the basics hold.
 

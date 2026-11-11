@@ -2,7 +2,7 @@
 
 Every ID in `knowledge/requirements.md` (122). Status: `todo` / `done` / `partial` / `blocked` / `later`. Updated at the end of every phase (1.6).
 
-Last updated: 2026-11-11 (Listen links, 'My four pillars').
+Last updated: 2026-11-11 ('Your four pillars', widgets loop).
 
 | ID | P | Phase | Status | Evidence / notes |
 |---|---|---|---|---|
@@ -48,7 +48,7 @@ Last updated: 2026-11-11 (Listen links, 'My four pillars').
 | 5.1 | M | 3 | done | Offer-first hero with pacer; large photo removed per Grant — review/phase-3 |
 | 5.2 | M | 3 | done | Removed at Grant's request (6 Nov 2026) |
 | 5.3 | M | 3 | done | Removed at Grant's request (6 Nov 2026) |
-| 5.4 | M | 3 | done | Heading 'My four pillars of wellness' (Grant, 11 Nov); four pillars as columns: solid slab + one fine step top and bottom; centred text; rows aligned (measured); photos same size |
+| 5.4 | M | 3 | done | Heading 'Your four pillars of wellness' (Grant, 11 Nov); columns: solid slab + one fine step top and bottom; centred text; rows aligned (measured); photos same size |
 | 5.5 | M | 3 | done | Left-to-right timeline, vertical stepper on mobile, inclusions, price line |
 | 5.6 | M | 3 | done | About teaser: portrait beside the bio, body scan widget under the portrait (mobile: photo → bio → widget) |
 | 5.7 | S | 5 | done | Voice folded into the pacer and body scan (10.4) |
@@ -76,7 +76,7 @@ Last updated: 2026-11-11 (Listen links, 'My four pillars').
 | 8.2 | M | 3 | done | Warm tonal placeholders with one short line, correct ratio — `Photo.astro` |
 | 8.3 | M | 3 | done | Alt text en/es in `photos.json` |
 | 8.4 | M | 3 | done | `HeroPhoto.astro` kept for any wide photo added back; hero photo removed per Grant |
-| 9.1 | M | 4 | partial | Pacer works (4 s / 6 s); ambient: three breaths on entering view, then rests (tested: still at scale 0.62 after 30 s); motion polish in Phase 4 |
+| 9.1 | M | 4 | partial | Pacer works (4 s / 6 s); ambient loop, no pause (D-11 Nov); motion polish in Phase 4 |
 | 9.2 | M | 4 | done | Listen (or tap) starts the guided minute and becomes Stop; count, completion message, keyboard, aria-live — tested EN/ES |
 | 9.3 | S | 4 | todo |  |
 | 9.4 | M | 4 | done | Reduced motion: opacity only, no scaling — tested |
@@ -88,7 +88,7 @@ Last updated: 2026-11-11 (Listen links, 'My four pillars').
 | 9.10 | M | 4 | todo |  |
 | 9.11 | M | 4 | todo |  |
 | 9.12 | S | 4 | todo |  |
-| 9.13 | S | 4 | done | Under the portrait in About; 300px figure; 23 parts; Listen/Stop; walks the parts once, then rests |
+| 9.13 | S | 4 | done | Under the portrait in About; 300px figure; 23 parts; Listen/Stop; ambient loop, no pause (D-11 Nov) |
 | 10.1 | S | 5 | partial | Widget controls (play via tap, pause/stop, voice on/off); never autoplays |
 | 10.2 | S | 5 | partial | Transcript under each widget once the scripts are approved |
 | 10.3 | S | 5 | done | `src/lib/audio.ts` picks up `src/assets/audio/{pacer,bodyscan}-{en,es}.mp3` |
@@ -163,3 +163,7 @@ Totals: done 65, later 2, partial 8, todo 47
 - **D3 Publishing.** Needs Settings → Pages → Source: GitHub Actions (Grant's click). Pages deploys only from `main` by default; recommended: let Claude merge the working branch into `main` at each stop point. Alternative: allow the working branch under Settings → Environments → github-pages.
 - **D4 Dependencies (1.9)** implied by M requirements but not listed in 2.x: `@tailwindcss/vite` (Tailwind v4 in Astro), `@astrojs/check` + `typescript` (the "types" check), `lighthouse` (dev only, for 15.1); and for 2.7, `satori` + `@resvg/resvg-js`. Recommended: approve all.
 - **D5 Credential wording.** The CV says "40+ software workshops for 100+ international clients"; the usable facts say "100+ professionals". People or organisations? Until confirmed, copy says "40+ technical workshops for international clients".
+
+## Later decisions
+
+- **D-11 Nov — Widgets loop with no pause.** Grant, 11 Nov 2026: the breath pacer and the body scan loop indefinitely; the only control is Listen/Stop. This knowingly departs from WCAG 2.2.2 (pause, stop, hide for motion longer than 5 s). Mitigations kept: animation stops while off screen; under reduced motion the pacer only fades and the scan shows no moving dot or scaling.
