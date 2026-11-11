@@ -124,7 +124,7 @@ export function loadHome(lang: string) {
       intro: S('Pillars').labels['Intro'],
       items: S('Pillars').items.map((i) => ({
         id: i.labels['ID'] || slug(i.title), name: i.title, description: i.labels['Description'],
-        practice: i.labels['Example practice'], why: i.labels['Why'],
+        practice: i.labels['Example practice'], why: i.labels['Why'], tryWidget: i.labels['Try'] ?? '',
       })),
     },
     programme: {

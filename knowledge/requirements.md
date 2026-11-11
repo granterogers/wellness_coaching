@@ -122,7 +122,7 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 |---|---|---|
 | 9.1 | Breath pacer: SVG orbit/ring (per 6.6) expands 4s, contracts 6s, localised "in"/"out" labels; ambient in hero, looping indefinitely with no pause control (Grant, 11 Nov 2026: his decision, accepted against WCAG 2.2.2; see D-11 Nov in REQUIREMENTS-STATUS.md) | M |
 | 9.2 | Tap/click starts "60 seconds with me": guided cycle with gentle count and a short completion message; started by a **Listen** link (or a tap), which then reads Stop; keyboard operable; `aria-live="polite"` updates | M |
-| 9.3 | Pacer reused in the Breathe pillar | S |
+| 9.3 | Pillar practices link to the widgets: a pillar's example practice with `**Try:** pacer` or `**Try:** bodyscan` in content becomes a link that scrolls to that widget, starts it and focuses its Listen/Stop (Calm → pacer, Sleep → body scan; 11 Nov 2026, replacing "pacer reused in the Breathe pillar" now that pillars are columns) | S |
 | 9.4 | Under reduced motion the pacer uses no scaling: text cues and a slow opacity change only, still usable | M |
 | 9.5 | Headline line-by-line masked reveal, once per page load | M |
 | 9.6 | Section entrances varied by purpose (never one identical fade everywhere) | M |

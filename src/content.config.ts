@@ -18,7 +18,7 @@ const home = defineCollection({
       pillars: z.object({
         heading: text,
         intro: text,
-        items: z.array(z.object({ id: text, name: text, description: text, practice: text, why: text })).min(3).max(8),
+        items: z.array(z.object({ id: text, name: text, description: text, practice: text, why: text, tryWidget: z.enum(['', 'pacer', 'bodyscan']) })).min(3).max(8),
       }),
       programme: z.object({
         heading: text,

@@ -333,4 +333,14 @@
   .calendar { margin-bottom: var(--s8); }
   .calendar-frame iframe { width: 100%; height: 700px; border: 0; border-radius: 12px; background: var(--night-ink); }
   .book-box .final-text { grid-column: 1 / -1; max-width: 760px; }
+
+  /* Motion (9.5–9.11). Hidden states exist only while the motion script is running ('motion' on <html>). */
+  .motion [data-hero] { visibility: hidden; }
+  .m-line-mask { padding-bottom: .14em; margin-bottom: -.14em; }
+  .photo { position: relative; overflow: hidden; }
+  .photo > .curtain { position: absolute; inset: 0; background: var(--bg); transform-origin: 50% 0; z-index: 2; pointer-events: none; }
+  .tinted .photo > .curtain { background: var(--alt); }
+  .col-capital, .col-base { transform-origin: 50% 50%; }
+  .try-link { color: inherit; }
+  #restore-scan { scroll-margin-top: 136px; }
 }

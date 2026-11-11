@@ -66,6 +66,11 @@ document.querySelectorAll<HTMLElement>('[data-pacer]').forEach((fig) => {
   fig.querySelector('[data-pacer-start]')!.addEventListener('click', toggle);
   listen.addEventListener('click', toggle);
   voice?.addEventListener('ended', () => { if (guided) finish(S.done); });
+  // A pillar's example practice links here (9.3): follow the link, start the session, focus Listen/Stop
+  document.querySelectorAll('[data-try="pacer"]').forEach((a) => a.addEventListener('click', () => {
+    if (!guided) begin();
+    setTimeout(() => listen.focus({ preventScroll: true }), 60); // after the browser has handled the link
+  }));
   // Don't animate while off screen
   new IntersectionObserver(([e]) => { visible = e.isIntersecting; }).observe(fig);
   requestAnimationFrame(frame);

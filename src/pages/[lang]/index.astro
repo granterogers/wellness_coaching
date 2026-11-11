@@ -52,7 +52,9 @@ const faqLd = {
               <p class="mono pillar-n">{String(i + 1).padStart(2, '0')}</p>
               <h3 class="pillar-name">{p.name}</h3>
               <p class="pillar-desc">{p.description}</p>
-              <p class="pillar-practice"><span class="mono">{t(lang, 'pillars.try')}</span>{p.practice}</p>
+              <p class="pillar-practice"><span class="mono">{t(lang, 'pillars.try')}</span>{p.tryWidget
+                ? <a class="draw try-link" href={p.tryWidget === 'pacer' ? '#intro' : '#restore-scan'} data-try={p.tryWidget}>{p.practice}<span aria-hidden="true"> ↗</span></a>
+                : p.practice}</p>
               <p class="pillar-why">{p.why}</p>
             </li>
           ))}

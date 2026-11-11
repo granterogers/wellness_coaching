@@ -32,6 +32,7 @@ labels and the **ID:** lines (they link each pillar to its photo).
 
 ### Sueño
 **ID:** sleep
+**Try:** bodyscan
 **Description:** Para una mente que no desconecta por la noche.
 **Example practice:** Un Yoga Nidra guiado para las noches en que tu cabeza no para.
 **Why:** Le da a una mente ocupada algo que seguir en lugar de algo contra lo que luchar.
@@ -44,6 +45,7 @@ labels and the **ID:** lines (they link each pillar to its photo).
 
 ### Calma
 **ID:** calm
+**Try:** pacer
 **Description:** Respiración y meditación que puedes usar en cualquier sitio: antes de una reunión, en un atasco, a las tres de la mañana.
 **Example practice:** Cuatro segundos para inhalar, seis para exhalar, durante un minuto.
 **Why:** Las exhalaciones largas suelen llevar al cuerpo hacia el descanso.

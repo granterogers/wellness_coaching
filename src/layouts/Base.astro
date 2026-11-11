@@ -4,6 +4,10 @@ import { siteData } from '../lib/site';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { type Lang, t, url } from '../i18n';
+// Preloaded so the first paint already uses them: no text reflow when they arrive (9.11, 15.x)
+import fSerif from '@fontsource-variable/newsreader/files/newsreader-latin-opsz-normal.woff2?url';
+import fSerifIt from '@fontsource-variable/newsreader/files/newsreader-latin-opsz-italic.woff2?url';
+import fSans from '@fontsource-variable/hanken-grotesk/files/hanken-grotesk-latin-wght-normal.woff2?url';
 
 interface Props { lang: Lang; title: string; description: string; path?: string; draftTranslation?: boolean }
 const { lang, title, description, path = '', draftTranslation = false } = Astro.props;
@@ -15,6 +19,7 @@ const alt = (l: Lang) => new URL(url(`${l}/${path}`), Astro.site).href;
 <html lang={lang === 'en' ? 'en-GB' : 'es-ES'}>
 <head>
   <meta charset="utf-8" />
+  {[fSerif, fSerifIt, fSans].map((f) => <link rel="preload" href={f} as="font" type="font/woff2" crossorigin />)}
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   {!site.flags.indexing && <meta name="robots" content="noindex, nofollow" />}
   <title>{title}</title>
@@ -29,6 +34,7 @@ const alt = (l: Lang) => new URL(url(`${l}/${path}`), Astro.site).href;
   <link rel="apple-touch-icon" href={url('brand/icon-180.png')} />
   <link rel="manifest" href={url('manifest.webmanifest')} />
   <script is:inline>try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t}catch(e){}</script>
+  <script is:inline>(function(d){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;d.classList.add('motion');setTimeout(function(){if(!window.__motion)d.classList.remove('motion')},3000)})(document.documentElement)</script>
   <slot name="head" />
 </head>
 <body>
@@ -38,5 +44,6 @@ const alt = (l: Lang) => new URL(url(`${l}/${path}`), Astro.site).href;
   <Footer lang={lang} path={path} />
   <slot name="after" />
   <script>import '../scripts/site.ts';</script>
+  <script>import '../scripts/motion.ts';</script>
 </body>
 </html>

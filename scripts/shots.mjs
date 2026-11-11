@@ -11,7 +11,8 @@ await new Promise((r) => setTimeout(r, 3500));
 const browser = await chromium.launch();
 try {
   for (const path of pages) for (const scheme of ['light', 'dark']) for (const w of [390, 1440]) {
-    const ctx = await browser.newContext({ viewport: { width: w, height: w < 500 ? 844 : 900 }, colorScheme: scheme });
+    // Reduced motion so full-page captures show every section in its final state (entrances wait for scrolling)
+    const ctx = await browser.newContext({ viewport: { width: w, height: w < 500 ? 844 : 900 }, colorScheme: scheme, reducedMotion: 'reduce' });
     const page = await ctx.newPage();
     await page.goto(`http://localhost:4329/wellness_coaching/${path}`, { waitUntil: 'networkidle' });
     await page.waitForTimeout(1200);

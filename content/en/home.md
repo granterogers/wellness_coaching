@@ -7,7 +7,7 @@ updated: 2026-11-04
 
 <!--
 How to edit: change any words below directly. Keep the ## and ### headings and the bold labels
-(**Headline:** etc.) so the build can find each piece. Text in *asterisks* is set in italic.
+(**Headline:** etc.) so the build can find each piece. **Try:** (pacer or bodyscan) turns a pillar's example practice into a link that starts that widget. Text in *asterisks* is set in italic.
 When you're happy, change "status: draft" to "status: approved" at the top.
 -->
 
@@ -30,6 +30,7 @@ When you're happy, change "status: draft" to "status: approved" at the top.
 **Intro:** You won't work on all four at once. We start where it matters most for you, and add the rest when the basics hold.
 
 ### Sleep
+**Try:** bodyscan
 **Description:** For a mind that won't switch off at night.
 **Example practice:** A guided Yoga Nidra for the nights your mind keeps running.
 **Why:** It gives a busy mind something to follow instead of something to fight.
@@ -40,6 +41,7 @@ When you're happy, change "status: draft" to "status: approved" at the top.
 **Why:** A little every day tends to do more for stiff hips and backs than one long session a week.
 
 ### Calm
+**Try:** pacer
 **Description:** Breathwork and meditation you can use anywhere: before a meeting, in traffic, at 3am.
 **Example practice:** Four seconds in, six out, for one minute.
 **Why:** Longer exhales tend to shift the body toward rest.

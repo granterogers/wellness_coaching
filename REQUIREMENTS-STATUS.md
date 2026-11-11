@@ -2,7 +2,7 @@
 
 Every ID in `knowledge/requirements.md` (122). Status: `todo` / `done` / `partial` / `blocked` / `later`. Updated at the end of every phase (1.6).
 
-Last updated: 2026-11-11 (Spanish checked and approved).
+Last updated: 2026-11-11 (Phase 4 motion).
 
 | ID | P | Phase | Status | Evidence / notes |
 |---|---|---|---|---|
@@ -19,7 +19,7 @@ Last updated: 2026-11-11 (Spanish checked and approved).
 | 1.11 | M | all | todo | Applies throughout |
 | 2.1 | M | 1 | done | Astro 7.4.7, `output: 'static'` — `astro.config.mjs` |
 | 2.2 | M | 1 | done | Tailwind v4 via `@tailwindcss/vite`; tokens as custom properties in `src/styles/tokens.css` |
-| 2.3 | M | 1 | partial | gsap + lenis installed; loaded only where used (Phase 4) |
+| 2.3 | M | 1 | done | gsap (ScrollTrigger, SplitText) and lenis from npm, in motion.ts |
 | 2.4 | M | 1 | partial | astro:assets ready; photo component in Phase 3 |
 | 2.5 | M | 1 | done | @astrojs/sitemap with en-GB/es-ES — `astro.config.mjs` |
 | 2.6 | M | 1 | done | latin + latin-ext only — `src/styles/fonts.css` (from @fontsource) |
@@ -64,7 +64,7 @@ Last updated: 2026-11-11 (Spanish checked and approved).
 | 6.3 | M | 2 | done | Fluid scale: display 44–88px, H2 36–60px, body 17–19px — `src/styles/base.css`, `components.css` |
 | 6.4 | M | 2 | done | `.grid` 12/4 columns, 8px spacing tokens — `components.css` |
 | 6.5 | M | 2 | done | Hairline rules throughout, no shadows — `components.css` |
-| 6.6 | M | 2, 4 | done | Orbit in pacer and night section only |
+| 6.6 | M | 2, 4 | done | Orbit in pacer, body scan and one line in the night section, which swings into place |
 | 6.7 | M | 6 | todo |  |
 | 6.8 | M | 6 | todo |  |
 | 6.9 | M | 2 | done | Light (A) / dark (C) tokens, device default, header toggle, localStorage, applied before paint — `tokens.css`, `Base.astro`, `src/scripts/site.ts`; review/phase-2 |
@@ -76,18 +76,18 @@ Last updated: 2026-11-11 (Spanish checked and approved).
 | 8.2 | M | 3 | done | Warm tonal placeholders with one short line, correct ratio — `Photo.astro` |
 | 8.3 | M | 3 | done | Alt text en/es in `photos.json` |
 | 8.4 | M | 3 | done | `HeroPhoto.astro` kept for any wide photo added back; hero photo removed per Grant |
-| 9.1 | M | 4 | partial | Pacer works (4 s / 6 s); ambient loop, no pause (D-11 Nov); motion polish in Phase 4 |
+| 9.1 | M | 4 | done | Pacer 4 s / 6 s, ambient loop (D-11 Nov), Listen/Stop; fades in with the hero |
 | 9.2 | M | 4 | done | Listen (or tap) starts the guided minute and becomes Stop; count, completion message, keyboard, aria-live — tested EN/ES |
-| 9.3 | S | 4 | todo |  |
+| 9.3 | S | 4 | done | Calm and Sleep practices link to the pacer and body scan (**Try:** in content); scroll, start, focus — tested |
 | 9.4 | M | 4 | done | Reduced motion: opacity only, no scaling — tested |
-| 9.5 | M | 4 | todo |  |
-| 9.6 | M | 4 | todo |  |
-| 9.7 | S | 4 | todo |  |
-| 9.8 | M | 4 | todo |  |
-| 9.9 | M | 4 | todo |  |
-| 9.10 | M | 4 | todo |  |
-| 9.11 | M | 4 | todo |  |
-| 9.12 | S | 4 | todo |  |
+| 9.5 | M | 4 | done | src/scripts/motion.ts: SplitText masked line rise, once per load |
+| 9.6 | M | 4 | done | Entrances by purpose — review/phase-4/NOTES.md |
+| 9.7 | S | 4 | done | Curtain reveal on photos (transform only); no parallax |
+| 9.8 | M | 4 | done | Nothing pinned, scroll-linked or snapped on the page |
+| 9.9 | M | 4 | done | Lenis only on (pointer: fine) and ≥1024px; anchors handled |
+| 9.10 | M | 4 | done | One utility (motion.ts); reduced motion = nothing runs; head fallback removes hidden states if the script fails |
+| 9.11 | M | 4 | done | transform/opacity only; CLS 0.0000 measured (fonts preloaded) |
+| 9.12 | S | 4 | done | Button fill slide, underline draw; no custom cursor |
 | 9.13 | S | 4 | done | Under the portrait in About; 300px figure; 23 parts; Listen/Stop; ambient loop, no pause (D-11 Nov) |
 | 10.1 | S | 5 | partial | Widget controls (play via tap, pause/stop, voice on/off); never autoplays |
 | 10.2 | S | 5 | partial | Transcript under each widget once the scripts are approved |
@@ -114,7 +114,7 @@ Last updated: 2026-11-11 (Spanish checked and approved).
 | 14.1 | M | 6 | todo |  |
 | 14.2 | M | 6 | todo |  |
 | 14.3 | M | 6 | todo |  |
-| 14.4 | M | 4 | todo |  |
+| 14.4 | M | 4 | done | Reduced motion: content visible immediately, pacer opacity only — tested |
 | 14.5 | M | 6 | todo |  |
 | 15.1 | M | 6 | todo |  |
 | 15.2 | M | 6 | todo |  |
@@ -129,7 +129,7 @@ Last updated: 2026-11-11 (Spanish checked and approved).
 | 16.5 | M | 6 | todo |  |
 | 16.6 | S | 6 | todo |  |
 
-Totals: done 65, later 2, partial 8, todo 47
+Totals: done 77, later 2, partial 6, todo 37
 
 ## Phase 0 log — fixes applied
 
