@@ -48,7 +48,7 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 | 3.3 | Pillars loaded only from content; renaming, adding or removing one needs no code change; layout works with 3–8 pillars | M |
 | 3.4 | `content/shared/site.json`: name, email, WhatsApp, booking URL, social links (Instagram, LinkedIn), credentials and publications taken only from confirmed items in `knowledge/credentials.md`, feature flags | M |
 | 3.5 | Feature flags (default in brackets): `freePractice` (off), `voiceClip` (on: shows the audio placeholder until the file exists — Grant, copy round 2), `testimonials` (off until real quotes), `spanish` (on), `contactForm` (off until an endpoint exists), `indexing` (off — see 13.8) | M |
-| 3.6 | Spanish copy: if `content/es/home.md` is missing, generate a careful draft in Spain Spanish, addressing the reader as "tú", with `translation_status: draft`, listed in `PLACEHOLDERS.md` | M |
+| 3.6 | Spanish copy: if `content/es/home.md` is missing, generate a careful draft in Spain Spanish, addressing the reader as "tú", with `translation_status: draft`, listed in `PLACEHOLDERS.md`. Grant, 11 Nov 2026: no manual review; the Spanish is approved after an online grammar check (LanguageTool) and a full read | M |
 | 3.7 | UI strings (nav, buttons, labels, form messages, pacer labels) in one i18n file per language | M |
 | 3.8 | `CONTENT-EDITING.md`: how Grant changes text, pillars, photos and flags on github.com (no software needed), step by step, including uploading a photo to its slot | M |
 

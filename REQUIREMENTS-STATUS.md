@@ -2,7 +2,7 @@
 
 Every ID in `knowledge/requirements.md` (122). Status: `todo` / `done` / `partial` / `blocked` / `later`. Updated at the end of every phase (1.6).
 
-Last updated: 2026-11-11 ('Your four pillars', widgets loop).
+Last updated: 2026-11-11 (Spanish checked and approved).
 
 | ID | P | Phase | Status | Evidence / notes |
 |---|---|---|---|---|
@@ -34,7 +34,7 @@ Last updated: 2026-11-11 ('Your four pillars', widgets loop).
 | 3.3 | M | 3 | done | Pillars only from content (now four); grid uses n columns ≤6 or rows of 4; photo slots follow pillar IDs (`photos.json`) |
 | 3.4 | M | 1 | done | `content/shared/site.json` |
 | 3.5 | M | 1 | done | Flags in `site.json` (voiceClip on per Grant) |
-| 3.6 | M | 3 | done | `content/es/home.md`, `content/es/pages.md` — Spain Spanish, tú, `translation_status: draft` |
+| 3.6 | M | 3 | done | content/es/home.md, pages.md — Spain Spanish, tú; checked with LanguageTool (54 flags, all false positives: English section keys, proper nouns) and a full read; 'practicante' (reads as 'nurse' in Spain) changed to 'De la ciencia a la práctica'; approved 11 Nov on Grant's instruction |
 | 3.7 | M | 1 | done | `src/i18n/en.json`, `es.json` |
 | 3.8 | M | 6 | todo |  |
 | 4.1 | M | 5 | done | `src/pages/[lang]/index.astro` |

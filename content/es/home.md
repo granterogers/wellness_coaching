@@ -1,8 +1,9 @@
 ---
-translation_status: draft
+translation_status: approved
 language: es
 source: content/en/home.md (round 3, approved)
-updated: 2026-11-06
+updated: 2026-11-11
+checked: LanguageTool (api.languagetool.org) and a full read, 11 Nov 2026; approved on Grant's instruction (no manual review)
 ---
 
 <!--
@@ -77,7 +78,7 @@ Una rutina propia, con planes para los viajes y las épocas de más trabajo.
 
 ## About
 
-**Heading:** De científico a practicante
+**Heading:** De la ciencia a la práctica
 
 **Body:** Durante más de quince años trabajé en ciencia, SIG y formación técnica: dos másteres, siete artículos revisados por pares y años analizando el movimiento humano a gran escala con datos de satélite y de móviles. Al mismo tiempo me formé como profesor de Kundalini yoga e instructor de SOMA Breathwork, y enseño desde 2020: sesiones privadas, retiros y clases en Ibiza, Gran Canaria y online. La ciencia me enseñó a preguntar qué está realmente respaldado. Enseñar me enseñó lo que la gente de verdad hace.
 

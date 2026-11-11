@@ -1,8 +1,9 @@
 ---
-translation_status: draft
+translation_status: approved
 language: es
 source: content/en/pages.md (round 3, approved)
-updated: 2026-11-06
+updated: 2026-11-11
+checked: LanguageTool (api.languagetool.org) and a full read, 11 Nov 2026; approved on Grant's instruction (no manual review)
 ---
 
 <!--
@@ -75,7 +76,7 @@ Si algo de lo que me cuentas necesita un profesional sanitario, te lo diré, y n
 
 **Meta description:** Dos másteres, siete artículos revisados por pares y quince años en ciencia, SIG y formación técnica, junto con la enseñanza de yoga, respiración y meditación desde 2020.
 
-**Heading:** De científico a practicante
+**Heading:** De la ciencia a la práctica
 
 ## Story
 

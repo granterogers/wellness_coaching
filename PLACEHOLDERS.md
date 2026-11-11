@@ -10,4 +10,3 @@ Everything on the site that is waiting for Grant. `npm run check` fails if a `[[
 | Client stories | `content/en/home.md` → Proof | Up to three stories (first name, before / what we did / now) with written permission; then switch on the `testimonials` flag |
 | Photos P01–P18 | Every photo slot (see `knowledge/photo-slots.md`) | Real photos; the minimum set before sharing the preview is listed at the end of `photo-slots.md` |
 | Calendly booking link | Book page (marked placeholder) | Your Calendly event link (e.g. `https://calendly.com/yourname/conversation`) in `bookingUrl` in `content/shared/site.json`; until then the Book page asks people to email or WhatsApp |
-| Spanish translation | `content/es/home.md`, `content/es/pages.md` (`translation_status: draft`) | A native Spanish speaker reviews the draft; then set `translation_status: approved` and the "Traducción en revisión" note disappears |
