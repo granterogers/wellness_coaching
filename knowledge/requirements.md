@@ -61,7 +61,7 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 | 4.3 | About (story, credentials, "lab notebook" facts, full logo per 7.3) | S |
 | 4.4 | Approach / evidence notes (reasons behind practices; sources linked) | L |
 | 4.5 | Book (booking embed or fallback per 11.2) | M |
-| 4.6 | Privacy (UK GDPR) and Terms — template text clearly marked "draft, not legal advice" | M |
+| 4.6 | Privacy (UK GDPR) and Terms — template text clearly marked "draft, not legal advice"; English only (UK rules, brief.md), linked from the Spanish footer as "(en inglés)" | M |
 | 4.7 | Designed 404 with a short breathing prompt | M |
 | 4.8 | Root `/wellness_coaching/` sends visitors to `/en/` (static redirect); never auto-redirects to Spanish. No "Ver en español" banner (removed at Grant's request, 6 Nov 2026): the flags in the header do the job | M |
 
@@ -138,7 +138,7 @@ Priority: **M** = must have for the preview · **S** = should have for the previ
 
 | ID | Requirement | P |
 |---|---|---|
-| 10.1 | Custom accessible audio player (play/pause, progress, time), styled to the design system; never autoplays | S |
+| 10.1 | Custom accessible audio player (play/pause, progress, time), styled to the design system; never autoplays. Grant, 11 Nov 2026: the player is the widgets' Listen/Stop link; progress and time show in the widget (breath n of 6, s left; part n of 23) | S |
 | 10.2 | Transcript shown alongside, both languages | S |
 | 10.3 | Audio file slots in `src/assets/audio/`: `pacer-en.mp3`, `bodyscan-en.mp3` (and `-es`). A widget's voice switches on automatically once its file exists; until then the widget says "Voice: recording to come" | S |
 | 10.4 | **Grant's voice in the widgets** (Grant, 10 Nov 2026): when the visitor taps the pacer or the body scan, Grant's recording plays and the animation follows the recording's clock, so they stay in sync; a **Listen** link starts it and becomes Stop (Grant, 11 Nov 2026: replaces the Pause and Voice on/off links); until a recording exists, Listen runs the guided session silently with "Recording to come"; never plays without a tap; transcript available under each widget. Scripts (timed to the animations) live in `content/en/practices.md`, approved by Grant before recording | S |

@@ -39,7 +39,7 @@ if (reduce.matches) {
     gsap.set(hero, { autoAlpha: 1 });
     tl.add(lines(h1, { duration: 1.3, stagger: 0.12 }))
       .from($('.lede, .ctas', hero), { autoAlpha: 0, y: 14, duration: 0.9, ease: EASE, stagger: 0.08 }, 0.45)
-      .from(hero.querySelector('.hero-pacer'), { autoAlpha: 0, scale: 0.94, duration: 1.6, ease: 'power2.out' }, 0.3);
+      .from($('.hero-pacer, .nf-pacer, .nf-es', hero), { autoAlpha: 0, scale: 0.97, duration: 1.6, ease: 'power2.out' }, 0.3);
   }
   // Inner pages: the page title rises the same way
   $('.page-head .display').forEach((h) => when(h, () => lines(h)));

@@ -9,11 +9,31 @@ import fSerif from '@fontsource-variable/newsreader/files/newsreader-latin-opsz-
 import fSerifIt from '@fontsource-variable/newsreader/files/newsreader-latin-opsz-italic.woff2?url';
 import fSans from '@fontsource-variable/hanken-grotesk/files/hanken-grotesk-latin-wght-normal.woff2?url';
 
-interface Props { lang: Lang; title: string; description: string; path?: string; draftTranslation?: boolean }
-const { lang, title, description, path = '', draftTranslation = false } = Astro.props;
+// notFound: the 404 page has no canonical, no alternates and no structured data
+// enOnly: pages that exist in English only (legal); the language switch then goes to the Spanish home page
+interface Props { lang: Lang; title: string; description: string; path?: string; draftTranslation?: boolean; notFound?: boolean; enOnly?: boolean }
+const { lang, title, description, path = '', draftTranslation = false, notFound = false, enOnly = false } = Astro.props;
+const navPath = enOnly ? '' : path;
 const site = await siteData();
 const canonical = new URL(url(`${lang}/${path}`), Astro.site).href;
 const alt = (l: Lang) => new URL(url(`${l}/${path}`), Astro.site).href;
+// Share image per page and language (2.7, 13.3); pages without their own use the home one
+const sharePages = ['programme', 'about', 'book'];
+const sharePage = sharePages.find((p) => path === `${p}/`) ?? 'home';
+const ogImage = new URL(url(`og/${lang}/${sharePage}.png`), Astro.site).href;
+const home = alt(lang === 'es' ? 'es' : 'en');
+// Structured data (13.5): who Grant is and what the service is; FAQPage is on the home page itself
+const ld = path === '' && !notFound && {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'Person', '@id': `${home}#grant`, name: site.name, url: home, jobTitle: t(lang, 'ld.jobTitle'),
+      knowsLanguage: ['en', 'es'], sameAs: Object.values(site.social).filter(Boolean),
+      alumniOf: { '@type': 'CollegeOrUniversity', name: 'Heriot-Watt University' } },
+    { '@type': 'ProfessionalService', '@id': `${home}#service`, name: `${site.name} — ${t(lang, 'ld.service')}`, url: home,
+      description, image: ogImage, provider: { '@id': `${home}#grant` }, areaServed: 'Worldwide', availableLanguage: ['en', 'es'],
+      serviceType: t(lang, 'ld.service'), ...(site.whatsapp ? { telephone: `+${site.whatsapp}` } : {}) },
+  ],
+};
 ---
 <!doctype html>
 <html lang={lang === 'en' ? 'en-GB' : 'es-ES'}>
@@ -21,13 +41,27 @@ const alt = (l: Lang) => new URL(url(`${l}/${path}`), Astro.site).href;
   <meta charset="utf-8" />
   {[fSerif, fSerifIt, fSans].map((f) => <link rel="preload" href={f} as="font" type="font/woff2" crossorigin />)}
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  {!site.flags.indexing && <meta name="robots" content="noindex, nofollow" />}
+  {(!site.flags.indexing || notFound) && <meta name="robots" content="noindex, nofollow" />}
   <title>{title}</title>
   <meta name="description" content={description} />
+  {!notFound && <>
   <link rel="canonical" href={canonical} />
   <link rel="alternate" hreflang="en" href={alt('en')} />
-  {site.flags.spanish && <link rel="alternate" hreflang="es" href={alt('es')} />}
+  {site.flags.spanish && !enOnly && <link rel="alternate" hreflang="es" href={alt('es')} />}
   <link rel="alternate" hreflang="x-default" href={alt('en')} />
+  </>}
+  <meta property="og:type" content={path === '' ? 'website' : 'article'} />
+  <meta property="og:site_name" content={site.name} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:locale" content={lang === 'en' ? 'en_GB' : 'es_ES'} />
+  <meta property="og:locale:alternate" content={lang === 'en' ? 'es_ES' : 'en_GB'} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content={title} />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="color-scheme" content="light dark" />
   <link rel="icon" href={url('brand/icon.svg')} type="image/svg+xml" />
   <link rel="icon" href={url('brand/favicon-32.png')} sizes="32x32" type="image/png" />
@@ -35,13 +69,14 @@ const alt = (l: Lang) => new URL(url(`${l}/${path}`), Astro.site).href;
   <link rel="manifest" href={url('manifest.webmanifest')} />
   <script is:inline>try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t}catch(e){}</script>
   <script is:inline>(function(d){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;d.classList.add('motion');setTimeout(function(){if(!window.__motion)d.classList.remove('motion')},3000)})(document.documentElement)</script>
+  {ld && <script type="application/ld+json" set:html={JSON.stringify(ld)} />}
   <slot name="head" />
 </head>
 <body>
-  <Header lang={lang} path={path} />
+  <Header lang={lang} path={navPath} />
   {draftTranslation && <p class="wrap review-note mono" lang="es">{t('es', 'es.review')}</p>}
   <slot />
-  <Footer lang={lang} path={path} />
+  <Footer lang={lang} path={navPath} />
   <slot name="after" />
   <script>import '../scripts/site.ts';</script>
   <script>import '../scripts/motion.ts';</script>

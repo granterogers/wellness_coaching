@@ -1,0 +1,61 @@
+---
+// Programme page (requirement 4.2): every word from content/<lang>/pages.md "# Programme".
+import Base from '../../layouts/Base.astro';
+import { pageCopy } from '../../lib/site';
+import { type Lang, t, url } from '../../i18n';
+
+export function getStaticPaths() { return [{ params: { lang: 'en' } }, { params: { lang: 'es' } }]; }
+const lang = Astro.params.lang as Lang;
+const p = await pageCopy(lang, 'programme');
+// Sections in the order they appear in pages.md (headings differ by language): who, phases, week, included, covers
+const [who, phases, week, included, covers] = p.sections;
+if (!covers) throw new Error('pages.md "# Programme" needs its five ## sections');
+---
+<Base lang={lang} title={p.labels['Page title']} description={p.labels['Meta description']} path="programme/" draftTranslation={p.translation_status === 'draft'}>
+  <main id="main">
+    <section class="page-head"><div class="wrap grid">
+      <div class="about-page-text">
+        <h1 class="display">{p.labels['Heading']}</h1>
+        <p class="lede" style="margin-top:32px">{p.labels['Intro']}</p>
+      </div>
+    </div></section>
+
+    <section class="section" aria-labelledby="h-who"><div class="wrap grid">
+      <h2 class="h2 about-nb-h" id="h-who">{who.title}</h2>
+      <div class="about-nb prose">{who.paras.map((x) => <p>{x}</p>)}</div>
+    </div></section>
+
+    <section class="section tinted programme" aria-labelledby="h-phases"><div class="wrap grid">
+      <h2 class="h2 prog-head" id="h-phases">{phases.title}</h2>
+      <ol class="timeline">
+        {phases.items.map((it) => { const [label, name] = it.title.split(' / ');
+          return <li class="step"><p class="mono step-n">{label}</p><h3 class="h3">{name ?? label}</h3><p>{it.paras[0]}</p></li>; })}
+      </ol>
+      {/* Paragraphs after the last phase (e.g. "Phase lengths depend on you") belong to the section, not to Phase 04 */}
+      <div class="prose prog-note">{[...phases.paras, ...phases.items.flatMap((it) => it.paras.slice(1))].map((x) => <p>{x}</p>)}</div>
+    </div></section>
+
+    <section class="section" aria-labelledby="h-week"><div class="wrap grid">
+      <h2 class="h2 about-nb-h" id="h-week">{week.title}</h2>
+      <div class="about-nb prose">{week.paras.map((x) => <p>{x}</p>)}</div>
+    </div></section>
+
+    <section class="section" aria-labelledby="h-included"><div class="wrap grid">
+      <h2 class="h2 about-nb-h" id="h-included">{included.title}</h2>
+      <ul class="about-nb facts">{included.list.map((x) => <li>{x}</li>)}</ul>
+    </div></section>
+
+    <section class="section" aria-labelledby="h-covers"><div class="wrap grid">
+      <h2 class="h2 about-nb-h" id="h-covers">{covers.title}</h2>
+      <div class="about-nb">
+        <dl class="covers">
+          <div><dt class="mono">{t(lang, 'programme.covers')}</dt><dd>{covers.labels['Covers']}</dd></div>
+          <div><dt class="mono">{t(lang, 'programme.notCovered')}</dt><dd>{covers.labels["Doesn't cover"]}</dd></div>
+        </dl>
+        <div class="prose">{covers.paras.map((x) => <p>{x}</p>)}</div>
+        <p class="price">{p.labels['Price line'] ?? covers.labels['Price line']}</p>
+        <p class="ctas"><a class="btn" href={url(`${lang}/book/`)}>{p.labels['Button'] ?? covers.labels['Button']}</a></p>
+      </div>
+    </div></section>
+  </main>
+</Base>

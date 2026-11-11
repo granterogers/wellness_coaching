@@ -73,6 +73,7 @@ const faqLd = {
         </ol>
         <div class="included-row"><h3 class="mono included-h">{t(lang, 'programme.included')}</h3><ul class="included">{c.programme.included.map((x) => <li>{x}</li>)}</ul></div>
         <p class="price">{c.programme.price}</p>
+        <p class="prog-more"><a class="more draw" href={url(`${lang}/programme/`)}>{t(lang, 'programme.more')} →</a></p>
       </div>
     </section>
 
@@ -88,6 +89,26 @@ const faqLd = {
         <div class="about-widget"><BodyScan lang={lang} /></div>
       </div>
     </section>
+
+    {site.flags.testimonials && c.proof.items.length > 0 && (
+    <section class="section proof" id="proof" aria-labelledby="h-proof">
+      <div class="wrap grid">
+        <h2 class="h2 proof-h" id="h-proof">{c.proof.heading}</h2>
+        <ul class:list={['stories', `n${c.proof.items.length}`]}>
+          {c.proof.items.map((s) => (
+            <li class="story">
+              {s.quote && <blockquote class="story-quote"><p>{s.quote}</p></blockquote>}
+              {s.before && <dl class="story-arc">
+                <div><dt class="mono">{t(lang, 'proof.before')}</dt><dd>{s.before}</dd></div>
+                <div><dt class="mono">{t(lang, 'proof.did')}</dt><dd>{s.did}</dd></div>
+                <div><dt class="mono">{t(lang, 'proof.now')}</dt><dd>{s.now}</dd></div>
+              </dl>}
+              <p class="story-name">— {s.name}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>)}
 
     <section class="section faq" id="faq" aria-labelledby="h-faq">
       <div class="wrap grid">

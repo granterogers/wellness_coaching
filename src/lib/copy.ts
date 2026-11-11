@@ -10,7 +10,7 @@ export type Section = {
   raw: string;
   paras: string[];
   labels: Record<string, string>;
-  items: { title: string; labels: Record<string, string>; text: string }[];
+  items: { title: string; labels: Record<string, string>; text: string; paras: string[] }[];
   list: string[];
   text: string;
 };
@@ -59,7 +59,8 @@ function parseText(body: string, level: '# ' | '## '): Record<string, Section> {
       items: items.map((it) => {
         const i = it.indexOf('\n');
         const t = i < 0 ? '' : it.slice(i + 1);
-        return { title: (i < 0 ? it : it.slice(0, i)).trim(), labels: labels(t), text: paragraphs(t) };
+        return { title: (i < 0 ? it : it.slice(0, i)).trim(), labels: labels(t), text: paragraphs(t),
+          paras: t.split(/\n\s*\n/).map(paragraphs).filter(Boolean) };
       }),
     };
   }
@@ -86,7 +87,7 @@ export function loadPages(lang: string) {
       labels: labels(head),
       sections: Object.entries(parseText(page.raw, '## ')).map(([title, s]) => ({
         title, labels: s.labels, paras: s.paras, list: s.list,
-        items: s.items.map((i) => ({ title: i.title, text: i.text })),
+        items: s.items.map((i) => ({ title: i.title, text: i.text, paras: i.paras })),
       })),
     };
   });
@@ -141,7 +142,10 @@ export function loadHome(lang: string) {
       heading: S('About').labels['Heading'], body: S('About').labels['Body'],
       facts: S('About').list, link: S('About').labels['Link'],
     },
-    proof: { heading: S('Proof').labels['Heading'] },
+    // Client stories (5.8): "### First name" with **Before:**, **What we did:**, **Now:** lines; an optional **Quote:**
+    proof: { heading: S('Proof').labels['Heading'], items: S('Proof').items.map((i) => ({
+      name: i.title, before: i.labels['Before'] ?? '', did: i.labels['What we did'] ?? '', now: i.labels['Now'] ?? '', quote: i.labels['Quote'] ?? '',
+    })).filter((i) => i.before || i.quote) },
     faq: { heading: S('FAQ').labels['Heading'], items: S('FAQ').items.map((i) => ({ q: i.title, a: i.text })) },
     finalCta: {
       heading: S('Final CTA').labels['Heading'], body: S('Final CTA').labels['Body'],
@@ -171,4 +175,23 @@ export function loadPractices(lang: string) {
       return m ? { at: Number(m[1]) * 60 + Number(m[2]), text: m[3] } : { at: -1, text: l };
     });
   return { status: fm.status, translation_status: fm.translation_status, pacer: lines('Breath pacer'), bodyscan: lines('Body scan') };
+}
+
+/** content/en/legal.md: privacy notice and terms (requirement 4.6), rendered block by block, word for word. */
+export type LegalBlock = { kind: 'h2' | 'p' | 'ul'; html: string[] };
+export function loadLegal(page: 'Privacy' | 'Terms') {
+  const file = join(ROOT, 'content', 'en', 'legal.md');
+  const [fm, body] = frontmatter(readFileSync(file, 'utf8'));
+  const part = body.replace(/<!--[\s\S]*?-->/g, '').split(/^#\s/m).find((p) => p.startsWith(page));
+  if (!part) throw new Error(`${file}: missing "# ${page}"`);
+  const rest = part.slice(part.indexOf('\n') + 1);
+  const html = (s: string) => inline(s.replace(/\*\*([^*]+)\*\*/g, '\u0001$1\u0002')).replace(/\u0001/g, '<strong>').replace(/\u0002/g, '</strong>');
+  const blocks: LegalBlock[] = [];
+  for (const b of rest.split(/\n\s*\n/).map((x) => x.trim()).filter(Boolean)) {
+    if (/^\*\*[^*]+:\*\*/.test(b)) continue; // labels (page title, meta description)
+    if (b.startsWith('## ')) blocks.push({ kind: 'h2', html: [html(b.slice(3))] });
+    else if (b.startsWith('- ')) blocks.push({ kind: 'ul', html: b.split('\n').map((l) => html(l.replace(/^-\s*/, ''))) });
+    else blocks.push({ kind: 'p', html: [html(b.replace(/\n/g, ' '))] });
+  }
+  return { status: fm.status, updated: fm.updated, labels: labels(rest), blocks };
 }

@@ -1,0 +1,6 @@
+---
+import Legal from '../../components/Legal.astro';
+// English only (knowledge/brief.md: UK rules, no Spanish legal pages); the Spanish footer links here.
+export function getStaticPaths() { return [{ params: { lang: 'en' } }]; }
+---
+<Legal page="Terms" path="terms/" />

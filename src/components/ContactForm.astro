@@ -1,0 +1,38 @@
+---
+// Contact form (requirement 11.4): shown only when the contactForm flag is on AND formEndpoint is set in site.json.
+// A honeypot field catches bots; success is shown only when the service confirms it; errors say so plainly.
+import { siteData } from '../lib/site';
+import { t, type Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const site = await siteData();
+const on = site.flags.contactForm && !!site.formEndpoint;
+---
+{on && (
+<form class="contact-form" action={site.formEndpoint} method="post" data-contact-form novalidate>
+  <h2 class="h3">{t(lang, 'form.heading')}</h2>
+  <p class="field"><label for={`cf-name-${lang}`}>{t(lang, 'form.name')}</label><input id={`cf-name-${lang}`} name="name" autocomplete="name" required /></p>
+  <p class="field"><label for={`cf-email-${lang}`}>{t(lang, 'form.email')}</label><input id={`cf-email-${lang}`} name="email" type="email" autocomplete="email" required /></p>
+  <p class="field"><label for={`cf-msg-${lang}`}>{t(lang, 'form.message')}</label><textarea id={`cf-msg-${lang}`} name="message" rows="5" required></textarea></p>
+  <p class="hp" aria-hidden="true"><label>Leave this empty <input name="_gotcha" tabindex="-1" autocomplete="off" /></label></p>
+  <input type="hidden" name="language" value={lang} />
+  <p class="ctas"><button class="btn btn-warm" type="submit">{t(lang, 'form.send')}</button></p>
+  <p class="form-status" role="status" aria-live="polite" data-form-status data-ok={t(lang, 'form.ok')} data-err={t(lang, 'form.error')} data-invalid={t(lang, 'form.invalid')} data-sending={t(lang, 'form.sending')}></p>
+</form>
+<script>
+  document.querySelectorAll<HTMLFormElement>('[data-contact-form]').forEach((form) => {
+    const status = form.querySelector<HTMLElement>('[data-form-status]')!;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!form.checkValidity()) { status.textContent = status.dataset.invalid!; form.querySelector<HTMLElement>(':invalid')?.focus(); return; }
+      if ((form.elements.namedItem('_gotcha') as HTMLInputElement).value) return; // bot: say nothing, send nothing
+      status.textContent = status.dataset.sending!;
+      try {
+        const r = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+        if (!r.ok) throw new Error(String(r.status));
+        form.reset(); status.textContent = status.dataset.ok!;
+      } catch { status.textContent = status.dataset.err!; }
+    });
+  });
+</script>
+)}

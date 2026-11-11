@@ -8,7 +8,7 @@ const site = await siteData();
 const copy = await homeCopy(lang);
 const home = url(`${lang}/`);
 // Legal pages appear in the footer once they exist (requirement 4.6, Phase 5).
-const pages = import.meta.glob('../pages/[lang]/*.astro');
+const pages = import.meta.glob('../pages/*/*.astro'); // not '[lang]': brackets are a glob character class
 const has = (p: string) => Object.keys(pages).some((k) => k.endsWith(`/${p}.astro`));
 const year = new Date().getFullYear();
 ---
@@ -18,14 +18,15 @@ const year = new Date().getFullYear();
     <p class="foot-disclaimer">{copy.footer.disclaimer}</p>
     <nav class="foot-nav" aria-label={t(lang, 'nav.footer')}>
       <a class="draw" href={`${home}#pillars`}>{t(lang, 'nav.pillars')}</a>
-      <a class="draw" href={`${home}#programme`}>{t(lang, 'nav.programme')}</a>
+      <a class="draw" href={has('programme') ? url(`${lang}/programme/`) : `${home}#programme`}>{t(lang, 'nav.programme')}</a>
       {has('about') && <a class="draw" href={url(`${lang}/about/`)}>{t(lang, 'nav.about')}</a>}
       <a class="draw" href={`${home}#book`}>{t(lang, 'nav.contact')}</a>
     </nav>
     <p class="foot-meta mono">
       {site.flags.spanish && <><a href={url(`en/${path}`)} lang="en" aria-current={lang === 'en' ? 'true' : undefined}>EN</a> / <a href={url(`es/${path}`)} lang="es" aria-current={lang === 'es' ? 'true' : undefined}>ES</a> · </>}
-      {has('privacy') && <><a href={url(`${lang}/privacy/`)}>{t(lang, 'footer.privacy')}</a> · </>}
-      {has('terms') && <><a href={url(`${lang}/terms/`)}>{t(lang, 'footer.terms')}</a> · </>}
+      {/* Legal pages are English only (UK rules); the Spanish footer links to them, marked as English */}
+      {has('privacy') && <><a href={url('en/privacy/')} hreflang={lang === 'en' ? undefined : 'en'}>{t(lang, 'footer.privacy')}</a> · </>}
+      {has('terms') && <><a href={url('en/terms/')} hreflang={lang === 'en' ? undefined : 'en'}>{t(lang, 'footer.terms')}</a> · </>}
       © {year} {site.name}
     </p>
   </div>

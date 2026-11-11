@@ -10,3 +10,9 @@ Everything on the site that is waiting for Grant. `npm run check` fails if a `[[
 | Client stories | `content/en/home.md` → Proof | Up to three stories (first name, before / what we did / now) with written permission; then switch on the `testimonials` flag |
 | Photos P01–P18 | Every photo slot (see `knowledge/photo-slots.md`) | Real photos; the minimum set before sharing the preview is listed at the end of `photo-slots.md` |
 | Calendly booking link | Book page (marked placeholder) | Your Calendly event link (e.g. `https://calendly.com/yourname/conversation`) in `bookingUrl` in `content/shared/site.json`; until then the Book page asks people to email or WhatsApp |
+| Legal details | Privacy page (`content/en/legal.md`) | Trading name and postal address for the privacy notice; whether you are registered with the ICO |
+| Retention | Privacy page | How long you keep client notes and booking details after coaching ends, and where they are stored |
+| Payment and cancellation | Terms page | How and when clients pay, notice to cancel or move a session, refund policy, and the 14-day cancellation wording (Consumer Contracts Regulations 2013) |
+| Liability | Terms page | Limit-of-liability wording from your adviser; professional indemnity insurance, if any |
+| Governing law | Terms page | Confirm England and Wales (or Scotland) |
+| Legal review | `content/en/legal.md` (`status: draft`) | Have Privacy and Terms reviewed; then set `status: approved` and the draft banner disappears |

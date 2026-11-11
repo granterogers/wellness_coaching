@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import ContactForm from '../../components/ContactForm.astro';
 import { pageCopy, siteData } from '../../lib/site';
 import { type Lang, t } from '../../i18n';
 
@@ -38,6 +39,7 @@ const wa = site.whatsapp && `https://wa.me/${site.whatsapp}?text=${encodeURIComp
           {site.email && <a class="btn btn-ghost" href="#book" data-mail data-u={mu} data-d={md} data-subject={t(lang, 'contact.subject')}>{p.labels['Email button']}</a>}
         </p>
         {site.email && <p class="mail-text" data-mail-text data-u={mu} data-d={md}>{mailFallback}</p>}
+        <ContactForm lang={lang} />
       </div>
     </div></section>
   </main>

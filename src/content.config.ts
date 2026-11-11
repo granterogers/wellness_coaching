@@ -28,7 +28,7 @@ const home = defineCollection({
         price: text,
       }),
       about: z.object({ heading: text, body: text, facts: z.array(text).min(1), link: text }),
-      proof: z.object({ heading: text }),
+      proof: z.object({ heading: text, items: z.array(z.object({ name: text, before: z.string(), did: z.string(), now: z.string(), quote: z.string() })).max(3) }),
       faq: z.object({ heading: text, items: z.array(z.object({ q: text, a: text })).min(1) }),
       finalCta: z.object({ heading: text, body: text, primary: text, email: text, whatsapp: text }),
       footer: z.object({ disclaimer: text }),
@@ -48,6 +48,8 @@ const site = defineCollection({
     email: z.union([z.literal(''), z.email()]), // empty = no email anywhere on the site (Grant, 10 Nov 2026)
     whatsapp: z.string().regex(/^\d*$/, 'WhatsApp number: digits only, with country code, e.g. 34603834206'),
     bookingUrl: z.union([z.literal(''), z.url()]),
+    // Where the contact form posts (11.4), e.g. a Formspree form URL; the form shows only with this set and contactForm on
+    formEndpoint: z.union([z.literal(''), z.url()]).default(''),
     social: z.object({ instagram: z.url(), linkedin: z.url(), researchgate: z.url() }),
     credentials: z.array(text),
     publications: z.object({ count: z.number(), journals: z.array(text), url: z.url() }),
@@ -81,7 +83,7 @@ const pages = defineCollection({
       labels: z.record(z.string(), z.string()),
       sections: z.array(z.object({
         title: text, labels: z.record(z.string(), z.string()), paras: z.array(z.string()), list: z.array(z.string()),
-        items: z.array(z.object({ title: text, text: z.string() })),
+        items: z.array(z.object({ title: text, text: z.string(), paras: z.array(z.string()) })),
       })),
     })
     .refine((d) => d.lang !== 'en' || d.status === 'approved', { message: 'content/en/pages.md needs "status: approved" (requirement 1.3)' })

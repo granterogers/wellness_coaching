@@ -2,7 +2,7 @@
 
 Every ID in `knowledge/requirements.md` (122). Status: `todo` / `done` / `partial` / `blocked` / `later`. Updated at the end of every phase (1.6).
 
-Last updated: 2026-11-11 (Phase 4 motion).
+Last updated: 2026-11-11 (Phase 5 pages and features).
 
 | ID | P | Phase | Status | Evidence / notes |
 |---|---|---|---|---|
@@ -23,7 +23,7 @@ Last updated: 2026-11-11 (Phase 4 motion).
 | 2.4 | M | 1 | partial | astro:assets ready; photo component in Phase 3 |
 | 2.5 | M | 1 | done | @astrojs/sitemap with en-GB/es-ES — `astro.config.mjs` |
 | 2.6 | M | 1 | done | latin + latin-ext only — `src/styles/fonts.css` (from @fontsource) |
-| 2.7 | S | 5 | todo | satori + @resvg/resvg-js approved (D4) |
+| 2.7 | S | 5 | done | src/pages/og/[lang]/[page].png.ts: satori + resvg, static TTF cuts in src/assets/og-fonts |
 | 2.8 | M | 1 | done | Playwright `scripts/shots.mjs`; lighthouse + @astrojs/check dev deps |
 | 2.9 | M | 1 | done | `.github/workflows/pages.yml`; `site`/`base` set; prototypes kept at /design/ (`scripts/copy-prototypes.mjs`) |
 | 2.10 | M | 1 | done | `DEPLOY.md` |
@@ -38,12 +38,12 @@ Last updated: 2026-11-11 (Phase 4 motion).
 | 3.7 | M | 1 | done | `src/i18n/en.json`, `es.json` |
 | 3.8 | M | 6 | todo |  |
 | 4.1 | M | 5 | done | `src/pages/[lang]/index.astro` |
-| 4.2 | S | 5 | todo |  |
+| 4.2 | S | 5 | done | src/pages/[lang]/programme.astro from pages.md: who, four phases, week to week, included, covers/doesn't; linked from home and footer |
 | 4.3 | S | 5 | done | `src/pages/[lang]/about.astro`: story, lab notebook, where I've taught, full logo |
 | 4.4 | L | 5 | later | Not active in the preview |
 | 4.5 | M | 5 | done | `src/pages/[lang]/book.astro` with honest fallback |
-| 4.6 | M | 5 | todo |  |
-| 4.7 | M | 5 | todo |  |
+| 4.6 | M | 5 | done | en/privacy/, en/terms/ from content/en/legal.md (status: draft → visible 'Draft, not legal advice' banner); written from how the site really works; legal gaps are placeholders |
+| 4.7 | M | 5 | done | src/pages/404.astro: EN then ES copy from pages.md, working breath pacer, noindex, no canonical |
 | 4.8 | M | 2 | done | Root redirect to /en/; Spanish banner removed per Grant — `src/pages/index.astro` |
 | 5.1 | M | 3 | done | Offer-first hero with pacer; large photo removed per Grant — review/phase-3 |
 | 5.2 | M | 3 | done | Removed at Grant's request (6 Nov 2026) |
@@ -52,7 +52,7 @@ Last updated: 2026-11-11 (Phase 4 motion).
 | 5.5 | M | 3 | done | Left-to-right timeline, vertical stepper on mobile, inclusions, price line |
 | 5.6 | M | 3 | done | About teaser: portrait beside the bio, body scan widget under the portrait (mobile: photo → bio → widget) |
 | 5.7 | S | 5 | done | Voice folded into the pacer and body scan (10.4) |
-| 5.8 | S | 5 | todo |  |
+| 5.8 | S | 5 | done | Stories from home.md ### items (Before / What we did / Now, or Quote); hidden while testimonials is off or none exist; tested with 1 and 2 at 390/1440 |
 | 5.9 | L | 5 | later | Not active in the preview |
 | 5.10 | M | 3 | done | Native `<details>` accordion + FAQPage JSON-LD |
 | 5.11 | M | 3 | done | Night section with P16, orbit, booking + email + WhatsApp |
@@ -89,27 +89,27 @@ Last updated: 2026-11-11 (Phase 4 motion).
 | 9.11 | M | 4 | done | transform/opacity only; CLS 0.0000 measured (fonts preloaded) |
 | 9.12 | S | 4 | done | Button fill slide, underline draw; no custom cursor |
 | 9.13 | S | 4 | done | Under the portrait in About; 300px figure; 23 parts; Listen/Stop; ambient loop, no pause (D-11 Nov) |
-| 10.1 | S | 5 | partial | Widget controls (play via tap, pause/stop, voice on/off); never autoplays |
+| 10.1 | S | 5 | done | Listen/Stop link is the player (Grant, 11 Nov); progress + time shown in each widget; never autoplays |
 | 10.2 | S | 5 | partial | Transcript under each widget once the scripts are approved |
 | 10.3 | S | 5 | done | `src/lib/audio.ts` picks up `src/assets/audio/{pacer,bodyscan}-{en,es}.mp3` |
 | 10.4 | S | 5 | partial | Listen link plays the recording, animation follows its clock; 'Recording to come' until the mp3s exist; waiting for Grant's approval of content/en/practices.md and the recordings |
 | 11.1 | M | 3 | done | No email on the site (Grant); contact = WhatsApp + Calendly; email support kept but off (`site.json` email empty) |
 | 11.2 | M | 3 | done | All CTAs → /book/; marked Calendly placeholder + email/WhatsApp fallback while `bookingUrl` is empty; Calendly loads only after a click — `src/pages/[lang]/book.astro` |
 | 11.3 | M | 3 | done | wa.me link with localised message; hidden if number empty |
-| 11.4 | S | 5 | todo |  |
-| 11.5 | M | 5 | todo |  |
+| 11.4 | S | 5 | done | ContactForm.astro: shows only with contactForm on and formEndpoint set; honeypot; EN/ES states; success only on a 2xx reply — tested ok/error/invalid/bot |
+| 11.5 | M | 5 | done | Measured: no third-party requests and 0 cookies on all 11 pages; Calendly loads only on click |
 | 12.1 | M | 1 | done | `/en/` and `/es/` routes — `src/pages/[lang]/` |
 | 12.2 | M | 2 | done | Flags; switching keeps the same section and relative position (tested: 0.28→0.28, 0.58→0.58) — `src/scripts/site.ts` |
 | 12.3 | M | 2 | done | `lang` en-GB / es-ES per page — `Base.astro` |
 | 12.4 | S | 3 | done | "Traducción en revisión" note on draft Spanish pages — `Base.astro` |
 | 12.5 | M | 3 | done | No overflow at 360–1440px in Spanish — review/phase-3/REVIEW.md |
-| 13.1 | M | 5 | todo |  |
-| 13.2 | M | 5 | todo |  |
-| 13.3 | S | 5 | todo |  |
-| 13.4 | M | 5 | todo |  |
-| 13.5 | S | 5 | todo |  |
-| 13.6 | M | 5 | todo |  |
-| 13.7 | M | 5 | todo |  |
+| 13.1 | M | 5 | done | Every page has its own title + description per language (pages.md, legal.md) |
+| 13.2 | M | 5 | done | Canonical + hreflang en/es/x-default on every page; legal = en + x-default; 404 none |
+| 13.3 | S | 5 | done | og:/twitter tags on every page; share image per page and language |
+| 13.4 | M | 5 | done | @astrojs/sitemap (en/es pages only, root redirect excluded); robots.txt follows the indexing flag |
+| 13.5 | S | 5 | done | Person + ProfessionalService (online, worldwide, en/es) on the home pages; FAQPage on home |
+| 13.6 | M | 5 | done | Measured: one h1, one main, header, footer and navs on every page |
+| 13.7 | M | 5 | done | Checked: no sexual wellbeing in titles, descriptions or share images (share images use headings only) |
 | 13.8 | M | 1 | done | noindex meta while `indexing` false (`src/layouts/Base.astro`); `src/pages/robots.txt.ts` |
 | 14.1 | M | 6 | todo |  |
 | 14.2 | M | 6 | todo |  |
@@ -129,7 +129,7 @@ Last updated: 2026-11-11 (Phase 4 motion).
 | 16.5 | M | 6 | todo |  |
 | 16.6 | S | 6 | todo |  |
 
-Totals: done 77, later 2, partial 6, todo 37
+Totals: done 92, later 2, partial 5, todo 23
 
 ## Phase 0 log — fixes applied
 

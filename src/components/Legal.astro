@@ -1,0 +1,25 @@
+---
+// Privacy and Terms (requirement 4.6): English only (UK rules, knowledge/brief.md), marked as a draft until reviewed.
+import Base from '../layouts/Base.astro';
+import { loadLegal } from '../lib/copy';
+import { t } from '../i18n';
+interface Props { page: 'Privacy' | 'Terms'; path: string }
+const { page, path } = Astro.props;
+const d = loadLegal(page);
+---
+<Base lang="en" title={d.labels['Page title']} description={d.labels['Meta description']} path={path} enOnly>
+  <main id="main">
+    <section class="page-head"><div class="wrap grid">
+      <div class="about-page-text">
+        {d.status !== 'approved' && <p class="legal-draft mono" role="note">{t('en', 'legal.draft')}</p>}
+        <h1 class="display">{page === 'Privacy' ? t('en', 'footer.privacy') : t('en', 'footer.terms')}</h1>
+        <p class="mono legal-date">{t('en', 'legal.updated', { date: d.updated })}</p>
+      </div>
+    </div></section>
+    <section class="section legal"><div class="wrap grid"><div class="prose legal-body">
+      {d.blocks.map((b) => b.kind === 'h2' ? <h2 class="h3" set:html={b.html[0]} />
+        : b.kind === 'ul' ? <ul>{b.html.map((li) => <li set:html={li} />)}</ul>
+        : <p set:html={b.html[0]} />)}
+    </div></div></section>
+  </main>
+</Base>

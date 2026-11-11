@@ -1,0 +1,28 @@
+---
+// Designed 404 with a short breathing prompt (requirement 4.7). GitHub Pages serves this for any missing path,
+// in either language, so the English copy comes first and the Spanish follows. Words: pages.md "# Not found".
+import Base from '../layouts/Base.astro';
+import Pacer from '../components/Pacer.astro';
+import { pageCopy, homeCopy } from '../lib/site';
+import { url } from '../i18n';
+const en = await pageCopy('en', 'not-found');
+const es = await pageCopy('es', 'not-found');
+const hint = (await homeCopy('en')).hero.pacerHint;
+---
+<Base lang="en" title={en.labels['Page title']} description={en.labels['Body']} notFound>
+  <main id="main">
+    <section class="page-head nf" data-hero><div class="wrap grid">
+      <div class="nf-text">
+        <h1 class="display">{en.labels['Heading']}</h1>
+        <p class="lede">{en.labels['Body']}</p>
+        <p class="ctas"><a class="btn" href={url('en/')}>{en.labels['Button']}</a></p>
+        <div class="nf-es" lang="es">
+          <p class="h3">{es.labels['Heading']}</p>
+          <p>{es.labels['Body']}</p>
+          <p><a class="more draw" href={url('es/')}>{es.labels['Button']} →</a></p>
+        </div>
+      </div>
+      <div class="nf-pacer"><Pacer lang="en" hint={hint} /></div>
+    </div></section>
+  </main>
+</Base>
