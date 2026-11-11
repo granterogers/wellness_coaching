@@ -26,4 +26,6 @@
   --font-serif: "Newsreader", Georgia, serif;
   --font-sans: "Hanken Grotesk", system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --default-font-family: var(--font-sans); /* replaces Tailwind's default stack (which lists Roboto, 6.8) */
+  --default-mono-font-family: var(--font-mono);
 }

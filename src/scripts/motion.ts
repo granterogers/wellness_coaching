@@ -20,10 +20,14 @@ if (reduce.matches) {
   const $ = <T extends Element = HTMLElement>(s: string, el: ParentNode = document) => [...el.querySelectorAll<T>(s)];
   // Elements already on screen when the script runs (e.g. after a language switch) are left alone: no flicker.
   const onScreen = (el: Element) => { const r = el.getBoundingClientRect(); return r.top < innerHeight && r.bottom > 0; };
+  // Hidden states use opacity only (never visibility), so keyboard users can still Tab to everything (14.2); if focus
+  // lands inside something that hasn't entered yet, it finishes at once.
   const when = (trigger: Element, build: () => gsap.core.Timeline | gsap.core.Tween) => {
-    if (onScreen(trigger) && !trigger.closest('[data-hero]')) return;
+    if (onScreen(trigger)) return;
     const anim = build(); anim.pause();
-    ScrollTrigger.create({ trigger, start: 'top 92%', once: true, onEnter: () => anim.play() });
+    const st = ScrollTrigger.create({ trigger, start: 'top 92%', once: true, onEnter: () => anim.play() });
+    const area = trigger.closest('section') ?? trigger;
+    area.addEventListener('focusin', () => { if (anim.progress() < 1) { anim.progress(1); st.kill(); } }, { once: true });
   };
   const lines = (el: HTMLElement, opts: gsap.TweenVars = {}) => {
     const split = SplitText.create(el, { type: 'lines', mask: 'lines', linesClass: 'm-line' });
@@ -31,16 +35,7 @@ if (reduce.matches) {
       onComplete: () => split.revert() });
   };
 
-  // Hero: the headline rises line by line out of its mask, once per page load (9.5); then the rest settles in.
-  const hero = document.querySelector<HTMLElement>('[data-hero]');
-  if (hero) {
-    const h1 = hero.querySelector<HTMLElement>('h1')!;
-    const tl = gsap.timeline({ delay: 0.1 });
-    gsap.set(hero, { autoAlpha: 1 });
-    tl.add(lines(h1, { duration: 1.3, stagger: 0.12 }))
-      .from($('.lede, .ctas', hero), { autoAlpha: 0, y: 14, duration: 0.9, ease: EASE, stagger: 0.08 }, 0.45)
-      .from($('.hero-pacer, .nf-pacer, .nf-es', hero), { autoAlpha: 0, scale: 0.97, duration: 1.6, ease: 'power2.out' }, 0.3);
-  }
+  // Hero: done in CSS (components.css, 'Motion'), so it starts on the first paint without waiting for this script (15.2)
   // Inner pages: the page title rises the same way
   $('.page-head .display').forEach((h) => when(h, () => lines(h)));
 
@@ -49,7 +44,7 @@ if (reduce.matches) {
     const tl = gsap.timeline();
     tl.add(lines(h, { duration: 1 }));
     const intro = h.parentElement?.querySelector('.sec-intro');
-    if (intro) tl.from(intro, { autoAlpha: 0, duration: 1, ease: 'power1.out' }, 0.25);
+    if (intro) tl.from(intro, { opacity: 0, duration: 1, ease: 'power1.out' }, 0.25);
     return tl;
   }));
 
@@ -58,11 +53,11 @@ if (reduce.matches) {
   const row = document.querySelector('.pillar-row');
   if (row) when(row, () => gsap.timeline()
     .from($('.col-capital, .col-base', row), { scaleX: 0, duration: 1, ease: EASE, stagger: 0.06 })
-    .from($('.pillar > :not(.col-capital):not(.col-base)', row), { autoAlpha: 0, y: 18, duration: 0.9, ease: EASE, stagger: 0.025 }, 0.2));
+    .from($('.pillar > :not(.col-capital):not(.col-base)', row), { opacity: 0, y: 18, duration: 0.9, ease: EASE, stagger: 0.025 }, 0.2));
 
   // Programme: the phases appear in order, like steps along a path
   const steps = $('.timeline .step');
-  if (steps.length) when(steps[0], () => gsap.from(steps, { autoAlpha: 0, x: -18, duration: 0.9, ease: EASE, stagger: 0.14 }));
+  if (steps.length) when(steps[0], () => gsap.from(steps, { opacity: 0, x: -18, duration: 0.9, ease: EASE, stagger: 0.14 }));
 
   // Photos open like a curtain lifting (9.7); the image inside settles from a slight zoom. No parallax.
   $('main .photo').forEach((ph) => {
@@ -77,16 +72,16 @@ if (reduce.matches) {
   });
 
   // About: facts are a list, so they come in as one, quickly; the body scan fades up last
-  $('.facts').forEach((f) => when(f, () => gsap.from(f.children, { autoAlpha: 0, duration: 0.6, ease: 'power1.out', stagger: 0.05 })));
-  $('.about-widget').forEach((w) => when(w, () => gsap.from(w, { autoAlpha: 0, y: 24, duration: 1.4, ease: EASE })));
+  $('.facts').forEach((f) => when(f, () => gsap.from(f.children, { opacity: 0, duration: 0.6, ease: 'power1.out', stagger: 0.05 })));
+  $('.about-widget').forEach((w) => when(w, () => gsap.from(w, { opacity: 0, y: 24, duration: 1.4, ease: EASE })));
 
   // FAQ: questions fade in quickly; nothing slides
   const faq = $('.faq-item');
-  if (faq.length) when(faq[0], () => gsap.from(faq, { autoAlpha: 0, duration: 0.6, ease: 'power1.out', stagger: 0.05 }));
+  if (faq.length) when(faq[0], () => gsap.from(faq, { opacity: 0, duration: 0.6, ease: 'power1.out', stagger: 0.05 }));
 
   // Night section: the one orbit line swings gently into place (6.6)
   const orbit = document.querySelector<SVGElement>('.final-orbit');
-  if (orbit) when(orbit, () => gsap.from(orbit, { autoAlpha: 0, rotation: -6, transformOrigin: '50% 50%', duration: 2.2, ease: 'power2.out' }));
+  if (orbit) when(orbit, () => gsap.from(orbit, { opacity: 0, rotation: -6, transformOrigin: '50% 50%', duration: 2.2, ease: 'power2.out' }));
 
   // Lenis: desktop fine pointers only (9.9); same distance per wheel step as native, just eased
   if (matchMedia('(pointer: fine) and (min-width: 1024px)').matches) {

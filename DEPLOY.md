@@ -3,6 +3,7 @@
 ## The preview (now)
 
 - Live at **https://granterogers.github.io/wellness_coaching/** (English at `/en/`, Spanish at `/es/`, prototypes at `/design/`).
+- Each publish runs `npm run check` first: type checks, content rules (approved copy, valid settings), every internal link, and every placeholder listed in `PLACEHOLDERS.md`. A failure stops the publish.
 - Every change pushed to the `main` branch is checked and published automatically by GitHub Actions (`.github/workflows/pages.yml`). It takes 2–3 minutes. You can watch it under the repo's **Actions** tab.
 - One-time setting (already done): repo **Settings → Pages → Source: GitHub Actions**.
 - If a publish fails, the previous version stays live. The Actions tab shows a red cross and the reason.
@@ -15,4 +16,6 @@
 3. Point the domain at Cloudflare Pages (Cloudflare walks you through it).
 4. When you're ready to be found on Google, set `"indexing": true` in `content/shared/site.json` (see `LAUNCH-CHECKLIST.md`).
 
-Nothing else in the code needs to change; every link is built from `site` and `base`.
+Nothing else in the code needs to change; every link, the sitemap and the share images are built from `site` and `base`. On the domain, robots.txt sits at the root, so it starts working too.
+
+GitHub Pages serves `404.html` for any missing address, so the designed "page not found" works on both hosts.

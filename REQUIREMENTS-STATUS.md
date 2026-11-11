@@ -2,7 +2,7 @@
 
 Every ID in `knowledge/requirements.md` (122). Status: `todo` / `done` / `partial` / `blocked` / `later`. Updated at the end of every phase (1.6).
 
-Last updated: 2026-11-11 (Phase 5 pages and features).
+Last updated: 2026-11-11 (Phase 6 audit and handover).
 
 | ID | P | Phase | Status | Evidence / notes |
 |---|---|---|---|---|
@@ -10,17 +10,17 @@ Last updated: 2026-11-11 (Phase 5 pages and features).
 | 1.2 | M | all | done | Fixes applied and decisions D1–D5 answered (below) |
 | 1.3 | M | all | done | Round 3 approved by Grant (6 Nov 2026): headline "Science-based wellness, built around your life."; `home.md` and `pages.md` `status: approved` |
 | 1.4 | M | all | done | `design/CHOSEN.md` names `prototype-d.html` (Grant, 6 Nov 2026) |
-| 1.5 | M | all | todo | Applies throughout |
+| 1.5 | M | all | done | No invented facts: credentials/stories only from knowledge/ or content/; gaps are listed placeholders (check-placeholders.mjs in every build) |
 | 1.6 | M | all | done | This file |
-| 1.7 | M | all | partial | review/phase-1, phase-2, phase-3 (+ REVIEW.md) |
-| 1.8 | M | all | todo | Applies throughout |
-| 1.9 | M | all | todo | Applies throughout |
-| 1.10 | M | all | todo | Applies throughout |
-| 1.11 | M | all | todo | Applies throughout |
+| 1.7 | M | all | done | review/phase-1 … phase-6 (screenshots at 390/1440, light and dark; NOTES.md with ten generic risks each) |
+| 1.8 | M | all | done | Commits per phase with plain-English summaries |
+| 1.9 | M | all | done | No dependencies beyond 2.x/D4; fontTools used once outside the repo to make the share-image font cuts |
+| 1.10 | M | all | done | No transcripts, interviewee names or identifying details in the repo |
+| 1.11 | M | all | done | All site words come from content/; example wording elsewhere unused |
 | 2.1 | M | 1 | done | Astro 7.4.7, `output: 'static'` — `astro.config.mjs` |
 | 2.2 | M | 1 | done | Tailwind v4 via `@tailwindcss/vite`; tokens as custom properties in `src/styles/tokens.css` |
 | 2.3 | M | 1 | done | gsap (ScrollTrigger, SplitText) and lenis from npm, in motion.ts |
-| 2.4 | M | 1 | partial | astro:assets ready; photo component in Phase 3 |
+| 2.4 | M | 1 | done | astro:assets Picture (avif/webp, 480–1600 w) in Photo.astro |
 | 2.5 | M | 1 | done | @astrojs/sitemap with en-GB/es-ES — `astro.config.mjs` |
 | 2.6 | M | 1 | done | latin + latin-ext only — `src/styles/fonts.css` (from @fontsource) |
 | 2.7 | S | 5 | done | src/pages/og/[lang]/[page].png.ts: satori + resvg, static TTF cuts in src/assets/og-fonts |
@@ -36,7 +36,7 @@ Last updated: 2026-11-11 (Phase 5 pages and features).
 | 3.5 | M | 1 | done | Flags in `site.json` (voiceClip on per Grant) |
 | 3.6 | M | 3 | done | content/es/home.md, pages.md — Spain Spanish, tú; checked with LanguageTool (54 flags, all false positives: English section keys, proper nouns) and a full read; 'practicante' (reads as 'nurse' in Spain) changed to 'De la ciencia a la práctica'; approved 11 Nov on Grant's instruction |
 | 3.7 | M | 1 | done | `src/i18n/en.json`, `es.json` |
-| 3.8 | M | 6 | todo |  |
+| 3.8 | M | 6 | done | CONTENT-EDITING.md: text, pillars, photos (upload steps), voice, stories, switches, undo |
 | 4.1 | M | 5 | done | `src/pages/[lang]/index.astro` |
 | 4.2 | S | 5 | done | src/pages/[lang]/programme.astro from pages.md: who, four phases, week to week, included, covers/doesn't; linked from home and footer |
 | 4.3 | S | 5 | done | `src/pages/[lang]/about.astro`: story, lab notebook, where I've taught, full logo |
@@ -56,7 +56,7 @@ Last updated: 2026-11-11 (Phase 5 pages and features).
 | 5.9 | L | 5 | later | Not active in the preview |
 | 5.10 | M | 3 | done | Native `<details>` accordion + FAQPage JSON-LD |
 | 5.11 | M | 3 | done | Night section with P16, orbit, booking + email + WhatsApp |
-| 5.12 | M | 2 | partial | `Footer.astro`; legal links appear when Privacy/Terms pages exist (Phase 5) |
+| 5.12 | M | 2 | done | Footer.astro: disclaimer, nav, EN/ES, Privacy and Terms (Spanish footer marks them 'en inglés') |
 | 5.13 | M | 3 | done | `[data-mobile-cta]`, tested: hidden over hero and final CTA |
 | 5.14 | M | 2 | done | `src/components/Header.astro`; condenses on scroll; CTA from 768px |
 | 6.1 | M | 2 | done | Matches prototype D — review/phase-3 |
@@ -65,8 +65,8 @@ Last updated: 2026-11-11 (Phase 5 pages and features).
 | 6.4 | M | 2 | done | `.grid` 12/4 columns, 8px spacing tokens — `components.css` |
 | 6.5 | M | 2 | done | Hairline rules throughout, no shadows — `components.css` |
 | 6.6 | M | 2, 4 | done | Orbit in pacer, body scan and one line in the night section, which swings into place |
-| 6.7 | M | 6 | todo |  |
-| 6.8 | M | 6 | todo |  |
+| 6.7 | M | 6 | done | Anti-default review in review/phase-4, -5, -6 NOTES.md |
+| 6.8 | M | 6 | done | Searched src/content/dist: no forbidden fonts, phrases, glassmorphism or custom cursors; the only gradients are the underline draw and the warm photo placeholder |
 | 6.9 | M | 2 | done | Light (A) / dark (C) tokens, device default, header toggle, localStorage, applied before paint — `tokens.css`, `Base.astro`, `src/scripts/site.ts`; review/phase-2 |
 | 7.1 | M | 2 | done | Inline icon + Newsreader wordmark; favicon from icon.svg — `Header.astro`, `Base.astro` |
 | 7.2 | M | 2 | done | `scripts/favicons.mjs` → public/brand (32, 180, 192, 512) + manifest |
@@ -90,7 +90,7 @@ Last updated: 2026-11-11 (Phase 5 pages and features).
 | 9.12 | S | 4 | done | Button fill slide, underline draw; no custom cursor |
 | 9.13 | S | 4 | done | Under the portrait in About; 300px figure; 23 parts; Listen/Stop; ambient loop, no pause (D-11 Nov) |
 | 10.1 | S | 5 | done | Listen/Stop link is the player (Grant, 11 Nov); progress + time shown in each widget; never autoplays |
-| 10.2 | S | 5 | partial | Transcript under each widget once the scripts are approved |
+| 10.2 | S | 5 | partial | Transcript (EN/ES) appears under each widget once Grant approves content/en/practices.md — waiting for Grant |
 | 10.3 | S | 5 | done | `src/lib/audio.ts` picks up `src/assets/audio/{pacer,bodyscan}-{en,es}.mp3` |
 | 10.4 | S | 5 | partial | Listen link plays the recording, animation follows its clock; 'Recording to come' until the mp3s exist; waiting for Grant's approval of content/en/practices.md and the recordings |
 | 11.1 | M | 3 | done | No email on the site (Grant); contact = WhatsApp + Calendly; email support kept but off (`site.json` email empty) |
@@ -111,25 +111,25 @@ Last updated: 2026-11-11 (Phase 5 pages and features).
 | 13.6 | M | 5 | done | Measured: one h1, one main, header, footer and navs on every page |
 | 13.7 | M | 5 | done | Checked: no sexual wellbeing in titles, descriptions or share images (share images use headings only) |
 | 13.8 | M | 1 | done | noindex meta while `indexing` false (`src/layouts/Base.astro`); `src/pages/robots.txt.ts` |
-| 14.1 | M | 6 | todo |  |
-| 14.2 | M | 6 | todo |  |
-| 14.3 | M | 6 | todo |  |
+| 14.1 | M | 6 | done | Contrast computed for every text pair, light and dark: all AA (review/phase-6/NOTES.md); Lighthouse a11y 100 |
+| 14.2 | M | 6 | done | Skip link, visible focus on every stop, full Tab order measured; Enter on FAQ and pacer; fixed hidden-until-revealed content |
+| 14.3 | M | 6 | done | All controls ≥44px at 390px on 11 pages (flags and skip link fixed) |
 | 14.4 | M | 4 | done | Reduced motion: content visible immediately, pacer opacity only — tested |
-| 14.5 | M | 6 | todo |  |
-| 15.1 | M | 6 | todo |  |
-| 15.2 | M | 6 | todo |  |
-| 15.3 | M | 6 | todo |  |
-| 15.4 | M | 6 | todo |  |
-| 15.5 | S | 6 | todo |  |
-| 15.6 | M | 6 | todo |  |
+| 14.5 | M | 6 | done | Measured: every control named; decorative SVGs aria-hidden |
+| 15.1 | M | 6 | done | Lighthouse mobile 100/100/100/100 on home EN/ES, About, Programme, Book, Privacy (indexing on, local build) |
+| 15.2 | M | 6 | done | LCP 0.9–1.2 s, CLS 0 (mobile emulation) |
+| 15.3 | M | 6 | done | Home JS ≈ 55 KB gzipped |
+| 15.4 | M | 6 | done | No horizontal scroll at 360/390/768/1024/1440/1920 on all 11 pages |
+| 15.5 | S | 6 | partial | Chromium desktop + phone emulation tested; Firefox/WebKit not available here — real iPhone + Firefox check is in LAUNCH-CHECKLIST.md for Grant |
+| 15.6 | M | 6 | done | npm run check passes (types, content schemas, links, placeholders); CI runs it before every publish |
 | 16.1 | M | 1 | done | `README.md` |
-| 16.2 | M | 6 | todo |  |
-| 16.3 | M | 6 | todo |  |
-| 16.4 | M | 6 | todo |  |
-| 16.5 | M | 6 | todo |  |
-| 16.6 | S | 6 | todo |  |
+| 16.2 | M | 6 | done | DEPLOY.md (preview, checks, Cloudflare + domain move) |
+| 16.3 | M | 6 | done | CONTENT-EDITING.md |
+| 16.4 | M | 6 | done | PLACEHOLDERS.md current: voice, scripts, stories, photos, Calendly, legal details |
+| 16.5 | M | 6 | done | This file: every M done; S items done or explained (10.2, 10.4 wait for Grant's recordings; 15.5 needs Grant's real-device check) |
+| 16.6 | S | 6 | done | LAUNCH-CHECKLIST.md: content, booking, form, legal review, domain, analytics, indexing — points to the UK operations plan |
 
-Totals: done 92, later 2, partial 5, todo 23
+Totals: done 117, later 2, partial 3
 
 ## Phase 0 log — fixes applied
 

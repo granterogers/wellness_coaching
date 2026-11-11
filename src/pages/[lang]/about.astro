@@ -36,7 +36,7 @@ const story = p.section('Story'), notebook = p.section('Lab notebook'), taught =
       <div class="about-nb">
         <ul class="taught">{taught?.paras.join(' ').split('·').map((x) => <li>{x.trim()}</li>)}</ul>
         <span class="logo-full logo-about" role="img" aria-label={`${site.name} logo`} style={`--logo:url(${fullLogoUrl})`}></span>
-        <p class="ctas"><a class="btn" href={url(`${lang}/book/`)}>{p.labels['Button']}</a></p>
+        <p class="ctas"><a class="btn" href={url(`${lang}/book/`)}>{taught?.labels['Button'] ?? p.labels['Button']}</a></p>
       </div>
     </div></section>
   </main>
