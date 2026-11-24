@@ -27,7 +27,7 @@ poses wrong, and would show things that never happened. The full brief for each 
 | P03 Portrait (home About + About page) | 4:5 vertical | Chest-up portrait looking straight into the camera, warm and approachable, slight smile. Plain light wall or soft outdoor background, even daylight. |
 | P04 Profile (About page) | 4:5 vertical | Head-and-shoulders side profile, thoughtful and serious. Hard side light from a window, dark background. Black and white. |
 | P06 Online coaching (Programme) | 3:2 horizontal | Over-the-shoulder view of the person on a video call at a home desk, laptop screen visible with the other person blurred. Natural window light. |
-| P07 Calm pillar | 1:1 square | Close-up of the torso, one hand resting on his ribs, eyes closed if the face shows. Soft indoor light, slow and quiet. |
+| P07 Calm pillar | 1:1 square | Close-up of the torso, one hand resting on the ribs, eyes closed if the face shows. Soft indoor light, slow and quiet. |
 | P08 Strength pillar | 1:1 square | Full body in a mobility posture such as a deep squat or hip opener on a wooden floor or terrace. Morning light; strong, fluid, unforced. |
 | P10 Sleep pillar | 1:1 square | Seen from directly above, lying on the back under a blanket in Yoga Nidra, eyes closed. Dim, warm evening light; deep rest. |
 | P11 Energy pillar | 1:1 square | Medium-wide outdoors, mid-movement (carrying, climbing or swimming) on a coast or mountain. Bright natural light, energetic and capable; nothing sexual or suggestive. |
