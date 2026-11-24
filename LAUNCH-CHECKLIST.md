@@ -6,6 +6,7 @@ Everything here points at a file you can edit on github.com (`CONTENT-EDITING.md
 
 ## 1. Content you supply
 - [ ] **Photos:** at least the portrait (P03) and the four pillar photos (P07, P08, P10, P11); then P04, P06, P16. `CONTENT-EDITING.md` → Photos.
+- [ ] **Swap any AI mock-up photos for real ones** (same file names). Visitors will take them as real photos of you.
 - [ ] **Voice:** approve `content/en/practices.md`, record and upload `pacer-en.mp3` and `bodyscan-en.mp3` (Spanish optional).
 - [ ] **Client stories** (optional at launch): up to three, with written permission; then `testimonials: true`.
 - [ ] Look through `PLACEHOLDERS.md`: anything still listed shows as a visible `[[PLACEHOLDER: …]]` on the site.
