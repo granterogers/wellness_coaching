@@ -13,6 +13,7 @@ const audio = voiceFor('pacer', lang);
 const transcript = transcriptFor('pacer', lang);
 ---
 <figure class="pacer" data-pacer data-strings={JSON.stringify(s)}>
+  <p class="mono widget-label">{t(lang, 'pacer.label')}</p>
   <button class="pacer-btn" type="button" aria-describedby={`pacer-hint-${lang}`} data-pacer-start>
     <svg viewBox="-200 -200 400 400" aria-hidden="true" focusable="false">
       <g transform="rotate(-28)"><ellipse class="pacer-orbit" rx="186" ry="76" /></g>

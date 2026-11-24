@@ -37,7 +37,7 @@
  "es.review": "Traducción en revisión",
  "faq.open": "Ver respuesta",
  "voice.transcript": "Transcripción",
- "scan.label": "Yoga Nidra · recorrido corporal",
+ "scan.label": "Yoga Nidra para descansar y recuperarte",
  "scan.hint": "Toca la figura para un recorrido corporal de dos minutos.",
  "scan.timing": "23 partes · unos 2 minutos",
  "scan.belly": "Abdomen",
@@ -92,5 +92,6 @@
  "form.sending": "Enviando…",
  "form.ok": "Gracias, se ha enviado. Te responderé por email.",
  "form.error": "No se ha podido enviar. Inténtalo de nuevo o escríbeme por WhatsApp.",
- "form.invalid": "Rellena los tres campos, con un email válido."
+ "form.invalid": "Rellena los tres campos, con un email válido.",
+ "pacer.label": "Respiración para relajarte"
 }

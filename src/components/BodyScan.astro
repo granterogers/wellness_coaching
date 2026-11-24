@@ -1,5 +1,6 @@
 ---
-// Mini Yoga Nidra body scan (requirement 9.13): a small widget, the same scale as the breath pacer.
+// Mini Yoga Nidra body scan (requirement 9.13): a small widget drawn and timed like the breath pacer (same breath,
+// colours, line weights, dot and orbit speed), so the two read as one family.
 // A figure lying on its back, seen from above (head at the top), so the person's RIGHT side is on the viewer's left.
 // The body is one continuous outline (left half drawn, right half mirrored); 23 parts are bands clipped to it.
 import { t, type Lang } from '../i18n';
@@ -51,12 +52,13 @@ const svg = `
 </defs>
 <ellipse class="scan-orbit" cx="100" cy="222" rx="118" ry="228" transform="rotate(-6 100 222)"/>
 <g class="sil"><use href="#bsHalfP"/><use href="#bsHalfP" transform="${M}"/><use href="#bsArmP"/><use href="#bsArmP" transform="${M}"/></g>
+<g class="sil-glow" data-scan-whole><use href="#bsHalfP"/><use href="#bsHalfP" transform="${M}"/><use href="#bsArmP"/><use href="#bsArmP" transform="${M}"/></g>
 <g class="zones">${sideParts('r').map(g).join('')}<g transform="${M}">${sideParts('l').map(g).join('')}</g>${centre.map(g).join('')}</g>
 <g class="lines"><g mask="url(#bsNoArm)"><path d="${halfOpen}"/><path d="${halfOpen}" transform="${M}"/></g><g mask="url(#bsNoBody)"><path d="${arm}"/><path d="${arm}" transform="${M}"/></g></g>
-<circle class="scan-electron" r="5" cx="218" cy="222" data-scan-electron/>`;
+<circle class="scan-electron" r="10" cx="218" cy="222" data-scan-electron/>`;
 ---
 <figure class="scan" data-scan data-strings={JSON.stringify(S)} id="restore-scan">
-  <p class="mono scan-label">{t(lang, 'scan.label')}</p>
+  <p class="mono widget-label">{t(lang, 'scan.label')}</p>
   <button type="button" class="scan-btn" aria-describedby={`scan-hint-${lang}`} aria-label={t(lang, 'scan.region')} data-scan-start>
     <svg viewBox="-30 -12 260 464" aria-hidden="true" focusable="false" set:html={svg} />
   </button>

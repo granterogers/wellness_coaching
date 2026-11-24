@@ -37,7 +37,7 @@
  "es.review": "Traducción en revisión",
  "faq.open": "Show answer",
  "voice.transcript": "Transcript",
- "scan.label": "Yoga Nidra · body scan",
+ "scan.label": "Yoga Nidra for rest and recovery",
  "scan.hint": "Tap the figure for a two-minute body scan.",
  "scan.timing": "23 parts · about 2 minutes",
  "scan.belly": "Belly",
@@ -92,5 +92,6 @@
  "form.sending": "Sending…",
  "form.ok": "Thanks, it's sent. I'll reply by email.",
  "form.error": "That didn't send. Please try again, or message me on WhatsApp.",
- "form.invalid": "Please fill in all three fields, with a valid email."
+ "form.invalid": "Please fill in all three fields, with a valid email.",
+ "pacer.label": "Breathing for relaxation"
 }

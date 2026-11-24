@@ -86,11 +86,14 @@
   .pacer { margin: 0; max-width: 400px; }
   .pacer-btn { display: block; width: 100%; aspect-ratio: 1; background: none; border: 0; padding: 0; color: var(--ink); cursor: pointer; position: relative; border-radius: 50%; }
   .pacer-btn svg { width: 100%; height: 100%; overflow: visible; }
-  .pacer-orbit { fill: none; stroke: var(--rule-strong); stroke-width: 1; opacity: .7; }
+  .pacer-orbit, .scan-orbit { fill: none; stroke: var(--rule-strong); stroke-width: 1; opacity: .7; vector-effect: non-scaling-stroke; }
   .pacer-ring { transform: scale(.62); transform-box: fill-box; transform-origin: center; }
   .pacer-glow { fill: var(--warm); opacity: .26; }
   .pacer-circle { fill: none; stroke: var(--accent); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
-  .pacer-electron { fill: var(--warm); stroke: var(--accent); stroke-width: 1; }
+  .pacer-electron, .scan-electron { fill: var(--warm); stroke: var(--accent); stroke-width: 1; vector-effect: non-scaling-stroke; }
+  /* One family (Grant, 24 Nov): both widgets carry a 'what it is' line in the same style, and centre their captions */
+  .widget-label { color: var(--muted); margin: 0 0 var(--s1); text-align: center; }
+  .pacer figcaption { text-align: center; } .pacer-meta { justify-content: center; }
   .pacer-label { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--serif); font-style: italic; font-size: 1.5rem; pointer-events: none; }
   .pacer figcaption { margin-top: var(--s2); }
   .pacer-hint { margin: 0; font-family: var(--serif); font-style: italic; font-size: 1.125rem; line-height: 1.4; }
@@ -102,7 +105,6 @@
   .hero { padding: var(--s8) 0; }
   .hero-pacer { margin-top: var(--s6); }
   .hero-pacer .pacer { max-width: 280px; margin: 0 auto; }
-  @media (max-width: 1023px) { .hero-pacer figcaption { text-align: center; } .hero-pacer .pacer-meta { justify-content: center; } }
   .hero-photo { margin-top: var(--s6); }
   @media (min-width: 1024px) {
     .hero { padding-top: var(--s12); }
@@ -299,20 +301,22 @@
 @layer components {
   /* Mini Yoga Nidra body scan (9.13): a small widget beside the bio, same scale as the pacer */
   .scan { margin: 0 auto var(--s6); max-width: 320px; text-align: center; }
-  .scan-label { color: var(--muted); margin: 0 0 var(--s1); }
   .scan-btn { display: block; margin: 0 auto; background: none; border: 0; padding: 0; cursor: pointer; color: var(--ink); border-radius: 40%; }
   .scan-btn svg { display: block; height: 260px; width: auto; overflow: visible; }
   .scan-zone-label { margin: var(--s1) 0 0; display: flex; justify-content: center; align-items: baseline; gap: var(--s2); min-height: 2.2em; }
-  .scan-zone-label [data-scan-name] { font-family: var(--serif); font-style: italic; font-size: 1.25rem; color: var(--accent); }
+  .scan-zone-label [data-scan-name] { font-family: var(--serif); font-style: italic; font-size: 1.5rem; color: var(--ink); }
   .scan-zone-label [data-scan-count] { color: var(--muted); }
   .scan-hint { margin: var(--s1) 0 0; font-family: var(--serif); font-style: italic; font-size: 1.0625rem; line-height: 1.4; }
   .scan-meta { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0 var(--s3); color: var(--muted); margin: 4px 0 0; }
-  .scan-electron { fill: var(--warm); stroke: var(--accent); stroke-width: 1; }
-  .scan .sil * { fill: var(--bg); stroke: none; transition: fill .6s var(--ease); }
-  .scan svg.whole .sil *, .scan svg.settle .sil * { fill: var(--warm); fill-opacity: calc(.15 + .3 * var(--b, .5)); }
-  .scan .lines * { fill: none; stroke: var(--muted); stroke-width: 1.3; stroke-linejoin: round; stroke-linecap: round; }
-  .bz > * { fill: var(--warm); opacity: 0; transition: opacity .35s var(--ease); }
-  .bz.on > * { opacity: 1; fill-opacity: calc(.5 + .45 * var(--b, .5)); }
+  /* Drawn like the pacer: the body is a soft warm wash (the pacer's disc), outlined in the accent at the same weight;
+     parts glow in the same warm. Opacity is set every frame by bodyscan.ts, so every change is a fade. */
+  .scan .sil * { fill: var(--bg); stroke: none; }
+  .scan .sil-glow * { fill: var(--warm); stroke: none; }
+  .scan .sil-glow { opacity: .22; }
+  .scan .lines * { fill: none; stroke: var(--accent); stroke-width: 1.5; vector-effect: non-scaling-stroke; stroke-linejoin: round; stroke-linecap: round; }
+  .scan.guided .lines * { stroke-width: 2.25; }
+  .bz { opacity: 0; }
+  .bz > * { fill: var(--warm); fill-opacity: .8; }
   .transcript { margin-top: var(--s2); text-align: left; }
   .transcript summary { cursor: pointer; color: var(--muted); min-height: 44px; display: flex; align-items: center; justify-content: center; }
   .transcript p { margin: 0 0 6px; font-size: .9375rem; }
@@ -321,7 +325,6 @@
     .scan { margin: 0 auto; }
     .scan-btn svg { height: 300px; }
   }
-  .scan-orbit { fill: none; stroke: var(--rule-strong); stroke-width: 1; opacity: .7; }
   .about-teaser .about-text { align-self: start; }
 }
 

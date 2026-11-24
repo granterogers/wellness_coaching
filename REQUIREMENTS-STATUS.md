@@ -2,7 +2,7 @@
 
 Every ID in `knowledge/requirements.md` (122). Status: `todo` / `done` / `partial` / `blocked` / `later`. Updated at the end of every phase (1.6).
 
-Last updated: 2026-11-11 (Phase 6 audit and handover).
+Last updated: 2026-11-24 (body scan matches the pacer; widget labels).
 
 | ID | P | Phase | Status | Evidence / notes |
 |---|---|---|---|---|
@@ -76,7 +76,7 @@ Last updated: 2026-11-11 (Phase 6 audit and handover).
 | 8.2 | M | 3 | done | Warm tonal placeholders with one short line, correct ratio — `Photo.astro` |
 | 8.3 | M | 3 | done | Alt text en/es in `photos.json` |
 | 8.4 | M | 3 | done | `HeroPhoto.astro` kept for any wide photo added back; hero photo removed per Grant |
-| 9.1 | M | 4 | done | Pacer 4 s / 6 s, ambient loop (D-11 Nov), Listen/Stop; fades in with the hero |
+| 9.1 | M | 4 | done | Pacer 4 s / 6 s, ambient loop (D-11 Nov), Listen/Stop, labelled 'Breathing for relaxation' (24 Nov) |
 | 9.2 | M | 4 | done | Listen (or tap) starts the guided minute and becomes Stop; count, completion message, keyboard, aria-live — tested EN/ES |
 | 9.3 | S | 4 | done | Calm and Sleep practices link to the pacer and body scan (**Try:** in content); scroll, start, focus — tested |
 | 9.4 | M | 4 | done | Reduced motion: opacity only, no scaling — tested |
@@ -88,7 +88,7 @@ Last updated: 2026-11-11 (Phase 6 audit and handover).
 | 9.10 | M | 4 | done | One utility (motion.ts); reduced motion = nothing runs; head fallback removes hidden states if the script fails |
 | 9.11 | M | 4 | done | transform/opacity only; CLS 0.0000 measured (fonts preloaded) |
 | 9.12 | S | 4 | done | Button fill slide, underline draw; no custom cursor |
-| 9.13 | S | 4 | done | Under the portrait in About; 300px figure; 23 parts; Listen/Stop; ambient loop, no pause (D-11 Nov) |
+| 9.13 | S | 4 | done | Under the portrait in About; drawn and timed like the pacer (24 Nov): same 4/6 breath, one part per breath glowing in and fading out, dot once per breath, accent outline, warm wash; guided parts cross-fade; labelled 'Yoga Nidra for rest and recovery' |
 | 10.1 | S | 5 | done | Listen/Stop link is the player (Grant, 11 Nov); progress + time shown in each widget; never autoplays |
 | 10.2 | S | 5 | partial | Transcript (EN/ES) appears under each widget once Grant approves content/en/practices.md — waiting for Grant |
 | 10.3 | S | 5 | done | `src/lib/audio.ts` picks up `src/assets/audio/{pacer,bodyscan}-{en,es}.mp3` |
